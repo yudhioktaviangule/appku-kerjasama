@@ -72,11 +72,13 @@
 
 </div>
 @endsection
+
 @section("js")
     <script >
         $(document).ready(()=>{
+            
             window.myUrl = {
-                create:"",
+                create:"{{route('api-perusahaan.create')}}",
             }
             window.dashboardClient = window.APP.dashboardClient;
             window.dashboardClient.init({{Auth::id()}})

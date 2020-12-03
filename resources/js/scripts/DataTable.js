@@ -4,8 +4,22 @@ export default class CreateDataTable{
         this.obj=object;
     }
 
-    dataTable(){
+    dataTable(option={
+        columns:[],
+    }){
         console.log("creating datatable");
         $(this.obj).DataTable()
+    }
+
+    createAjaxParam(url='',data=''){
+        return {
+            ajax:{
+                url:url,
+                data:data,
+                beforeSend:(xhr)=>{
+                    xhr.setRequestHeader("Auth",`Bearer ${window.__token}`);
+                }
+            }
+        }
     }
 }

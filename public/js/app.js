@@ -50655,6 +50655,14 @@ var DashboardClient = /*#__PURE__*/function () {
 
     _defineProperty(this, "user", void 0);
 
+    _defineProperty(this, "table", [{
+      name: 'name',
+      data: 'name'
+    }, {
+      name: 'aksi',
+      data: 'aksi'
+    }]);
+
     _defineProperty(this, "dataTable", new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]($("#table-perusahaan")));
   }
 
@@ -50662,7 +50670,7 @@ var DashboardClient = /*#__PURE__*/function () {
     key: "init",
     value: function init(client) {
       this.dataTable = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]($("#table-perusahaan"));
-      this.dataTable.dataTable();
+      var ajaxParam = this.dataTable.createAjaxParam(url);
     }
   }]);
 
@@ -50705,8 +50713,26 @@ var CreateDataTable = /*#__PURE__*/function () {
   _createClass(CreateDataTable, [{
     key: "dataTable",
     value: function dataTable() {
+      var option = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+        columns: []
+      };
       console.log("creating datatable");
       $(this.obj).DataTable();
+    }
+  }, {
+    key: "createAjaxParam",
+    value: function createAjaxParam() {
+      var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+      return {
+        ajax: {
+          url: url,
+          data: data,
+          beforeSend: function beforeSend(xhr) {
+            xhr.setRequestHeader("Auth", "Bearer ".concat(window.__token));
+          }
+        }
+      };
     }
   }]);
 

@@ -195,7 +195,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </footer>
 </div>
 <!-- ./wrapper -->
-
+@php 
+    $token = md5(Auth::id());
+@endphp
+<script>
+  window.__token="{{$token}}";
+</script>
 <!-- REQUIRED SCRIPTS -->
 <script src="{{asset('dist/plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('dist/plugins/datatables/jquery.dataTables.js')}}"></script>
