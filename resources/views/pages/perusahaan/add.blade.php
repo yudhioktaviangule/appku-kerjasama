@@ -24,7 +24,7 @@
 </div>
 
 <div class="form-group">
-    <label for="no_sk_jabatan"></label>
-    <input type="file" onchange="window.dashboardClient.uploader($(this),$('#file_sk_jabatan'))">
-    <input type="text" id="file_sk_jabatan" name='file_sk_jabatan'>
+    <label for="no_sk_jabatan">File SK Jabatan</label>
+    <input type="file" class='form-control' onchange="window.dashboardClient.uploader($(this),$('#file_sk_jabatan'))">
+    <input type="hidden" id="file_sk_jabatan" name='file_sk_jabatan'>
 </div>
