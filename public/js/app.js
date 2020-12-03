@@ -55651,6 +55651,10 @@ var DashboardClient = /*#__PURE__*/function () {
       data: 'aksi'
     }]);
 
+    _defineProperty(this, "swasta", "\n        <div class=\"form-group\">\n            <label for=\"exampleInputEmail1\">No. Ijin Usaha</label>\n            <input required type=\"text\" autocomplete=off class=\"form-control\" name='nomor_ijin_usaha' id=\"exampleInputEmail1\" placeholder=\"No. Izin Usaha\">\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"exampleInputEmail1\">No. Akta Notaris</label>\n            <input required type=\"text\" autocomplete=off class=\"form-control\" name='nomor_akta_notaris' id=\"exampleInputEmail1\" placeholder=\"No. Akta Notaris\">\n        </div>\n    ");
+
+    _defineProperty(this, "pemerintah", "\n    <input required type=\"hidden\" autocomplete=off value='internal' name='nomor_akta_notaris' id=\"exampleInputEmail1\">\n    <input required type=\"hidden\" autocomplete=off value='internal' name='nomor_ijin_usaha' id=\"exampleInputEmail1\">\n    ");
+
     _defineProperty(this, "dataTable", new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_1__["default"]($("#table-perusahaan")));
   }
 
@@ -55659,6 +55663,17 @@ var DashboardClient = /*#__PURE__*/function () {
     value: function init(client) {
       this.user = client;
       this.dataTableInit();
+    }
+  }, {
+    key: "setInputan",
+    value: function setInputan(obj) {
+      var val = obj.val();
+
+      if (val.toLowerCase() === 'swasta') {
+        $("#tergantung-usaha").html(this.swasta);
+      } else {
+        $("#tergantung-usaha").html(this.pemerintah);
+      }
     }
   }, {
     key: "dataTableInit",
@@ -56097,6 +56112,10 @@ var Modals = /*#__PURE__*/function () {
       } else {
         $("#dialogue").attr("class", 'modal-dialog');
       }
+
+      $("#modals").on("shown.bs.modal", function () {
+        onShowModals();
+      });
     }
   }]);
 
