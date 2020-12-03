@@ -7,6 +7,53 @@
 @section("content")
 <div class="container-fluid">
     <div class="row">
+    <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header text-white"
+                   style="background:linear-gradient(
+          rgba(0, 0, 0, 0.5), 
+          rgba(0, 0, 0, 0.5)
+        ), url('{{asset('dist/img/photo2.png')}}') center center;">
+                <h3 class="widget-user-username text-right"> {{Auth::user()->name}}</h3>
+                <h5 class="widget-user-desc text-right"> {{Auth::user()->email}}</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle" src="{{asset('dist/img/user6-128x128.jpg')}}" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header" id='cnt-perusahaan'>0</h5>
+                      <span class="description-text">PERUSAHAAN</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header" id='pjuan-doc'>0</h5>
+                      <span class="description-text">PENGAJUAN</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header" id='ditolak-doc'>0</h5>
+                      <span class="description-text">DITOLAK</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
         <div class="col">
             <div class="card">
                 <div class="card-header">
@@ -83,6 +130,7 @@
         $(document).ready(()=>{
             
             window.myUrl = {
+                count_per:"{{ route('api-perusahaan-c',['id'=>'uid']) }}",
                 create:"{{route('client-api-perusahaan.create')}}",
                 index:"{{route('client-api-perusahaan.index')}}",
                 store:"{{route('perusahaan.store')}}",
@@ -97,7 +145,10 @@
                     store:"{{route('ijin.store')}}?pid=@p@"
                 },
                 tanggungJawab:{
-                    dataTable:"{{route('client-api-penanggungjawabku.index')}}"
+                    dataTable:"{{route('client-api-penanggungjawabku.index')}}",
+                    open:"{{route('api.penanggungjawab.view.modal',['pid'=>'@pid@','uid'=>'@uid@'])}}",
+                    uploadSK:"{{route('upload.sk.jabatan',['id'=>'@tj_id@'])}}",
+                    store:"{{route('client-api-penanggungjawabku.store')}}"
                 }
             }
             window.dashboardClient = window.APP.dashboardClient;

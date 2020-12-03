@@ -11,7 +11,7 @@ class PerusahaanApi extends Controller{
     private $request;
     public function __construct(Request $request){
         $this->request = $request; 
-        $this->middleware('auth.api');
+     //   $this->middleware('auth.api');
     }
     public function index(){
         $request = $this->request; 
@@ -49,5 +49,14 @@ class PerusahaanApi extends Controller{
         
         return response()->view("pages.dash.clients.{$type}",['data'=>$data]);
         
+    }
+    public function openPenanggungJawab($perusahaan_id='',$user_id='')
+    {
+        return response()->view("pages.penanggung_jawab.index",['pid'=>$perusahaan_id,'uid'=>$user_id]);   
+    }
+    public function countss($uid)
+    {
+        $data = Perusahaan::where("user_id",$uid)->count();
+        return response()->json(['count'=>$data]);
     }
 }

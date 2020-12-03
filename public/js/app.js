@@ -55624,6 +55624,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
 /* harmony import */ var _scripts_FileUploader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../scripts/FileUploader */ "./resources/js/scripts/FileUploader.js");
 /* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -55637,6 +55638,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -55666,14 +55668,79 @@ var DashboardClient = /*#__PURE__*/function () {
 
   _createClass(DashboardClient, [{
     key: "init",
-    value: function init(client) {
-      this.user = client;
-      this.dataTableInit();
-    }
+    value: function () {
+      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(client) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.user = client;
+                this.dataTableInit();
+                _context.next = 4;
+                return this.getCounts();
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function init(_x) {
+        return _init.apply(this, arguments);
+      }
+
+      return init;
+    }()
+  }, {
+    key: "getCounts",
+    value: function () {
+      var _getCounts = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var url, ajax, _yield$ajax$get, data, count, interval, intva;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                url = window.myUrl.count_per.replace(/(uid)/g, this.user);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_5__["default"](url);
+                _context2.next = 4;
+                return ajax.get(url);
+
+              case 4:
+                _yield$ajax$get = _context2.sent;
+                data = _yield$ajax$get.data;
+                console.log(data);
+                count = parseInt(data.count);
+                interval = 0;
+                intva = setInterval(function () {
+                  if (interval <= parseInt(count)) {
+                    $("#cnt-perusahaan").html(interval);
+                    interval++;
+                  } else {
+                    clearInterval(intva);
+                  }
+                }, 10);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function getCounts() {
+        return _getCounts.apply(this, arguments);
+      }
+
+      return getCounts;
+    }()
   }, {
     key: "setInputan",
     value: function setInputan(obj) {
-      var val = obj.val();
+      var val = $(obj).val();
 
       if (val.toLowerCase() === 'swasta') {
         $("#tergantung-usaha").html(this.swasta);
@@ -55692,18 +55759,18 @@ var DashboardClient = /*#__PURE__*/function () {
   }, {
     key: "uploadAktaIjin",
     value: function () {
-      var _uploadAktaIjin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(json) {
+      var _uploadAktaIjin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(json) {
         var jenis,
             jsons,
             url,
             urlN,
             modals,
-            _args = arguments;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+            _args3 = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                jenis = _args.length > 1 && _args[1] !== undefined ? _args[1] : 'akta';
+                jenis = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : 'akta';
                 jsons = json.replace(/&quot;/g, '"');
                 jsons = JSON.parse(jsons);
                 url = '';
@@ -55717,7 +55784,7 @@ var DashboardClient = /*#__PURE__*/function () {
                 }
 
                 modals = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](url, urlN, "Upload " + (jenis == 'akta' ? "Akta Notaris" : "Izin Usaha"), false);
-                _context.next = 9;
+                _context3.next = 9;
                 return modals.ajax();
 
               case 9:
@@ -55725,13 +55792,13 @@ var DashboardClient = /*#__PURE__*/function () {
 
               case 10:
               case "end":
-                return _context.stop();
+                return _context3.stop();
             }
           }
-        }, _callee);
+        }, _callee3);
       }));
 
-      function uploadAktaIjin(_x) {
+      function uploadAktaIjin(_x2) {
         return _uploadAktaIjin.apply(this, arguments);
       }
 
@@ -55757,23 +55824,23 @@ var DashboardClient = /*#__PURE__*/function () {
   }, {
     key: "addModal",
     value: function () {
-      var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         var _this = this;
 
         var title,
             onshow,
             my_url,
             modal,
-            _args2 = arguments;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+            _args4 = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                title = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 'Tambah Perusahaanku';
-                onshow = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : function () {};
+                title = _args4.length > 0 && _args4[0] !== undefined ? _args4[0] : 'Tambah Perusahaanku';
+                onshow = _args4.length > 1 && _args4[1] !== undefined ? _args4[1] : function () {};
                 my_url = window.myUrl;
                 modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](my_url.create, my_url.store, title, true);
-                _context2.next = 6;
+                _context4.next = 6;
                 return modal.ajax();
 
               case 6:
@@ -55784,10 +55851,10 @@ var DashboardClient = /*#__PURE__*/function () {
 
               case 7:
               case "end":
-                return _context2.stop();
+                return _context4.stop();
             }
           }
-        }, _callee2);
+        }, _callee4);
       }));
 
       function addModal() {
@@ -55797,20 +55864,44 @@ var DashboardClient = /*#__PURE__*/function () {
       return addModal;
     }()
   }, {
+    key: "tj",
+    value: function () {
+      var _tj = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(json) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                window.pJawab.init(json);
+
+              case 1:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }));
+
+      function tj(_x3) {
+        return _tj.apply(this, arguments);
+      }
+
+      return tj;
+    }()
+  }, {
     key: "edit",
     value: function () {
-      var _edit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(json) {
+      var _edit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(json) {
         var _this2 = this;
 
         var jsons, url;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
                 jsons = json.replace(/&quot;/g, '"');
                 jsons = JSON.parse(jsons);
                 url = myUrl.update.replace(/(@per@)/g, jsons.id);
-                _context3.next = 5;
+                _context6.next = 5;
                 return this.addModal('Ubah Perusahaanku', function () {
                   $('#nama_perusahaan').val(jsons.name);
                   $('#telepon_perusahaan').val(jsons.telepon);
@@ -55829,13 +55920,13 @@ var DashboardClient = /*#__PURE__*/function () {
 
               case 5:
               case "end":
-                return _context3.stop();
+                return _context6.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee6, this);
       }));
 
-      function edit(_x2) {
+      function edit(_x4) {
         return _edit.apply(this, arguments);
       }
 
@@ -55874,6 +55965,23 @@ function DashClient() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PenanggungJawab; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+/* harmony import */ var _scripts_FileUploader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../scripts/FileUploader */ "./resources/js/scripts/FileUploader.js");
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -55882,11 +55990,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
+
+
+
+
+
 var PenanggungJawab = /*#__PURE__*/function () {
   function PenanggungJawab() {
     _classCallCheck(this, PenanggungJawab);
 
     _defineProperty(this, "user_id", 0);
+
+    _defineProperty(this, "form", "\n    <div class=\"form-group\">\n        <label for=\"jabatan\">Jabatan</label>\n        <input type=\"text\" id=\"jabatan\"  onchange=\"window.pJawab.setModel($(this).val(),'jabatan')\" class=\"form-control\" name=\"jabatan\">\n    </div>\n\n    <div class=\"form-group\">\n        <label for=\"nomor_sk_jabatan\">No. SK</label>\n        <input type=\"text\" id=\"nomor_sk_jabatan\" class=\"form-control\" onchange=\"window.pJawab.setModel($(this).val(),'nomor_sk_jabatan')\" name=\"nomor_sk_jabatan\">\n    </div>\n    <div class='form-group'>\n        <div class='text-right'>\n            <a class='btn btn-sm bg-blue' href='#' onclick='window.pJawab.save()' id='simpan-btn'>Simpan</a>\n        </div> \n\n    </div>\n    ");
+
+    _defineProperty(this, "model", {
+      'file_sk': '',
+      jabatan: '',
+      nomor_sk_jabatan: '',
+      file_sk_jabatan: 'sk_jabatan/',
+      user_id: '',
+      perusahaan_id: ''
+    });
+
+    _defineProperty(this, "resetForm", "\n    <a class='btn btn-link' onclick='window.pJawab.addNew()' href='#'>Tambah Penanggung Jawab</a>\n    ");
+
+    _defineProperty(this, "formUpSK", "\n    <div class='container-fluid'>\n        <div class=\"form-group col-12\">\n            <label for=\"nomor_sk_jabatan\">No. SK. Jabatan</label>\n            : @nomor_sk_jabatan@<br>\n            <input type='hidden' id='file_sk' >\n            <input type='file' onchange='window.pJawab.upload($(this),$(\"#file_sk\"))'>\n        </div>\n        <div class='form-group col-12'>\n            <div class='text-right'>\n                <a id='btn-upload' class='btn btn-primary btn-sm' href='#' onclick='window.pJawab.sendUpload()'>\n                    Upload\n                </a>\n            </div>\n        </div>\n    </div>\n    ");
 
     _defineProperty(this, "perusahaan_id", 0);
 
@@ -55900,13 +56029,389 @@ var PenanggungJawab = /*#__PURE__*/function () {
       name: "aksi",
       data: 'aksi'
     }]);
+
+    _defineProperty(this, "table", undefined);
+
+    _defineProperty(this, "id_penanggung", '');
+
+    _defineProperty(this, "jsonData", "");
   }
 
   _createClass(PenanggungJawab, [{
-    key: "init",
-    value: function init(json) {
+    key: "resetto",
+    value: function resetto() {
+      this.initDataTable();
+      this.resetModel();
+      $("#inputan-tj").hide(1000);
+      $("#inputan-tj").html(this.resetForm);
+    }
+  }, {
+    key: "addNew",
+    value: function addNew() {
+      this.resetModel();
+      var content = this.form;
+      this.setContentForm(content);
+    }
+  }, {
+    key: "openUploadForm",
+    value: function openUploadForm(json) {
       var jsons = json.replace(/&quot;/g, '"');
       jsons = JSON.parse(jsons);
+      var content = this.formUpSK.replace(/(@nomor_sk_jabatan@)/g, jsons.nomor_sk_jabatan);
+      this.id_penanggung = jsons.id;
+      this.setContentForm(content);
+      $('#btn-upload').hide(100);
+    }
+  }, {
+    key: "setModel",
+    value: function setModel(value, type) {
+      this.model = _objectSpread(_objectSpread({}, this.model), {}, _defineProperty({}, type, value)); //console.log('value',value,'type',type);
+    }
+  }, {
+    key: "sendUpload",
+    value: function () {
+      var _sendUpload = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
+        var url, axios, _yield$axios$send, message, alr;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                url = myUrl.tanggungJawab.uploadSK.replace(/(@tj_id@)/g, this.id_penanggung);
+                axios = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_4__["default"](url, 'POST');
+                _context.next = 4;
+                return axios.send(this.model);
+
+              case 4:
+                _yield$axios$send = _context.sent;
+                message = _yield$axios$send.message;
+                alr = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_5__["default"]();
+                alr.swAlert(message, 'Upload Data', function () {
+                  _this.resetto();
+                });
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function sendUpload() {
+        return _sendUpload.apply(this, arguments);
+      }
+
+      return sendUpload;
+    }()
+  }, {
+    key: "delete",
+    value: function () {
+      var _delete2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(json) {
+        var _this2 = this;
+
+        var jsons, parse, alert;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                jsons = json.replace(/&quot;/g, '"');
+                parse = JSON.parse(jsons);
+                alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_5__["default"]();
+                alert.swalYesNo("Ingin Hapus Data ".concat(parse.jabatan, "?"), 'Hapus', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+                  var url, ajax, _yield$ajax$send, message;
+
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                      switch (_context2.prev = _context2.next) {
+                        case 0:
+                          _context2.prev = 0;
+                          url = "".concat(window.myUrl.tanggungJawab.dataTable, "/").concat(parse.id);
+
+                          _this2.setModel('delete', '_method');
+
+                          ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_4__["default"](url, 'POST');
+                          _context2.next = 6;
+                          return ajax.send(_this2.model);
+
+                        case 6:
+                          _yield$ajax$send = _context2.sent;
+                          message = _yield$ajax$send.message;
+                          alert.swAlert(message, 'Hapus', function () {}, 'success');
+                          _context2.next = 15;
+                          break;
+
+                        case 11:
+                          _context2.prev = 11;
+                          _context2.t0 = _context2["catch"](0);
+                          console.log(_context2.t0);
+                          alert.swAlert('Gagal Menghapus Data', 'Galat', function () {}, 'error');
+
+                        case 15:
+                        case "end":
+                          return _context2.stop();
+                      }
+                    }
+                  }, _callee2, null, [[0, 11]]);
+                })));
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      function _delete(_x) {
+        return _delete2.apply(this, arguments);
+      }
+
+      return _delete;
+    }()
+  }, {
+    key: "save",
+    value: function () {
+      var _save = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _this3 = this;
+
+        var store, url, model, vald, alert, axios, _yield$axios$send2, message;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                store = window.myUrl.tanggungJawab.store;
+                url = store;
+                model = {
+                  perusahaan_id: this.model.perusahaan_id,
+                  user_id: this.model.user_id,
+                  jabatan: this.model.jabatan,
+                  nomor_sk_jabatan: this.model.nomor_sk_jabatan,
+                  file_sk_jabatan: this.model.file_sk_jabatan,
+                  _token: $("input[name='_token']").val()
+                };
+                vald = this.validasi(model);
+                alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_5__["default"]();
+
+                if (!vald) {
+                  _context4.next = 14;
+                  break;
+                }
+
+                axios = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_4__["default"](url, 'POST');
+                _context4.next = 9;
+                return axios.send(this.model);
+
+              case 9:
+                _yield$axios$send2 = _context4.sent;
+                message = _yield$axios$send2.message;
+                alert.swAlert(message, "Berhasil", function () {
+                  _this3.resetto();
+                });
+                _context4.next = 15;
+                break;
+
+              case 14:
+                alert.swAlert('Masih ada Data yang Kosong', 'Galat', function () {
+                  console.log(model);
+                }, 'warning');
+
+              case 15:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function save() {
+        return _save.apply(this, arguments);
+      }
+
+      return save;
+    }()
+  }, {
+    key: "validasi",
+    value: function validasi() {
+      var __m = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      for (var i in __m) {
+        if (__m[i] === '' || __m[i] == undefined) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+  }, {
+    key: "upload",
+    value: function upload(obj, objBase) {
+      var _this4 = this;
+
+      new _scripts_FileUploader__WEBPACK_IMPORTED_MODULE_3__["default"]().upload(obj, objBase, function () {
+        $("#btn-upload").show(500);
+
+        _this4.setModel($("#file_sk").val(), 'file_sk');
+
+        _this4.setModel($("input[name='_token']").val(), '_token');
+
+        console.log(_this4.model);
+      });
+    }
+  }, {
+    key: "resetModel",
+    value: function resetModel() {
+      this.model = {
+        'file_sk': '',
+        jabatan: '',
+        nomor_sk_jabatan: '',
+        'file_sk_jabatan': 'sk_jabatan/'
+      };
+      this.setModel(this.user_id, 'user_id');
+      this.setModel(this.perusahaan_id, 'perusahaan_id');
+    }
+  }, {
+    key: "init",
+    value: function () {
+      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var json,
+            jsons,
+            _jsons,
+            user_id,
+            id,
+            _args5 = arguments;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                json = _args5.length > 0 && _args5[0] !== undefined ? _args5[0] : this.jsonData;
+                jsons = json.replace(/&quot;/g, '"');
+                this.jsonData = jsons;
+                jsons = JSON.parse(jsons);
+                _jsons = jsons, user_id = _jsons.user_id, id = _jsons.id;
+                this.perusahaan_id = id;
+                this.user_id = user_id;
+                _context5.next = 9;
+                return this.modalOpen();
+
+              case 9:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this);
+      }));
+
+      function init() {
+        return _init.apply(this, arguments);
+      }
+
+      return init;
+    }()
+  }, {
+    key: "modalOpen",
+    value: function () {
+      var _modalOpen = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var _this5 = this;
+
+        var url, mModal;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                url = myUrl.tanggungJawab.open.replace(/(@pid@)/g, this.perusahaan_id);
+                url = url.replace(/(@uid@)/g, this.user_id);
+                mModal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"](url, '', 'Kelola Data Penanggung Jawab', false);
+                _context6.next = 5;
+                return mModal.ajax();
+
+              case 5:
+                mModal.openModal(function () {
+                  _this5.tableObj = $("#penanggungJawab");
+
+                  _this5.initDataTable();
+
+                  var content = _this5.resetForm;
+
+                  _this5.setContentForm(content);
+                }, true);
+
+              case 6:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function modalOpen() {
+        return _modalOpen.apply(this, arguments);
+      }
+
+      return modalOpen;
+    }()
+  }, {
+    key: "openForm",
+    value: function () {
+      var _openForm = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        var obj, content;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                obj = {
+                  pid: this.perusahaan_id,
+                  uid: this.user_id
+                };
+                content = this.form.replace(/(uid|pid)/gi, function (result) {
+                  return obj[result];
+                });
+                this.setContentForm(content);
+
+              case 3:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this);
+      }));
+
+      function openForm() {
+        return _openForm.apply(this, arguments);
+      }
+
+      return openForm;
+    }()
+  }, {
+    key: "setContentForm",
+    value: function setContentForm() {
+      var content = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      $("#inputan-tj").hide(100);
+      $("#inputan-tj").html(content);
+      $("#inputan-tj").show(500);
+    }
+  }, {
+    key: "initDataTable",
+    value: function initDataTable() {
+      var tanggungJawab = window.myUrl.tanggungJawab;
+      var mapObj = {
+        pid: this.perusahaan_id,
+        uid: this.user_id
+      };
+      var url = tanggungJawab.dataTable;
+
+      if (this.table != undefined) {
+        this.tableObj.dataTable().fnDestroy();
+      }
+
+      var amy = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_2__["default"](this.tableObj);
+      var ajax = amy.createAjaxParam(url, mapObj);
+      amy.dataTable(this.columns, ajax);
+      this.table = amy;
     }
   }]);
 
@@ -56001,6 +56506,48 @@ var MyAjax = /*#__PURE__*/function () {
       }
 
       return get;
+    }()
+  }, {
+    key: "send",
+    value: function () {
+      var _send = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var postData,
+            result,
+            data,
+            _args2 = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                postData = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : {};
+                _context2.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+                  headers: {
+                    Auth: "Bearer ".concat(window.__token)
+                  },
+                  method: "POST",
+                  url: this.url,
+                  data: postData
+                });
+
+              case 3:
+                result = _context2.sent;
+                data = result.data;
+                return _context2.abrupt("return", data);
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function send() {
+        return _send.apply(this, arguments);
+      }
+
+      return send;
     }()
   }]);
 

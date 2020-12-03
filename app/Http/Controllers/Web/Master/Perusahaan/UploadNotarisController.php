@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Master\Perusahaan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Includes\PhotoProcessing as FileProcessing;
 use App\Models\Perusahaan;
@@ -29,12 +30,13 @@ class UploadNotarisController extends Controller{
         $request = $this->request; 
     }
     public function store(){
+        $uuidx= Str::uuid();
         $request = $this->request; 
         $post = $request->only('pid','file_akta');
         
         $file = new Fileprocessing('akta_notaris',$post['file_akta']);
         $fileName = $file->getFilename();
-        $fileName = $file->setName($post['pid'],$fileName);
+        $fileName = $file->setName($uuidx.$post['pid'],$fileName);
         
         $file->upload();
         $update = ['file_akta_notaris'=>$fileName];

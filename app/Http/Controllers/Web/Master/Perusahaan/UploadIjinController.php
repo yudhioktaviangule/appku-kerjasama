@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Includes\PhotoProcessing as FileProcessing;
 use App\Models\Perusahaan;
+use Illuminate\Support\Str;
 class UploadIjinController extends Controller{
 
     private $request;
@@ -29,12 +30,13 @@ class UploadIjinController extends Controller{
         $request = $this->request; 
     }
     public function store(){
+        $uuidx=Str::uuid();
         $request = $this->request; 
         $post = $request->only('pid','file_ijin');
         
         $file = new Fileprocessing('ijin_usaha',$post['file_ijin']);
         $fileName = $file->getFilename();
-        $fileName = $file->setName($post['pid'],$fileName);
+        $fileName = $file->setName($uuidx.$post['pid'],$fileName);
         
         $file->upload();
         $update = ['file_ijin_usaha'=>$fileName];

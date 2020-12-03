@@ -3,6 +3,7 @@ import CreateDataTable from '../../../scripts/DataTable';
 import Modals from '../../../scripts/Modals';
 import PDFUploader from '../../../scripts/FileUploader';
 import Alert from '../../../scripts/Alert';
+import MyAjax from '../../../scripts/Ajax';
 
 
 class DashboardClient{
@@ -26,12 +27,30 @@ class DashboardClient{
 
     `
     dataTable = new CreateDataTable($("#table-perusahaan"));
-    init(client){
+    async init(client){
         this.user=client;
         this.dataTableInit()
+        await this.getCounts()
+    }
+    async getCounts(){
+        let url=window.myUrl.count_per.replace(/(uid)/g,this.user);
+        
+        let ajax = new MyAjax(url);
+        let {data} = await ajax.get(url);
+        console.log(data);
+        let count = parseInt(data.count);
+        let interval = 0;
+        let intva = setInterval(()=>{
+            if(interval<=parseInt(count)){
+                $("#cnt-perusahaan").html(interval);
+                interval++;
+            }else{
+                clearInterval(intva);
+            }
+        },10);
     }
     setInputan(obj){
-        let val = obj.val();
+        let val = $(obj).val();
         if(val.toLowerCase()==='swasta'){
             $("#tergantung-usaha").html(this.swasta);
         }else{
@@ -83,7 +102,9 @@ class DashboardClient{
             onshow()
         },true)
     }
-
+    async tj(json){
+        window.pJawab.init(json);
+    }
     async edit(json){
         let jsons = json.replace(/&quot;/g,'"');
         jsons = JSON.parse(jsons);

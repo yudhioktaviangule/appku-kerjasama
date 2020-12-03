@@ -9,14 +9,19 @@ class PhotoProcessing{
     private $kategori;
     private $mime;
     private $filename;
-
+    private $vlie ;
     public function __construct($kategori,$base_64)
     {
      //   dd($base_64);
         $this->base_64=$base_64;
         $this->kategori=$kategori;
-        $this->path = public_path().'/../../PortalFile/'.$kategori.'/<file>';
+        $this->vlie = public_path().'/../../PortalFile/'; 
+        $this->path = $this->vlie.$kategori.'/<file>';
        // dd($this->path);
+    }
+    public function getPathX()
+    {
+        return $this->vlie;
     }
     public function setName($fileName,$fileRegex)
     {

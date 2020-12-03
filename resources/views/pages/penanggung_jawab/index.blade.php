@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <div id="inputan-tj"></div>
+    
     <div class="table-responsive">
         <table class="table" id="penanggungJawab">
             <thead>
