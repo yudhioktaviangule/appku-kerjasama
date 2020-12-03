@@ -55619,6 +55619,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
 /* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
 /* harmony import */ var _scripts_FileUploader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../scripts/FileUploader */ "./resources/js/scripts/FileUploader.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -55632,6 +55633,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -55676,6 +55678,62 @@ var DashboardClient = /*#__PURE__*/function () {
       }
     }
   }, {
+    key: "delete",
+    value: function _delete(json) {
+      var sqwal = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__["default"]();
+      var url = window.myUrl["delete"].replace(/(@perusahaan@)/g, json.id);
+      $("#delete-form").attr("action", url);
+      sqwal.swalYesNo("Yakin Menghapus Perusahaan?", "Hapus Data", function () {});
+    }
+  }, {
+    key: "uploadAktaIjin",
+    value: function () {
+      var _uploadAktaIjin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(json) {
+        var jenis,
+            jsons,
+            url,
+            urlN,
+            modals,
+            _args = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                jenis = _args.length > 1 && _args[1] !== undefined ? _args[1] : 'akta';
+                jsons = json.replace(/&quot;/g, '"');
+                jsons = JSON.parse(jsons);
+                url = '';
+                urlN = window.myUrl[jenis].store.replace(/(@p@)/g, jsons.id);
+
+                if (jenis == 'akta') {
+                  url = window.myUrl.uploadNotaris.replace(/(@perusahaan@)/g, jsons.id);
+                } else {
+                  console.log(myUrl.uploadIjin);
+                  url = window.myUrl.uploadIjin.replace(/(@perusahaan@)/g, jsons.id);
+                }
+
+                modals = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](url, urlN, "Upload " + (jenis == 'akta' ? "Akta Notaris" : "Izin Usaha"), false);
+                _context.next = 9;
+                return modals.ajax();
+
+              case 9:
+                modals.openModal(function () {}, false);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function uploadAktaIjin(_x) {
+        return _uploadAktaIjin.apply(this, arguments);
+      }
+
+      return uploadAktaIjin;
+    }()
+  }, {
     key: "dataTableInit",
     value: function dataTableInit() {
       var index = window.myUrl.index;
@@ -55688,22 +55746,24 @@ var DashboardClient = /*#__PURE__*/function () {
   }, {
     key: "uploader",
     value: function uploader(obj, objBase) {
-      new _scripts_FileUploader__WEBPACK_IMPORTED_MODULE_3__["default"]().upload(obj, objBase);
+      new _scripts_FileUploader__WEBPACK_IMPORTED_MODULE_3__["default"]().upload(obj, objBase, function () {
+        $("#mdl-save").show(500);
+      });
     }
   }, {
     key: "addModal",
     value: function () {
-      var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var _this = this;
 
         var my_url, modal;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 my_url = window.myUrl;
                 modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](my_url.create, my_url.store, 'Tambah Perusahaanku', true);
-                _context.next = 4;
+                _context2.next = 4;
                 return modal.ajax();
 
               case 4:
@@ -55713,10 +55773,10 @@ var DashboardClient = /*#__PURE__*/function () {
 
               case 5:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }));
 
       function addModal() {
@@ -55866,8 +55926,9 @@ var Alert = /*#__PURE__*/function () {
     key: "swAlert",
     value: function swAlert(message, title) {
       var onConfirm = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+      var icon = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'success';
       sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
-        icon: "success",
+        icon: icon,
         confirmButtonText: "\n                <i class='fas fa-check'></i>\n            ",
         text: message,
         title: title,
@@ -55875,6 +55936,26 @@ var Alert = /*#__PURE__*/function () {
       }).then(function (result) {
         if (result.isConfirmed) {
           onConfirm();
+        }
+      });
+    }
+  }, {
+    key: "swalYesNo",
+    value: function swalYesNo(content, title) {
+      var onConfirm = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+      var onCancel = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+        text: content,
+        title: title,
+        icon: "question",
+        confirmButtonText: "Ya",
+        showCancelButton: true,
+        cancelButtonText: "Tidak"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          onConfirm();
+        } else {
+          onCancel();
         }
       });
     }
@@ -55968,6 +56049,7 @@ var CreateDataTable = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PDFUploader; });
+/* harmony import */ var _Alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Alert */ "./resources/js/scripts/Alert.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -55975,6 +56057,8 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 var PDFUploader = /*#__PURE__*/function () {
   function PDFUploader() {
@@ -55986,23 +56070,31 @@ var PDFUploader = /*#__PURE__*/function () {
   _createClass(PDFUploader, [{
     key: "upload",
     value: function upload(obj, objBase64) {
+      var onLoadFile = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
       console.log('obj', obj);
       var selectedFile = obj[0].files;
+      var size = obj[0].files[0].size;
       console.log(selectedFile);
+      var alert = new _Alert__WEBPACK_IMPORTED_MODULE_0__["default"]();
 
-      if (selectedFile.length > 0) {
-        var __self = this;
+      if (parseInt(size) > 2000000) {
+        alert.swAlert('File Lebih Besar dari 2 MB', 'Upload Galat', function () {}, 'error');
+      } else {
+        if (selectedFile.length > 0) {
+          var __self = this;
 
-        var fileToLoad = selectedFile[0];
-        var fileReader = new FileReader();
+          var fileToLoad = selectedFile[0];
+          var fileReader = new FileReader();
 
-        fileReader.onload = function (fileLoadedEvent) {
-          __self.base64 = fileLoadedEvent.target.result;
-          console.log(objBase64);
-          $(objBase64).val(__self.base64);
-        };
+          fileReader.onload = function (fileLoadedEvent) {
+            __self.base64 = fileLoadedEvent.target.result;
+            console.log(objBase64);
+            $(objBase64).val(__self.base64);
+            onLoadFile();
+          };
 
-        fileReader.readAsDataURL(fileToLoad);
+          fileReader.readAsDataURL(fileToLoad);
+        }
       }
     }
   }]);
@@ -56060,9 +56152,12 @@ var Modals = /*#__PURE__*/function () {
 
     _defineProperty(this, "contents", '');
 
+    _defineProperty(this, "bt_save", true);
+
     this.urlActions = urlAction;
     this.urlContents = urlGetContent;
     this.title = title;
+    this.bt_save = isSave;
   }
 
   _createClass(Modals, [{
@@ -56111,6 +56206,12 @@ var Modals = /*#__PURE__*/function () {
         $("#dialogue").attr("class", 'modal-dialog modal-lg');
       } else {
         $("#dialogue").attr("class", 'modal-dialog');
+      }
+
+      if (this.bt_save) {
+        $("#mdl-save").show();
+      } else {
+        $("#mdl-save").hide();
       }
 
       $("#modals").on("shown.bs.modal", function () {

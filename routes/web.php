@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Master\PerusahaanController;
+use App\Http\Controllers\Web\Master\Perusahaan\UploadNotarisController;
+use App\Http\Controllers\Web\Master\Perusahaan\UploadIjinController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +24,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['prefix'=>"master"],function(){
     Route::resource('perusahaan',PerusahaanController::class);
+});
+Route::group(['prefix'=>"upload"],function(){
+    Route::resource('akta-notaris',UploadNotarisController::class);
+    Route::resource('ijin',UploadIjinController::class);
 });

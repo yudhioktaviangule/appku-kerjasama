@@ -2,6 +2,7 @@
 import CreateDataTable from '../../../scripts/DataTable';
 import Modals from '../../../scripts/Modals';
 import PDFUploader from '../../../scripts/FileUploader';
+import Alert from '../../../scripts/Alert';
 
 
 class DashboardClient{
@@ -36,6 +37,31 @@ class DashboardClient{
             $("#tergantung-usaha").html(this.pemerintah);
         }
     }
+    delete(json){
+        let sqwal = new Alert();
+        let url = window.myUrl.delete.replace(/(@perusahaan@)/g,json.id)
+        $("#delete-form").attr("action",url);
+        sqwal.swalYesNo("Yakin Menghapus Perusahaan?","Hapus Data",()=>{
+
+        })
+    }
+    async uploadAktaIjin(json,jenis='akta'){
+        let jsons = json.replace(/&quot;/g,'"');
+        jsons = JSON.parse(jsons);
+        let url= '';
+        let urlN= window.myUrl[jenis].store.replace(/(@p@)/g,jsons.id);
+        if(jenis=='akta'){
+            
+            url=window.myUrl.uploadNotaris.replace(/(@perusahaan@)/g,jsons.id)
+        }else{
+            
+            console.log(myUrl.uploadIjin);
+            url=window.myUrl.uploadIjin.replace(/(@perusahaan@)/g,jsons.id)
+        }
+        const modals = new Modals(url,urlN,"Upload "+(jenis=='akta'?"Akta Notaris":"Izin Usaha"),false)
+        await modals.ajax();
+        modals.openModal(()=>{},false);
+    }
     dataTableInit(){
         let {index} = window.myUrl
         this.dataTable = new CreateDataTable($("#table-perusahaan"))
@@ -43,7 +69,9 @@ class DashboardClient{
         this.dataTable.dataTable(this.table,ajaxParam);
     }
     uploader(obj,objBase){
-        new PDFUploader().upload(obj,objBase);
+        new PDFUploader().upload(obj,objBase,()=>{
+            $("#mdl-save").show(500);
+        });
     }
     async addModal(){
         let my_url = window.myUrl;

@@ -9,4 +9,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource("client-api-perusahaan",PerusahaanApi::class);
+Route::get("client-api-perusahaan/{xType?}/{id?}",[PerusahaanApi::class,'uploadN'])->name('api.perusahaan.upload_doc');
 

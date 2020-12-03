@@ -19,7 +19,7 @@ class PerusahaanApi extends Controller{
         $data = Perusahaan::where('user_id',$id)->get();
         $table = Tabelku::of($data)->addIndexColumn();
         $table->addColumn('aksi',function($json){
-            return "no Action Needed";
+            return View::make('pages.dash.clients.buttons',['json'=>$json]);
         });
         return $table->make();
     }
@@ -42,5 +42,12 @@ class PerusahaanApi extends Controller{
     }
     public function destroy($id=''){
         #code
+    }
+    public function uploadN($type='akta',$id='')
+    {
+        $data = Perusahaan::where("id",$id)->first();
+        
+        return response()->view("pages.dash.clients.{$type}",['data'=>$data]);
+        
     }
 }

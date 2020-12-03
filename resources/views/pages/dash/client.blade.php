@@ -73,6 +73,7 @@
             </div>
         </div>
     </div>
+    
 
 </div>
 @endsection
@@ -85,6 +86,15 @@
                 create:"{{route('client-api-perusahaan.create')}}",
                 index:"{{route('client-api-perusahaan.index')}}",
                 store:"{{route('perusahaan.store')}}",
+                delete:"{{route('perusahaan.destroy',['perusahaan'=>'@perusahaan@'])}}",
+                uploadNotaris:"{{route('api.perusahaan.upload_doc',['xType'=>'akta','id'=>'@perusahaan@'])}}",
+                uploadIjin:"{{route('api.perusahaan.upload_doc',['xType'=>'ijin','id'=>'@perusahaan@'])}}",
+                akta:{
+                    store:"{{route('akta-notaris.store')}}?pid=@p@"
+                },
+                ijin:{
+                    store:"{{route('ijin.store')}}?pid=@p@"
+                }
             }
             window.dashboardClient = window.APP.dashboardClient;
             window.dashboardClient.init({{Auth::id()}})

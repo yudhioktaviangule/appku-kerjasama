@@ -218,6 +218,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
   </div>
 </form>
+<form action="" method="POST" id='delete-form'>
+  <input type="hidden" name="_method" value="delete">
+  <auth></auth>
+</form>
 @php 
     $token = md5(Auth::id());
 @endphp
