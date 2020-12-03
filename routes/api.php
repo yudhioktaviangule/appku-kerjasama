@@ -8,5 +8,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource("api-perusahaan",PerusahaanApi::class);
+Route::resource("client-api-perusahaan",PerusahaanApi::class);
 

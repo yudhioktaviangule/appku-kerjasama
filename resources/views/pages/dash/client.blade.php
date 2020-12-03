@@ -78,7 +78,7 @@
         $(document).ready(()=>{
             
             window.myUrl = {
-                create:"{{route('api-perusahaan.create')}}",
+                create:"{{route('client-api-perusahaan.create')}}",
             }
             window.dashboardClient = window.APP.dashboardClient;
             window.dashboardClient.init({{Auth::id()}})

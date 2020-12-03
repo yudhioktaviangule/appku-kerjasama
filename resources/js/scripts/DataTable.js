@@ -4,11 +4,17 @@ export default class CreateDataTable{
         this.obj=object;
     }
 
-    dataTable(option={
-        columns:[],
-    }){
+    dataTable(cols,ajax){
+        
         console.log("creating datatable");
-        $(this.obj).DataTable()
+        $(this.obj).DataTable({
+            ...cols,
+            ...ajax,
+            language:{
+                search:"Cari",
+                loadingRecords:"Mengambil Data"
+            }
+        })
     }
 
     createAjaxParam(url='',data=''){

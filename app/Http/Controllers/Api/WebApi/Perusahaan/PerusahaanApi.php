@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\WebApi\Perusahaan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Tabelku;
 class PerusahaanApi extends Controller{
     private $request;
     public function __construct(Request $request){

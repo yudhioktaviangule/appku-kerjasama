@@ -50669,9 +50669,17 @@ var DashboardClient = /*#__PURE__*/function () {
   _createClass(DashboardClient, [{
     key: "init",
     value: function init(client) {
+      this.user = client;
+    }
+  }, {
+    key: "dataTable",
+    value: function dataTable() {
       var create = window.myUrl.create;
       this.dataTable = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]($("#table-perusahaan"));
-      var ajaxParam = this.dataTable.createAjaxParam(create);
+      var ajaxParam = this.dataTable.createAjaxParam(create, {
+        uid: this.user
+      });
+      this.dataTable.dataTable(this.table, ajaxParam);
     }
   }]);
 
@@ -50694,6 +50702,10 @@ function DashClient() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CreateDataTable; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -50713,12 +50725,14 @@ var CreateDataTable = /*#__PURE__*/function () {
 
   _createClass(CreateDataTable, [{
     key: "dataTable",
-    value: function dataTable() {
-      var option = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-        columns: []
-      };
+    value: function dataTable(cols, ajax) {
       console.log("creating datatable");
-      $(this.obj).DataTable();
+      $(this.obj).DataTable(_objectSpread(_objectSpread(_objectSpread({}, cols), ajax), {}, {
+        language: {
+          search: "Cari",
+          loadingRecords: "Mengambil Data"
+        }
+      }));
     }
   }, {
     key: "createAjaxParam",
