@@ -1,0 +1,4 @@
+#!/bin/bash
+php artisan make:controller Web/$1Controller --resource
+
+
