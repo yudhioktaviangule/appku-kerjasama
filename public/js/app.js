@@ -50669,8 +50669,9 @@ var DashboardClient = /*#__PURE__*/function () {
   _createClass(DashboardClient, [{
     key: "init",
     value: function init(client) {
+      var create = window.myUrl.create;
       this.dataTable = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]($("#table-perusahaan"));
-      var ajaxParam = this.dataTable.createAjaxParam(url);
+      var ajaxParam = this.dataTable.createAjaxParam(create);
     }
   }]);
 
