@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api\WebApi\Perusahaan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Perusahaan;
+use Illuminate\Support\Facades\View;
 use Tabelku;
 class PerusahaanApi extends Controller{
     private $request;
@@ -13,10 +15,20 @@ class PerusahaanApi extends Controller{
     }
     public function index(){
         $request = $this->request; 
+        $id = $request->uid;
+        $data = Perusahaan::whereIn("id",function($query)use($id){
+            $query->select("perusahaan_id")->from("penanggung_jawabs")->where('id',$id);
+        })->get();
+        $table = Tabelku::of($data)->addIndexColumn();
+        $table->addColumn('aksi',function($json){
+            return "no Action Needed";
+        });
+        return $table->make();
     }
     public function create(){
         $request = $this->request; 
         $user_id = $request->uid;
+        return response()->view('pages.perusahaan.add',['uid'=>$user_id]);
     }
     public function show($id=''){
         $request = $this->request; 

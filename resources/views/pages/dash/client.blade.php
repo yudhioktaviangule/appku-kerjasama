@@ -41,10 +41,10 @@
                 <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <h3 class='card-title'>
-                        Daftar Perusahaanku
+                        <i class="fas fa-building"></i>
+                        Info Perusahaanku
                     </h3>
-                    <a href="#">
-                        
+                    <a href="#" onclick='window.dashboardClient.addModal()'>
                         Tambah Perusahaan
                     </a>
                   
@@ -55,7 +55,7 @@
                     <table class="table table-bordered" id='table-perusahaan'>
                         <thead>
                             <tr>
-                                <th>Nama Perusahaan</th>
+                                <th>Perusahaan</th>
                                 <th>
                                     <div class="text-right">
                                         Aksi
@@ -79,6 +79,8 @@
             
             window.myUrl = {
                 create:"{{route('client-api-perusahaan.create')}}",
+                index:"{{route('client-api-perusahaan.index')}}",
+                store:"{{route('client-api-perusahaan.index')}}",
             }
             window.dashboardClient = window.APP.dashboardClient;
             window.dashboardClient.init({{Auth::id()}})

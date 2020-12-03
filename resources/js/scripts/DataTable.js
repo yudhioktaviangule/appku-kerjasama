@@ -7,9 +7,10 @@ export default class CreateDataTable{
     dataTable(cols,ajax){
         
         console.log("creating datatable");
+      console.log("columns",cols);
         $(this.obj).DataTable({
-            ...cols,
-            ...ajax,
+            columns:cols,
+            ajax:{...ajax.ajax,type:'GET'},
             language:{
                 search:"Cari",
                 loadingRecords:"Mengambil Data"
@@ -20,6 +21,7 @@ export default class CreateDataTable{
     createAjaxParam(url='',data=''){
         return {
             ajax:{
+                
                 url:url,
                 data:data,
                 beforeSend:(xhr)=>{

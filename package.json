@@ -12,7 +12,7 @@
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "@babel/preset-react": "^7.0.0",
-        "admin-lte": "^3.0",
+        "admin-lte": "^3.1.0-rc",
         "axios": "^0.21.0",
         "babel-plugin-transform-class-properties": "^6.24.1",
         "bootstrap": "^4.0.0",
@@ -29,7 +29,10 @@
         "select2": "^4.0.13",
         "sweetalert": "^2.1.2"
     },
-    "dependencies": {},
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.1",
+        "fontawesome": "^5.6.3"
+    },
     "babel": {
         "presets": [
             "@babel/preset-env",

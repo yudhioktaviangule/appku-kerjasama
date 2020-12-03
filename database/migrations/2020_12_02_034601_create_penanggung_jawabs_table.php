@@ -16,7 +16,7 @@ class CreatePenanggungJawabsTable extends Migration
         Schema::create('penanggung_jawabs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('kantor_id');
+            $table->integer('perusahaan_id');
             $table->string('jabatan',30);
             $table->string('nomor_sk_jabatan',30);
             $table->string('file_sk_jabatan');

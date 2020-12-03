@@ -195,6 +195,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </footer>
 </div>
 <!-- ./wrapper -->
+<form method='POST' id='modals' action='' class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >
+          <img src="{{asset('gambar/makassar150x150.png')}}" style='width:64px'>
+          <span id="mdl-title"></span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id='mdl-content'>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id='mdl-save' class="btn btn-primary">Kirim</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</form>
 @php 
     $token = md5(Auth::id());
 @endphp
@@ -203,15 +224,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </script>
 <!-- REQUIRED SCRIPTS -->
 <script src="{{asset('dist/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('dist/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('dist/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('dist/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
-
 @yield('js')
-<!-- jQuery -->
-<!-- Bootstrap 4 -->
-<!-- <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-<!-- AdminLTE App -->
-<!-- <script src="dist/js/adminlte.min.js"></script> -->
 </body>
 </html>
