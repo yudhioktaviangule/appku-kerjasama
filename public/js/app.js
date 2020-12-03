@@ -55588,9 +55588,11 @@ if (document.getElementById('example')) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MainRouter; });
 /* harmony import */ var _pages_clients_DashboardClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/clients/DashboardClient */ "./resources/js/components/pages/clients/DashboardClient.js");
+/* harmony import */ var _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/clients/PenanggungJawab */ "./resources/js/components/pages/clients/PenanggungJawab.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -55598,6 +55600,8 @@ var MainRouter = function MainRouter() {
   _classCallCheck(this, MainRouter);
 
   _defineProperty(this, "dashboardClient", new _pages_clients_DashboardClient__WEBPACK_IMPORTED_MODULE_0__["default"]());
+
+  _defineProperty(this, "penanggungJawab", new _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__["default"]());
 };
 
 
@@ -55857,6 +55861,26 @@ var DashboardClient = /*#__PURE__*/function () {
 function DashClient() {
   return new DashboardClient();
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/PenanggungJawab.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/pages/clients/PenanggungJawab.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PenanggungJawab; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var PenanggungJawab = function PenanggungJawab() {
+  _classCallCheck(this, PenanggungJawab);
+};
+
+
 
 /***/ }),
 

@@ -95,10 +95,12 @@
                 },
                 ijin:{
                     store:"{{route('ijin.store')}}?pid=@p@"
-                }
+                },
+                tanggungJawab:""
             }
             window.dashboardClient = window.APP.dashboardClient;
             window.dashboardClient.init({{Auth::id()}})
+            
         });
 
     </script>

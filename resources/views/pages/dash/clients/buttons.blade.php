@@ -17,7 +17,7 @@
     <a href="#" json='{{$json}}' onclick="window.dashboardClient.edit('{{$json}}')" title='Ubah Data' class="btn btn-sm btn-primary">
         <i class="fas fa-cog"></i>
     </a>
-    <a href="#" title='Kelola Jabatan' class="btn btn-sm btn-success">
+    <a href="#" onclick="window.penanggungJawab.modalOpen('{{$json}}')" title='Kelola Penanggung Jawab' class="btn btn-sm btn-success">
         <i class="fas fa-users"></i>
     </a>
     <a href="#" title='Hapus Jabatan' onclick="window.dashboardClient.delete('{{$json}}')" class="btn btn-sm btn-danger">
