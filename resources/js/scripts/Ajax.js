@@ -12,7 +12,7 @@ export default class MyAjax{
     async get(url=''){
         let param={
             headers:{
-                auth:window._token
+                Auth:`Bearer ${window.__token}`
             }
         }
         let result = await axios.get(url,param);

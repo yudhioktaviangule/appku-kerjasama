@@ -11,7 +11,7 @@ class PerusahaanApi extends Controller{
     private $request;
     public function __construct(Request $request){
         $this->request = $request; 
-        //$this->middleware('auth.api');
+        $this->middleware('auth.api');
     }
     public function index(){
         $request = $this->request; 

@@ -55857,7 +55857,7 @@ var MyAjax = /*#__PURE__*/function () {
                 url = _args.length > 0 && _args[0] !== undefined ? _args[0] : '';
                 param = {
                   headers: {
-                    auth: window._token
+                    Auth: "Bearer ".concat(window.__token)
                   }
                 };
                 _context.next = 4;
