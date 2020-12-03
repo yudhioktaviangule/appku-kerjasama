@@ -12,6 +12,7 @@ class PhotoProcessing{
 
     public function __construct($kategori,$base_64)
     {
+     //   dd($base_64);
         $this->base_64=$base_64;
         $this->kategori=$kategori;
         $this->path = public_path().'/../../PortalFoto/'.$kategori.'/<file>';
@@ -41,6 +42,7 @@ class PhotoProcessing{
     public function getMime()
     {
         $mime = explode('base64,',$this->base_64);
+       // dd($mime);
         $mime = $mime[0];
         $mime = explode("/",$mime);
         $mime = $mime[1];

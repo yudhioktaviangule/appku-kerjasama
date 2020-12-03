@@ -122,7 +122,10 @@
                 </div>
             </div>
         </div>
-        <script src='{{asset("js/app.js")}}'></script>
+        <script src="{{asset('dist/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('dist/plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('dist/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
         <script>
             $(document).ready(()=>{
                 window.upd=(object,vObj)=>{
