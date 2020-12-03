@@ -55876,9 +55876,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PenanggungJawab; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var PenanggungJawab = function PenanggungJawab() {
-  _classCallCheck(this, PenanggungJawab);
-};
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var PenanggungJawab = /*#__PURE__*/function () {
+  function PenanggungJawab() {
+    _classCallCheck(this, PenanggungJawab);
+
+    _defineProperty(this, "user_id", 0);
+
+    _defineProperty(this, "perusahaan_id", 0);
+
+    _defineProperty(this, "columns", [{
+      name: "jabatan",
+      data: 'jabatan'
+    }, {
+      name: "nomor_sk_jabatan",
+      data: 'nomor_sk_jabatan'
+    }, {
+      name: "aksi",
+      data: 'aksi'
+    }]);
+  }
+
+  _createClass(PenanggungJawab, [{
+    key: "init",
+    value: function init(json) {
+      var jsons = json.replace(/&quot;/g, '"');
+      jsons = JSON.parse(jsons);
+    }
+  }]);
+
+  return PenanggungJawab;
+}();
 
 
 

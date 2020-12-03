@@ -96,11 +96,13 @@
                 ijin:{
                     store:"{{route('ijin.store')}}?pid=@p@"
                 },
-                tanggungJawab:""
+                tanggungJawab:{
+                    dataTable:"{{route('client-api-penanggungjawabku.index')}}"
+                }
             }
             window.dashboardClient = window.APP.dashboardClient;
             window.dashboardClient.init({{Auth::id()}})
-            
+            window.pJawab = window.APP.penanggungJawab;
         });
 
     </script>
