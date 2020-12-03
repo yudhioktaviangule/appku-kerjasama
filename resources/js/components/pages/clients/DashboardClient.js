@@ -12,17 +12,18 @@ class DashboardClient{
     swasta=`
         <div class="form-group">
             <label for="exampleInputEmail1">No. Ijin Usaha</label>
-            <input required type="text" autocomplete=off class="form-control" name='nomor_ijin_usaha' id="exampleInputEmail1" placeholder="No. Izin Usaha">
+            <input required type="text" autocomplete=off class="form-control" name='nomor_ijin_usaha' id="nomor_ijin_usaha" placeholder="No. Izin Usaha">
         </div>
 
         <div class="form-group">
-            <label for="exampleInputEmail1">No. Akta Notaris</label>
-            <input required type="text" autocomplete=off class="form-control" name='nomor_akta_notaris' id="exampleInputEmail1" placeholder="No. Akta Notaris">
+            <label for="nomor_ijin_usaha">No. Akta Notaris</label>
+            <input required type="text" autocomplete=off class="form-control" name='nomor_akta_notaris' id="nomor_akta_notaris" placeholder="No. Akta Notaris">
         </div>
     `
     pemerintah=`
-    <input required type="hidden" autocomplete=off value='internal' name='nomor_akta_notaris' id="exampleInputEmail1">
-    <input required type="hidden" autocomplete=off value='internal' name='nomor_ijin_usaha' id="exampleInputEmail1">
+    <input required type="hidden" id='nomor_akta_notaris' autocomplete=off value='internal' name='nomor_akta_notaris'>
+    <input required type="hidden" id='nomor_ijin_usaha' autocomplete=off value='internal' name='nomor_ijin_usaha'>                
+
     `
     dataTable = new CreateDataTable($("#table-perusahaan"));
     init(client){
@@ -73,13 +74,45 @@ class DashboardClient{
             $("#mdl-save").show(500);
         });
     }
-    async addModal(){
+    async addModal(title='Tambah Perusahaanku',onshow=()=>{}){
         let my_url = window.myUrl;
-        const modal = new Modals(my_url.create,my_url.store,'Tambah Perusahaanku',true);
+        const modal = new Modals(my_url.create,my_url.store,title,true);
         await modal.ajax()
         modal.openModal(()=>{
             $("#uid").val(this.user);
+            onshow()
         },true)
+    }
+
+    async edit(json){
+        let jsons = json.replace(/&quot;/g,'"');
+        jsons = JSON.parse(jsons);
+
+        let url = myUrl.update.replace(/(@per@)/g,jsons.id)
+        await this.addModal('Ubah Perusahaanku',()=>{
+            $('#nama_perusahaan').val(jsons.name);
+            $('#telepon_perusahaan').val(jsons.telepon);
+            $('#jenis').val(jsons.jenis);
+            this.setInputan($("#jenis"));
+            $('#nomor_ijin_usaha').val(jsons.nomor_ijin_usaha);
+            $('#nomor_akta_notaris').val(jsons.nomor_ijin_usaha);
+            $('#email').val(jsons.email);
+            $('#alamat').val(jsons.alamat);
+            $("#skajab").html("");
+            $("#method-put").html(`<put></put>`);
+            $("#modals").attr('action',url);
+        });
+    }
+
+    delete(json){
+        let jsons = json.replace(/&quot;/g,'"');
+        jsons = JSON.parse(jsons);
+        const url = myUrl.delete.replace(/(@perusahaan@)/g,jsons.id);
+        $("#delete-form").attr("action",url);
+        let con = new Alert();
+        con.swalYesNo("Hapus Data?","Hapus",()=>{
+            $("#delete-form").submit();
+        })
     }
 }
 

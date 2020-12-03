@@ -55653,9 +55653,9 @@ var DashboardClient = /*#__PURE__*/function () {
       data: 'aksi'
     }]);
 
-    _defineProperty(this, "swasta", "\n        <div class=\"form-group\">\n            <label for=\"exampleInputEmail1\">No. Ijin Usaha</label>\n            <input required type=\"text\" autocomplete=off class=\"form-control\" name='nomor_ijin_usaha' id=\"exampleInputEmail1\" placeholder=\"No. Izin Usaha\">\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"exampleInputEmail1\">No. Akta Notaris</label>\n            <input required type=\"text\" autocomplete=off class=\"form-control\" name='nomor_akta_notaris' id=\"exampleInputEmail1\" placeholder=\"No. Akta Notaris\">\n        </div>\n    ");
+    _defineProperty(this, "swasta", "\n        <div class=\"form-group\">\n            <label for=\"exampleInputEmail1\">No. Ijin Usaha</label>\n            <input required type=\"text\" autocomplete=off class=\"form-control\" name='nomor_ijin_usaha' id=\"nomor_ijin_usaha\" placeholder=\"No. Izin Usaha\">\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"nomor_ijin_usaha\">No. Akta Notaris</label>\n            <input required type=\"text\" autocomplete=off class=\"form-control\" name='nomor_akta_notaris' id=\"nomor_akta_notaris\" placeholder=\"No. Akta Notaris\">\n        </div>\n    ");
 
-    _defineProperty(this, "pemerintah", "\n    <input required type=\"hidden\" autocomplete=off value='internal' name='nomor_akta_notaris' id=\"exampleInputEmail1\">\n    <input required type=\"hidden\" autocomplete=off value='internal' name='nomor_ijin_usaha' id=\"exampleInputEmail1\">\n    ");
+    _defineProperty(this, "pemerintah", "\n    <input required type=\"hidden\" id='nomor_akta_notaris' autocomplete=off value='internal' name='nomor_akta_notaris'>\n    <input required type=\"hidden\" id='nomor_ijin_usaha' autocomplete=off value='internal' name='nomor_ijin_usaha'>                \n\n    ");
 
     _defineProperty(this, "dataTable", new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_1__["default"]($("#table-perusahaan")));
   }
@@ -55756,22 +55756,29 @@ var DashboardClient = /*#__PURE__*/function () {
       var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var _this = this;
 
-        var my_url, modal;
+        var title,
+            onshow,
+            my_url,
+            modal,
+            _args2 = arguments;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                title = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 'Tambah Perusahaanku';
+                onshow = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : function () {};
                 my_url = window.myUrl;
-                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](my_url.create, my_url.store, 'Tambah Perusahaanku', true);
-                _context2.next = 4;
+                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](my_url.create, my_url.store, title, true);
+                _context2.next = 6;
                 return modal.ajax();
 
-              case 4:
+              case 6:
                 modal.openModal(function () {
                   $("#uid").val(_this.user);
+                  onshow();
                 }, true);
 
-              case 5:
+              case 7:
               case "end":
                 return _context2.stop();
             }
@@ -55785,6 +55792,63 @@ var DashboardClient = /*#__PURE__*/function () {
 
       return addModal;
     }()
+  }, {
+    key: "edit",
+    value: function () {
+      var _edit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(json) {
+        var _this2 = this;
+
+        var jsons, url;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                jsons = json.replace(/&quot;/g, '"');
+                jsons = JSON.parse(jsons);
+                url = myUrl.update.replace(/(@per@)/g, jsons.id);
+                _context3.next = 5;
+                return this.addModal('Ubah Perusahaanku', function () {
+                  $('#nama_perusahaan').val(jsons.name);
+                  $('#telepon_perusahaan').val(jsons.telepon);
+                  $('#jenis').val(jsons.jenis);
+
+                  _this2.setInputan($("#jenis"));
+
+                  $('#nomor_ijin_usaha').val(jsons.nomor_ijin_usaha);
+                  $('#nomor_akta_notaris').val(jsons.nomor_ijin_usaha);
+                  $('#email').val(jsons.email);
+                  $('#alamat').val(jsons.alamat);
+                  $("#skajab").html("");
+                  $("#method-put").html("<put></put>");
+                  $("#modals").attr('action', url);
+                });
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function edit(_x2) {
+        return _edit.apply(this, arguments);
+      }
+
+      return edit;
+    }()
+  }, {
+    key: "delete",
+    value: function _delete(json) {
+      var jsons = json.replace(/&quot;/g, '"');
+      jsons = JSON.parse(jsons);
+      var url = myUrl["delete"].replace(/(@perusahaan@)/g, jsons.id);
+      $("#delete-form").attr("action", url);
+      var con = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__["default"]();
+      con.swalYesNo("Hapus Data?", "Hapus", function () {
+        $("#delete-form").submit();
+      });
+    }
   }]);
 
   return DashboardClient;

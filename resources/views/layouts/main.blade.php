@@ -238,6 +238,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   $(document).ready(()=>{
     setInterval(() => {
       $("auth").html(`@csrf`)
+      $("put").html(`<input type='hidden' name='_method' value='put'>`)
     }, 1);
   })
 </script>

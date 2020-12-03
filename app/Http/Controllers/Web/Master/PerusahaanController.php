@@ -53,9 +53,19 @@ class PerusahaanController extends Controller{
 
     }
     public function update($id=''){
-        $request = $this->request; 
+        try{
+            
+            $request = $this->request; 
+            $post = $request->only("name",'jenis','email','nomor_ijin_usaha','nomor_akta_notaris','telepon','alamat');
+            Perusahaan::where("id",$id)->update($post);
+            $this->redirectBack("Data Perusahaan Berhasil diubah","Ubah Data",url('/home'));
+            
+        }catch(\Exception $e){
+
+        }
     }
     public function destroy($id=''){
-        #code
+        Perusahaan::where("id",$id)->delete();
+        $this->redirectBack("Data Perusahaan Berhasil dihapus","Hapus Data",url('/home'));
     }
 }

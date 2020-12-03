@@ -86,6 +86,7 @@
                 create:"{{route('client-api-perusahaan.create')}}",
                 index:"{{route('client-api-perusahaan.index')}}",
                 store:"{{route('perusahaan.store')}}",
+                update:"{{route('perusahaan.update',['perusahaan'=>'@per@'])}}",
                 delete:"{{route('perusahaan.destroy',['perusahaan'=>'@perusahaan@'])}}",
                 uploadNotaris:"{{route('api.perusahaan.upload_doc',['xType'=>'akta','id'=>'@perusahaan@'])}}",
                 uploadIjin:"{{route('api.perusahaan.upload_doc',['xType'=>'ijin','id'=>'@perusahaan@'])}}",
