@@ -16,6 +16,7 @@ class CreatePerusahaansTable extends Migration
         Schema::create('perusahaans', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("user_id");
             $table->string("email",60);
             $table->string("alamat");
             $table->string("nomor_akta_notaris");

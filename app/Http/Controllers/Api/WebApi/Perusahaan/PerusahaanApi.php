@@ -16,9 +16,7 @@ class PerusahaanApi extends Controller{
     public function index(){
         $request = $this->request; 
         $id = $request->uid;
-        $data = Perusahaan::whereIn("id",function($query)use($id){
-            $query->select("perusahaan_id")->from("penanggung_jawabs")->where('id',$id);
-        })->get();
+        $data = Perusahaan::where('user_id',$id)->get();
         $table = Tabelku::of($data)->addIndexColumn();
         $table->addColumn('aksi',function($json){
             return "no Action Needed";
