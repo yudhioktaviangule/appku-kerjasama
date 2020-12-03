@@ -15,7 +15,7 @@ class PhotoProcessing{
      //   dd($base_64);
         $this->base_64=$base_64;
         $this->kategori=$kategori;
-        $this->path = public_path().'/../../PortalFoto/'.$kategori.'/<file>';
+        $this->path = public_path().'/../../PortalFile/'.$kategori.'/<file>';
        // dd($this->path);
     }
     public function setName($fileName,$fileRegex)

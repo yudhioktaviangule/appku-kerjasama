@@ -18,6 +18,11 @@ class CreatePerusahaansTable extends Migration
             $table->string("name");
             $table->string("email",60);
             $table->string("alamat");
+            $table->string("nomor_akta_notaris");
+            $table->string("nomor_ijin_usaha");
+            $table->longtext("file_akta_notaris");
+            $table->longtext("file_ijin_usaha");
+            $table->enum("jenis",['badan hukum','swasta','antar daerah']);
             $table->string("telepon",20);
             $table->timestamps();
         });

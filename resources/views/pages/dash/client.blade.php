@@ -1,5 +1,9 @@
 @extends("layouts.main")
 @section("title",'Beranda')
+@section("crumb")
+    <!-- <li class="breadcrumb-item">Clients</li> -->
+    <li class="breadcrumb-item active">Beranda</li>
+@endsection
 @section("content")
 <div class="container-fluid">
     <div class="row">
@@ -80,7 +84,7 @@
             window.myUrl = {
                 create:"{{route('client-api-perusahaan.create')}}",
                 index:"{{route('client-api-perusahaan.index')}}",
-                store:"{{route('client-api-perusahaan.index')}}",
+                store:"{{route('perusahaan.store')}}",
             }
             window.dashboardClient = window.APP.dashboardClient;
             window.dashboardClient.init({{Auth::id()}})

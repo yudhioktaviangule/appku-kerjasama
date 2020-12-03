@@ -155,8 +155,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <li class="breadcrumb-item"><a href="{{url('/home')}}"> {{ config('app.name', 'Laravel') }}</a></li>
+              
+              @yield("crumb")
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -196,7 +197,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 <form method='POST' id='modals' action='' class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+  <auth></auth>
+  <div class="modal-dialog" role="document" id='dialogue'>
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" >
@@ -210,7 +212,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="modal-body" id='mdl-content'>
       </div>
       <div class="modal-footer">
-        <button type="button" id='mdl-save' class="btn btn-primary">Kirim</button>
+        <button id='mdl-save' class="btn btn-primary">Kirim</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
       </div>
     </div>
@@ -228,6 +230,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('dist/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('dist/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
+<script>
+  $(document).ready(()=>{
+    setInterval(() => {
+      $("auth").html(`@csrf`)
+    }, 1);
+  })
+</script>
 @yield('js')
 </body>
 </html>

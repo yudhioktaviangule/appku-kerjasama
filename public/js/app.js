@@ -51436,6 +51436,10 @@ var DashboardClient = /*#__PURE__*/function () {
   function DashboardClient() {
     _classCallCheck(this, DashboardClient);
 
+    _defineProperty(this, "inputswasta", "            \n        <div class=\"form-group\">\n            <label for=\"no_sk_jabatan\">Akta Notaris</label>\n            <input type=\"text\" class=\"form-control\" placeholder='Nomor Akta' id=\"no_sk_jabatan\" name='nomor_akta'><br>\n            <input type='file' placeholder='File ' onchange=\"window.dashboardClient.uploader($(this),$('#file_akta'))\">\n            <input type=\"hidden\" id=\"file_akta\" name='file_akta'>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"no_sk_jabatan\">Ijin Usaha</label>\n            <input type=\"text\" class=\"form-control\" id=\"no_sk_jabatan\" name='nomor_ijin_usaha' placeholder='No. Ijin Usaha'><br>\n            <input type='file' placeholder='File ' onchange=\"window.dashboardClient.uploader($(this),$('#file_ijin'))\">\n            <input type=\"hidden\" id=\"file_ijin\" name='file_ijin'>\n        </div>");
+
+    _defineProperty(this, "inputPemerintah", "\n        <input type=\"hidden\" name='nomor_ijin_usaha' value='instansi pemerintah'>\n        <input type=\"hidden\" name='nomor_akta_notaris' value='instansi pemerintah'>\n        <input type=\"hidden\" name='file_akta' value='instansi pemerintah'>\n        <input type=\"hidden\" name='file_ijin' value='instansi pemerintah'>\n    ");
+
     _defineProperty(this, "user", void 0);
 
     _defineProperty(this, "table", [{
@@ -51454,6 +51458,17 @@ var DashboardClient = /*#__PURE__*/function () {
     value: function init(client) {
       this.user = client;
       this.dataTableInit();
+    }
+  }, {
+    key: "setInputan",
+    value: function setInputan(obj) {
+      var val = obj.val();
+
+      if (val.toLowerCase() === 'swasta') {
+        $("#tergantung-usaha").html(this.inputswasta);
+      } else {
+        $("#tergantung-usaha").html(this.inputPemerintah);
+      }
     }
   }, {
     key: "dataTableInit",
@@ -51480,12 +51495,12 @@ var DashboardClient = /*#__PURE__*/function () {
             switch (_context.prev = _context.next) {
               case 0:
                 my_url = window.myUrl;
-                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](my_url.create, '', 'Tambah Perusahaanku', true);
+                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](my_url.create, my_url.store, 'Tambah Perusahaanku', true);
                 _context.next = 4;
                 return modal.ajax();
 
               case 4:
-                modal.openModal(function () {});
+                modal.openModal(function () {}, true);
 
               case 5:
               case "end":
@@ -51820,9 +51835,17 @@ var Modals = /*#__PURE__*/function () {
     key: "openModal",
     value: function openModal() {
       var onShowModals = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+      var isLg = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
       $("#modals").modal('show');
       $("#mdl-title").html(this.title);
       $("#mdl-content").html(this.contents);
+      $("#modals").attr('action', this.urlActions);
+
+      if (isLg) {
+        $("#dialogue").attr("class", 'modal-dialog modal-lg');
+      } else {
+        $("#dialogue").attr("class", 'modal-dialog');
+      }
     }
   }]);
 
