@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePejabatsTable extends Migration
+class CreateDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreatePejabatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pejabats', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreatePejabatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pejabats');
+        Schema::dropIfExists('documents');
     }
 }

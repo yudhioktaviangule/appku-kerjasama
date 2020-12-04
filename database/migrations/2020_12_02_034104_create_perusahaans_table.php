@@ -25,6 +25,7 @@ class CreatePerusahaansTable extends Migration
             $table->longtext("file_ijin_usaha");
             $table->enum("jenis",['badan hukum','swasta','antar daerah']);
             $table->string("telepon",20);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

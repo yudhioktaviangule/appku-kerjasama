@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('file_identitas')->default('default.png');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

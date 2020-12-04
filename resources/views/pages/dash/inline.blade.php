@@ -1,3 +1,10 @@
+@extends("layouts.main")
+@section("title",'Beranda')
+@section("crumb")
+    <!-- <li class="breadcrumb-item">Clients</li> -->
+    <li class="breadcrumb-item active">Beranda</li>
+@endsection
+@section("content")
 <div class="container-fluid">
         <div class="row">
             <div class="col">
@@ -41,7 +48,7 @@
                 <div class="info-box-content">
                     <span class="info-box-text">Diproses</span>
                     <span class="info-box-number" id='dokumen-diterima'>0</span>
-                    <!-- The progress section is optional -->
+                    
                     <div class="progress">
                     <div class="progress-bar" style="width: 70%"></div>
                     </div>
@@ -89,3 +96,4 @@
             </div>
         </div>
     </div>
+@endsection
