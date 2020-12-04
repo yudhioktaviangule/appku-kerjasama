@@ -12,18 +12,25 @@
             
             <div class="card">
                 <div class="card-header">
-                <div class="d-flex justify-content-between">
-                    <h3 class='card-title'>
-                        Dokumenku
-                    </h3>
-                    <a href="#" onclick='window.dashboardClient.addModal()'>
-                        Registrasi Dokumen
-                    </a>
-                  
-                  
-                </div>
+                    <div class="d-flex justify-content-between">
+                        <h3 class='card-title'>
+                            Dokumenku
+                        </h3>
+                        <a href="#" onclick='window.dashboardClient.addModal()'>
+                            Registrasi Dokumen
+                        </a>
+                    
+                    
+                    </div>
                 </div>
                 <div class="card-body">
+                    <div id="pilih-role">
+                        <div class="container-fluid">
+                            <label for="">Pilih Perusahaan</label>
+                            <select id="" ></select>
+                        </div>
+                        <div id="chain-child"></div>
+                    </div>
                     <table class="table table-bordered" id='table-walikota'>
                         <thead>
                             <tr>
@@ -52,12 +59,11 @@
         <script>
             $(document).ready(()=>{
                 window.myUrl = {
-                    table:"{{route('walikota-api.index')}}",
-                    store:"{{route('pejabat.store')}}",
-                    delete:"{{route('pejabat.destroy',['pejabat'=>'@pejabat@'])}}",
+                    perusahaan:{
+                        get:`{{route('client-api-perusahaan.index')}}?uid={{Auth::id()}}`
+                    }
                 }
-                window.walikota = window.APP.walikota;
-                walikota.init();
+               
             });
         </script>
 @endsection

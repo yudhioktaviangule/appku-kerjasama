@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 class PenanggungJawab extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
     protected $fillable=[
         'jabatan',
         'file_sk_jabatan',

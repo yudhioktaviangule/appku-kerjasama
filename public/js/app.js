@@ -56456,7 +56456,17 @@ var PenanggungJawab = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Walikota; });
-/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -56464,6 +56474,8 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -56502,13 +56514,137 @@ var Walikota = /*#__PURE__*/function () {
   }, {
     key: "initDataTable",
     value: function initDataTable() {
-      var tb = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.table);
+      var tb = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_1__["default"](this.table);
       var table = window.myUrl.table;
       var ajax = tb.createAjaxParam(table, {});
       tb.dataTable(this.columns, ajax, {
         "order": [[2, 'asc']]
       });
     }
+  }, {
+    key: "edit",
+    value: function () {
+      var _edit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(json) {
+        var jsons;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                jsons = json.replace(/&quot;/g, '"');
+                jsons = JSON.parse(jsons);
+                _context.next = 4;
+                return this.addModal("Lihat Data Walikota", function () {
+                  $("#name").val(jsons.name);
+                  $("#jabatan").val(jsons.jabatan);
+                  $("#aktif").val(jsons.aktif);
+                  var ubah = window.myUrl.ubah;
+                  var url = ubah.replace(/(@pejabat@)/g, jsons.id);
+                  $(".modal").attr('action', url);
+                  $("#tempat-put").html("<put></put>");
+                });
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function edit(_x) {
+        return _edit.apply(this, arguments);
+      }
+
+      return edit;
+    }()
+  }, {
+    key: "delete",
+    value: function _delete(json) {
+      var jsons = json.replace(/&quot;/g, '"');
+      jsons = JSON.parse(jsons);
+      var alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+      var _myUrl = myUrl,
+          hapus = _myUrl.hapus;
+      var url = hapus.replace(/(@pejabat@)/g, jsons.id);
+      alert.swalYesNo('Ingin Hapus data Walikota?', 'Hapus Walikota', function () {
+        $("#delete-form").attr("action", url);
+        $("#delete-form").submit();
+      });
+    }
+  }, {
+    key: "set",
+    value: function set(json) {
+      var jsons = json.replace(/&quot;/g, '"');
+      jsons = JSON.parse(jsons);
+      var _myUrl2 = myUrl,
+          ubah = _myUrl2.ubah;
+      var url = ubah.replace(/(@pejabat@)/g, jsons.id);
+      var alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+      alert.swalYesNo("Ingin Menonaktifkan ".concat(jsons.name, " dari data jabatan Walikota?"), 'Ubah Status Walikota', function () {
+        window.location.href = url;
+      });
+    }
+  }, {
+    key: "setAktif",
+    value: function setAktif(json) {
+      var jsons = json.replace(/&quot;/g, '"');
+      jsons = JSON.parse(jsons);
+      var _myUrl3 = myUrl,
+          ubah = _myUrl3.ubah;
+      var url = ubah.replace(/(@pejabat@)/g, "".concat(jsons.id, "/edit"));
+      var alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+      alert.swalYesNo("Ingin Mengaktifkan ".concat(jsons.name, " dari data jabatan Walikota?"), 'Ubah Status Walikota', function () {
+        window.location.href = url;
+      });
+    }
+  }, {
+    key: "addModal",
+    value: function () {
+      var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var title,
+            onModalOpen,
+            _window$myUrl,
+            create,
+            store,
+            modal,
+            _args2 = arguments;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                title = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 'Tambah Walikota';
+                onModalOpen = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : undefined;
+                _window$myUrl = window.myUrl, create = _window$myUrl.create, store = _window$myUrl.store;
+                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](create, store, title, true);
+                _context2.next = 6;
+                return modal.ajax();
+
+              case 6:
+                modal.openModal(function () {
+                  if (onModalOpen != undefined) {
+                    onModalOpen();
+                  } else {
+                    $("#name").val("");
+                    $("#jabatan").val("WALIKOTA MAKASSAR");
+                    $("#aktif").val("1");
+                  }
+                }, false);
+
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function addModal() {
+        return _addModal.apply(this, arguments);
+      }
+
+      return addModal;
+    }()
   }]);
 
   return Walikota;

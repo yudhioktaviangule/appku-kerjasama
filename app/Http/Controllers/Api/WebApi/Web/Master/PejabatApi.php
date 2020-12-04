@@ -35,6 +35,7 @@ class PejabatApi extends Controller{
     }
     public function create(){
         $request = $this->request; 
+        return response()->view("pages.pejabat.add");
     }
     public function show($id=''){
         $request = $this->request; 

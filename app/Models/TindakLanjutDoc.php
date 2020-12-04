@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class TindakLanjutDoc extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 }

@@ -39,15 +39,16 @@
             </a>
           </li>
           @endif
+          @if($level=='client')
           <li class="nav-item">
             <a href="{{route('dokumen.index')}}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
-                Dokumen
+                Register Dokumen
               </p>
             </a>
           </li>
-
+          @endif
           <li class="nav-item">
             <a href="#" onclick="window.APP.logout()" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>

@@ -16,7 +16,7 @@
                     <h3 class='card-title'>
                         Daftar Walikota
                     </h3>
-                    <a href="#" onclick='window.dashboardClient.addModal()'>
+                    <a href="#" onclick='window.walikota.addModal()'>
                         Tambah Walikota
                     </a>
                   
@@ -54,7 +54,9 @@
                 window.myUrl = {
                     table:"{{route('walikota-api.index')}}",
                     store:"{{route('pejabat.store')}}",
-                    delete:"{{route('pejabat.destroy',['pejabat'=>'@pejabat@'])}}",
+                    ubah:"{{route('pejabat.update',['pejabat'=>'@pejabat@'])}}",
+                    create:"{{route('walikota-api.create')}}",
+                    hapus:"{{route('pejabat.destroy',['pejabat'=>'@pejabat@'])}}",
                 }
                 window.walikota = window.APP.walikota;
                 walikota.init();
