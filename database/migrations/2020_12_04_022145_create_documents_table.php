@@ -15,6 +15,18 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->integer('penanggung_jawab_id');
+            $table->integer('pejabat_id');
+            $table->string('nomor',40);
+            $table->string('tentang');
+            $table->string('maksud');
+            $table->string('tujuan');
+            $table->longtext('lingkup');
+            $table->longtext('hak_pihak_pertama');
+            $table->longtext('kewajiban_pihak_pertama');
+            $table->longtext('hak_pihak_kedua');
+            $table->longtext('kewajiban_pihak_kedua');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

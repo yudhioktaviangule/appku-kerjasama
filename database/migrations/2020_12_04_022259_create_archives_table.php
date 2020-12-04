@@ -15,6 +15,9 @@ class CreateArchivesTable extends Migration
     {
         Schema::create('archives', function (Blueprint $table) {
             $table->id();
+            $table->integer('document_id');
+            $table->string('judul');
+            $table->longtext('isi');
             $table->timestamps();
         });
     }

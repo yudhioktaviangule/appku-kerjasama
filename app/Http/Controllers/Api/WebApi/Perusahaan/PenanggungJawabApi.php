@@ -13,6 +13,7 @@ class PenanggungJawabApi extends Controller{
     public function __construct(Request $request){
         $this->request = $request; 
         $this->middleware('auth.api');
+        $this->middleware('auth.api.only.client');
     }
     public function index(){
         $request = $this->request; 

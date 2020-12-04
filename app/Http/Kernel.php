@@ -43,6 +43,35 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'auth.root' => [
+            \App\Http\Middleware\Authenticate::class,
+            \App\Http\Middleware\AuthRestrictClient::class,
+        ],
+        'auth' => [
+            \App\Http\Middleware\Authenticate::class,
+            
+        ],
+        'role.root.kasubag' => [
+            \App\Http\Middleware\Authenticate::class,
+            \App\Http\Middleware\OnlyRootKasubagWeb::class,
+        ],
+        
+
+
+        'auth.api.restrict.client'=>[
+            \App\Http\Middleware\RootKasubagHukumOperatorApi::class,
+            
+        ],
+        'auth.api.only.client'=>[
+            \App\Http\Middleware\OnlyClientApi::class,
+            
+        ],
+        'auth.api'=>[
+            \App\Http\Middleware\AuthForApi::class,
+            
+        ],
+        
+      
     ];
 
     /**
@@ -53,7 +82,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
+        
+        'operator.only' => \App\Http\Middleware\AuthRestrictClient::class,
         'auth.api' => \App\Http\Middleware\AuthForApi::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

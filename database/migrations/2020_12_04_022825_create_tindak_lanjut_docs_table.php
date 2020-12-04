@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsulanDocsTable extends Migration
+class CreateTindakLanjutDocsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateUsulanDocsTable extends Migration
      */
     public function up()
     {
-        Schema::create('usulan_docs', function (Blueprint $table) {
+        Schema::create('tindak_lanjut_docs', function (Blueprint $table) {
             $table->id();
+            $table->integer('document_id');
+            $table->integer('user_id');
+            $table->enum('stdoc',[0,1,2,3,4,5,6,7,8,9,99])->default(0);
+            $table->string("keterangan")->default("-");
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateUsulanDocsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usulan_docs');
+        Schema::dropIfExists('tindak_lanjut_docs');
     }
 }

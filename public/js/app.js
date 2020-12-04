@@ -55589,20 +55589,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MainRouter; });
 /* harmony import */ var _pages_clients_DashboardClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/clients/DashboardClient */ "./resources/js/components/pages/clients/DashboardClient.js");
 /* harmony import */ var _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/clients/PenanggungJawab */ "./resources/js/components/pages/clients/PenanggungJawab.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/Alert */ "./resources/js/scripts/Alert.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
-var MainRouter = function MainRouter() {
-  _classCallCheck(this, MainRouter);
 
-  _defineProperty(this, "dashboardClient", new _pages_clients_DashboardClient__WEBPACK_IMPORTED_MODULE_0__["default"]());
+var MainRouter = /*#__PURE__*/function () {
+  function MainRouter() {
+    _classCallCheck(this, MainRouter);
 
-  _defineProperty(this, "penanggungJawab", new _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__["default"]());
-};
+    _defineProperty(this, "dashboardClient", new _pages_clients_DashboardClient__WEBPACK_IMPORTED_MODULE_0__["default"]());
+
+    _defineProperty(this, "penanggungJawab", new _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__["default"]());
+  }
+
+  _createClass(MainRouter, [{
+    key: "logout",
+    value: function logout() {
+      var alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_2__["default"]();
+      alert.swalYesNo("Ingin keluar dari Aplikasi?", 'Logout', function () {
+        $("#logout-form").submit();
+      });
+    }
+  }]);
+
+  return MainRouter;
+}();
 
 
 

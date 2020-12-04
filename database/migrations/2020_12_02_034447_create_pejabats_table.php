@@ -15,6 +15,9 @@ class CreatePejabatsTable extends Migration
     {
         Schema::create('pejabats', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('jabatan');
+            $table->enum('aktif',[0,1]);
             $table->softDeletes();
             $table->timestamps();
         });

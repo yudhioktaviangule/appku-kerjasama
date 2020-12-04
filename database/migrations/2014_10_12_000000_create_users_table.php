@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('nomor_identitas',16)->default("user-intern");
-            $table->enum('level',['client','kasubag','operator','bag. hukum'])->default('client');
+            $table->enum('level',['root','client','kasubag','operator','bag. hukum'])->default('client');
             $table->string('email')->unique();
             $table->string('telepon',20)->unique();
             $table->string('password');
