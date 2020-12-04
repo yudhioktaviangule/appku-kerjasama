@@ -4,11 +4,12 @@ export default class CreateDataTable{
         this.obj=object;
     }
 
-    dataTable(cols,ajax){
+    dataTable(cols,ajax,options={}){
         
         console.log("creating datatable");
       console.log("columns",cols);
         $(this.obj).DataTable({
+            ...options,
             columns:cols,
             ajax:{...ajax.ajax,type:'GET'},
             language:{

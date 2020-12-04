@@ -1,20 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Web\Master;
+namespace App\Http\Controllers\Api\WebApi\Kerjasama;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PejabatController extends Controller{
+class DokumenApi extends Controller{
     private $request;
     public function __construct(Request $request){
         $this->request = $request; 
         $this->middleware('auth');
-        $this->middleware('role.root.kasubag');
     }
     public function index(){
         $request = $this->request; 
-        return view('pages.pejabat.index');
     }
     public function create(){
         $request = $this->request; 

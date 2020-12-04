@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class OnlyClient
 {
     /**
@@ -16,6 +16,24 @@ class OnlyClient
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $authenticated = [
+            'client',
+            
+
+        ];
+        $data = Auth::user();
+        $level = $data->level;
+        $v= false;
+        $level = strtolower($level);
+        foreach ($authenticated as $key => $value) {
+            if($value===$level){
+                $v=true;
+            }
+        }
+        if($v):
+            return $next($request);
+        else:
+            return redirect(route('restrict.index'));
+        endif;
     }
 }

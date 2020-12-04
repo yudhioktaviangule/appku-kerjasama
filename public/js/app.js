@@ -55590,6 +55590,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_clients_DashboardClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/clients/DashboardClient */ "./resources/js/components/pages/clients/DashboardClient.js");
 /* harmony import */ var _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/clients/PenanggungJawab */ "./resources/js/components/pages/clients/PenanggungJawab.js");
 /* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/Alert */ "./resources/js/scripts/Alert.js");
+/* harmony import */ var _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/kasubag_root/Walikota */ "./resources/js/components/pages/kasubag_root/Walikota.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -55602,6 +55603,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var MainRouter = /*#__PURE__*/function () {
   function MainRouter() {
     _classCallCheck(this, MainRouter);
@@ -55609,6 +55611,8 @@ var MainRouter = /*#__PURE__*/function () {
     _defineProperty(this, "dashboardClient", new _pages_clients_DashboardClient__WEBPACK_IMPORTED_MODULE_0__["default"]());
 
     _defineProperty(this, "penanggungJawab", new _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__["default"]());
+
+    _defineProperty(this, "walikota", new _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__["default"]());
   }
 
   _createClass(MainRouter, [{
@@ -56442,6 +56446,78 @@ var PenanggungJawab = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/kasubag_root/Walikota.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/Walikota.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Walikota; });
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var Walikota = /*#__PURE__*/function () {
+  function Walikota() {
+    _classCallCheck(this, Walikota);
+
+    _defineProperty(this, "columns", [{
+      name: "name",
+      data: "name",
+      orderable: false
+    }, {
+      name: "jabatan",
+      data: "jabatan",
+      orderable: false
+    }, {
+      name: "status_aktif",
+      data: "status_aktif",
+      orderable: false,
+      searchable: false
+    }, {
+      name: "aksi",
+      data: "aksi",
+      orderable: false,
+      searchable: false
+    }]);
+
+    _defineProperty(this, "table", $("#table-walikota"));
+  }
+
+  _createClass(Walikota, [{
+    key: "init",
+    value: function init() {
+      this.initDataTable();
+    }
+  }, {
+    key: "initDataTable",
+    value: function initDataTable() {
+      var tb = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.table);
+      var table = window.myUrl.table;
+      var ajax = tb.createAjaxParam(table, {});
+      tb.dataTable(this.columns, ajax, {
+        "order": [[2, 'asc']]
+      });
+    }
+  }]);
+
+  return Walikota;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/scripts/Ajax.js":
 /*!**************************************!*\
   !*** ./resources/js/scripts/Ajax.js ***!
@@ -56690,9 +56766,10 @@ var CreateDataTable = /*#__PURE__*/function () {
   _createClass(CreateDataTable, [{
     key: "dataTable",
     value: function dataTable(cols, ajax) {
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
       console.log("creating datatable");
       console.log("columns", cols);
-      $(this.obj).DataTable({
+      $(this.obj).DataTable(_objectSpread(_objectSpread({}, options), {}, {
         columns: cols,
         ajax: _objectSpread(_objectSpread({}, ajax.ajax), {}, {
           type: 'GET'
@@ -56701,7 +56778,7 @@ var CreateDataTable = /*#__PURE__*/function () {
           search: "Cari",
           loadingRecords: "Mengambil Data"
         }
-      });
+      }));
     }
   }, {
     key: "createAjaxParam",

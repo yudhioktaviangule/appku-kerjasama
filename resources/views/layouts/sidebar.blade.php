@@ -2,7 +2,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('dist/img/user8-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
@@ -35,11 +35,19 @@
               <i class="nav-icon fas fa-sitemap"></i>
               <p>
                 Pejabat
-                
               </p>
             </a>
           </li>
           @endif
+          <li class="nav-item">
+            <a href="{{route('dokumen.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Dokumen
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="#" onclick="window.APP.logout()" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>

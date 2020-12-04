@@ -57,19 +57,6 @@ class Kernel extends HttpKernel
         ],
         
 
-
-        'auth.api.restrict.client'=>[
-            \App\Http\Middleware\RootKasubagHukumOperatorApi::class,
-            
-        ],
-        'auth.api.only.client'=>[
-            \App\Http\Middleware\OnlyClientApi::class,
-            
-        ],
-        'auth.api'=>[
-            \App\Http\Middleware\AuthForApi::class,
-            
-        ],
         
       
     ];
@@ -82,9 +69,12 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        
         'operator.only' => \App\Http\Middleware\AuthRestrictClient::class,
         'auth.api' => \App\Http\Middleware\AuthForApi::class,
+        'only.client' => \App\Http\Middleware\OnlyClient::class,
+        'auth.api.only.client' => \App\Http\Middleware\OnlyClientApi::class,
+        'auth.api.restrict.client'=>\App\Http\Middleware\RootKasubagHukumOperatorApi::class,
+        'auth.api.kasubag.root'=>\App\Http\Middleware\OnlyRootKasubagApi::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
