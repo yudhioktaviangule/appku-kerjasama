@@ -16,12 +16,18 @@ class PerusahaanApi extends Controller{
     public function index(){
         $request = $this->request; 
         $id = $request->uid;
+        $ntype = $request->type==NULL?true:false;
+    
         $data = Perusahaan::where('user_id',$id)->get();
-        $table = Tabelku::of($data)->addIndexColumn();
-        $table->addColumn('aksi',function($json){
-            return View::make('pages.dash.clients.buttons',['json'=>$json]);
-        });
-        return $table->make();
+        if($ntype):
+            $table = Tabelku::of($data)->addIndexColumn();
+            $table->addColumn('aksi',function($json){
+                return View::make('pages.dash.clients.buttons',['json'=>$json]);
+            });
+            return $table->make();
+        else:
+            return response()->json($data);
+        endif;
     }
     public function create(){
         $request = $this->request; 

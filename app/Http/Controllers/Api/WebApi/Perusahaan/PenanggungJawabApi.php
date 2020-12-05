@@ -38,6 +38,9 @@ class PenanggungJawabApi extends Controller{
     }
     public function show($id=''){
         $request = $this->request; 
+        $xid=explode('-',$id);
+        $data = PenanggungJawab::where('perusahaan_id',$xid[0])->where('user_id',$xid[1])->get();
+        return response()->json($data);
     }
     public function edit($id=''){
         $request = $this->request; 

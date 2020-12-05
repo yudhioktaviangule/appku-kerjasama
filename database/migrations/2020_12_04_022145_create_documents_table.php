@@ -22,10 +22,9 @@ class CreateDocumentsTable extends Migration
             $table->string('maksud');
             $table->string('tujuan');
             $table->longtext('lingkup');
-            $table->longtext('hak_pihak_pertama');
-            $table->longtext('kewajiban_pihak_pertama');
-            $table->longtext('hak_pihak_kedua');
-            $table->longtext('kewajiban_pihak_kedua');
+            $table->longtext('pihak_pertama');
+            $table->longtext('pihak_kedua');
+       
             $table->softDeletes();
             $table->timestamps();
         });

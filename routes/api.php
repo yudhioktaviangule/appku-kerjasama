@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\WebApi\Perusahaan\PerusahaanApi;
 use App\Http\Controllers\Api\WebApi\Perusahaan\PenanggungJawabApi;
 use App\Http\Controllers\Api\WebApi\Perusahaan\PenanggungJawabUploadSkApi;
 use App\Http\Controllers\Api\WebApi\Web\Master\PejabatApi;
+use App\Http\Controllers\Api\WebApi\Kerjasama\DokumenApi;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -20,3 +21,4 @@ Route::get("client-api-perusahaan-c/{id}",[PerusahaanApi::class,'countss'])->nam
 Route::post("client-api-penanggungjawabku/upload/{id?}",[PenanggungJawabUploadSkApi::class,'upload'])->name('upload.sk.jabatan');
 
 Route::resource("walikota-api",PejabatApi::class);
+Route::resource("doc-api",DokumenApi::class);

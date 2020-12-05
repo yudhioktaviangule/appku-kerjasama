@@ -55591,6 +55591,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/clients/PenanggungJawab */ "./resources/js/components/pages/clients/PenanggungJawab.js");
 /* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/Alert */ "./resources/js/scripts/Alert.js");
 /* harmony import */ var _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/kasubag_root/Walikota */ "./resources/js/components/pages/kasubag_root/Walikota.js");
+/* harmony import */ var _pages_clients_RegisterDokumen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/clients/RegisterDokumen */ "./resources/js/components/pages/clients/RegisterDokumen.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -55598,6 +55599,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -55613,6 +55615,8 @@ var MainRouter = /*#__PURE__*/function () {
     _defineProperty(this, "penanggungJawab", new _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__["default"]());
 
     _defineProperty(this, "walikota", new _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__["default"]());
+
+    _defineProperty(this, "regDokumen", new _pages_clients_RegisterDokumen__WEBPACK_IMPORTED_MODULE_4__["default"]());
   }
 
   _createClass(MainRouter, [{
@@ -56440,6 +56444,875 @@ var PenanggungJawab = /*#__PURE__*/function () {
   }]);
 
   return PenanggungJawab;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/RegDokumen/DtbDokumen.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/RegDokumen/DtbDokumen.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DtbDokumen; });
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var DtbDokumen = /*#__PURE__*/function () {
+  function DtbDokumen(dataTableDOM, penanggung_jawab_id) {
+    _classCallCheck(this, DtbDokumen);
+
+    _defineProperty(this, "dom", void 0);
+
+    _defineProperty(this, "pj_id", void 0);
+
+    _defineProperty(this, "tbl", void 0);
+
+    _defineProperty(this, "columns", [{
+      name: 'nomor',
+      data: 'nomor'
+    }, {
+      name: 'tentang',
+      data: 'tentang'
+    }, {
+      name: 'keterangan',
+      data: 'keterangan'
+    }, {
+      name: 'aksi',
+      data: 'aksi'
+    }]);
+
+    this.pj_id = penanggung_jawab_id;
+    this.dom = dataTableDOM;
+  }
+
+  _createClass(DtbDokumen, [{
+    key: "initDataTable",
+    value: function initDataTable() {
+      var _this = this;
+
+      console.log("initializeDataTable");
+      var dataTable = myUrl.dokumen.dataTable;
+      var url = dataTable.replace(/(@pjid@)/g, this.pj_id);
+      var xtable = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.dom);
+      var ajax = xtable.createAjaxParam(url);
+      $("#table-walikota").show(1000);
+      setTimeout(function () {
+        xtable.dataTable(_this.columns, ajax);
+      }, 1000);
+      $("#mcontent").hide(1000);
+    }
+  }]);
+
+  return DtbDokumen;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/RegDokumen/FormDokumen.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/RegDokumen/FormDokumen.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormDokumen; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var FormDokumen = /*#__PURE__*/function () {
+  function FormDokumen() {
+    _classCallCheck(this, FormDokumen);
+
+    _defineProperty(this, "pjid", 0);
+  }
+
+  _createClass(FormDokumen, [{
+    key: "init",
+    value: function init(penanggung) {
+      this.pjid = penanggung;
+      return this;
+    }
+  }, {
+    key: "loadForm",
+    value: function () {
+      var _loadForm = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var title,
+            onload,
+            _myUrl,
+            _myUrl$dokumen,
+            regex,
+            simpan,
+            url,
+            modals,
+            _args = arguments;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                title = _args.length > 0 && _args[0] !== undefined ? _args[0] : '';
+                onload = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
+                _myUrl = myUrl, _myUrl$dokumen = _myUrl.dokumen, regex = _myUrl$dokumen.create, simpan = _myUrl$dokumen.store;
+                url = regex.replace(/(@pjid)/g, this.pjid);
+                modals = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"](url, simpan, title, true);
+                _context.next = 7;
+                return modals.ajax();
+
+              case 7:
+                modals.openModal(function () {
+                  if (onload != null) {
+                    onload();
+                  }
+                }, true);
+                return _context.abrupt("return", this);
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function loadForm() {
+        return _loadForm.apply(this, arguments);
+      }
+
+      return loadForm;
+    }()
+  }]);
+
+  return FormDokumen;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/RegDokumen/PihakKedua.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/RegDokumen/PihakKedua.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PihakKedua; });
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var PihakKedua = /*#__PURE__*/function () {
+  function PihakKedua() {
+    _classCallCheck(this, PihakKedua);
+
+    _defineProperty(this, "obj", {
+      hak: '',
+      kewajiban: ''
+    });
+
+    _defineProperty(this, "pihakKedua", {
+      hak: [],
+      kewajiban: []
+    });
+
+    _defineProperty(this, "hakFormat", {
+      hak: ""
+    });
+
+    _defineProperty(this, "kewajibanFormat", {
+      kewajiban: ""
+    });
+  }
+
+  _createClass(PihakKedua, [{
+    key: "init",
+    value: function init() {
+      this.obj.hak = $("#hak-p2");
+    }
+  }, {
+    key: "addHak",
+    value: function addHak(textObj) {
+      var cval = textObj.val();
+
+      if (cval == "") {
+        var pesan = new Alert();
+        pesan.swAlert('Gagal Tambahkan data, Hak masih kosong', 'Hak Pihak Kedua', function () {
+          return;
+        }, 'error');
+        return null;
+      }
+
+      this.hakFormat = _objectSpread(_objectSpread({}, this.hakFormat), {}, {
+        hak: cval
+      });
+      this.pihakKedua.hak.push(this.hakFormat);
+      this.renderHak();
+      textObj.val("");
+      console.log('adding Hak Pihak Kedua');
+    }
+  }, {
+    key: "renderHak",
+    value: function renderHak() {
+      var html = '';
+      var index = 0;
+
+      var _iterator = _createForOfIteratorHelper(this.pihakKedua.hak),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var hak = _step.value;
+          var hakku = hak.hak;
+          html += "<tr><td>".concat(index + 1, ". ").concat(hakku, " <a href='#' class='text-danger' onclick='window.register.pihak2.removeHak(").concat(index, ")'>Hapus</a></td></tr>");
+          index++;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      $("#hak-p2").html(html);
+      $("#pihak-kedua").val(JSON.stringify(this.pihakKedua));
+    }
+  }, {
+    key: "removeHak",
+    value: function removeHak(index) {
+      this.pihakKedua.hak.splice(index, 1);
+      this.renderHak();
+    }
+  }, {
+    key: "addKewajiban",
+    value: function addKewajiban(textObj) {
+      var cval = textObj.val();
+
+      if (cval == "") {
+        var pesan = new Alert();
+        pesan.swAlert('Gagal Tambahkan data, Kewajiban masih kosong', 'Kewajiban Pihak Kedua', function () {
+          return;
+        }, 'error');
+        return null;
+      }
+
+      this.kewajibanFormat = _objectSpread(_objectSpread({}, this.kewajibanFormat), {}, {
+        kewajiban: cval
+      });
+      this.pihakKedua.kewajiban.push(this.kewajibanFormat);
+      this.renderKewajiban();
+      textObj.val("");
+      console.log('adding Kewajiban Pihak Kedua');
+    }
+  }, {
+    key: "renderKewajiban",
+    value: function renderKewajiban() {
+      var html = '';
+      var index = 0;
+
+      var _iterator2 = _createForOfIteratorHelper(this.pihakKedua.kewajiban),
+          _step2;
+
+      try {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var Kewajiban = _step2.value;
+          var value = Kewajiban.kewajiban;
+          html += "<tr><td>".concat(index + 1, ". ").concat(value, " <a href='#' class='text-danger' onclick='window.register.pihak2.removeKewajiban(").concat(index, ")'>Hapus</a></td></tr>");
+          index++;
+        }
+      } catch (err) {
+        _iterator2.e(err);
+      } finally {
+        _iterator2.f();
+      }
+
+      $("#ls-kewajiban-2").html(html);
+      $("#pihak-kedua").val(JSON.stringify(this.pihakKedua));
+    }
+  }, {
+    key: "removeKewajiban",
+    value: function removeKewajiban(index) {
+      this.pihakKedua.kewajiban.splice(index, 1);
+      this.renderKewajiban();
+    }
+  }]);
+
+  return PihakKedua;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/RegDokumen/PihakPertama.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/RegDokumen/PihakPertama.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PihakPertama; });
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var PihakPertama = /*#__PURE__*/function () {
+  function PihakPertama() {
+    _classCallCheck(this, PihakPertama);
+
+    _defineProperty(this, "obj", {
+      hak: '',
+      kewajiban: ''
+    });
+
+    _defineProperty(this, "pihakPertama", {
+      hak: [],
+      kewajiban: []
+    });
+
+    _defineProperty(this, "hakFormat", {
+      hak: ""
+    });
+
+    _defineProperty(this, "kewajibanFormat", {
+      kewajiban: ""
+    });
+  }
+
+  _createClass(PihakPertama, [{
+    key: "init",
+    value: function init() {
+      this.obj.hak = $("#list-hak-pihak-pertama");
+    }
+  }, {
+    key: "addHak",
+    value: function addHak(textObj) {
+      var cval = textObj.val();
+
+      if (cval == "") {
+        var pesan = new Alert();
+        pesan.swAlert('Gagal Tambahkan data, Hak masih kosong', 'Hak Pihak Pertama', function () {
+          return;
+        }, 'error');
+        return null;
+      }
+
+      this.hakFormat = _objectSpread(_objectSpread({}, this.hakFormat), {}, {
+        hak: cval
+      });
+      this.pihakPertama.hak.push(this.hakFormat);
+      this.renderHak();
+      textObj.val("");
+      console.log('adding Hak Pihak Pertama');
+    }
+  }, {
+    key: "renderHak",
+    value: function renderHak() {
+      var html = '';
+      var index = 0;
+
+      var _iterator = _createForOfIteratorHelper(this.pihakPertama.hak),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var hak = _step.value;
+          var hakku = hak.hak;
+          html += "<tr><td>".concat(index + 1, ". ").concat(hakku, " <a href='#' class='text-danger' onclick='window.register.pihak1.removeHak(").concat(index, ")'>Hapus</a></td></tr>");
+          index++;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      $("#list-hak-pihak-pertama").html(html);
+      $("#pihak-pertama").val(JSON.stringify(this.pihakPertama));
+    }
+  }, {
+    key: "removeHak",
+    value: function removeHak(index) {
+      this.pihakPertama.hak.splice(index, 1);
+      this.renderHak();
+    }
+  }, {
+    key: "addKewajiban",
+    value: function addKewajiban(textObj) {
+      var cval = textObj.val();
+
+      if (cval == "") {
+        var pesan = new Alert();
+        pesan.swAlert('Gagal Tambahkan data, Kewajiban masih kosong', 'Kewajiban pihak Pertama', function () {
+          return;
+        }, 'error');
+        return null;
+      }
+
+      this.kewajibanFormat = _objectSpread(_objectSpread({}, this.kewajibanFormat), {}, {
+        kewajiban: cval
+      });
+      this.pihakPertama.kewajiban.push(this.kewajibanFormat);
+      this.renderKewajiban();
+      textObj.val("");
+      console.log('adding Kewajiban pihak Pertama');
+    }
+  }, {
+    key: "renderKewajiban",
+    value: function renderKewajiban() {
+      var html = '';
+      var index = 0;
+
+      var _iterator2 = _createForOfIteratorHelper(this.pihakPertama.kewajiban),
+          _step2;
+
+      try {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var Kewajiban = _step2.value;
+          var value = Kewajiban.kewajiban;
+          html += "<tr><td>".concat(index + 1, ". ").concat(value, " <a href='#' class='text-danger' onclick='window.register.pihak1.removeKewajiban(").concat(index, ")'>Hapus</a></td></tr>");
+          index++;
+        }
+      } catch (err) {
+        _iterator2.e(err);
+      } finally {
+        _iterator2.f();
+      }
+
+      $("#list-kewajiban-pihak-pertama").html(html);
+      $("#pihak-pertama").val(JSON.stringify(this.pihakPertama));
+    }
+  }, {
+    key: "removeKewajiban",
+    value: function removeKewajiban(index) {
+      this.pihakPertama.kewajiban.splice(index, 1);
+      this.renderKewajiban();
+    }
+  }]);
+
+  return PihakPertama;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RuangLingkup; });
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var RuangLingkup = /*#__PURE__*/function () {
+  function RuangLingkup() {
+    _classCallCheck(this, RuangLingkup);
+
+    _defineProperty(this, "arrLingkup", []);
+
+    _defineProperty(this, "lingkupFormat", {
+      lingkup: ""
+    });
+  }
+
+  _createClass(RuangLingkup, [{
+    key: "add",
+    value: function add(textObj) {
+      var cval = textObj.val();
+
+      if (cval == "") {
+        var pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_0__["default"]();
+        pesan.swAlert('Gagal Tambahkan data, Ruang Lingkup masih kosong', 'Lingkup', function () {
+          return;
+        }, 'error');
+        return null;
+      }
+
+      this.lingkupFormat = _objectSpread(_objectSpread({}, this.lingkupFormat), {}, {
+        lingkup: cval
+      });
+      this.arrLingkup.push(this.lingkupFormat);
+      this.render();
+      textObj.val("");
+      console.log('adding ruang lingkup');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var html = '';
+      var index = 0;
+
+      var _iterator = _createForOfIteratorHelper(this.arrLingkup),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var lingkup = _step.value;
+          var ruang = lingkup.lingkup;
+          html += "<tr><td>".concat(index + 1, ". ").concat(ruang, " <a href='#' class='text-danger' onclick='window.register.lingkup.remove(").concat(index, ")'>Hapus</a></td></tr>");
+          index++;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      $("#list-lingkup").html(html);
+      $("#jumlah-lingkup").html(this.arrLingkup.length);
+      $("#lingkup-json").val(JSON.stringify(this.arrLingkup));
+    }
+  }, {
+    key: "remove",
+    value: function remove(index) {
+      this.arrLingkup.splice(index, 1);
+      this.render();
+    }
+  }, {
+    key: "capLihat",
+    value: function capLihat(obj) {
+      var val = obj.html();
+      var objNext = obj.attr("href");
+      var cClass = $(objNext).attr("class");
+      console.log('cClass', cClass);
+      var tutup = cClass.toLowerCase() === 'collapse show';
+
+      if (!tutup) {
+        obj.html("<i class='fas fa-times'></i> Close");
+      } else {
+        obj.html("<i class='fas fa-eye'></i> Lihat");
+      }
+    }
+  }]);
+
+  return RuangLingkup;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/RegisterDokumen.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/pages/clients/RegisterDokumen.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RegisterDokumen; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+/* harmony import */ var _RegDokumen_DtbDokumen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegDokumen/DtbDokumen */ "./resources/js/components/pages/clients/RegDokumen/DtbDokumen.js");
+/* harmony import */ var _RegDokumen_FormDokumen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RegDokumen/FormDokumen */ "./resources/js/components/pages/clients/RegDokumen/FormDokumen.js");
+/* harmony import */ var _RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RegDokumen/RuangLingkup */ "./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js");
+/* harmony import */ var _RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./RegDokumen/PihakPertama */ "./resources/js/components/pages/clients/RegDokumen/PihakPertama.js");
+/* harmony import */ var _RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./RegDokumen/PihakKedua */ "./resources/js/components/pages/clients/RegDokumen/PihakKedua.js");
+
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+var RegisterDokumen = /*#__PURE__*/function () {
+  function RegisterDokumen() {
+    _classCallCheck(this, RegisterDokumen);
+
+    _defineProperty(this, "user", void 0);
+
+    _defineProperty(this, "chainSelect", "\n    <label for=\"\">Penanggung Jawab</label>\n    <select id=\"penanggung_jawab_id\" onchange=\"window.register.enableSearch()\" id=\"chain-child\" class='form-control'>\n        @rebuild\n    </select>\n\n    ");
+
+    _defineProperty(this, "lingkup", new _RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_5__["default"]());
+
+    _defineProperty(this, "pihak1", new _RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_6__["default"]());
+
+    _defineProperty(this, "pihak2", new _RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_7__["default"]());
+
+    _defineProperty(this, "form", void 0);
+
+    _defineProperty(this, "penanggungJawab", '');
+  }
+
+  _createClass(RegisterDokumen, [{
+    key: "init",
+    value: function init(user_id) {
+      this.user = user_id;
+      this.getPerusahaan();
+      $("#table-walikota").hide();
+    }
+  }, {
+    key: "enableSearch",
+    value: function enableSearch() {
+      $("#btn-cari").show(400);
+      $("#btn-cari").show(400);
+    }
+  }, {
+    key: "setPenanggungJawab",
+    value: function setPenanggungJawab() {
+      this.penanggungJawab = $("#penanggung_jawab_id").val();
+      this.initDataTable();
+    }
+  }, {
+    key: "getPerusahaan",
+    value: function () {
+      var _getPerusahaan = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var get, axios, _yield$axios$get, data, html, _iterator, _step, d;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                $("#btn-cari").hide();
+                get = window.myUrl.perusahaan.get;
+                axios = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](get, 'GET');
+                _context.next = 5;
+                return axios.get(get);
+
+              case 5:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                html = "<option value=''></option>";
+                _iterator = _createForOfIteratorHelper(data);
+
+                try {
+                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                    d = _step.value;
+                    html += "\n                <option value=".concat(d.id, ">").concat(d.name, "</option>\n            ");
+                  }
+                } catch (err) {
+                  _iterator.e(err);
+                } finally {
+                  _iterator.f();
+                }
+
+                $("#cb-perusahaan").html(html);
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function getPerusahaan() {
+        return _getPerusahaan.apply(this, arguments);
+      }
+
+      return getPerusahaan;
+    }()
+  }, {
+    key: "chainCombo",
+    value: function () {
+      var _chainCombo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(perusahaan_id) {
+        var obj, get, url, axios, _yield$axios$get2, data, html, _iterator2, _step2, x, chsel;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                $("#btn-cari").hide();
+                obj = {
+                  pid: perusahaan_id,
+                  uid: this.user
+                };
+                get = myUrl.pj.get;
+                url = get.replace(/(pid|uid)/gi, function (match) {
+                  return obj[match];
+                });
+                axios = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url, 'GET');
+                _context2.next = 7;
+                return axios.get(url);
+
+              case 7:
+                _yield$axios$get2 = _context2.sent;
+                data = _yield$axios$get2.data;
+                html = "<option></option>";
+                _iterator2 = _createForOfIteratorHelper(data);
+
+                try {
+                  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                    x = _step2.value;
+                    html += "\n                <option value=".concat(x.id, ">").concat(x.jabatan, "</option>\n            ");
+                  }
+                } catch (err) {
+                  _iterator2.e(err);
+                } finally {
+                  _iterator2.f();
+                }
+
+                chsel = this.chainSelect.replace(/(@rebuild)/g, html);
+                $("#chain-child").html(chsel);
+
+              case 14:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function chainCombo(_x) {
+        return _chainCombo.apply(this, arguments);
+      }
+
+      return chainCombo;
+    }()
+  }, {
+    key: "initDataTable",
+    value: function initDataTable() {
+      new _RegDokumen_DtbDokumen__WEBPACK_IMPORTED_MODULE_3__["default"]($("#table-dokumen"), this.penanggungJawab).initDataTable();
+    }
+  }, {
+    key: "addModal",
+    value: function () {
+      var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this = this;
+
+        var dokumen;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                dokumen = new _RegDokumen_FormDokumen__WEBPACK_IMPORTED_MODULE_4__["default"]().init(this.penanggungJawab);
+                _context3.next = 3;
+                return dokumen.loadForm("Register Dokumen", function () {
+                  _this.lingkup.render();
+                });
+
+              case 3:
+                this.form = _context3.sent;
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function addModal() {
+        return _addModal.apply(this, arguments);
+      }
+
+      return addModal;
+    }()
+  }]);
+
+  return RegisterDokumen;
 }();
 
 
