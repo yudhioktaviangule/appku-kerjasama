@@ -20,4 +20,8 @@ class Perusahaan extends Model
         'file_ijin_usaha',
         'user_id',
 ];
+public function getUser()
+{
+    return User::where('id',$this->user_id)->first();
+}
 }

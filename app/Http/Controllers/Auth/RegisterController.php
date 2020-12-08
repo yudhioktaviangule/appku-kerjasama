@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'telepon' => $data['telepon'],
             'nomor_identitas' => $data['nomor_identitas'],
             'password' => Hash::make($data['password']),
+            
         ]);
         
         $fileName = $photo->setName($usr->id,$fileName);

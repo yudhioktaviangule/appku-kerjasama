@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
+@php
+    $lev   = Auth::user()->level;
+    $preg  = strtolower($lev);
+    $image = preg_replace('/(. )/','',$preg);
+    
+@endphp
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -11,11 +13,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <title>{{ config('app.name', 'Laravel') }} @yield('title')</title>
 
-  <!-- Font Awesome Icons -->
- <!--  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
-  <!-- Theme style -->
-  <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
-  <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -35,6 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- SEARCH FORM -->
     
 
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
@@ -47,7 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{asset('dist/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="{{asset('dist/img/'.$image.'.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -63,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{asset('dist/img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="{{asset('dist/img/'.$image.'.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -79,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{asset('dist/img/user3-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="{{asset('dist/img/'.$image.'.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -236,6 +234,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('dist/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('dist/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('dist/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{asset('dist/select2/dist/js/select2.full.js')}}"></script>
+
 <script src="{{asset('js/app.js')}}"></script>
 <script>
   $(document).ready(()=>{

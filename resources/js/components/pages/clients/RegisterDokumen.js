@@ -6,10 +6,12 @@ import FormDokumen from './RegDokumen/FormDokumen';
 import RuangLingkup from './RegDokumen/RuangLingkup';
 import PihakPertama from './RegDokumen/PihakPertama';
 import PihakKedua from './RegDokumen/PihakKedua';
+import Alert from '../../../scripts/Alert';
 
 
 
 export default class RegisterDokumen{
+    showing=false;
     user;
     chainSelect=`
     <label for="">Penanggung Jawab</label>
@@ -22,11 +24,13 @@ export default class RegisterDokumen{
     pihak1 = new PihakPertama();
     pihak2 = new PihakKedua();
     form;
-    penanggungJawab = '';
+    penanggungJawab = null;
     init(user_id){
         this.user=user_id;
         this.getPerusahaan();
-        $("#table-walikota").hide();
+        this.initDataTable();
+        this.showing=false;
+
     }
     enableSearch(){
         $("#btn-cari").show(400)
@@ -35,7 +39,19 @@ export default class RegisterDokumen{
 
     setPenanggungJawab(){
         this.penanggungJawab = $("#penanggung_jawab_id").val();
-        this.initDataTable()
+        this.roleCaption();
+        
+    }
+    roleCaption(){
+        try{
+            let perrCap=$("#cb-perusahaan option:selected").text();
+            let perrcl=$("#penanggung_jawab_id option:selected").text();
+            $("#role-pr").html(`<strong>Role</strong>: ${perrcl}, ${perrCap}`);
+            $("#mcontent-card").addClass("collapsed-card")
+            
+        }catch(e){
+
+        }
     }
     async getPerusahaan(){
         $("#btn-cari").hide();
@@ -58,6 +74,7 @@ export default class RegisterDokumen{
             pid:perusahaan_id,
             uid:this.user
         }
+        
         const { get } = myUrl.pj;
         let url = get.replace(/(pid|uid)/gi,match=>{
             return obj[match];
@@ -75,13 +92,54 @@ export default class RegisterDokumen{
         
     }
     initDataTable(){
-        new DtbDokumen($("#table-dokumen"),this.penanggungJawab).initDataTable();
+        new DtbDokumen($("#table-dokumen"),this.user).initDataTable();
+    }
+    renderAll(){
+        this.lingkup.render();
+        this.pihak1.renderHak();
+        this.pihak1.renderKewajiban();
+        this.pihak2.renderHak();
+        this.pihak2.renderKewajiban();
+    }
+    validasi(){
+        const objForm = {
+            tentang:{obj:'#tentang'},
+            maksud:{obj:'#maksud'},
+            tujuan:{obj:'#tujuan'},
+            lingkup:{obj:"input[name='lingkup']"},
+            pihak_pertama:{obj:"input[name='pihak_pertama']"},
+            pihak_kedua:{obj:"input[name='pihak_kedua']"},
+        }
+        let validasi = true;
+        for(let form in objForm){
+            let value = $(form).val(); 
+            if(value===''||value===null||value===undefined){
+                validasi=false;
+            }
+        }
+        if(validasi){
+            $("#mdl-save").hide();
+        }else{
+            $("#mdl-save").show();
+
+        }
     }
     async addModal(){
-       const dokumen =  new FormDokumen().init(this.penanggungJawab);
-       this.form = await dokumen.loadForm("Register Dokumen",()=>{
-           this.lingkup.render();
-       })
+        const pesan=new Alert()
+        if(this.penanggungJawab!=null){
+            const dokumen =  new FormDokumen().init(this.penanggungJawab);
+            this.form = await dokumen.loadForm("Register Dokumen",()=>{
+                if(!this.showing){
+                    this.renderAll()
+                    this.showing=true
+                }
+            })
+
+        }else{
+            pesan.swAlert('Pilih Role Terlebih dahulu','Role Error',()=>{
+                return
+            },"error")
+        }
        
     }
 

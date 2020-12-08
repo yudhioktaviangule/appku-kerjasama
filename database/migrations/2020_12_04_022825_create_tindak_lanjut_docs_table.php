@@ -17,7 +17,7 @@ class CreateTindakLanjutDocsTable extends Migration
             $table->id();
             $table->integer('document_id');
             $table->integer('user_id');
-            $table->enum('stdoc',[0,1,2,3,4,5,6,7,8,9,99])->default(0);
+            $table->enum('stdoc',[0,1,2,3,4,5,6,7,8,9,10,99])->default(0);
             $table->string("keterangan")->default("-");
             $table->timestamps();
         });

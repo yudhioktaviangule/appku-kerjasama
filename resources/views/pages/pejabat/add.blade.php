@@ -1,14 +1,10 @@
 <div class="form-group">
-    <label for="">Nama Walikota</label>
+    <label for="">Nama Pejabat</label>
     <input required type="text" class="form-control" name='name' id='name' autocomplete='off'>
 </div>
 <div class="form-group">
-    <label for="">Jenis Jabatan Walikota</label>
-    <select required class='form-control' name="jabatan" id="jabatan">
-        <option value="WALIKOTA MAKASSAR">Pejabat</option>
-        <option value="PLT. WALIKOTA MAKASSAR">Pelaksana Tugas</option>
-        <option value="PLH. WALIKOTA MAKASSAR">Pelaksana Harian</option>
-    </select>
+    <label for="">Jabatan</label>
+    <input type="text" name="jabatan" class="form-control">
 </div>
 <div class="form-group">
     <label for="">Status Keaktifan Pejabat</label>

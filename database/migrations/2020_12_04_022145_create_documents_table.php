@@ -24,7 +24,6 @@ class CreateDocumentsTable extends Migration
             $table->longtext('lingkup');
             $table->longtext('pihak_pertama');
             $table->longtext('pihak_kedua');
-       
             $table->softDeletes();
             $table->timestamps();
         });

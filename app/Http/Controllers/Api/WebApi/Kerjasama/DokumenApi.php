@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\WebApi\Kerjasama;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Document;
+use App\Includes\StateDokumen as Status;
 use Illuminate\Support\Facades\View;
 use Tabelku;
 class DokumenApi extends Controller{
@@ -17,10 +18,57 @@ class DokumenApi extends Controller{
     public function index(){
         $request = $this->request; 
         $penanggungJawab = $request->pjid;
-        $data = Document::where("penanggung_jawab_id",$penanggungJawab)->get();
-        return Tabelku::of($data)->addIndexColumn()->addColumn("aksi",function($json)
+        $data = Document::whereIn("penanggung_jawab_id",function($query)use($request){
+            $query->select('id')->from("penanggung_jawabs")->whereIn('perusahaan_id',
+                function($query2)use($request){
+                    $query2->select("id")->from("perusahaans")
+                        ->where('user_id',$request->pjid);
+                });
+        })->get();
+        return Tabelku::of($data)->addIndexColumn()
+        ->addColumn("nomor",function($json)
+        {   
+            $dec = json_decode($json);
+            $dec = $dec->nomor=='0'?"Belum Ada":$dec->nomor;
+            
+            return $dec;
+        })
+      
+        ->addColumn("perusahaan",function($json)
         {
-            return "no action needed";
+            $decode = json_decode(json_encode($json),TRUE);
+            $doc=new Document();
+            $doc->forceFill($decode);
+            return $doc->getPenanggungJawab()->getPerusahaan()->name;
+        })
+        ->addColumn("tujuan",function($json)
+        {
+            $decode = json_decode(json_encode($json),TRUE);
+            $doc=new Document();
+            $doc->forceFill($decode);
+            $p = $doc->getPejabat();
+            $data = $p->name."({$p->jabatan})";
+            return $data;
+        })
+        ->addColumn("aksi",function($json)
+        {
+            $decode = json_decode(json_encode($json),TRUE);
+            $doc=new Document();
+            $doc->forceFill($decode);
+            $state = new Status();
+            $data = $state->getStateDoc($doc);
+            return $data;
+        })
+
+        
+        ->addColumn("keterangan",function($json)
+        {
+            $decode = json_decode(json_encode($json),TRUE);
+            $doc=new Document();
+            $doc->forceFill($decode);
+            $state = new Status();
+            $data = $state->keterangan($doc);
+            return $data;
         })->make();
     }
     public function create(){

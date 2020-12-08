@@ -3,6 +3,16 @@ import Alert from '../../../../scripts/Alert';
 
 export default class RuangLingkup{
     arrLingkup=[]
+    formatList = `
+        <li class="item">
+            <span class="product-description">
+                _NO_. _CONTENT_
+                <a href="#" class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
+                    <i class="fas fa-minus"></i>
+                </a>
+            </span>
+        </li>    
+    `
     lingkupFormat = {lingkup:""};
     add(textObj){
         let cval = textObj.val();
@@ -21,13 +31,23 @@ export default class RuangLingkup{
         let html = '';
         let index = 0;
         for(let lingkup of this.arrLingkup){
-            const{lingkup:ruang}=lingkup;
-            html+=`<tr><td>${index+1}. ${ruang} <a href='#' class='text-danger' onclick='window.register.lingkup.remove(${index})'>Hapus</a></td></tr>`;
+            const{lingkup:hakku}=lingkup;
+            let fungsi = {
+                _FUNGSI_:`window.register.lingkup.remove(${index})`,
+                _NO_:index+1,
+                _CONTENT_:hakku,
+            };
+            let flist = this.formatList.replace(/(_NO_|_CONTENT_|_FUNGSI_)/gi,match=>{
+                return fungsi[match];
+            })
+            
+            html+=flist;
             index++;
         }
         $("#list-lingkup").html(html);
         $("#jumlah-lingkup").html(this.arrLingkup.length);
         $("#lingkup-json").val(JSON.stringify(this.arrLingkup))
+        window.register.validasi();
     }
     remove(index){
         this.arrLingkup.splice(index,1);

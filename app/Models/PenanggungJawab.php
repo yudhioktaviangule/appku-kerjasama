@@ -12,7 +12,11 @@ class PenanggungJawab extends Model
         'jabatan',
         'file_sk_jabatan',
         'nomor_sk_jabatan',
-        'user_id',
+        
         'perusahaan_id',
     ];
+    public function getPerusahaan()
+    {
+        return Perusahaan::where('id',$this->perusahaan_id)->first();
+    }
 }

@@ -1,6 +1,16 @@
 
 
 export default class PihakPertama{
+    formatList = `
+        <li class="item">
+            <span class="product-description">
+                _NO_. _CONTENT_
+                <a href="#" class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
+                    <i class="fas fa-minus"></i>
+                </a>
+            </span>
+        </li>    
+    `
     obj={
         hak:'',
         kewajiban:'',
@@ -32,15 +42,26 @@ export default class PihakPertama{
         console.log('adding Hak Pihak Pertama');
     }
     renderHak(){
+        
         let html = '';
         let index = 0;
         for(let hak of this.pihakPertama.hak){
             const{hak:hakku}=hak;
-            html+=`<tr><td>${index+1}. ${hakku} <a href='#' class='text-danger' onclick='window.register.pihak1.removeHak(${index})'>Hapus</a></td></tr>`;
+            let fungsi = {
+                _FUNGSI_:`window.register.pihak1.removeHak(${index})`,
+                _NO_:index+1,
+                _CONTENT_:hakku,
+            };
+            let flist = this.formatList.replace(/(_NO_|_CONTENT_|_FUNGSI_)/gi,match=>{
+                return fungsi[match];
+            })
+            
+            html+=flist;
             index++;
         }
         $("#list-hak-pihak-pertama").html(html);
         $("#pihak-pertama").val(JSON.stringify(this.pihakPertama))
+        window.register.validasi();
     }
     removeHak(index){
         this.pihakPertama.hak.splice(index,1);
@@ -64,12 +85,22 @@ export default class PihakPertama{
         let html = '';
         let index = 0;
         for(let Kewajiban of this.pihakPertama.kewajiban){
-            const{kewajiban:value}=Kewajiban;
-            html+=`<tr><td>${index+1}. ${value} <a href='#' class='text-danger' onclick='window.register.pihak1.removeKewajiban(${index})'>Hapus</a></td></tr>`;
+            const{kewajiban:kewajibanku}=Kewajiban;
+            let fungsi = {
+                _FUNGSI_:`window.register.pihak1.removeKewajiban(${index})`,
+                _NO_:index+1,
+                _CONTENT_:kewajibanku,
+            };
+            let flist = this.formatList.replace(/(_NO_|_CONTENT_|_FUNGSI_)/gi,match=>{
+                return fungsi[match];
+            })
+            
+            html+=flist;
             index++;
         }
         $("#list-kewajiban-pihak-pertama").html(html);
         $("#pihak-pertama").val(JSON.stringify(this.pihakPertama))
+        window.register.validasi();
     }
     removeKewajiban(index){
         this.pihakPertama.kewajiban.splice(index,1);

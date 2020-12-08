@@ -8,20 +8,25 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-4" id="mcontent">
-            <div class="card">
+            <div class="card" id='mcontent-card'>
+                <div class="card-header">
+                    <h3 class="card-title" id='role-pr'>Role</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
                 <div class="card-body">
                 <div >
-                        <div class="row">
+                        
+                        <div class="col">
                             <div class="col">
                                 <div id="pilih-role">
-                                    <div class="container-fluid ">
-                                        <div class="form-group">
-                                            <label for="">Pilih Perusahaan</label>
-                                            <select onchange='window.register.chainCombo($(this).val())' class='form-control' id="cb-perusahaan"></select>
-    
-                                        </div>
-                                        
-    
+                                    <div class="form-group">
+                                        <label for="">Pilih Perusahaan</label>
+                                        <select onchange='window.register.chainCombo($(this).val())' class='form-control' id="cb-perusahaan"></select>
+
                                     </div>
                                 </div>
                                 
@@ -33,16 +38,13 @@
                                     </div>
                                 </div>
                             </div>    
-                           
-                            
-                        </div>
-                        <div class="form-group">
-                            <div class="container-fluid">
-                                
-                                <a href="#" class='btn btn-info btn-block' onclick='window.register.setPenanggungJawab()' id='btn-cari'><i class="fas fa-filter"></i> Filter Data</a>
+                            <div class="col">
+                                <div class="form-group">
+                                        <a href="#" class='btn btn-info btn-block' onclick='window.register.setPenanggungJawab()' id='btn-cari'>Gunakan Role</a>
+                                </div>
+
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -71,13 +73,13 @@
                                 <thead>
                                     <tr>
                                         <th>Nomor</th>
+                                        <th>Perusahaan</th>
                                         <th>Tentang</th>
-                                        <th>Keterangan</th>
+                                        <th>Tujuan Kerjasama</th>
                                         <th>
-                                            <div class="text-right">
-                                                Aksi
-                                            </div>
+                                            Status Dokumen
                                         </th>
+                                        <th>Keterangan</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -108,6 +110,9 @@
                         dataTable:"{{route('doc-api.index')}}?pjid=@pjid@",
                         create:"{{route('doc-api.create')}}?pjid=@pjid",
                         store:"{{route('dokumen.store')}}",
+                    },
+                    pejabat:{
+                        select2:"{{route('api.walikota.select2',['slug'=>'_count_-_limit_-_offset_'])}}"
                     }
                 }
                 register = window.APP.regDokumen;

@@ -9,7 +9,8 @@ try {
     window.Popper = require('popper.js').default;
     
     $(document).ready(()=>{
-      
+        require("admin-lte/dist/js/adminlte");
+        
         window.pdfUpload = new PDFUploader()
         window.APP = new MainRouter();
         window.swals = new Alert();

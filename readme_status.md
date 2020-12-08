@@ -1,0 +1,1 @@
+0:dikirim,1:diterima staff,2:kirim kasubag/kabag,3:diterima kasubag/kabag,4:disposisi ke bagian hukum,5:diterima bagian hukum,6:dikirim kembali ke kasubag/kabag, 7:diterima kembali kasubag/kabag,8:Dokumen Siap Dirapatkan,9:Siap Ditandatangani,10:selesai,99:pembatalan dokumen

@@ -5,6 +5,12 @@
     <li class="breadcrumb-item active">Beranda</li>
 @endsection
 @section("content")
+@php
+    $lev   = Auth::user()->level;
+    $preg  = strtolower($lev);
+    $image = preg_replace('/(. )/','',$preg);
+    
+@endphp
 <div class="container-fluid">
     <div class="row">
     <div class="col-md-4">
@@ -20,7 +26,7 @@
                 <h5 class="widget-user-desc text-right"> {{Auth::user()->email}}</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle" src="{{asset('dist/img/user6-128x128.jpg')}}" alt="User Avatar">
+                <img class="img-circle" src="{{asset('dist/img/'.$image.'.jpg')}}" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">

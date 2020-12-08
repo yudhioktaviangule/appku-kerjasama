@@ -1,3 +1,6 @@
+
+import setReqHead from './JqueryAjaxRequestHeader';
+
 export default class CreateDataTable{
     obj;
     constructor(object){
@@ -26,7 +29,7 @@ export default class CreateDataTable{
                 url:url,
                 data:data,
                 beforeSend:(xhr)=>{
-                    xhr.setRequestHeader("Auth",`Bearer ${window.__token}`);
+                    setReqHead(xhr)
                 }
             }
         }

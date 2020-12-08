@@ -9,11 +9,14 @@ export default class DtbDokumen{
     tbl
     columns = [
         {name:'nomor',data:'nomor'},
+        {name:'perusahaan',data:'perusahaan'},
         {name:'tentang',data:'tentang'},
-        {name:'keterangan',data:'keterangan'},
+        {name:'tujuan',data:'tujuan'},
         {name:'aksi',data:'aksi'},
+        {name:'keterangan',data:'keterangan'},
     ]
     constructor(dataTableDOM,penanggung_jawab_id){
+     
         this.pj_id=penanggung_jawab_id;
         this.dom=dataTableDOM;
         
@@ -29,7 +32,7 @@ export default class DtbDokumen{
         setTimeout(()=>{
             xtable.dataTable(this.columns,ajax);
         },1000)
-        $("#mcontent").hide(1000);
+        
     }
 
 }

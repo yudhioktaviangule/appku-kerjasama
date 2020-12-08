@@ -12,7 +12,7 @@ class PejabatApi extends Controller{
     public function __construct(Request $request){
         $this->request = $request; 
         $this->middleware('auth.api');
-        $this->middleware('auth.api.kasubag.root');
+        $this->middleware('auth.api.kasubag.root')->except('pejabat');
     }
     public function index(){
         $request = $this->request; 
@@ -51,5 +51,36 @@ class PejabatApi extends Controller{
     }
     public function destroy($id=''){
         #code
+    }
+
+    public function pejabat()
+    {
+        $request = $this->request;
+        if($request->q!=NULL):
+            $search  = $request->only("q");
+            $search  = $search['q']; 
+            $in = Pejabat::select('id')->where("name",'like',"%$search%")
+            ->orWhere("jabatan",'like',"%$search%")->get();
+            $id = [];
+            foreach ($in as $key => $value) {
+                $id[] = $value->id;
+            }
+
+            $pejabat = Pejabat::where('aktif','1')->whereIn('id',$id)
+                            ->get();
+        else:    
+            $pejabat = Pejabat::where('aktif','1')->get();
+        endif;
+
+        $data    = [];
+        foreach ($pejabat as $key => $value) {
+            $data[]=[
+                'id'=>$value->id,
+                'name'=>$value->jabatan,
+                'text'=>$value->name,
+            ];
+        }
+
+        return response()->json(['results'=>$data]);
     }
 }

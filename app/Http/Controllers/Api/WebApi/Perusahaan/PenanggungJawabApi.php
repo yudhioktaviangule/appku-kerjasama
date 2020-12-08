@@ -19,8 +19,7 @@ class PenanggungJawabApi extends Controller{
         $request = $this->request; 
         $post = $request->only('pid','uid');
         $post = json_decode(json_encode($post));
-        $get  = PenanggungJawab::where("user_id",$post->uid)
-                                ->where('perusahaan_id',$post->pid);
+        $get  = PenanggungJawab::where('perusahaan_id',$post->pid);
         $actionEnabled = $get->count();
         $data= $get->get();
         return Tableku::of($data)->addIndexColumn()
@@ -39,7 +38,7 @@ class PenanggungJawabApi extends Controller{
     public function show($id=''){
         $request = $this->request; 
         $xid=explode('-',$id);
-        $data = PenanggungJawab::where('perusahaan_id',$xid[0])->where('user_id',$xid[1])->get();
+        $data = PenanggungJawab::where('perusahaan_id',$xid[0])->get();
         return response()->json($data);
     }
     public function edit($id=''){
@@ -48,7 +47,7 @@ class PenanggungJawabApi extends Controller{
     public function store(){
         try{
             $request = $this->request; 
-            $post = $request->only('user_id','perusahaan_id','nomor_sk_jabatan','jabatan','file_sk_jabatan');
+            $post = $request->only('perusahaan_id','nomor_sk_jabatan','jabatan','file_sk_jabatan');
             $data = new PenanggungJawab();
             $data->fill($post);
             $data->save();
@@ -80,7 +79,6 @@ class PenanggungJawabApi extends Controller{
                 $p = new FileProcessing('','');
                 $file = $p->getPathX().$data->file_sk_jabatan;
                 unlink($file);
-                
                 $response = $response;
             }catch(\Exception $n){
                 $response = $response;

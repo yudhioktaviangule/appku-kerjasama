@@ -21,4 +21,5 @@ Route::get("client-api-perusahaan-c/{id}",[PerusahaanApi::class,'countss'])->nam
 Route::post("client-api-penanggungjawabku/upload/{id?}",[PenanggungJawabUploadSkApi::class,'upload'])->name('upload.sk.jabatan');
 
 Route::resource("walikota-api",PejabatApi::class);
+Route::get("select2-walikota-api/{slug}",[PejabatApi::class,'pejabat'])->name('api.walikota.select2');
 Route::resource("doc-api",DokumenApi::class);
