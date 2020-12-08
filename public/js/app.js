@@ -71011,6 +71011,8 @@ var RegisterDokumen = /*#__PURE__*/function () {
         var perrcl = $("#penanggung_jawab_id option:selected").text();
         $("#role-pr").html("<strong>Role</strong>: ".concat(perrcl, ", ").concat(perrCap));
         $("#mcontent-card").addClass("collapsed-card");
+        var alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_8__["default"]();
+        alert.swAlert("Silahkan Klik Tombol Registrasi Dokumen", 'Set Role');
       } catch (e) {}
     }
   }, {
@@ -71885,7 +71887,7 @@ var OP_Modals = /*#__PURE__*/function () {
 
           _this.pihak2.renderKewajiban();
 
-          if (type == '0') {
+          if (type == '2') {
             $("input[name='nomor']").attr('readonly', false);
           } else {
             $("[x='tbl']").hide();

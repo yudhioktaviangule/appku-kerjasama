@@ -3,7 +3,7 @@
 @endphp
 
 <div class="text-right">
-    {{$type}}
+    
     @if($level==='' && $type==='0')
     <a href="#" class="btn btn-sm btn-success" 
         data-tentang='{{$data->tentang}}' 
@@ -13,7 +13,7 @@
         data-pihak_pertama='{{$data->pihak_pertama}}'
         data-pihak_kedua='{{$data->pihak_kedua}}'
         onclick="window.opdashboard.modals.open('Nomor Dokumen','{{$data->id}}','2',$(this))">
-        <i class="fas fa-eye"></i>
+        <i class="fas fa-file"></i> Beri No. Dokumen
     </a>
     @elseif($level==='' && $type==='1')
     <a href="#" class="btn btn-sm btn-success" 
@@ -25,7 +25,7 @@
         data-pihak_pertama='{{$data->pihak_pertama}}'
         data-pihak_kedua='{{$data->pihak_kedua}}'
         onclick="window.opdashboard.modals.open('Nomor Dokumen','{{$data->id}}','10',$(this))">
-        <i class="fas fa-eye"></i>
+        <i class="fas fa-eye"></i> Kirim Ke Kasubag
     </a>
     @elseif($level==='kasubag' && $type=='2')
         <a href="#" class="btn btn-sm btn-info" 

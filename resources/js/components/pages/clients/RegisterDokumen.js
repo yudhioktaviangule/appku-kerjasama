@@ -48,6 +48,8 @@ export default class RegisterDokumen{
             let perrcl=$("#penanggung_jawab_id option:selected").text();
             $("#role-pr").html(`<strong>Role</strong>: ${perrcl}, ${perrCap}`);
             $("#mcontent-card").addClass("collapsed-card")
+            const alert = new Alert();
+            alert.swAlert("Silahkan Klik Tombol Registrasi Dokumen",'Set Role')
             
         }catch(e){
 
