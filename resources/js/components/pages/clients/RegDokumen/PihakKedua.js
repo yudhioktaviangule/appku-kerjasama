@@ -1,11 +1,12 @@
 
 
 export default class PihakKedua{
+    rsb='register'
     formatList = `
         <li class="item">
             <span class="product-description">
                 _NO_. _CONTENT_
-                <a href="#" class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
+                <a x='tbl' href="#" class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
                     <i class="fas fa-minus"></i>
                 </a>
             </span>
@@ -25,7 +26,30 @@ export default class PihakKedua{
     init(){
         this.obj.hak=$("#hak-p2");
     }
-
+    constructor(method='register',pp=true){
+        this.rsb=method;
+        if(pp){
+            this.formatList = `
+        <li class="item">
+            <span class="product-description">
+                _NO_. _CONTENT_
+                <a x='tbl' href="#" class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
+                    <i class="fas fa-minus"></i>
+                </a>
+            </span>
+        </li>    
+    `
+        }else{
+            this.formatList = `
+        <li class="item">
+            <span class="product-description">
+                _NO_. _CONTENT_
+                
+            </span>
+        </li>    
+    `
+        }
+    }
     
     hakFormat = {hak:""};
     kewajibanFormat = {kewajiban:""};
@@ -49,7 +73,7 @@ export default class PihakKedua{
         for(let hak of this.pihakKedua.hak){
             const{hak:hakku}=hak;
             let fungsi = {
-                _FUNGSI_:`window.register.pihak2.removeHak(${index})`,
+                _FUNGSI_:`window.${this.rsb}.pihak2.removeHak(${index})`,
                 _NO_:index+1,
                 _CONTENT_:hakku,
             };
@@ -60,9 +84,15 @@ export default class PihakKedua{
             html+=flist;
             index++;
         }
+        
         $("#hak-p2").html(html);
         $("#pihak-kedua").val(JSON.stringify(this.pihakKedua))
-        window.register.validasi()
+        try{
+
+            window.register.validasi()
+        }catch(e){
+
+        }
     }
     removeHak(index){
         this.pihakKedua.hak.splice(index,1);
@@ -83,12 +113,13 @@ export default class PihakKedua{
         console.log('adding Kewajiban Pihak Kedua');
     }
     renderKewajiban(){
+        console.log('rendering',this.pihakKedua);
         let html = '';
         let index = 0;
         for(let Kewajiban of this.pihakKedua.kewajiban){
             const{kewajiban:value}=Kewajiban;
             let fungsi = {
-                _FUNGSI_:`window.register.pihak2.removeKewajiban(${index})`,
+                _FUNGSI_:`window.${this.rsb}.pihak2.removeKewajiban(${index})`,
                 _NO_:index+1,
                 _CONTENT_:value,
             };
@@ -101,7 +132,12 @@ export default class PihakKedua{
         }
         $("#ls-kewajiban-2").html(html)
         $("#pihak-kedua").val(JSON.stringify(this.pihakKedua))
-        window.register.validasi()
+        try{
+
+            window.register.validasi()
+        }catch(e){
+            
+        }
     }
     removeKewajiban(index){
         this.pihakKedua.kewajiban.splice(index,1);

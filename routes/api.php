@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\WebApi\Perusahaan\PenanggungJawabApi;
 use App\Http\Controllers\Api\WebApi\Perusahaan\PenanggungJawabUploadSkApi;
 use App\Http\Controllers\Api\WebApi\Web\Master\PejabatApi;
 use App\Http\Controllers\Api\WebApi\Kerjasama\DokumenApi;
+use App\Http\Controllers\Api\WebApi\OperatorApi\DokumenApi as OperatorDocApi;
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -23,3 +25,7 @@ Route::post("client-api-penanggungjawabku/upload/{id?}",[PenanggungJawabUploadSk
 Route::resource("walikota-api",PejabatApi::class);
 Route::get("select2-walikota-api/{slug}",[PejabatApi::class,'pejabat'])->name('api.walikota.select2');
 Route::resource("doc-api",DokumenApi::class);
+
+Route::group(['prefix'=>"operator"],function(){
+    Route::resource("op_doc_api",OperatorDocApi::class);
+});

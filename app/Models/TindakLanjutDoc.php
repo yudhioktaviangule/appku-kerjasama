@@ -12,4 +12,8 @@ class TindakLanjutDoc extends Model
     'user_id',
     'stdoc',
     'keterangan'];
+    public function getDocument()
+    {
+        return Document::where("id",$this->document_id)->first();
+    }
 }

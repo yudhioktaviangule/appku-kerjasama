@@ -69229,6 +69229,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/Alert */ "./resources/js/scripts/Alert.js");
 /* harmony import */ var _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/kasubag_root/Walikota */ "./resources/js/components/pages/kasubag_root/Walikota.js");
 /* harmony import */ var _pages_clients_RegisterDokumen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/clients/RegisterDokumen */ "./resources/js/components/pages/clients/RegisterDokumen.js");
+/* harmony import */ var _pages_operator_OpDashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/operator/OpDashboard */ "./resources/js/components/pages/operator/OpDashboard.js");
+/* harmony import */ var _pages_kasubag_root_KbDashboard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/kasubag_root/KbDashboard */ "./resources/js/components/pages/kasubag_root/KbDashboard.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -69236,6 +69238,8 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -69254,6 +69258,10 @@ var MainRouter = /*#__PURE__*/function () {
     _defineProperty(this, "walikota", new _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__["default"]());
 
     _defineProperty(this, "regDokumen", new _pages_clients_RegisterDokumen__WEBPACK_IMPORTED_MODULE_4__["default"]());
+
+    _defineProperty(this, "opDash", new _pages_operator_OpDashboard__WEBPACK_IMPORTED_MODULE_5__["default"]());
+
+    _defineProperty(this, "kbDash", new _pages_kasubag_root_KbDashboard__WEBPACK_IMPORTED_MODULE_6__["default"]());
   }
 
   _createClass(MainRouter, [{
@@ -70335,10 +70343,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var PihakKedua = /*#__PURE__*/function () {
+  _createClass(PihakKedua, [{
+    key: "init",
+    value: function init() {
+      this.obj.hak = $("#hak-p2");
+    }
+  }]);
+
   function PihakKedua() {
+    var method = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'register';
+    var pp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
     _classCallCheck(this, PihakKedua);
 
-    _defineProperty(this, "formatList", "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a href=\"#\" class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ");
+    _defineProperty(this, "rsb", 'register');
+
+    _defineProperty(this, "formatList", "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a x='tbl' href=\"#\" class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ");
 
     _defineProperty(this, "obj", {
       hak: '',
@@ -70357,14 +70377,17 @@ var PihakKedua = /*#__PURE__*/function () {
     _defineProperty(this, "kewajibanFormat", {
       kewajiban: ""
     });
+
+    this.rsb = method;
+
+    if (pp) {
+      this.formatList = "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a x='tbl' href=\"#\" class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ";
+    } else {
+      this.formatList = "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                \n            </span>\n        </li>    \n    ";
+    }
   }
 
   _createClass(PihakKedua, [{
-    key: "init",
-    value: function init() {
-      this.obj.hak = $("#hak-p2");
-    }
-  }, {
     key: "addHak",
     value: function addHak(textObj) {
       var cval = textObj.val();
@@ -70401,7 +70424,7 @@ var PihakKedua = /*#__PURE__*/function () {
           var hak = _step.value;
           var hakku = hak.hak;
           var fungsi = {
-            _FUNGSI_: "window.register.pihak2.removeHak(".concat(index, ")"),
+            _FUNGSI_: "window.".concat(_this.rsb, ".pihak2.removeHak(").concat(index, ")"),
             _NO_: index + 1,
             _CONTENT_: hakku
           };
@@ -70425,7 +70448,10 @@ var PihakKedua = /*#__PURE__*/function () {
 
       $("#hak-p2").html(html);
       $("#pihak-kedua").val(JSON.stringify(this.pihakKedua));
-      window.register.validasi();
+
+      try {
+        window.register.validasi();
+      } catch (e) {}
     }
   }, {
     key: "removeHak",
@@ -70459,6 +70485,7 @@ var PihakKedua = /*#__PURE__*/function () {
     value: function renderKewajiban() {
       var _this2 = this;
 
+      console.log('rendering', this.pihakKedua);
       var html = '';
       var index = 0;
 
@@ -70470,7 +70497,7 @@ var PihakKedua = /*#__PURE__*/function () {
           var Kewajiban = _step2.value;
           var value = Kewajiban.kewajiban;
           var fungsi = {
-            _FUNGSI_: "window.register.pihak2.removeKewajiban(".concat(index, ")"),
+            _FUNGSI_: "window.".concat(_this2.rsb, ".pihak2.removeKewajiban(").concat(index, ")"),
             _NO_: index + 1,
             _CONTENT_: value
           };
@@ -70494,7 +70521,10 @@ var PihakKedua = /*#__PURE__*/function () {
 
       $("#ls-kewajiban-2").html(html);
       $("#pihak-kedua").val(JSON.stringify(this.pihakKedua));
-      window.register.validasi();
+
+      try {
+        window.register.validasi();
+      } catch (e) {}
     }
   }, {
     key: "removeKewajiban",
@@ -70540,10 +70570,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var PihakPertama = /*#__PURE__*/function () {
+  _createClass(PihakPertama, [{
+    key: "init",
+    value: function init() {
+      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'register';
+      this.obj.hak = $("#list-hak-pihak-pertama");
+    }
+  }]);
+
   function PihakPertama() {
+    var rtype = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'register';
+    var pp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
     _classCallCheck(this, PihakPertama);
 
-    _defineProperty(this, "formatList", "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a href=\"#\" class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ");
+    _defineProperty(this, "rgs", 'register');
+
+    _defineProperty(this, "formatList", "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a href=\"#\" x='tbl' class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ");
 
     _defineProperty(this, "obj", {
       hak: '',
@@ -70562,14 +70605,17 @@ var PihakPertama = /*#__PURE__*/function () {
     _defineProperty(this, "kewajibanFormat", {
       kewajiban: ""
     });
+
+    this.rgs = rtype;
+
+    if (pp) {
+      this.formatList = "\n            <li class=\"item\">\n                <span class=\"product-description\">\n                    _NO_. _CONTENT_\n                    <a href=\"#\" x='tbl' class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                        <i class=\"fas fa-minus\"></i>\n                    </a>\n                </span>\n            </li>    \n        ";
+    } else {
+      this.formatList = "\n            <li class=\"item\">\n                <span class=\"product-description\">\n                    _NO_. _CONTENT_\n                    \n                </span>\n            </li>    \n        ";
+    }
   }
 
   _createClass(PihakPertama, [{
-    key: "init",
-    value: function init() {
-      this.obj.hak = $("#list-hak-pihak-pertama");
-    }
-  }, {
     key: "addHak",
     value: function addHak(textObj) {
       var cval = textObj.val();
@@ -70606,7 +70652,7 @@ var PihakPertama = /*#__PURE__*/function () {
           var hak = _step.value;
           var hakku = hak.hak;
           var fungsi = {
-            _FUNGSI_: "window.register.pihak1.removeHak(".concat(index, ")"),
+            _FUNGSI_: "window.".concat(_this.rgs, ".pihak1.removeHak(").concat(index, ")"),
             _NO_: index + 1,
             _CONTENT_: hakku
           };
@@ -70630,7 +70676,10 @@ var PihakPertama = /*#__PURE__*/function () {
 
       $("#list-hak-pihak-pertama").html(html);
       $("#pihak-pertama").val(JSON.stringify(this.pihakPertama));
-      window.register.validasi();
+
+      try {
+        window.register.validasi();
+      } catch (e) {}
     }
   }, {
     key: "removeHak",
@@ -70675,7 +70724,7 @@ var PihakPertama = /*#__PURE__*/function () {
           var Kewajiban = _step2.value;
           var kewajibanku = Kewajiban.kewajiban;
           var fungsi = {
-            _FUNGSI_: "window.register.pihak1.removeKewajiban(".concat(index, ")"),
+            _FUNGSI_: "window.".concat(_this2.rgs, ".pihak1.removeKewajiban(").concat(index, ")"),
             _NO_: index + 1,
             _CONTENT_: kewajibanku
           };
@@ -70699,7 +70748,10 @@ var PihakPertama = /*#__PURE__*/function () {
 
       $("#list-kewajiban-pihak-pertama").html(html);
       $("#pihak-pertama").val(JSON.stringify(this.pihakPertama));
-      window.register.validasi();
+
+      try {} catch (e) {
+        window.register.validasi();
+      }
     }
   }, {
     key: "removeKewajiban",
@@ -70753,7 +70805,7 @@ var RuangLingkup = /*#__PURE__*/function () {
 
     _defineProperty(this, "arrLingkup", []);
 
-    _defineProperty(this, "formatList", "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a href=\"#\" class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ");
+    _defineProperty(this, "formatList", "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a x='tbl' href=\"#\" name='a_tinggi' class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ");
 
     _defineProperty(this, "lingkupFormat", {
       lingkup: ""
@@ -70786,6 +70838,9 @@ var RuangLingkup = /*#__PURE__*/function () {
     value: function render() {
       var _this = this;
 
+      var onRender = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {
+        return null;
+      };
       var html = '';
       var index = 0;
 
@@ -70822,7 +70877,11 @@ var RuangLingkup = /*#__PURE__*/function () {
       $("#list-lingkup").html(html);
       $("#jumlah-lingkup").html(this.arrLingkup.length);
       $("#lingkup-json").val(JSON.stringify(this.arrLingkup));
-      window.register.validasi();
+      onRender();
+
+      try {
+        window.register.validasi();
+      } catch (e) {}
     }
   }, {
     key: "remove",
@@ -71174,6 +71233,52 @@ var RegisterDokumen = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/kasubag_root/KbDashboard.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/KbDashboard.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return KbDashboard; });
+/* harmony import */ var _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard/OpDataTable */ "./resources/js/components/pages/kasubag_root/dashboard/OpDataTable.js");
+/* harmony import */ var _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard/OpModals */ "./resources/js/components/pages/kasubag_root/dashboard/OpModals.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var KbDashboard = /*#__PURE__*/function () {
+  function KbDashboard() {
+    _classCallCheck(this, KbDashboard);
+
+    _defineProperty(this, "dataTable", new _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
+
+    _defineProperty(this, "modals", new _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__["default"]());
+  }
+
+  _createClass(KbDashboard, [{
+    key: "init",
+    value: function init() {
+      this.dataTable.init();
+    }
+  }]);
+
+  return KbDashboard;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/kasubag_root/Walikota.js":
 /*!****************************************************************!*\
   !*** ./resources/js/components/pages/kasubag_root/Walikota.js ***!
@@ -71376,6 +71481,423 @@ var Walikota = /*#__PURE__*/function () {
   }]);
 
   return Walikota;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/kasubag_root/dashboard/ElementModals.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/dashboard/ElementModals.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var ElementModals = {
+  lingkup: "<div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Ruang Lingkup</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t<!-- /.card-header -->\n\t<div class=\"card-body p-0\">\n\t\t<ul id='list-lingkup' class=\"products-list product-list-in-card pl-2 pr-2\">\n\t\t\t<li class=\"item\">\n\n\t\t\t\t<span class=\"product-description\">\n\t\t\t\t\tBelum Menambahkan List \n\t\t\t\t\t\n\t\t\t\t</span>\n\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<!-- /.card-body -->\n\t\n\t<!-- /.card-footer -->\n</div>",
+  pihak1: "\n    <div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Pihak Pertama</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            <!-- inputan yang dikirim ke server -->\n            <input type=\"hidden\" name=\"pihak_pertama\"id='pihak-pertama'>\n            <!-- card hak -->  <br>\n                <div class=\"form-group\">\n                <!--hak-->\n                    <div class=\"card card-primary\">\n                        <div class=\"card-header\">\n                            <h3 class=\"card-title\">Usulan Hak</h3>\n                            <div class=\"card-tools\">\n                                <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                    <i class=\"fas fa-minus\"></i>\n                                </button>\n                            </div>\n                        </div>\n\n                        <div class=\"card-body p-0\">\n                            <div class=\"container-fluid\">\n                                <p>Daftar Usulan Hak</p>\n                                <ul id='list-hak-pihak-pertama' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                    <li class=\"item\">\n                                        <span class=\"product-description text-center\">\n                                            Belum Menambahkan List \n                                            \n                                        </span>\n                                    </li>\n                                </ul>\n                            </div>\n                        </div>\n                        <div class=\"card-footer\" x='tbl'>\n                            <div class=\"input-group\">\n                                <input type=\"text\" autocomplete=\"off\" id='hak1' placeholder='Masukkan Usulan Hak pihak pertama' class=\"form-control\">\n                                <span class=\"input-group-append\">\n                                        <a href=\"#\" onclick=\"window.opdashboard.modals.pihak1.addHak($('#hak1'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                                </span>\n                            </div>\n                        </div>\n                    </div>\n                <!--endhak-->\n                </div>\n\n\n            <!-- end card hak -->  \n            \n            <!-- card kewajiban -->\n            <div class=\"form-group\">\n                <!--  kewajiban -->\n                <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Kewajiban</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Kewajiban</p>\n                            <ul id='list-kewajiban-pihak-pertama' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                        \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='kewajiban1' placeholder='Masukkan Usulan Kewajiban pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak1.addKewajiban($('#kewajiban1'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>                \n                <!-- end kewajiban -->\n            </div>\n            <!-- batas card kewajiban -->\n        </div>\n\t    </div>\n    </div> ",
+  pihak2: "\n\n<div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Pihak Kedua</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            <!-- inputan yang dikirim ke server -->\n            <input type=\"hidden\" id='pihak-kedua' name='pihak_kedua'>\n            <!-- card hak -->  <br>\n                <div class=\"form-group\">\n                    <!-- content hak -->\n                    <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Hak</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Hak</p>\n                            <ul id='hak-p2' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='hak2' placeholder='Masukkan Usulan Hak pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak2.addHak($('#hak2'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n                    <!-- end hak -->\n                </div>\n            <!-- end card hak -->  \n            \n            <!-- card kewajiban -->\n            <div class=\"form-group\">\n                    <!--kwjb-->\n                    <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Kewajiban</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Kewajiban</p>\n                            <ul id='ls-kewajiban-2' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                        \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='kewajiban2' placeholder='Masukkan Usulan Kewajiban pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak2.addKewajiban($('#kewajiban2'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n                    <!--e_kwjb-->\n                </div>\n            <!-- batas card kewajiban -->\n        </div>\n\t</div>\n</div>\n"
+};
+/* harmony default export */ __webpack_exports__["default"] = (ElementModals);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/kasubag_root/dashboard/OpDataTable.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/dashboard/OpDataTable.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return KbDataTable; });
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var KbDataTable = /*#__PURE__*/function () {
+  function KbDataTable() {
+    _classCallCheck(this, KbDataTable);
+
+    _defineProperty(this, "columns", [{
+      name: 'no',
+      data: 'no'
+    }, {
+      name: 'pengirim',
+      data: 'pengirim'
+    }, {
+      name: 'tentang',
+      data: 'tentang'
+    }, {
+      name: 'tanggal',
+      data: 'tanggal'
+    }, {
+      name: 'tujuan',
+      data: 'tujuan'
+    }, {
+      name: 'aksi',
+      data: 'aksi'
+    }]);
+
+    _defineProperty(this, "table", $("#tb-doc"));
+
+    _defineProperty(this, "dataTable", new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
+  }
+
+  _createClass(KbDataTable, [{
+    key: "init",
+    value: function init() {
+      var url = window.myUrl.document.dataTable;
+      this.dataTable = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.table);
+      console.log(url);
+      var ajax = this.dataTable.createAjaxParam(url);
+      this.dataTable.dataTable(this.columns, ajax);
+    }
+  }]);
+
+  return KbDataTable;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/kasubag_root/dashboard/OpModals.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/dashboard/OpModals.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return KbModals; });
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _ElementModals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ElementModals */ "./resources/js/components/pages/kasubag_root/dashboard/ElementModals.js");
+/* harmony import */ var _clients_RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../clients/RegDokumen/RuangLingkup */ "./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js");
+/* harmony import */ var _clients_RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../clients/RegDokumen/PihakPertama */ "./resources/js/components/pages/clients/RegDokumen/PihakPertama.js");
+/* harmony import */ var _clients_RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../clients/RegDokumen/PihakKedua */ "./resources/js/components/pages/clients/RegDokumen/PihakKedua.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+var KbModals = /*#__PURE__*/function () {
+  function KbModals() {
+    _classCallCheck(this, KbModals);
+
+    _defineProperty(this, "formEl", "\n    <auth></auth>\n    <put></put>\n    <div class=\"form-group\">\n        <label for=\"\">Nomor Dokumen</label>\n        <input required type=\"text\" class=\"form-control\" name='nomor'>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Tentang</label>\n        <p>@tentang@</p>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Maksud</label>\n        <p>@maksud@</p>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Tujuan</label>\n        <p>@tujuan@</p>\n    </div>\n        \n     <input type='hidden' name='stdoc' value='@stdoc@'>\n     ".concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].lingkup, "\n     ").concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].pihak1, "\n     ").concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].pihak2, "\n    "));
+
+    _defineProperty(this, "lingkup", new _clients_RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_2__["default"]());
+
+    _defineProperty(this, "pihak1", new _clients_RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_3__["default"]('opdashboard.modals', false));
+
+    _defineProperty(this, "pihak2", new _clients_RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_4__["default"]('opdashboard.modals', false));
+  }
+
+  _createClass(KbModals, [{
+    key: "open",
+    value: function open() {
+      var _this = this;
+
+      var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Tambahkan Nomor Dokumen';
+      var id = arguments.length > 1 ? arguments[1] : undefined;
+      var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '1';
+      var obj = arguments.length > 3 ? arguments[3] : undefined;
+      var xurl = window.myUrl.document.teruskanKeKabag;
+      var lingup = obj.data("lingkup");
+      this.lingkup.arrLingkup = lingup;
+      this.pihak1.pihakPertama = obj.data("pihak_pertama");
+      this.pihak2.pihakKedua = obj.data("pihak_kedua");
+      var url = xurl.replace(/(@op_doc@)/g, id);
+      var modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_0__["default"]('', url, title);
+      var obs = {
+        '@tentang@': obj.data('tentang'),
+        '@maksud@': obj.data('maksud'),
+        '@stdoc@': type,
+        '@tujuan@': obj.data('tujuan')
+      };
+      modal.contents = this.formEl.replace(/(@stdoc@|@tentang@|@maksud@|@tujuan@)/g, function (match) {
+        return obs[match];
+      });
+      console.log('TIPE', type);
+      modal.openModal(function () {
+        _this.lingkup.render(function () {
+          return null;
+        });
+
+        $("a[name='a_tinggi']").hide();
+
+        _this.pihak1.renderHak();
+
+        _this.pihak1.renderKewajiban();
+
+        _this.pihak2.renderHak();
+
+        _this.pihak2.renderKewajiban();
+
+        if (type == '0') {
+          $("input[name='nomor']").attr('readonly', false);
+        } else {
+          $("[x='tbl']").hide();
+          $("input[name='nomor']").val(obj.data("nomor"));
+          $("input[name='nomor']").attr('readonly', true);
+        }
+      }, true);
+    }
+  }]);
+
+  return KbModals;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/OpDashboard.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/pages/operator/OpDashboard.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OpDashboard; });
+/* harmony import */ var _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard/OpDataTable */ "./resources/js/components/pages/operator/dashboard/OpDataTable.js");
+/* harmony import */ var _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard/OpModals */ "./resources/js/components/pages/operator/dashboard/OpModals.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var OpDashboard = /*#__PURE__*/function () {
+  function OpDashboard() {
+    _classCallCheck(this, OpDashboard);
+
+    _defineProperty(this, "dataTable", new _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
+
+    _defineProperty(this, "modals", new _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__["default"]());
+  }
+
+  _createClass(OpDashboard, [{
+    key: "init",
+    value: function init() {
+      this.dataTable.init();
+    }
+  }]);
+
+  return OpDashboard;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/dashboard/ElementModals.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/pages/operator/dashboard/ElementModals.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var ElementModals = {
+  lingkup: "<div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Ruang Lingkup</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t<!-- /.card-header -->\n\t<div class=\"card-body p-0\">\n\t\t<ul id='list-lingkup' class=\"products-list product-list-in-card pl-2 pr-2\">\n\t\t\t<li class=\"item\">\n\n\t\t\t\t<span class=\"product-description\">\n\t\t\t\t\tBelum Menambahkan List \n\t\t\t\t\t\n\t\t\t\t</span>\n\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<!-- /.card-body -->\n\t\n\t<!-- /.card-footer -->\n</div>",
+  pihak1: "\n    <div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Pihak Pertama</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            <!-- inputan yang dikirim ke server -->\n            <input type=\"hidden\" name=\"pihak_pertama\"id='pihak-pertama'>\n            <!-- card hak -->  <br>\n                <div class=\"form-group\">\n                <!--hak-->\n                    <div class=\"card card-primary\">\n                        <div class=\"card-header\">\n                            <h3 class=\"card-title\">Usulan Hak</h3>\n                            <div class=\"card-tools\">\n                                <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                    <i class=\"fas fa-minus\"></i>\n                                </button>\n                            </div>\n                        </div>\n\n                        <div class=\"card-body p-0\">\n                            <div class=\"container-fluid\">\n                                <p>Daftar Usulan Hak</p>\n                                <ul id='list-hak-pihak-pertama' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                    <li class=\"item\">\n                                        <span class=\"product-description text-center\">\n                                            Belum Menambahkan List \n                                            \n                                        </span>\n                                    </li>\n                                </ul>\n                            </div>\n                        </div>\n                        <div class=\"card-footer\" x='tbl'>\n                            <div class=\"input-group\">\n                                <input type=\"text\" autocomplete=\"off\" id='hak1' placeholder='Masukkan Usulan Hak pihak pertama' class=\"form-control\">\n                                <span class=\"input-group-append\">\n                                        <a href=\"#\" onclick=\"window.opdashboard.modals.pihak1.addHak($('#hak1'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                                </span>\n                            </div>\n                        </div>\n                    </div>\n                <!--endhak-->\n                </div>\n\n\n            <!-- end card hak -->  \n            \n            <!-- card kewajiban -->\n            <div class=\"form-group\">\n                <!--  kewajiban -->\n                <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Kewajiban</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Kewajiban</p>\n                            <ul id='list-kewajiban-pihak-pertama' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                        \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='kewajiban1' placeholder='Masukkan Usulan Kewajiban pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak1.addKewajiban($('#kewajiban1'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>                \n                <!-- end kewajiban -->\n            </div>\n            <!-- batas card kewajiban -->\n        </div>\n\t    </div>\n    </div> ",
+  pihak2: "\n\n<div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Pihak Kedua</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            <!-- inputan yang dikirim ke server -->\n            <input type=\"hidden\" id='pihak-kedua' name='pihak_kedua'>\n            <!-- card hak -->  <br>\n                <div class=\"form-group\">\n                    <!-- content hak -->\n                    <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Hak</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Hak</p>\n                            <ul id='hak-p2' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='hak2' placeholder='Masukkan Usulan Hak pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak2.addHak($('#hak2'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n                    <!-- end hak -->\n                </div>\n            <!-- end card hak -->  \n            \n            <!-- card kewajiban -->\n            <div class=\"form-group\">\n                    <!--kwjb-->\n                    <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Kewajiban</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Kewajiban</p>\n                            <ul id='ls-kewajiban-2' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                        \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='kewajiban2' placeholder='Masukkan Usulan Kewajiban pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak2.addKewajiban($('#kewajiban2'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n                    <!--e_kwjb-->\n                </div>\n            <!-- batas card kewajiban -->\n        </div>\n\t</div>\n</div>\n"
+};
+/* harmony default export */ __webpack_exports__["default"] = (ElementModals);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/dashboard/OpDataTable.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/pages/operator/dashboard/OpDataTable.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OpDataTables; });
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var OpDataTables = /*#__PURE__*/function () {
+  function OpDataTables() {
+    _classCallCheck(this, OpDataTables);
+
+    _defineProperty(this, "columns", [{
+      name: 'no',
+      data: 'no'
+    }, {
+      name: 'pengirim',
+      data: 'pengirim'
+    }, {
+      name: 'tentang',
+      data: 'tentang'
+    }, {
+      name: 'tanggal',
+      data: 'tanggal'
+    }, {
+      name: 'tujuan',
+      data: 'tujuan'
+    }, {
+      name: 'aksi',
+      data: 'aksi'
+    }]);
+
+    _defineProperty(this, "table", $("#tb-doc"));
+
+    _defineProperty(this, "dataTable", new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
+  }
+
+  _createClass(OpDataTables, [{
+    key: "init",
+    value: function init() {
+      var url = window.myUrl.document.dataTable;
+      this.dataTable = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.table);
+      console.log(url);
+      var ajax = this.dataTable.createAjaxParam(url);
+      this.dataTable.dataTable(this.columns, ajax);
+    }
+  }]);
+
+  return OpDataTables;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/dashboard/OpModals.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/pages/operator/dashboard/OpModals.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OP_Modals; });
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _ElementModals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ElementModals */ "./resources/js/components/pages/operator/dashboard/ElementModals.js");
+/* harmony import */ var _clients_RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../clients/RegDokumen/RuangLingkup */ "./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js");
+/* harmony import */ var _clients_RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../clients/RegDokumen/PihakPertama */ "./resources/js/components/pages/clients/RegDokumen/PihakPertama.js");
+/* harmony import */ var _clients_RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../clients/RegDokumen/PihakKedua */ "./resources/js/components/pages/clients/RegDokumen/PihakKedua.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+var OP_Modals = /*#__PURE__*/function () {
+  function OP_Modals() {
+    _classCallCheck(this, OP_Modals);
+
+    _defineProperty(this, "formEl", "\n    <auth></auth>\n    <put></put>\n    <div class=\"form-group\">\n        <label for=\"\">Nomor Dokumen</label>\n        <input required type=\"text\" class=\"form-control\" name='nomor'>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Tentang</label>\n        <p>@tentang@</p>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Maksud</label>\n        <p>@maksud@</p>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Tujuan</label>\n        <p>@tujuan@</p>\n    </div>\n        \n     <input type='hidden' name='stdoc' value='@stdoc@'>\n     ".concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].lingkup, "\n     ").concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].pihak1, "\n     ").concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].pihak2, "\n    "));
+
+    _defineProperty(this, "lingkup", new _clients_RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_2__["default"]());
+
+    _defineProperty(this, "pihak1", new _clients_RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_3__["default"]('opdashboard.modals'));
+
+    _defineProperty(this, "pihak2", new _clients_RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_4__["default"]('opdashboard.modals'));
+  }
+
+  _createClass(OP_Modals, [{
+    key: "open",
+    value: function open() {
+      var _this = this;
+
+      var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Tambahkan Nomor Dokumen';
+      var id = arguments.length > 1 ? arguments[1] : undefined;
+      var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '1';
+      var obj = arguments.length > 3 ? arguments[3] : undefined;
+      var xurl = window.myUrl.document.teruskanKeKabag;
+      var lingup = obj.data("lingkup");
+      this.lingkup.arrLingkup = lingup;
+      this.pihak1.pihakPertama = obj.data("pihak_pertama");
+      this.pihak2.pihakKedua = obj.data("pihak_kedua");
+      var url = xurl.replace(/(@op_doc@)/g, id);
+      var modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_0__["default"]('', url, title);
+      var obs = {
+        '@tentang@': obj.data('tentang'),
+        '@maksud@': obj.data('maksud'),
+        '@stdoc@': type,
+        '@tujuan@': obj.data('tujuan')
+      };
+      modal.contents = this.formEl.replace(/(@stdoc@|@tentang@|@maksud@|@tujuan@)/g, function (match) {
+        return obs[match];
+      });
+      modal.openModal(function () {
+        _this.lingkup.render(function () {
+          $("a[name='a_tinggi']").hide();
+
+          _this.pihak1.renderHak();
+
+          _this.pihak1.renderKewajiban();
+
+          _this.pihak2.renderHak();
+
+          _this.pihak2.renderKewajiban();
+
+          if (type == '0') {
+            $("input[name='nomor']").attr('readonly', false);
+          } else {
+            $("[x='tbl']").hide();
+            $("input[name='nomor']").val(obj.data("nomor"));
+            $("input[name='nomor']").attr('readonly', true);
+          }
+        });
+      }, true);
+    }
+  }]);
+
+  return OP_Modals;
 }();
 
 
@@ -71622,7 +72144,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var CreateDataTable = /*#__PURE__*/function () {
-  function CreateDataTable(object) {
+  function CreateDataTable() {
+    var object = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : $(".table");
+
     _classCallCheck(this, CreateDataTable);
 
     _defineProperty(this, "obj", void 0);

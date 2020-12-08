@@ -7,6 +7,10 @@ use App\Http\Controllers\Web\Master\Perusahaan\UploadIjinController;
 use App\Http\Controllers\Web\Master\PejabatController;
 use App\Http\Controllers\Web\RestrictController;
 use App\Http\Controllers\Web\Kerjasama\DokumenController;
+use App\Http\Controllers\Web\Kerjasama\OpDokumenController;
+use App\Http\Controllers\Web\Kerjasama\KasubagDokumenController;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,6 +26,8 @@ Route::group(['prefix'=>"master"],function(){
 Route::group(['prefix'=>"kerjasama"],function(){
     Route::resource('dokumen',DokumenController::class);
     Route::resource('pejabat',PejabatController::class);
+    Route::resource('op_dokumen',OpDokumenController::class);
+    Route::resource('kasubag_doc',KasubagDokumenController::class);
 });
 
 Route::group(['prefix'=>"upload"],function(){

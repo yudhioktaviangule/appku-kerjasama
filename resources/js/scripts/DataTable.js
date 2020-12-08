@@ -3,7 +3,7 @@ import setReqHead from './JqueryAjaxRequestHeader';
 
 export default class CreateDataTable{
     obj;
-    constructor(object){
+    constructor(object=$(".table")){
         this.obj=object;
     }
 

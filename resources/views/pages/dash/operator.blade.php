@@ -89,11 +89,38 @@
                         <h3 class='card-title'>Daftar Dokumen</h3>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered"></table>
+                        <table class="table table-bordered" id='tb-doc'>
+                            <thead>
+                                <tr>
+                                    <th>Nomor</th>
+                                    <th>Instansi/Perusahaan</th>
+                                    <th>Tentang</th>
+                                    <th>Tanggal Registrasi</th>
+                                    <th>Pejabat Tujuan</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
+@endsection
+@section("js")
+    <script>
+        $(document).ready(()=>{
+
+            window.myUrl = {
+                document:{
+                    dataTable:"{{route('op_doc_api.index')}}",
+                    teruskanKeKabag:"{{route('op_dokumen.update',['op_dokuman'=>'@op_doc@'])}}"
+                }
+            }
+            window.opdashboard = window.APP.opDash;
+            opdashboard.init()
+        });
+    </script>
 @endsection

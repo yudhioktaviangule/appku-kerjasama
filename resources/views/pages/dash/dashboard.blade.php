@@ -1,9 +1,8 @@
 
 @php 
     $level = Auth::user()->level;
+    $level = preg_replace('/(. )/','',$level);
 @endphp
-@if($level==='client')
-    @include('pages.dash.client')
-@else
-    @include('pages.dash.inline')
-@endif
+@include('pages.dash.'.$level)
+
+

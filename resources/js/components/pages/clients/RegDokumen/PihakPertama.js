@@ -1,11 +1,13 @@
 
 
 export default class PihakPertama{
+    rgs = 'register'
+    
     formatList = `
         <li class="item">
             <span class="product-description">
                 _NO_. _CONTENT_
-                <a href="#" class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
+                <a href="#" x='tbl' class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
                     <i class="fas fa-minus"></i>
                 </a>
             </span>
@@ -20,10 +22,33 @@ export default class PihakPertama{
         kewajiban:[],
     }
     
-    init(){
+    init(type='register'){
         this.obj.hak=$("#list-hak-pihak-pertama");
     }
-
+    constructor(rtype='register',pp=true){
+        this.rgs=rtype;
+        if(pp){
+            this.formatList = `
+            <li class="item">
+                <span class="product-description">
+                    _NO_. _CONTENT_
+                    <a href="#" x='tbl' class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
+                        <i class="fas fa-minus"></i>
+                    </a>
+                </span>
+            </li>    
+        `
+        }else{
+            this.formatList = `
+            <li class="item">
+                <span class="product-description">
+                    _NO_. _CONTENT_
+                    
+                </span>
+            </li>    
+        `
+        }
+    }
     
     hakFormat = {hak:""};
     kewajibanFormat = {kewajiban:""};
@@ -48,7 +73,7 @@ export default class PihakPertama{
         for(let hak of this.pihakPertama.hak){
             const{hak:hakku}=hak;
             let fungsi = {
-                _FUNGSI_:`window.register.pihak1.removeHak(${index})`,
+                _FUNGSI_:`window.${this.rgs}.pihak1.removeHak(${index})`,
                 _NO_:index+1,
                 _CONTENT_:hakku,
             };
@@ -61,7 +86,12 @@ export default class PihakPertama{
         }
         $("#list-hak-pihak-pertama").html(html);
         $("#pihak-pertama").val(JSON.stringify(this.pihakPertama))
-        window.register.validasi();
+        try{
+
+            window.register.validasi();
+        }catch(e){
+
+        }
     }
     removeHak(index){
         this.pihakPertama.hak.splice(index,1);
@@ -87,7 +117,7 @@ export default class PihakPertama{
         for(let Kewajiban of this.pihakPertama.kewajiban){
             const{kewajiban:kewajibanku}=Kewajiban;
             let fungsi = {
-                _FUNGSI_:`window.register.pihak1.removeKewajiban(${index})`,
+                _FUNGSI_:`window.${this.rgs}.pihak1.removeKewajiban(${index})`,
                 _NO_:index+1,
                 _CONTENT_:kewajibanku,
             };
@@ -100,7 +130,12 @@ export default class PihakPertama{
         }
         $("#list-kewajiban-pihak-pertama").html(html);
         $("#pihak-pertama").val(JSON.stringify(this.pihakPertama))
-        window.register.validasi();
+        try{
+
+        }catch(e){
+
+            window.register.validasi();
+        }
     }
     removeKewajiban(index){
         this.pihakPertama.kewajiban.splice(index,1);

@@ -9,10 +9,10 @@
     </div>
     <div class="form-group">
         <label for="maksud">Maksud</label>
-        <input required onchange="window.register.validasi()" name="maksud" id="maksud" type='text' class="form-control">
+        <textarea required onchange="window.register.validasi()" name="maksud" id="maksud"  class="form-control"></textarea>
     </div>
     <div class="form-group">
         <label for="tujuan">Tujuan</label>
-        <input type='text' onchange="window.register.validasi()" required name="tujuan" id="tujuan"  class="form-control">
+        <textarea onchange="window.register.validasi()" required name="tujuan" id="tujuan"  class="form-control"></textarea>
     </div>
 </div>

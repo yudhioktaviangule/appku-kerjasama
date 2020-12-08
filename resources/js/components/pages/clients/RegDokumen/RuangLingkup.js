@@ -3,11 +3,12 @@ import Alert from '../../../../scripts/Alert';
 
 export default class RuangLingkup{
     arrLingkup=[]
+    
     formatList = `
         <li class="item">
             <span class="product-description">
                 _NO_. _CONTENT_
-                <a href="#" class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
+                <a x='tbl' href="#" name='a_tinggi' class="btn btn-sm btn-danger float-right" onclick='_FUNGSI_'>
                     <i class="fas fa-minus"></i>
                 </a>
             </span>
@@ -27,7 +28,9 @@ export default class RuangLingkup{
         textObj.val("");
         console.log('adding ruang lingkup');
     }
-    render(){
+    render(onRender=()=>{
+        return null;
+    }){
         let html = '';
         let index = 0;
         for(let lingkup of this.arrLingkup){
@@ -47,7 +50,11 @@ export default class RuangLingkup{
         $("#list-lingkup").html(html);
         $("#jumlah-lingkup").html(this.arrLingkup.length);
         $("#lingkup-json").val(JSON.stringify(this.arrLingkup))
-        window.register.validasi();
+        onRender();
+        try{
+            window.register.validasi();
+
+        }catch(e){}
     }
     remove(index){
         this.arrLingkup.splice(index,1);
