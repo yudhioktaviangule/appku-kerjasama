@@ -230,6 +230,7 @@
   window.__token="{{$token}}";
 </script>
 <!-- REQUIRED SCRIPTS -->
+
 <script src="{{asset('dist/plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('dist/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('dist/plugins/datatables/jquery.dataTables.js')}}"></script>

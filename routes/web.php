@@ -28,6 +28,7 @@ Route::group(['prefix'=>"kerjasama"],function(){
     Route::resource('pejabat',PejabatController::class);
     Route::resource('op_dokumen',OpDokumenController::class);
     Route::resource('kasubag_doc',KasubagDokumenController::class);
+    
 });
 
 Route::group(['prefix'=>"upload"],function(){
