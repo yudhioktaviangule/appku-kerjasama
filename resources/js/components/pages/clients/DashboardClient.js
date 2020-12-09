@@ -65,6 +65,9 @@ class DashboardClient{
 
         })
     }
+    async registeredDocumentCount(){
+        
+    }
     async uploadAktaIjin(json,jenis='akta'){
         let jsons = json.replace(/&quot;/g,'"');
         jsons = JSON.parse(jsons);

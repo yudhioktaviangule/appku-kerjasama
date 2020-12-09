@@ -69430,20 +69430,41 @@ var DashboardClient = /*#__PURE__*/function () {
       sqwal.swalYesNo("Yakin Menghapus Perusahaan?", "Hapus Data", function () {});
     }
   }, {
+    key: "registeredDocumentCount",
+    value: function () {
+      var _registeredDocumentCount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      function registeredDocumentCount() {
+        return _registeredDocumentCount.apply(this, arguments);
+      }
+
+      return registeredDocumentCount;
+    }()
+  }, {
     key: "uploadAktaIjin",
     value: function () {
-      var _uploadAktaIjin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(json) {
+      var _uploadAktaIjin = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(json) {
         var jenis,
             jsons,
             url,
             urlN,
             modals,
-            _args3 = arguments;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+            _args4 = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                jenis = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : 'akta';
+                jenis = _args4.length > 1 && _args4[1] !== undefined ? _args4[1] : 'akta';
                 jsons = json.replace(/&quot;/g, '"');
                 jsons = JSON.parse(jsons);
                 url = '';
@@ -69457,7 +69478,7 @@ var DashboardClient = /*#__PURE__*/function () {
                 }
 
                 modals = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](url, urlN, "Upload " + (jenis == 'akta' ? "Akta Notaris" : "Izin Usaha"), false);
-                _context3.next = 9;
+                _context4.next = 9;
                 return modals.ajax();
 
               case 9:
@@ -69465,10 +69486,10 @@ var DashboardClient = /*#__PURE__*/function () {
 
               case 10:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3);
+        }, _callee4);
       }));
 
       function uploadAktaIjin(_x2) {
@@ -69497,23 +69518,23 @@ var DashboardClient = /*#__PURE__*/function () {
   }, {
     key: "addModal",
     value: function () {
-      var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+      var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
         var _this = this;
 
         var title,
             onshow,
             my_url,
             modal,
-            _args4 = arguments;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+            _args5 = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                title = _args4.length > 0 && _args4[0] !== undefined ? _args4[0] : 'Tambah Perusahaanku';
-                onshow = _args4.length > 1 && _args4[1] !== undefined ? _args4[1] : function () {};
+                title = _args5.length > 0 && _args5[0] !== undefined ? _args5[0] : 'Tambah Perusahaanku';
+                onshow = _args5.length > 1 && _args5[1] !== undefined ? _args5[1] : function () {};
                 my_url = window.myUrl;
                 modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](my_url.create, my_url.store, title, true);
-                _context4.next = 6;
+                _context5.next = 6;
                 return modal.ajax();
 
               case 6:
@@ -69524,10 +69545,10 @@ var DashboardClient = /*#__PURE__*/function () {
 
               case 7:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4);
+        }, _callee5);
       }));
 
       function addModal() {
@@ -69539,19 +69560,19 @@ var DashboardClient = /*#__PURE__*/function () {
   }, {
     key: "tj",
     value: function () {
-      var _tj = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(json) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      var _tj = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(json) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
                 window.pJawab.init(json);
 
               case 1:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5);
+        }, _callee6);
       }));
 
       function tj(_x3) {
@@ -69563,18 +69584,18 @@ var DashboardClient = /*#__PURE__*/function () {
   }, {
     key: "edit",
     value: function () {
-      var _edit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(json) {
+      var _edit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(json) {
         var _this2 = this;
 
         var jsons, url;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context7.prev = _context7.next) {
               case 0:
                 jsons = json.replace(/&quot;/g, '"');
                 jsons = JSON.parse(jsons);
                 url = myUrl.update.replace(/(@per@)/g, jsons.id);
-                _context6.next = 5;
+                _context7.next = 5;
                 return this.addModal('Ubah Perusahaanku', function () {
                   $('#nama_perusahaan').val(jsons.name);
                   $('#telepon_perusahaan').val(jsons.telepon);
@@ -69593,10 +69614,10 @@ var DashboardClient = /*#__PURE__*/function () {
 
               case 5:
               case "end":
-                return _context6.stop();
+                return _context7.stop();
             }
           }
-        }, _callee6, this);
+        }, _callee7, this);
       }));
 
       function edit(_x4) {
