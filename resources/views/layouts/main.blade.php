@@ -228,6 +228,7 @@
 @endphp
 <script>
   window.__token="{{$token}}";
+  window.__basePath = "{{url('/')}}";
 </script>
 <!-- REQUIRED SCRIPTS -->
 
@@ -237,7 +238,9 @@
 <script src="{{asset('dist/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script src="{{asset('dist/select2/dist/js/select2.full.js')}}"></script>
 
+<script src="{{asset('dist/plugins/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
+
 <script>
   $(document).ready(()=>{
     setInterval(() => {

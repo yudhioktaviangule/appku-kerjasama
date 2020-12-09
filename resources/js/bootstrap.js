@@ -1,7 +1,7 @@
 import PDFUploader from './scripts/FileUploader';
 import MainRouter from './components/Main';
 import Alert from './scripts/Alert';
-
+import './plugin/ckeditor/index'
 window._ = require('lodash');
 
 

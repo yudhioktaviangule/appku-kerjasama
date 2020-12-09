@@ -69151,6 +69151,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_FileUploader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/FileUploader */ "./resources/js/scripts/FileUploader.js");
 /* harmony import */ var _components_Main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Main */ "./resources/js/components/Main.js");
 /* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/Alert */ "./resources/js/scripts/Alert.js");
+/* harmony import */ var _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugin/ckeditor/index */ "./resources/js/plugin/ckeditor/index.js");
+
 
 
 
@@ -70209,6 +70211,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
 /* harmony import */ var _scripts_SelectDua__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../scripts/SelectDua */ "./resources/js/scripts/SelectDua.js");
+/* harmony import */ var _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../plugin/ckeditor/index */ "./resources/js/plugin/ckeditor/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -70226,11 +70229,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var FormDokumen = /*#__PURE__*/function () {
   function FormDokumen() {
     _classCallCheck(this, FormDokumen);
 
     _defineProperty(this, "pjid", 0);
+
+    _defineProperty(this, "editore", new _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_3__["default"]());
 
     _defineProperty(this, "select2", new _scripts_SelectDua__WEBPACK_IMPORTED_MODULE_2__["SelectDua"]());
   }
@@ -70308,6 +70314,12 @@ var FormDokumen = /*#__PURE__*/function () {
                     });
 
                     $("input[name='penanggung_jawab_id']").val(_this.pjid);
+
+                    _this.editore.ck('justify,textindent');
+
+                    var ckeditor = _this.editore.ckeditor;
+                    ckeditor.replace("maksud");
+                    ckeditor.replace("tujuan");
                   }
                 }, true);
                 return _context.abrupt("return", this);
@@ -71924,6 +71936,74 @@ var OP_Modals = /*#__PURE__*/function () {
 }();
 
 
+
+/***/ }),
+
+/***/ "./resources/js/plugin/ckeditor/index.js":
+/*!***********************************************!*\
+  !*** ./resources/js/plugin/ckeditor/index.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CKeditor; });
+/* harmony import */ var _init__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./init */ "./resources/js/plugin/ckeditor/init.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var CKeditor = /*#__PURE__*/function () {
+  function CKeditor() {
+    _classCallCheck(this, CKeditor);
+
+    _defineProperty(this, "ckeditor", CKEDITOR);
+  }
+
+  _createClass(CKeditor, [{
+    key: "konfigurasi",
+    value: function konfigurasi() {
+      var conf = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      Object(_init__WEBPACK_IMPORTED_MODULE_0__["configurate"])(conf);
+    }
+  }, {
+    key: "ck",
+    value: function ck() {
+      var confy = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      this.konfigurasi(confy);
+      return this;
+    }
+  }]);
+
+  return CKeditor;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/plugin/ckeditor/init.js":
+/*!**********************************************!*\
+  !*** ./resources/js/plugin/ckeditor/init.js ***!
+  \**********************************************/
+/*! exports provided: configurate */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "configurate", function() { return configurate; });
+function configurate() {
+  var extraPlugins = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  CKEDITOR.config.extraPlugins = extraPlugins;
+}
 
 /***/ }),
 

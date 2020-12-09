@@ -1,16 +1,16 @@
-
 import Modals from '../../../../scripts/Modals';
 import { SelectDua } from '../../../../scripts/SelectDua';
-
-
+import CKeditor from '../../../../plugin/ckeditor/index';
 
 export default class FormDokumen{
     pjid = 0;
+    editore = new CKeditor(); 
     init(penanggung){
         this.pjid = penanggung;
         return this;
     }
     select2 = new SelectDua();
+    
     async loadForm(title='',onload=null){
         const {
                 dokumen:{
@@ -57,6 +57,11 @@ export default class FormDokumen{
                     templateResult:template
                 });
                 $("input[name='penanggung_jawab_id']").val(this.pjid);
+               this.editore.ck('justify,textindent');
+                const {ckeditor} = this.editore;
+                ckeditor.replace("maksud");
+                ckeditor.replace("tujuan");
+
                 
             }
         },true)
