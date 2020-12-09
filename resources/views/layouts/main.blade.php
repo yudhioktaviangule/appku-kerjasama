@@ -242,7 +242,7 @@
 <script src="{{asset('js/app.js')}}"></script>
 
 <script>
-  $(document).ready(()=>{
+  $(document).ready(()=>{ 
     setInterval(() => {
       $("auth").html(`@csrf`)
       $("put").html(`<input type='hidden' name='_method' value='put'>`)
