@@ -9,6 +9,7 @@ use App\Http\Controllers\Web\RestrictController;
 use App\Http\Controllers\Web\Kerjasama\DokumenController;
 use App\Http\Controllers\Web\Kerjasama\OpDokumenController;
 use App\Http\Controllers\Web\Kerjasama\KasubagDokumenController;
+use App\Http\Controllers\Web\Kerjasama\ArsipController;
 
 
 Route::get('/', function () {
@@ -28,6 +29,7 @@ Route::group(['prefix'=>"kerjasama"],function(){
     Route::resource('pejabat',PejabatController::class);
     Route::resource('op_dokumen',OpDokumenController::class);
     Route::resource('kasubag_doc',KasubagDokumenController::class);
+    Route::resource('arsip',ArsipController::class);
     
 });
 

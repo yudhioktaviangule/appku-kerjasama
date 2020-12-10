@@ -15,7 +15,7 @@ class DokumenApi extends Controller{
     
     public function __construct(Request $request){
         $this->request = $request; 
-        //$this->middleware('auth.api');
+        $this->middleware('auth.api');
     }
     private function getDoc()
     {

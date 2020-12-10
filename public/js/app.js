@@ -69233,6 +69233,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_clients_RegisterDokumen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/clients/RegisterDokumen */ "./resources/js/components/pages/clients/RegisterDokumen.js");
 /* harmony import */ var _pages_operator_OpDashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/operator/OpDashboard */ "./resources/js/components/pages/operator/OpDashboard.js");
 /* harmony import */ var _pages_kasubag_root_KbDashboard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/kasubag_root/KbDashboard */ "./resources/js/components/pages/kasubag_root/KbDashboard.js");
+/* harmony import */ var _pages_operator_arsip_MainArsip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/operator/arsip/MainArsip */ "./resources/js/components/pages/operator/arsip/MainArsip.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -69240,6 +69241,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -69264,6 +69266,8 @@ var MainRouter = /*#__PURE__*/function () {
     _defineProperty(this, "opDash", new _pages_operator_OpDashboard__WEBPACK_IMPORTED_MODULE_5__["default"]());
 
     _defineProperty(this, "kbDash", new _pages_kasubag_root_KbDashboard__WEBPACK_IMPORTED_MODULE_6__["default"]());
+
+    _defineProperty(this, "arsip", new _pages_operator_arsip_MainArsip__WEBPACK_IMPORTED_MODULE_7__["default"]());
   }
 
   _createClass(MainRouter, [{
@@ -71752,6 +71756,144 @@ var OpDashboard = /*#__PURE__*/function () {
 }();
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/arsip/ArsipDataTable.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/pages/operator/arsip/ArsipDataTable.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ArsipDataTable; });
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var ArsipDataTable = /*#__PURE__*/function () {
+  function ArsipDataTable() {
+    _classCallCheck(this, ArsipDataTable);
+
+    _defineProperty(this, "columns", [{
+      name: 'nomor',
+      data: 'nomor'
+    }, {
+      name: 'instansi',
+      data: 'instansi'
+    }, {
+      name: 'tentang',
+      data: 'tentang'
+    }, {
+      name: 'aksi',
+      data: 'aksi'
+    }]);
+
+    _defineProperty(this, "table", "                    \n    <table class=\"table table-bordered\" id='table-arsip'>\n        <thead>\n            <tr>\n                <th>Nomor</th>\n                <th>Perusahaan/Instansi</th>\n                <th>Tentang</th>\n                <th>\n                    <div class=\"text-right\">\n                        Aksi\n                    </div>\n                </th>\n            </tr>\n        </thead>\n    </table>\n    ");
+  }
+
+  _createClass(ArsipDataTable, [{
+    key: "init",
+    value: function init(main) {
+      var dt = window.myUrl.arsip.dataTable;
+      $("#body-content").html(this.table);
+      var url = dt;
+      var tbl = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]($("#table-arsip"));
+      var ajax = tbl.createAjaxParam(url, {});
+      tbl.dataTable(this.columns, ajax, {});
+    }
+  }]);
+
+  return ArsipDataTable;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/arsip/MainArsip.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/pages/operator/arsip/MainArsip.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MainArsip; });
+/* harmony import */ var _ArsipDataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ArsipDataTable */ "./resources/js/components/pages/operator/arsip/ArsipDataTable.js");
+/* harmony import */ var _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PernyataanKehendak */ "./resources/js/components/pages/operator/arsip/PernyataanKehendak.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var MainArsip = /*#__PURE__*/function () {
+  function MainArsip() {
+    _classCallCheck(this, MainArsip);
+
+    _defineProperty(this, "dataTable", new _ArsipDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
+
+    _defineProperty(this, "pernyataanKehendak", new _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_1__["PernyataanKehendak"]());
+  }
+
+  _createClass(MainArsip, [{
+    key: "init",
+    value: function init() {
+      this.dataTable.init(this);
+    }
+  }, {
+    key: "setKehendak",
+    value: function setKehendak() {
+      var document_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      this.pernyataanKehendak = new _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_1__["PernyataanKehendak"](document_id);
+    }
+  }, {
+    key: "pernyataanKehendakClick",
+    value: function pernyataanKehendakClick() {}
+  }]);
+
+  return MainArsip;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/arsip/PernyataanKehendak.js":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/pages/operator/arsip/PernyataanKehendak.js ***!
+  \****************************************************************************/
+/*! exports provided: PernyataanKehendak */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PernyataanKehendak", function() { return PernyataanKehendak; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var PernyataanKehendak = function PernyataanKehendak() {
+  _classCallCheck(this, PernyataanKehendak);
+
+  _defineProperty(this, "document_id", void 0);
+};
 
 /***/ }),
 
