@@ -54,7 +54,7 @@
             <a href="{{route('arsip.index')}}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>
-                Arsip
+                Konseptor
               </p>
             </a>
           </li>

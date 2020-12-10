@@ -9,7 +9,7 @@ export class PernyataanKehendak{
     document_id='';
     content=`
         <div class='form-group'>
-            <textarea class='form-control' id='pern-kehendak-text'>_KONTEN_</textarea>
+            <textarea class='form-control' name='isi' id='pern-kehendak-text'>_KONTEN_</textarea>
         </div>
     `;
 
@@ -67,9 +67,13 @@ export class PernyataanKehendak{
             _TAHUN_:_TAHUN_,
             _TANGGAL_:_TANGGAL_,
         }
+
         const content = konten.replace(/_TENTANG_|_INSTANSIPIHAK1_|_JABATANPEJABAT_|_NAMAPEJABAT_|_NAMAUSER_|_JABATANUSER_|_NAMAPERUSAHAAN_|_BULAN_|_TAHUN_|_TANGGAL_/gi,match=>{
             return objx[match].toUpperCase();
         })
+        $("input[name='isi']").val(content);
+        $("input[name='judul']").val('Pernyataan Kehendak');
+        $("input[name='document_id']").val(this.document_id);
         return content;
         
     }

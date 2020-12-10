@@ -18,6 +18,7 @@ class CreateArchivesTable extends Migration
             $table->integer('document_id');
             $table->string('judul');
             $table->longtext('isi');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

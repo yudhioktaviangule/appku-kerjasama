@@ -17,11 +17,20 @@ export default class MainArsip {
     init() {
         this.dataTable.init(this);
         this.setTitle();
+        $("#kirim").hide(500);
+    }
+
+    submitForm(){
+        $("#form-arsip").submit();
     }
 
     async setKehendak(document_id = "") {
+        $("#kirim").show(500);
         this.pernyataanKehendak = new PernyataanKehendak(document_id);
         await this.pernyataanKehendak.init()
+    }
+    kirim(){
+
     }
     setTitle(type = "normal",nomorDocument='') {
         $("#p-title").html(this.captionTitle[type].head);
