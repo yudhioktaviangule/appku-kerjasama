@@ -5,6 +5,7 @@ import Alert from '../../../scripts/Alert';
 export default class Walikota {
     columns = [
         { name: "name", data: "name", orderable: false },
+        { name: "instansi", data: "instansi", orderable: false },
         { name: "jabatan", data: "jabatan", orderable: false },
         {
             name: "status_aktif",
@@ -24,13 +25,13 @@ export default class Walikota {
         const { table } = window.myUrl;
         const ajax = tb.createAjaxParam(table,{});
         tb.dataTable(this.columns,ajax,{
-            "order": [[2, 'asc']],
+            "order": [[3, 'asc']],
         });
     }
     async edit(json){
         let jsons = json.replace(/&quot;/g,'"');
         jsons = JSON.parse(jsons);
-        await this.addModal("Lihat Data Walikota",()=>{
+        await this.addModal("Lihat Data PEJABAT",()=>{
             $("#name").val(jsons.name);
             $("#jabatan").val(jsons.jabatan);
             $("#aktif").val(jsons.aktif);
@@ -48,7 +49,7 @@ export default class Walikota {
         const alert = new Alert();
         const {hapus} = myUrl;
         const url = hapus.replace(/(@pejabat@)/g,jsons.id);
-        alert.swalYesNo('Ingin Hapus data Walikota?','Hapus Walikota',()=>{
+        alert.swalYesNo('Ingin Hapus data PEJABAT?','Hapus PEJABAT',()=>{
             $("#delete-form").attr("action",url);
             $("#delete-form").submit();
         })
@@ -60,7 +61,7 @@ export default class Walikota {
         const {ubah} = myUrl;
         let url = ubah.replace(/(@pejabat@)/g,jsons.id)
         const alert = new Alert();
-        alert.swalYesNo(`Ingin Menonaktifkan ${jsons.name} dari data jabatan Walikota?`,'Ubah Status Walikota',()=>{
+        alert.swalYesNo(`Ingin Menonaktifkan ${jsons.name} dari data jabatan PEJABAT?`,'Ubah Status PEJABAT',()=>{
             window.location.href=url;
         })
     }
@@ -71,11 +72,11 @@ export default class Walikota {
         const {ubah} = myUrl;
         let url = ubah.replace(/(@pejabat@)/g,`${jsons.id}/edit`)
         const alert = new Alert();
-        alert.swalYesNo(`Ingin Mengaktifkan ${jsons.name} dari data jabatan Walikota?`,'Ubah Status Walikota',()=>{
+        alert.swalYesNo(`Ingin Mengaktifkan ${jsons.name} dari data jabatan PEJABAT?`,'Ubah Status PEJABAT',()=>{
             window.location.href=url;
         })
     }
-    async addModal(title='Tambah Walikota',onModalOpen=undefined){
+    async addModal(title='Tambah PEJABAT',onModalOpen=undefined){
         const {create,store} = window.myUrl; 
         const modal = new Modals(create,store,title,true);
         await modal.ajax();

@@ -14,10 +14,10 @@
                 <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <h3 class='card-title'>
-                        Daftar Walikota
+                        Daftar Pejabat
                     </h3>
                     <a href="#" onclick='window.walikota.addModal()'>
-                        Tambah Walikota
+                        Tambah Pejabat
                     </a>
                   
                   
@@ -28,6 +28,7 @@
                         <thead>
                             <tr>
                                 <th>Nama</th>
+                                <th>Instansi</th>
                                 <th>Jabatan</th>
                                 <th>Status Keaktifan</th>
                                 <th>

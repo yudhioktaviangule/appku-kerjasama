@@ -44,7 +44,7 @@ class ArsipApi extends Controller{
         return Tabelku::of($data)
             ->addIndexColumn()
             ->addColumn('aksi' , function($json){
-                return View::make('pages.arsip.components.button');
+                return View::make('pages.arsip.components.button',json_decode($json,true));
             })
             ->addColumn('instansi' , function($json){
                 $data = json_decode($json,TRUE);

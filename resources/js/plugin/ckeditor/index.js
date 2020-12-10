@@ -3,12 +3,13 @@ import { configurate } from './init';
 
 export default class CKeditor{
     ckeditor = CKEDITOR;
-    konfigurasi(conf=''){
-        configurate(conf);
+    konfigurasi(conf='',height=0){
+        configurate(conf,height);
     }
 
-    ck(confy=''){
-        this.konfigurasi(confy)
+    ck(confy='',height=0){
+        this.konfigurasi(confy,height)
+        
         return this;
     }
 }

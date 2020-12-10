@@ -36,29 +36,29 @@ class PejabatController extends Controller{
     public function store(){
         try{
             $request = $this->request; 
-            $post = $request->only('name','jabatan','aktif');
+            $post = $request->only('name','jabatan','aktif','instansi');
             Pejabat::create($post);
-            $this->redirectBack("Data Walikota Berhasil disimpan","Simpan",route('pejabat.index'));
+            $this->redirectBack("Data Pejabat Berhasil disimpan","Simpan",route('pejabat.index'));
         }catch(\Exception $e){
-            $this->redirectBack("Data Walikota Gagal disimpan","Gagal Disimpan",route('pejabat.index'));
+            $this->redirectBack("Data Pejabat Gagal disimpan","Gagal Disimpan",route('pejabat.index'));
         }
         
     }
     public function update($id=''){
         try{
             $request = $this->request; 
-            $post = $request->only('name','jabatan','aktif');
+            $post = $request->only('name','jabatan','aktif','instansi');
             Pejabat::where("id",$id)->update($post);
-            $this->redirectBack("Data Walikota Berhasil diubah","Ubah",route('pejabat.index'));
+            $this->redirectBack("Data Pejabat Berhasil diubah","Ubah",route('pejabat.index'));
         }catch(\Exception $e){
-            $this->redirectBack("Data Walikota Gagal diubah","Gagal Ubah",route('pejabat.index'));
+            $this->redirectBack("Data Pejabat Gagal diubah","Gagal Ubah",route('pejabat.index'));
 
         }
 
     }
     public function destroy($id=''){
         Pejabat::where('id',$id)->delete();
-        $this->redirectBack("Data Walikota Berhasil dihapus","Simpan",route('pejabat.index'));
+        $this->redirectBack("Data Pejabat Berhasil dihapus","Simpan",route('pejabat.index'));
         #code
     }
     

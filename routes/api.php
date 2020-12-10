@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\WebApi\Web\Master\PejabatApi;
 use App\Http\Controllers\Api\WebApi\Kerjasama\DokumenApi;
 use App\Http\Controllers\Api\WebApi\OperatorApi\DokumenApi as OperatorDocApi;
 use App\Http\Controllers\Api\WebApi\OperatorApi\Kerjasama\ArsipApi;
+use App\Http\Controllers\Api\WebApi\OperatorApi\Kerjasama\KehendakApi;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -30,4 +31,5 @@ Route::resource("doc-api",DokumenApi::class);
 Route::group(['prefix'=>"operator"],function(){
     Route::resource("op_doc_api",OperatorDocApi::class);
     Route::resource("arsipapi",ArsipApi::class);
+    Route::get("kehendak/resource/{document_id}",[KehendakApi::class,'getResource'])->name('kehendak.get.resource');
 });

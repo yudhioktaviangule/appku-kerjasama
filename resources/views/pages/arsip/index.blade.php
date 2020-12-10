@@ -15,7 +15,7 @@
                 <div class="d-flex justify-content-between">
                     <h3 class='card-title'>
                         <strong id='p-title'>Pilih Dokumen</strong><br>
-                    <small>Pilih dokumen untuk dibuatkan Arsip</small>
+                        <small id='sub-title'>Pilih dokumen untuk dibuatkan Arsip</small>
                     </h3>
                 </div>
                 </div>
@@ -24,6 +24,7 @@
                 </div>
             </div>
         </div>
+ 
     </div>
     
 
@@ -37,6 +38,9 @@
                     arsip:{
                         store:`{{route('arsip.store')}}`,
                         dataTable:`{{route('arsipapi.index')}}`
+                    },
+                    sruce:{
+                        get:'{{route("kehendak.get.resource",["document_id"=>"@document@"])}}',
                     }
                 }
 

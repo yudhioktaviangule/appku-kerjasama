@@ -71360,6 +71360,10 @@ var Walikota = /*#__PURE__*/function () {
       data: "name",
       orderable: false
     }, {
+      name: "instansi",
+      data: "instansi",
+      orderable: false
+    }, {
       name: "jabatan",
       data: "jabatan",
       orderable: false
@@ -71390,7 +71394,7 @@ var Walikota = /*#__PURE__*/function () {
       var table = window.myUrl.table;
       var ajax = tb.createAjaxParam(table, {});
       tb.dataTable(this.columns, ajax, {
-        "order": [[2, 'asc']]
+        "order": [[3, 'asc']]
       });
     }
   }, {
@@ -71405,7 +71409,7 @@ var Walikota = /*#__PURE__*/function () {
                 jsons = json.replace(/&quot;/g, '"');
                 jsons = JSON.parse(jsons);
                 _context.next = 4;
-                return this.addModal("Lihat Data Walikota", function () {
+                return this.addModal("Lihat Data PEJABAT", function () {
                   $("#name").val(jsons.name);
                   $("#jabatan").val(jsons.jabatan);
                   $("#aktif").val(jsons.aktif);
@@ -71438,7 +71442,7 @@ var Walikota = /*#__PURE__*/function () {
       var _myUrl = myUrl,
           hapus = _myUrl.hapus;
       var url = hapus.replace(/(@pejabat@)/g, jsons.id);
-      alert.swalYesNo('Ingin Hapus data Walikota?', 'Hapus Walikota', function () {
+      alert.swalYesNo('Ingin Hapus data PEJABAT?', 'Hapus PEJABAT', function () {
         $("#delete-form").attr("action", url);
         $("#delete-form").submit();
       });
@@ -71452,7 +71456,7 @@ var Walikota = /*#__PURE__*/function () {
           ubah = _myUrl2.ubah;
       var url = ubah.replace(/(@pejabat@)/g, jsons.id);
       var alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
-      alert.swalYesNo("Ingin Menonaktifkan ".concat(jsons.name, " dari data jabatan Walikota?"), 'Ubah Status Walikota', function () {
+      alert.swalYesNo("Ingin Menonaktifkan ".concat(jsons.name, " dari data jabatan PEJABAT?"), 'Ubah Status PEJABAT', function () {
         window.location.href = url;
       });
     }
@@ -71465,7 +71469,7 @@ var Walikota = /*#__PURE__*/function () {
           ubah = _myUrl3.ubah;
       var url = ubah.replace(/(@pejabat@)/g, "".concat(jsons.id, "/edit"));
       var alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
-      alert.swalYesNo("Ingin Mengaktifkan ".concat(jsons.name, " dari data jabatan Walikota?"), 'Ubah Status Walikota', function () {
+      alert.swalYesNo("Ingin Mengaktifkan ".concat(jsons.name, " dari data jabatan PEJABAT?"), 'Ubah Status PEJABAT', function () {
         window.location.href = url;
       });
     }
@@ -71485,7 +71489,7 @@ var Walikota = /*#__PURE__*/function () {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                title = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 'Tambah Walikota';
+                title = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 'Tambah PEJABAT';
                 onModalOpen = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : undefined;
                 _window$myUrl = window.myUrl, create = _window$myUrl.create, store = _window$myUrl.store;
                 modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](create, store, title, true);
@@ -71820,6 +71824,21 @@ var ArsipDataTable = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/operator/arsip/KehendakContentFormat/Kehendak.js":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/pages/operator/arsip/KehendakContentFormat/Kehendak.js ***!
+  \****************************************************************************************/
+/*! exports provided: Cformat */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Cformat", function() { return contentformat; });
+var contentformat = "\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PERNYATAAN KEHENDAK</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>ANTARA</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_INSTANSIPIHAK1_</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>DENGAN</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_NAMAPERUSAHAAN_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>TENTANG</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_TENTANG_</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">_INSTANSIPIHAK1_, indonesia dan</span><span style=\"color:#000000\"><strong> </strong></span><span style=\"color:#ff0000\">&nbsp;</span><span style=\"color:#000000\">selanjutnya disebut sebagai &ldquo;Para Pihak&rdquo; <strong>MENGAKUI&nbsp;</strong></span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">pentingnya prinsip-prinsip kesetaraan dan saling menguntungkan; <strong>SESUAI</strong>&nbsp; dengan hukum, peraturan&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">dan prosedur administrasi yang berlaku di Indonesia; <strong>DENGAN INI</strong> menyatakan niat Para Pihak untuk&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">akan membuat suatu Memorandum Saling Pengertian tentang kerjasama&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">yang akan menjadi dasar untuk pengembangan kerjasama dalam bidang-bidang sebagai berikut:</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>&nbsp;</strong></span></span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Pernyataan kehendak ini dapat mencakup bidang-bidang lainnya atas kesepakatan bersama oleh Para Pihak. Pernyataan kehendak ini berlaku efektif dan tetap berlaku untuk jangka waktu 1 (satu) tahun sejak tanggal penandatanganan. <strong>DIBUAT</strong> dalam rangkap 2 (dua) di&nbsp; pada&nbsp; _TANGGAL_ Bulan _BULAN_ tahun _TAHUN_, dalam bahasa Indonesia.</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Untuk,</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">_INSTANSIPIHAK1_, INDONESIA</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Untuk,</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_NAMAPERUSAHAAN_</strong></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>_NAMAPEJABAT_</u></strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"color:#000000; font-family:Arial\"><strong>_JABATANPEJABAT_</strong></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_NAMAUSER_</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_JABATANUSER_</strong></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p>&nbsp;</p>\n\n";
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/operator/arsip/MainArsip.js":
 /*!*******************************************************************!*\
   !*** ./resources/js/components/pages/operator/arsip/MainArsip.js ***!
@@ -71830,8 +71849,16 @@ var ArsipDataTable = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MainArsip; });
-/* harmony import */ var _ArsipDataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ArsipDataTable */ "./resources/js/components/pages/operator/arsip/ArsipDataTable.js");
-/* harmony import */ var _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PernyataanKehendak */ "./resources/js/components/pages/operator/arsip/PernyataanKehendak.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ArsipDataTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ArsipDataTable */ "./resources/js/components/pages/operator/arsip/ArsipDataTable.js");
+/* harmony import */ var _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PernyataanKehendak */ "./resources/js/components/pages/operator/arsip/PernyataanKehendak.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -71847,25 +71874,73 @@ var MainArsip = /*#__PURE__*/function () {
   function MainArsip() {
     _classCallCheck(this, MainArsip);
 
-    _defineProperty(this, "dataTable", new _ArsipDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
+    _defineProperty(this, "dataTable", new _ArsipDataTable__WEBPACK_IMPORTED_MODULE_1__["default"]());
 
-    _defineProperty(this, "pernyataanKehendak", new _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_1__["PernyataanKehendak"]());
+    _defineProperty(this, "pernyataanKehendak", new _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_2__["PernyataanKehendak"]());
+
+    _defineProperty(this, "captionTitle", {
+      normal: {
+        head: "Pilih Dokumen",
+        sub: "Pilih dokumen untuk dibuatkan Arsip"
+      },
+      kehendak: {
+        head: "Pernyataan kehendak",
+        sub: "No. Dokumen: _NOMOR_"
+      }
+    });
   }
 
   _createClass(MainArsip, [{
     key: "init",
     value: function init() {
       this.dataTable.init(this);
+      this.setTitle();
     }
   }, {
     key: "setKehendak",
-    value: function setKehendak() {
-      var document_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      this.pernyataanKehendak = new _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_1__["PernyataanKehendak"](document_id);
+    value: function () {
+      var _setKehendak = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var document_id,
+            _args = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                document_id = _args.length > 0 && _args[0] !== undefined ? _args[0] : "";
+                this.pernyataanKehendak = new _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_2__["PernyataanKehendak"](document_id);
+                _context.next = 4;
+                return this.pernyataanKehendak.init();
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function setKehendak() {
+        return _setKehendak.apply(this, arguments);
+      }
+
+      return setKehendak;
+    }()
+  }, {
+    key: "setTitle",
+    value: function setTitle() {
+      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "normal";
+      var nomorDocument = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+      $("#p-title").html(this.captionTitle[type].head);
+      var sub = this.captionTitle[type].sub;
+      var subTitle = sub.replace(/(_NOMOR_)/g, nomorDocument);
+      $("#sub-title").html(subTitle);
     }
   }, {
-    key: "pernyataanKehendakClick",
-    value: function pernyataanKehendakClick() {}
+    key: "kehendakClick",
+    value: function kehendakClick(object) {
+      this.setTitle("kehendak", object.nomor);
+      this.setKehendak(object.id);
+    }
   }]);
 
   return MainArsip;
@@ -71885,15 +71960,163 @@ var MainArsip = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PernyataanKehendak", function() { return PernyataanKehendak; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../plugin/ckeditor/index */ "./resources/js/plugin/ckeditor/index.js");
+/* harmony import */ var _KehendakContentFormat_Kehendak__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./KehendakContentFormat/Kehendak */ "./resources/js/components/pages/operator/arsip/KehendakContentFormat/Kehendak.js");
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var _scripts_BLN__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../scripts/BLN */ "./resources/js/scripts/BLN.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var PernyataanKehendak = function PernyataanKehendak() {
-  _classCallCheck(this, PernyataanKehendak);
 
-  _defineProperty(this, "document_id", void 0);
-};
+
+
+
+var PernyataanKehendak = /*#__PURE__*/function () {
+  function PernyataanKehendak(id) {
+    _classCallCheck(this, PernyataanKehendak);
+
+    _defineProperty(this, "document_id", '');
+
+    _defineProperty(this, "content", "\n        <div class='form-group'>\n            <textarea class='form-control' id='pern-kehendak-text'>_KONTEN_</textarea>\n        </div>\n    ");
+
+    _defineProperty(this, "isikonten", _KehendakContentFormat_Kehendak__WEBPACK_IMPORTED_MODULE_2__["Cformat"]);
+
+    this.document_id = id;
+  }
+
+  _createClass(PernyataanKehendak, [{
+    key: "init",
+    value: function () {
+      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.setContent();
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function init() {
+        return _init.apply(this, arguments);
+      }
+
+      return init;
+    }()
+  }, {
+    key: "setContent",
+    value: function () {
+      var _setContent = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var konten;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                konten = this.content.replace(/(_KONTEN_)/g, this.isikonten);
+                _context2.next = 3;
+                return this.setFieldValue(konten);
+
+              case 3:
+                konten = _context2.sent;
+                $("#body-content").html("");
+                $("#body-content").html(konten);
+                this.setTextEditor();
+
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function setContent() {
+        return _setContent.apply(this, arguments);
+      }
+
+      return setContent;
+    }()
+  }, {
+    key: "setFieldValue",
+    value: function () {
+      var _setFieldValue = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(konten) {
+        var sruce, url, ajax, result, _result$data, _TENTANG_, _result$data$pejabat, _INSTANSIPIHAK1_, _JABATANPEJABAT_, _NAMAPEJABAT_, _result$data$user_que, _NAMAUSER_, _JABATANUSER_, _NAMAPERUSAHAAN_, _BULAN_, _TAHUN_, _TANGGAL_, b, objx, content;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                sruce = window.myUrl.sruce;
+                url = sruce.get.replace(/(@document@)/g, this.document_id);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"](url, 'GET');
+                _context3.next = 5;
+                return ajax.get(url);
+
+              case 5:
+                result = _context3.sent;
+                _result$data = result.data, _TENTANG_ = _result$data.dokumen.tentang, _result$data$pejabat = _result$data.pejabat, _INSTANSIPIHAK1_ = _result$data$pejabat.instansi, _JABATANPEJABAT_ = _result$data$pejabat.jabatan, _NAMAPEJABAT_ = _result$data$pejabat.name, _result$data$user_que = _result$data.user_query, _NAMAUSER_ = _result$data$user_que.user.name, _JABATANUSER_ = _result$data$user_que.jabatan.jabatan, _NAMAPERUSAHAAN_ = _result$data$user_que.perusahaan.name, _BULAN_ = _result$data.bulan, _TAHUN_ = _result$data.tahun, _TANGGAL_ = _result$data.tanggal;
+                console.log(result);
+                b = Object(_scripts_BLN__WEBPACK_IMPORTED_MODULE_4__["default"])(_BULAN_);
+                objx = {
+                  _TENTANG_: _TENTANG_,
+                  _INSTANSIPIHAK1_: _INSTANSIPIHAK1_,
+                  _JABATANPEJABAT_: _JABATANPEJABAT_,
+                  _NAMAPEJABAT_: _NAMAPEJABAT_,
+                  _NAMAUSER_: _NAMAUSER_,
+                  _JABATANUSER_: _JABATANUSER_,
+                  _NAMAPERUSAHAAN_: _NAMAPERUSAHAAN_,
+                  _BULAN_: b,
+                  _TAHUN_: _TAHUN_,
+                  _TANGGAL_: _TANGGAL_
+                };
+                content = konten.replace(/_TENTANG_|_INSTANSIPIHAK1_|_JABATANPEJABAT_|_NAMAPEJABAT_|_NAMAUSER_|_JABATANUSER_|_NAMAPERUSAHAAN_|_BULAN_|_TAHUN_|_TANGGAL_/gi, function (match) {
+                  return objx[match].toUpperCase();
+                });
+                return _context3.abrupt("return", content);
+
+              case 12:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function setFieldValue(_x) {
+        return _setFieldValue.apply(this, arguments);
+      }
+
+      return setFieldValue;
+    }()
+  }, {
+    key: "setTextEditor",
+    value: function setTextEditor() {
+      var ck = new _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_1__["default"]();
+      ck.ck('justify,textindent', 1000);
+      ck.ckeditor.replace('pern-kehendak-text');
+    }
+  }]);
+
+  return PernyataanKehendak;
+}();
 
 /***/ }),
 
@@ -72114,13 +72337,15 @@ var CKeditor = /*#__PURE__*/function () {
     key: "konfigurasi",
     value: function konfigurasi() {
       var conf = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      Object(_init__WEBPACK_IMPORTED_MODULE_0__["configurate"])(conf);
+      var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      Object(_init__WEBPACK_IMPORTED_MODULE_0__["configurate"])(conf, height);
     }
   }, {
     key: "ck",
     value: function ck() {
       var confy = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      this.konfigurasi(confy);
+      var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      this.konfigurasi(confy, height);
       return this;
     }
   }]);
@@ -72144,7 +72369,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "configurate", function() { return configurate; });
 function configurate() {
   var extraPlugins = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
   CKEDITOR.config.extraPlugins = extraPlugins;
+
+  if (height !== 0) {
+    CKEDITOR.config.height = height;
+  }
 }
 
 /***/ }),
@@ -72360,6 +72590,59 @@ var Alert = /*#__PURE__*/function () {
 }();
 
 
+
+/***/ }),
+
+/***/ "./resources/js/scripts/BLN.js":
+/*!*************************************!*\
+  !*** ./resources/js/scripts/BLN.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var BulanName = function BulanName(b) {
+  switch (b) {
+    case '01':
+      return "Januari";
+
+    case '02':
+      return "Februari";
+
+    case '03':
+      return "Maret";
+
+    case '04':
+      return "April";
+
+    case '05':
+      return "Mei";
+
+    case '06':
+      return "Juni";
+
+    case '07':
+      return "Juli";
+
+    case '08':
+      return "Agustus";
+
+    case '09':
+      return "September";
+
+    case '10':
+      return "Oktober";
+
+    case '11':
+      return "Nopember";
+
+    case '12':
+      return "Desember";
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BulanName);
 
 /***/ }),
 

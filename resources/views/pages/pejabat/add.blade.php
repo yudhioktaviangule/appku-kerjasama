@@ -7,6 +7,10 @@
     <input type="text" name="jabatan" class="form-control">
 </div>
 <div class="form-group">
+    <label for="">Instansi</label>
+    <input type="text" name="instansi" class="form-control">
+</div>
+<div class="form-group">
     <label for="">Status Keaktifan Pejabat</label>
     <select required class='form-control' name="aktif" id="aktif">
         <option value="1">Aktif</option>
