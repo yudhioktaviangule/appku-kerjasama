@@ -35,7 +35,7 @@ class DokumenController extends Controller{
         
         $request = $this->request; 
         try{
-            $store = $request->only('pejabat_id','penanggung_jawab_id','tentang','maksud','tujuan','lingkup','pihak_pertama','pihak_kedua');
+            $store = $request->only('ketentuan_hukum','pelaksanaan','pejabat_id','penanggung_jawab_id','tentang','maksud','tujuan','lingkup','pihak_pertama','pihak_kedua');
             $object = json_decode(json_encode($store));
             $cek = PenanggungJawab::where("id",$object->penanggung_jawab_id)->first();
             if($cek==NULL){
@@ -51,12 +51,7 @@ class DokumenController extends Controller{
                     'keterangan'  => 'Dokumen Baru dibuat'
 
                 ]);
-                $user = \App\Models\User::where('level','operator')->get();
-                foreach ($user as $key => $value) {
-                    $u = ['dokumen'=>$d,'_user'=>$value];
-                    dispatch(new BerkasDibuat($u));
-                    
-                }
+               
                 $this->redirectBack("Sukses","Simpan",route('dokumen.index'));
             }
 

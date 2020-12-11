@@ -1,3 +1,4 @@
+
 const contentformat = `
 <p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000"><strong>PERNYATAAN KEHENDAK</strong></span></span></span></p>
 
@@ -67,5 +68,6 @@ const contentformat = `
 <p>&nbsp;</p>
 
 `
+
 
 export {contentformat as Cformat};

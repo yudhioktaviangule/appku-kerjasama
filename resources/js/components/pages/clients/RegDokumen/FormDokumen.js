@@ -61,6 +61,8 @@ export default class FormDokumen{
                 const {ckeditor} = this.editore;
                 ckeditor.replace("maksud");
                 ckeditor.replace("tujuan");
+                ckeditor.replace("pelaksanaan");
+                ckeditor.replace("ketentuan_hukum");
 
                 
             }

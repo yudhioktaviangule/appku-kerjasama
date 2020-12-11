@@ -21,6 +21,8 @@ class CreateDocumentsTable extends Migration
             $table->string('tentang');
             $table->string('maksud');
             $table->string('tujuan');
+            $table->longtext('ketentuan_umum');
+            $table->longtext('pelaksanaan');
             $table->longtext('lingkup');
             $table->longtext('pihak_pertama');
             $table->longtext('pihak_kedua');

@@ -18,6 +18,8 @@ class Document extends Model
     'lingkup',
     'pihak_pertama',
     'pihak_kedua',
+    'pelaksanaan',
+    'ketentuan_umum',
     ];
     public function getPenanggungJawab()
     {

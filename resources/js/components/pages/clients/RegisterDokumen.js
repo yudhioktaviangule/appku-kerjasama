@@ -111,6 +111,8 @@ export default class RegisterDokumen{
             lingkup:{obj:"input[name='lingkup']"},
             pihak_pertama:{obj:"input[name='pihak_pertama']"},
             pihak_kedua:{obj:"input[name='pihak_kedua']"},
+            pelaksanaan:{obj:"input[name='pelaksanaan']"},
+            ketentuan_hukum:{obj:"input[name='ketentuan_hukum']"},
         }
         let validasi = true;
         for(let form in objForm){
