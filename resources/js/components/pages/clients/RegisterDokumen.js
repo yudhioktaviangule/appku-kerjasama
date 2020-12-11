@@ -7,6 +7,7 @@ import RuangLingkup from './RegDokumen/RuangLingkup';
 import PihakPertama from './RegDokumen/PihakPertama';
 import PihakKedua from './RegDokumen/PihakKedua';
 import Alert from '../../../scripts/Alert';
+import MailDokumenDibuat from './RegDokumen/Mailer';
 
 
 
@@ -23,13 +24,15 @@ export default class RegisterDokumen{
     lingkup = new RuangLingkup();
     pihak1 = new PihakPertama();
     pihak2 = new PihakKedua();
+    notification = new MailDokumenDibuat();
     form;
     penanggungJawab = null;
-    init(user_id){
+    async init(user_id){
         this.user=user_id;
         this.getPerusahaan();
         this.initDataTable();
-        this.showing=false;
+        this.showing = false;
+        this.notification.init();
 
     }
     enableSearch(){
@@ -105,14 +108,14 @@ export default class RegisterDokumen{
     }
     validasi(){
         const objForm = {
-            tentang:{obj:'#tentang'},
-            maksud:{obj:'#maksud'},
-            tujuan:{obj:'#tujuan'},
-            lingkup:{obj:"input[name='lingkup']"},
-            pihak_pertama:{obj:"input[name='pihak_pertama']"},
-            pihak_kedua:{obj:"input[name='pihak_kedua']"},
-            pelaksanaan:{obj:"input[name='pelaksanaan']"},
-            ketentuan_hukum:{obj:"input[name='ketentuan_hukum']"},
+            tentang        : {obj: '#tentang'},
+            maksud         : {obj: '#maksud'},
+            tujuan         : {obj: '#tujuan'},
+            lingkup        : {obj: "input[name = 'lingkup']"},
+            pihak_pertama  : {obj: "input[name = 'pihak_pertama']"},
+            pihak_kedua    : {obj: "input[name = 'pihak_kedua']"},
+            pelaksanaan    : {obj: "input[name = 'pelaksanaan']"},
+            ketentuan_umum: {obj: "input[name='ketentuan_umum']"},
         }
         let validasi = true;
         for(let form in objForm){

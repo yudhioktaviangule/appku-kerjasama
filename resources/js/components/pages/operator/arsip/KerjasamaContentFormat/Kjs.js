@@ -57,7 +57,7 @@ const CONTENT =
 
 <p>&nbsp;</p>
 
-<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000">Menindaklanjuti Nota Kesepakatan No <strong>:....................................</strong>Tentang<strong> _TENTANG_</strong></span></span></span></p>
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000">Menindaklanjuti Nota Kesepakatan No <strong>:_NOMOR_NOTA_KESEPAKATAN_</strong>Tentang<strong> _TENTANG_</strong></span></span></span></p>
 
 <p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000">Memperhatikan Dasar hukum sebagai berikut :</span></span></span></p>
 
@@ -246,7 +246,7 @@ const CONTENT =
 
 <p style="margin-left:50px; text-align:justify; text-indent:-50px"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000">Perjanjian ini mengikat kedua belah pihak sejak <strong>PIHAK PERTAMA</strong> dan <strong>PIHAK KEDUA</strong> menandatangani perjanjian hibah ini;---------------------------------------------------</span></span></span></p>
 
-<p style="margin-left:50px; text-align:justify; text-indent:-50px"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000">Apabila <strong>PIHAK KEDUA</strong> akan melakukan perubahan terhadap isi Perjanjian kerjasama ini, maka <strong>PIHAK KEDUA wajib</strong> memberitahukan kepada <strong>PIHAK PERTAMA</strong> melalui persuratan resmi tercatat dan atau melalui email :_USER_EMAIL_</span></span></span></p>
+<p style="margin-left:50px; text-align:justify; text-indent:-50px"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000">Apabila <strong>PIHAK KEDUA</strong> akan melakukan perubahan terhadap isi Perjanjian kerjasama ini, maka <strong>PIHAK KEDUA wajib</strong> memberitahukan kepada <strong>PIHAK PERTAMA</strong> melalui persuratan resmi tercatat dan atau melalui email :<strong style='margin-left:1em'>_USER_EMAIL_<strong></span></span></span></p>
 
 <p style="margin-left:50px; text-align:justify; text-indent:-50px"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000">Apabila <strong>PIHAK PERTAMA</strong> akan melakukan perubahan terhadap isi Perjanjian kerjasama ini, maka <strong>PIHAK PERTAMA wajib</strong> memberitahukan kepada <strong>PIHAK KEDUA</strong> melalui persuratan resmi tercatat dan atau melalui email : <strong>_ADMIN_EMAIL_</strong></span></span></span></p>
 
@@ -291,7 +291,7 @@ const CONTENT =
 			<br />
 			<br />
 			&nbsp;
-			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000"><strong>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</strong></span></span></span></p>
+			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000"><strong>_WALIKOTA_</strong></span></span></span></p>
 
 			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000"><strong>WALIKOTA MAKASSAR</strong></span></span></span></p>
 			</td>
@@ -402,5 +402,22 @@ const CONTENT =
 const ITEM = `
 <li style="list-style-type: disc;"><span style="font-family:Arial"><span style="font-size:16px"><strong>_ITEM_</strong></span></span></li>
 `
+const FORM_ELEMENT=`
+	<div class='form-group'>
+		<label>Nomor Nota Kesepakatan</label>
+		<input class='form-control' id='nomor_nota_sepakat' onchange="window.arsip.binding('nomor',$(this).val())">
+	</div>
+	<div class='form-group'>
+		<label>E-Mail Pemberitahuan</label>
+		<input class='form-control' id='admin_email' type='email' onchange="window.arsip.binding('email',$(this).val())">
+	</div>
+	<div class='form-group'>
+		<label>Nama Walikota</label>
+		<input class='form-control' id='walikota' onchange="window.arsip.binding('walikota',$(this).val())">
+	</div>
+	<div class='form-group text-right'>
+		<a class='btn btn-primary' href='#' onclick='window.arsip.actionToKerjasama("@obxj@")'>Buat Surat Kerjasama</a>
+	</div>
 
-export {CONTENT,ITEM} 
+`;
+export {CONTENT,ITEM,FORM_ELEMENT} 

@@ -7,9 +7,14 @@ import CKeditor from '../../../../plugin/ckeditor/index';
 export default class Perjanjian{
     title='Perjanjian Kerjasama'
     document_id;
-
-    constructor(doc=''){
+    models={
+        email:'',
+        nomor:'',
+        walikota:'',
+    };
+    constructor(doc='',model={}){
         this.document_id=doc;
+        this.models=model
     }
     async init(){
         let konten=`
@@ -48,7 +53,8 @@ export default class Perjanjian{
             },
             user_query:{
                 user:{
-                    name:_NAMAUSER_
+                    name:_NAMAUSER_,
+                    email:_USER_EMAIL_,
                 },
                 jabatan:{
                     jabatan:_JABATANUSER_,
@@ -90,6 +96,7 @@ export default class Perjanjian{
                     _JABPEJABAT_:_JABPEJABAT_,
                     _NAMAPEJABAT_:_NAMAPEJABAT_,
                     _NAMAUSER_:_NAMAUSER_,
+                    _USER_EMAIL_:_USER_EMAIL_,
                     _JABATANUSER_:_JABATANUSER_,
                     _PERUSAHAAN_:_PERUSAHAAN_,
                     _SK_:_SK_,
@@ -100,6 +107,9 @@ export default class Perjanjian{
                     _KEWAJIBAN_PIHAK1_:pihak1.kewajiban,
                     _HAK_PIHAK2_:pihak2.hak,
                     _KEWAJIBAN_PIHAK2_:pihak2.kewajiban,
+                    _ADMIN_EMAIL_:this.models.email,
+                    _WALIKOTA_:this.models.walikota,
+                    _NOMOR_NOTA_KESEPAKATAN_:this.models.nomor
                 }
                 
                 $("#janji").val(this.setContentEditor(objx))

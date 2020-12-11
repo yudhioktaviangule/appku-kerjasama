@@ -113,11 +113,14 @@
                     },
                     pejabat:{
                         select2:"{{route('api.walikota.select2',['slug'=>'_count_-_limit_-_offset_'])}}"
+                    },
+                    mail:{
+                        berkasDibuat:"{{route('berkas.buat.mail',['document_id'=>'@doc@'])}}"
                     }
                 }
                 register = window.APP.regDokumen;
                 register.init('{{Auth::id()}}');
-               
+           
             });
         </script>
 @endsection
