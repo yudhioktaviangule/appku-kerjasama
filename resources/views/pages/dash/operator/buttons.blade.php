@@ -13,7 +13,7 @@
         data-pihak_pertama='{{$data->pihak_pertama}}'
         data-pihak_kedua='{{$data->pihak_kedua}}'
         onclick="window.opdashboard.modals.open('Nomor Dokumen','{{$data->id}}','2',$(this))">
-        <i class="fas fa-file"></i> Beri No. Dokumen
+        <i class="fas fa-share"></i> 
     </a>
     @elseif($level==='' && $type==='1')
     <a href="#" class="btn btn-sm btn-success" 
@@ -24,7 +24,7 @@
         data-lingkup='{{$data->lingkup}}'
         data-pihak_pertama='{{$data->pihak_pertama}}'
         data-pihak_kedua='{{$data->pihak_kedua}}'
-        onclick="window.opdashboard.modals.open('Nomor Dokumen','{{$data->id}}','10',$(this))">
+        onclick="window.opdashboard.pejabat.open('Nomor Dokumen','{{$data->id}}','10',$(this))">
         <i class="fas fa-eye"></i> Kirim Ke Kasubag
     </a>
     @elseif($level==='kasubag' && $type=='2')

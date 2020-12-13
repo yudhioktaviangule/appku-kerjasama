@@ -47,7 +47,7 @@ class PenanggungJawabApi extends Controller{
     public function store(){
         try{
             $request = $this->request; 
-            $post = $request->only('perusahaan_id','nomor_sk_jabatan','jabatan','file_sk_jabatan');
+            $post = $request->only('penandatangan','perusahaan_id','nomor_sk_jabatan','jabatan','file_sk_jabatan');
             $data = new PenanggungJawab();
             $data->fill($post);
             $data->save();

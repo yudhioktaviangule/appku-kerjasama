@@ -14,6 +14,10 @@ export default class PenanggungJawab{
         <label for="jabatan">Jabatan</label>
         <input type="text" id="jabatan"  onchange="window.pJawab.setModel($(this).val(),'jabatan')" class="form-control" name="jabatan">
     </div>
+    <div class="form-group">
+        <label for="penandatangan">Nama Penandatangan</label>
+        <input type="text" id="penandatangan"  onchange="window.pJawab.setModel($(this).val(),'penandatangan')" class="form-control" name="penandatangan">
+    </div>
 
     <div class="form-group">
         <label for="nomor_sk_jabatan">No. SK</label>
@@ -51,6 +55,7 @@ export default class PenanggungJawab{
     `
     perusahaan_id=0;
     columns = [
+        {name:"penandatangan",data:'penandatangan'},
         {name:"jabatan",data:'jabatan'},
         {name:"nomor_sk_jabatan",data:'nomor_sk_jabatan'},
         {name:"aksi",data:'aksi'},

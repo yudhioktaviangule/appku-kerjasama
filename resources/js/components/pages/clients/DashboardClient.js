@@ -34,10 +34,9 @@ class DashboardClient{
     }
     async getCounts(){
         let url=window.myUrl.count_per.replace(/(uid)/g,this.user);
-        
         let ajax = new MyAjax(url);
         let {data} = await ajax.get(url);
-        console.log(data);
+        //console.log(data);
         let count = parseInt(data.count);
         let interval = 0;
         let intva = setInterval(()=>{
@@ -49,12 +48,18 @@ class DashboardClient{
             }
         },10);
     }
+
     setInputan(obj){
-        let val = $(obj).val();
-        if(val.toLowerCase()==='swasta'){
-            $("#tergantung-usaha").html(this.swasta);
-        }else{
-            $("#tergantung-usaha").html(this.pemerintah);
+        try{
+            let val = $(obj).val();
+            if(val.toLowerCase()==='swasta'){
+                $("#tergantung-usaha").html(this.swasta);
+            }else{
+                $("#tergantung-usaha").html(this.pemerintah);
+            }
+
+        }catch(e){
+            
         }
     }
     delete(json){

@@ -46,14 +46,10 @@ class OpDokumenController extends Controller{
                 "stdoc"       => $status['stdoc']
             ];
             $tindakLanjut = TindakLanjutDoc::create($tindak);
-            $u = [
-                'dokumen'=>Document::where('id',$id)->first(),
-                "_user" => Auth::id()
-            ];
-
-          
-            dispatch(new \App\Jobs\BerkasKirimKabag($u));
-            $this->redirectBack("Sukses","Update Dokumen",url('/home'));
+            $dokumen      = Document::where('id',$id)->first()->toArray();
+            $dokumen['type'] = 2;
+            $dataJSONToSend=json_encode($dokumen);
+            $this->redirectBackWithLStorage($dataJSONToSend,"Sukses","Tindak Lanjut",url('/home'));
         else:
             $this->redirectBack("Gagal","Gagal Mengpdate Dokumen",url('/home'));
         endif;

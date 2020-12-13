@@ -69390,7 +69390,7 @@ var DashboardClient = /*#__PURE__*/function () {
               case 4:
                 _yield$ajax$get = _context2.sent;
                 data = _yield$ajax$get.data;
-                console.log(data);
+                //console.log(data);
                 count = parseInt(data.count);
                 interval = 0;
                 intva = setInterval(function () {
@@ -69402,7 +69402,7 @@ var DashboardClient = /*#__PURE__*/function () {
                   }
                 }, 10);
 
-              case 10:
+              case 9:
               case "end":
                 return _context2.stop();
             }
@@ -69419,13 +69419,15 @@ var DashboardClient = /*#__PURE__*/function () {
   }, {
     key: "setInputan",
     value: function setInputan(obj) {
-      var val = $(obj).val();
+      try {
+        var val = $(obj).val();
 
-      if (val.toLowerCase() === 'swasta') {
-        $("#tergantung-usaha").html(this.swasta);
-      } else {
-        $("#tergantung-usaha").html(this.pemerintah);
-      }
+        if (val.toLowerCase() === 'swasta') {
+          $("#tergantung-usaha").html(this.swasta);
+        } else {
+          $("#tergantung-usaha").html(this.pemerintah);
+        }
+      } catch (e) {}
     }
   }, {
     key: "delete",
@@ -69702,7 +69704,7 @@ var PenanggungJawab = /*#__PURE__*/function () {
 
     _defineProperty(this, "user_id", 0);
 
-    _defineProperty(this, "form", "\n    <div class=\"form-group\">\n        <label for=\"jabatan\">Jabatan</label>\n        <input type=\"text\" id=\"jabatan\"  onchange=\"window.pJawab.setModel($(this).val(),'jabatan')\" class=\"form-control\" name=\"jabatan\">\n    </div>\n\n    <div class=\"form-group\">\n        <label for=\"nomor_sk_jabatan\">No. SK</label>\n        <input type=\"text\" id=\"nomor_sk_jabatan\" class=\"form-control\" onchange=\"window.pJawab.setModel($(this).val(),'nomor_sk_jabatan')\" name=\"nomor_sk_jabatan\">\n    </div>\n    <div class='form-group'>\n        <div class='text-right'>\n            <a class='btn btn-sm bg-blue' href='#' onclick='window.pJawab.save()' id='simpan-btn'>Simpan</a>\n        </div> \n\n    </div>\n    ");
+    _defineProperty(this, "form", "\n    <div class=\"form-group\">\n        <label for=\"jabatan\">Jabatan</label>\n        <input type=\"text\" id=\"jabatan\"  onchange=\"window.pJawab.setModel($(this).val(),'jabatan')\" class=\"form-control\" name=\"jabatan\">\n    </div>\n    <div class=\"form-group\">\n        <label for=\"penandatangan\">Nama Penandatangan</label>\n        <input type=\"text\" id=\"penandatangan\"  onchange=\"window.pJawab.setModel($(this).val(),'penandatangan')\" class=\"form-control\" name=\"penandatangan\">\n    </div>\n\n    <div class=\"form-group\">\n        <label for=\"nomor_sk_jabatan\">No. SK</label>\n        <input type=\"text\" id=\"nomor_sk_jabatan\" class=\"form-control\" onchange=\"window.pJawab.setModel($(this).val(),'nomor_sk_jabatan')\" name=\"nomor_sk_jabatan\">\n    </div>\n    <div class='form-group'>\n        <div class='text-right'>\n            <a class='btn btn-sm bg-blue' href='#' onclick='window.pJawab.save()' id='simpan-btn'>Simpan</a>\n        </div> \n\n    </div>\n    ");
 
     _defineProperty(this, "model", {
       'file_sk': '',
@@ -69720,6 +69722,9 @@ var PenanggungJawab = /*#__PURE__*/function () {
     _defineProperty(this, "perusahaan_id", 0);
 
     _defineProperty(this, "columns", [{
+      name: "penandatangan",
+      data: 'penandatangan'
+    }, {
       name: "jabatan",
       data: 'jabatan'
     }, {
@@ -71452,6 +71457,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return KbDashboard; });
 /* harmony import */ var _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard/OpDataTable */ "./resources/js/components/pages/kasubag_root/dashboard/OpDataTable.js");
 /* harmony import */ var _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard/OpModals */ "./resources/js/components/pages/kasubag_root/dashboard/OpModals.js");
+/* harmony import */ var _dashboard_Mailer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard/Mailer */ "./resources/js/components/pages/kasubag_root/dashboard/Mailer.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -71463,6 +71469,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var KbDashboard = /*#__PURE__*/function () {
   function KbDashboard() {
     _classCallCheck(this, KbDashboard);
@@ -71470,12 +71477,15 @@ var KbDashboard = /*#__PURE__*/function () {
     _defineProperty(this, "dataTable", new _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
 
     _defineProperty(this, "modals", new _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__["default"]());
+
+    _defineProperty(this, "mailer", new _dashboard_Mailer__WEBPACK_IMPORTED_MODULE_2__["default"]());
   }
 
   _createClass(KbDashboard, [{
     key: "init",
     value: function init() {
       this.dataTable.init();
+      this.mailer.init();
     }
   }]);
 
@@ -71716,6 +71726,205 @@ var ElementModals = {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/kasubag_root/dashboard/Mailer.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/dashboard/Mailer.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MailerToHukum; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var MailerToHukum = /*#__PURE__*/function () {
+  function MailerToHukum() {
+    _classCallCheck(this, MailerToHukum);
+  }
+
+  _createClass(MailerToHukum, [{
+    key: "sendToHukum",
+    value: function () {
+      var _sendToHukum = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        var _myUrl, kdb, url, ajax;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _myUrl = myUrl, kdb = _myUrl.email.toHukum;
+                url = kdb.replace(/(@doc@)/, id);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url, 'GET');
+                console.log("sending email...");
+                _context.prev = 4;
+                _context.next = 7;
+                return ajax.get(url);
+
+              case 7:
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](4);
+                console.log(_context.t0);
+
+              case 12:
+                console.log("email has send");
+                this.removeCache();
+
+              case 14:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[4, 9]]);
+      }));
+
+      function sendToHukum(_x) {
+        return _sendToHukum.apply(this, arguments);
+      }
+
+      return sendToHukum;
+    }()
+  }, {
+    key: "sendToClient",
+    value: function () {
+      var _sendToClient = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+        var _myUrl2, kdb, url, ajax;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _myUrl2 = myUrl, kdb = _myUrl2.email.tolak;
+                url = kdb.replace(/(@doc@)/, id);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url, 'GET');
+                console.log("sending email...");
+                _context2.prev = 4;
+                _context2.next = 7;
+                return ajax.get(url);
+
+              case 7:
+                _context2.next = 12;
+                break;
+
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](4);
+                console.log(_context2.t0);
+
+              case 12:
+                console.log("email has send");
+                this.removeCache();
+
+              case 14:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[4, 9]]);
+      }));
+
+      function sendToClient(_x2) {
+        return _sendToClient.apply(this, arguments);
+      }
+
+      return sendToClient;
+    }()
+  }, {
+    key: "removeCache",
+    value: function removeCache() {
+      var local = window.localStorage;
+      local.removeItem("mailing");
+    }
+  }, {
+    key: "init",
+    value: function () {
+      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var storage, mail, json;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                console.log('mail initializing...');
+                storage = window.localStorage;
+                mail = storage.getItem("mailing");
+                json = this.convertDataToJSON(mail);
+                console.log('mail sending...');
+                _context3.t0 = json.type;
+                _context3.next = _context3.t0 === 4 ? 9 : _context3.t0 === 6 ? 11 : 12;
+                break;
+
+              case 9:
+                this.sendToHukum(json.id);
+                return _context3.abrupt("break", 14);
+
+              case 11:
+                return _context3.abrupt("break", 14);
+
+              case 12:
+                this.sendToClient(json.id);
+                return _context3.abrupt("break", 14);
+
+              case 14:
+                _context3.next = 18;
+                break;
+
+              case 16:
+                _context3.prev = 16;
+                _context3.t1 = _context3["catch"](0);
+
+              case 18:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 16]]);
+      }));
+
+      function init() {
+        return _init.apply(this, arguments);
+      }
+
+      return init;
+    }()
+  }, {
+    key: "convertDataToJSON",
+    value: function convertDataToJSON(data) {
+      try {
+        var json = JSON.parse(data);
+        return json;
+      } catch (e) {
+        console.log("an error occured", e);
+      }
+    }
+  }]);
+
+  return MailerToHukum;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/kasubag_root/dashboard/OpDataTable.js":
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/pages/kasubag_root/dashboard/OpDataTable.js ***!
@@ -71895,8 +72104,9 @@ var KbModals = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OpDashboard; });
-/* harmony import */ var _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard/OpDataTable */ "./resources/js/components/pages/operator/dashboard/OpDataTable.js");
-/* harmony import */ var _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard/OpModals */ "./resources/js/components/pages/operator/dashboard/OpModals.js");
+/* harmony import */ var _dashboard_Mailer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard/Mailer */ "./resources/js/components/pages/operator/dashboard/Mailer.js");
+/* harmony import */ var _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard/OpDataTable */ "./resources/js/components/pages/operator/dashboard/OpDataTable.js");
+/* harmony import */ var _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard/OpModals */ "./resources/js/components/pages/operator/dashboard/OpModals.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -71908,19 +72118,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var OpDashboard = /*#__PURE__*/function () {
   function OpDashboard() {
     _classCallCheck(this, OpDashboard);
 
-    _defineProperty(this, "dataTable", new _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
+    _defineProperty(this, "dataTable", new _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_1__["default"]());
 
-    _defineProperty(this, "modals", new _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__["default"]());
+    _defineProperty(this, "mail", new _dashboard_Mailer__WEBPACK_IMPORTED_MODULE_0__["default"]());
+
+    _defineProperty(this, "modals", new _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_2__["default"]());
+
+    _defineProperty(this, "pejabat", void 0);
   }
 
   _createClass(OpDashboard, [{
     key: "init",
     value: function init() {
       this.dataTable.init();
+      this.mail.init();
     }
   }]);
 
@@ -72999,6 +73215,142 @@ var ElementModals = {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/operator/dashboard/Mailer.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/pages/operator/dashboard/Mailer.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MailToKasubag; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var MailToKasubag = /*#__PURE__*/function () {
+  function MailToKasubag() {
+    _classCallCheck(this, MailToKasubag);
+  }
+
+  _createClass(MailToKasubag, [{
+    key: "send",
+    value: function () {
+      var _send = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        var _myUrl, kdb, url, ajax;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _myUrl = myUrl, kdb = _myUrl.email.sendKasubag;
+                url = kdb.replace(/(@doc)/, id);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url, 'GET');
+                console.log("sending email...");
+                _context.prev = 4;
+                _context.next = 7;
+                return ajax.get(url);
+
+              case 7:
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](4);
+                console.log(_context.t0);
+
+              case 12:
+                console.log("email has send");
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[4, 9]]);
+      }));
+
+      function send(_x) {
+        return _send.apply(this, arguments);
+      }
+
+      return send;
+    }()
+  }, {
+    key: "init",
+    value: function () {
+      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var storage, mail, json;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                console.log('mail initializing...');
+                storage = window.localStorage;
+                mail = storage.getItem("mailing");
+                json = this.convertDataToJSON(mail);
+                console.log('mail sending...');
+                _context2.next = 8;
+                return this.send(json.id);
+
+              case 8:
+                _context2.next = 13;
+                break;
+
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+
+              case 13:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 10]]);
+      }));
+
+      function init() {
+        return _init.apply(this, arguments);
+      }
+
+      return init;
+    }()
+  }, {
+    key: "convertDataToJSON",
+    value: function convertDataToJSON(data) {
+      try {
+        var json = JSON.parse(data);
+        return json;
+      } catch (e) {
+        console.log("an error occured", e);
+      }
+    }
+  }]);
+
+  return MailToKasubag;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/operator/dashboard/OpDataTable.js":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/pages/operator/dashboard/OpDataTable.js ***!
@@ -73146,7 +73498,9 @@ var OP_Modals = /*#__PURE__*/function () {
 
           _this.pihak2.renderKewajiban();
 
-          if (type == '2') {
+          console.log('type', type);
+
+          if (type !== 2) {
             $("input[name='nomor']").attr('readonly', false);
           } else {
             $("[x='tbl']").hide();
@@ -73776,7 +74130,11 @@ var Modals = /*#__PURE__*/function () {
       }
 
       $("#modals").on("shown.bs.modal", function () {
-        onShowModals();
+        if (onShowModals == undefined) {
+          console.log('onshowinde');
+        } else {
+          onShowModals();
+        }
       });
     }
   }, {

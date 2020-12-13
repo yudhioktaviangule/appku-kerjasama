@@ -31,7 +31,7 @@ class PerusahaanController extends Controller{
         try{
             $id = Auth::id();
             $request                     = $this->request; 
-            $pj                          = $request->only("jabatan","nomor_sk_jabatan");
+            $pj                          = $request->only("jabatan","nomor_sk_jabatan",'penandatangan');
             $kantor                      = $request->only('user_id','jenis',"name",'alamat','email','telepon','nomor_ijin_usaha','nomor_akta_notaris');
             $kantor['file_ijin_usaha']   = "ijin_usaha/";
             $kantor['file_akta_notaris'] = "akta_notaris/";

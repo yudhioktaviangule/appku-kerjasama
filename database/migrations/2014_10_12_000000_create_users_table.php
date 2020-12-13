@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('telepon',20)->unique();
             $table->string('password');
+            $table->longtext('pkey');
             $table->string('file_identitas')->default('default.png');
             $table->rememberToken();
             $table->softDeletes();

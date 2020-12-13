@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class StateSatu extends Mailable
+class stateTolak extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,13 +17,8 @@ class StateSatu extends Mailable
         $this->param  = $data;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        return $this->markdown('emails.kirim_kabag.to_kabag',[ 'data' => $this->param])->subject("Data Registrasi Dokumen");
+        return $this->markdown('emails.tolak.to_user',[ 'data' => $this->param])->subject("Dokumen Ditolak");
     }
 }

@@ -20,7 +20,10 @@ class DokumenApi extends Controller{
     private function getDoc()
     {
        
-        $data = Document::get();
+        $data = Document::whereNotIn('id',function($query){
+            $query->select("document_id")->from("tindak_lanjut_docs")->where("stdoc",'99');
+        })->get();
+        
         
         return $data;
     }

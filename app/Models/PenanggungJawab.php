@@ -12,7 +12,7 @@ class PenanggungJawab extends Model
         'jabatan',
         'file_sk_jabatan',
         'nomor_sk_jabatan',
-        
+        'penandatangan',
         'perusahaan_id',
     ];
     public function getPerusahaan()

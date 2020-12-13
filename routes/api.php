@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\WebApi\OperatorApi\DokumenApi as OperatorDocApi;
 use App\Http\Controllers\Api\WebApi\OperatorApi\Kerjasama\ArsipApi;
 use App\Http\Controllers\Api\WebApi\OperatorApi\Kerjasama\KehendakApi;
 use App\Http\Controllers\Api\WebApi\MailingApi;
+use App\Http\Controllers\Api\WebApi\OperatorApi\Kerjasama\SelectTwoPejabatApi;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -32,9 +33,13 @@ Route::resource("doc-api",DokumenApi::class);
 Route::group(['prefix'=>"operator"],function(){
     Route::resource("op_doc_api",OperatorDocApi::class);
     Route::resource("arsipapi",ArsipApi::class);
+    Route::resource("selectpejabat",SelectTwoPejabatApi::class);
     Route::get("kehendak/resource/{document_id}",[KehendakApi::class,'getResource'])->name('kehendak.get.resource');
 });
 
 Route::group(['prefix'=>'mail'],function(){
     Route::get("berkas-dibuat-mail-api/{document_id?}",[MailingApi::class,'berkasDibuat'])->name("berkas.buat.mail");
+    Route::get("berkas-dikirim-kasubag/{document_id?}/{op_id?}",[MailingApi::class,'kirimKasubag'])->name("berkas.kirim.kasubag.mail");
+    Route::get("berkas-dikirim-hukum/{document_id?}/{kasubag_id?}",[MailingApi::class,'kirimHukum'])->name("berkas.kirim.hukum.mail");
+    Route::get("berkas-tolak/{document_id?}/{kasubag_id?}",[MailingApi::class,'tolak'])->name("berkas.tolak.mail");
 });

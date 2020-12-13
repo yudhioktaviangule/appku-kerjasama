@@ -43,6 +43,7 @@
             <div id="skajab">
                 <div class="form-group">
                     <label for="nomor_sk_jabatan">SK Jabatan</label>
+                    <input required type="text" class="form-control" id="penandatangan" placeholder='Nama Penanggungjawab(Penandatangan)' name='penandatangan'><br>
                     <input required type="text" class="form-control" id="jabatan" placeholder='Jabatan' name='jabatan'><br>
                     <input required type="text" class="form-control" id="nomor_sk_jabatan" placeholder='Nomor SK. Jabatan' name='nomor_sk_jabatan'><br>
                     

@@ -13,7 +13,8 @@ class ArsipApi extends Controller{
     
     public function __construct(Request $request){
         $this->request = $request; 
-        //$this->middleware('auth');
+        $this->middleware('auth.api');
+        $this->middleware('role.operator.api');
     }
     private function getDoc()
     {

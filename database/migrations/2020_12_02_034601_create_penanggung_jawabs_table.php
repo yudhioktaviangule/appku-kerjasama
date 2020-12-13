@@ -20,6 +20,7 @@ class CreatePenanggungJawabsTable extends Migration
             $table->string('jabatan',30);
             $table->string('nomor_sk_jabatan',30);
             $table->string('file_sk_jabatan');
+            $table->string('penandatangan');
             $table->softDeletes();
             $table->timestamps();
         });

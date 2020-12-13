@@ -25,9 +25,12 @@ class KasubagDokumenController extends Controller{
     public function show($id=''){
         $request = $this->request; 
         $p = ['stdoc'=>'99','document_id'=>$id,'user_id'=>Auth::id()];
-        //Tlanjut::create($p);
-        Document::where("id",$id)->delete();
-        $this->redirectBack("Sukses","Tolak Dokumen",url('/home'));
+        $dokumen      = Document::where('id',$id)->first()->toArray();
+        $dokumen['type'] = 99;
+        $dataJSONToSend=json_encode($dokumen);
+        //Document::where("id",$id)->delete();
+        Tlanjut::create($p);
+        $this->redirectBackWithLStorage($dataJSONToSend,"Sukses","Tolak Dokumen",url('/home'));
     }
     public function edit($id=''){
         $request = $this->request; 
@@ -48,7 +51,12 @@ class KasubagDokumenController extends Controller{
                 "stdoc"       => $status['stdoc']
             ];
             $tindakLanjut = Tlanjut::create($tindak);
-            $this->redirectBack("Sukses","Update Status Dokumen",url('/home'));
+            
+            $dokumen         = Document::where('id',$id)->first()->toArray();
+            $dokumen['type'] = intval($status['stdoc']);
+            $dataJSONToSend=json_encode($dokumen);
+            $this->redirectBackWithLStorage($dataJSONToSend,"Sukses","Tindak Lanjut",url('/home'));
+
         endif;
     }
     public function destroy($id=''){

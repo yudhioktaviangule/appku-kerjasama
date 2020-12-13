@@ -60,12 +60,16 @@ class PejabatApi extends Controller{
             $search  = $request->only("q");
             $search  = $search['q']; 
             $in = Pejabat::select('id')->where("name",'like',"%$search%")
-            ->orWhere("jabatan",'like',"%$search%")->get();
+            ->orWhere("jabatan",'like',"%$search%")
+            ->orWhere("instansi",'like',"%$search%")
+            ->limit(5)
+            ->offset(0)
+            ->get();
             $id = [];
             foreach ($in as $key => $value) {
                 $id[] = $value->id;
             }
-
+            dd($id);
             $pejabat = Pejabat::where('aktif','1')->whereIn('id',$id)
                             ->get();
         else:    
@@ -76,8 +80,9 @@ class PejabatApi extends Controller{
         foreach ($pejabat as $key => $value) {
             $data[]=[
                 'id'=>$value->id,
-                'name'=>$value->jabatan,
-                'text'=>$value->name,
+                'name'=>$value->name,
+                'jabatan'=>$value->jabatan,
+                'text'=>$value->instansi,
             ];
         }
 

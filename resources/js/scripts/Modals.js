@@ -38,7 +38,12 @@ export default class Modals{
             
         }
         $("#modals").on("shown.bs.modal",function(){
-            onShowModals();
+            if(onShowModals==undefined){
+                console.log('onshowinde')
+            }else{
+
+                onShowModals();
+            }
             
         })
     }

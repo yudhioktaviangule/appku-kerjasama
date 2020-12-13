@@ -13,6 +13,7 @@ class ArsipController extends Controller{
     public function __construct(Request $request){
         $this->request = $request; 
         $this->middleware('auth');
+        $this->middleware('role.operator.web');
     }
     public function index(){
         $request = $this->request; 

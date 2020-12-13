@@ -116,7 +116,11 @@
             window.myUrl = {
                 document:{
                     dataTable:"{{route('op_doc_api.index')}}",
-                    teruskanKeKabag:"{{route('op_dokumen.update',['op_dokuman'=>'@op_doc@'])}}"
+                    teruskanKeKabag:"{{route('op_dokumen.update',['op_dokuman'=>'@op_doc@'])}}",
+                    
+                },
+                email:{
+                    sendKasubag:`{{route('berkas.kirim.kasubag.mail',['document_id'=>"@doc",'op_id'=>Auth::id()])}}`
                 }
             }
             window.opdashboard = window.APP.opDash;

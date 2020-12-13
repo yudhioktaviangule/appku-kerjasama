@@ -61,7 +61,8 @@ export default class OP_Modals{
                 this.pihak1.renderKewajiban();
                 this.pihak2.renderHak();
                 this.pihak2.renderKewajiban();
-                if(type=='2'){
+                console.log('type', type)
+                if(type!==2){
                     $("input[name='nomor']").attr('readonly',false);
                 }else {
                     $("[x='tbl']").hide();

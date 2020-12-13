@@ -117,6 +117,10 @@
                 document:{
                     dataTable:"{{route('op_doc_api.index')}}?uid={{Auth::id()}}",
                     teruskanKeKabag:"{{route('kasubag_doc.update',['kasubag_doc'=>'@op_doc@'])}}"
+                },
+                email:{
+                    toHukum:`{{route("berkas.kirim.hukum.mail",[ "document_id"=>"@doc@","kasubag_id"=>Auth::id() ])}}`,
+                    tolak:`{{route("berkas.tolak.mail",[ "document_id"=>"@doc@",'kasubag_id'=>Auth::id()])}}`
                 }
             }
             window.opdashboard = window.APP.kbDash;

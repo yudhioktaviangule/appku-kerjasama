@@ -5,6 +5,7 @@
         <table class="table" id="penanggungJawab">
             <thead>
                 <tr>
+                    <th>Penandatangan</th>
                     <th>Jabatan</th>
                     <th>No. SK Jabatan</th>
                     <th>Aksi</th>

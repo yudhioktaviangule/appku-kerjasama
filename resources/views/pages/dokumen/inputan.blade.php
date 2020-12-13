@@ -29,7 +29,7 @@
                             <input required onchange="window.register.validasi()" name="tentang" id="tentang" type='text' class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="">Pejabat Tujuan</label>
+                            <label for="">Dinas Tujuan</label>
                             <select name="pejabat_id" id="slc" class="select2 form-control"></select>
                         </div>
                     </div>
