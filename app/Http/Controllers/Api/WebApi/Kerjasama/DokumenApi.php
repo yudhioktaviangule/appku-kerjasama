@@ -34,7 +34,20 @@ class DokumenApi extends Controller{
                 return $perusahaan->name;
             });
             $dt->addColumn('aksi',function($json){
-                return "aksi";
+                $data = [
+                    'data'=>json_decode($json)
+                ];
+                if($data['data']->status!='9'):
+                    return View::make("pages.dokumen.api.button",$data);
+                else:
+                    return "Dokumen Ditolak";
+                endif;
+            });
+            $dt->addColumn('status_str',function($json){
+                $data   = json_decode($json);
+                $status = new Status();
+                $stt    = $status->getStateDoc($data->status);
+                return $stt;
             });
             $dt->addColumn('dinas_tujuan',function($json){
                 $dec = json_decode($json,true);

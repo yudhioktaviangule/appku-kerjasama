@@ -69231,7 +69231,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/Alert */ "./resources/js/scripts/Alert.js");
 /* harmony import */ var _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/kasubag_root/Walikota */ "./resources/js/components/pages/kasubag_root/Walikota.js");
 /* harmony import */ var _pages_operator_operator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/operator/operator */ "./resources/js/components/pages/operator/operator.js");
-/* harmony import */ var _pages_clients_document_KlienDokumen__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/clients/document/KlienDokumen */ "./resources/js/components/pages/clients/document/KlienDokumen.js");
+/* harmony import */ var _pages_clients_Klien__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/clients/Klien */ "./resources/js/components/pages/clients/Klien.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -69257,7 +69257,7 @@ var MainRouter = /*#__PURE__*/function () {
 
     _defineProperty(this, "walikota", new _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__["default"]());
 
-    _defineProperty(this, "Client", new _pages_clients_document_KlienDokumen__WEBPACK_IMPORTED_MODULE_5__["default"]());
+    _defineProperty(this, "Client", new _pages_clients_Klien__WEBPACK_IMPORTED_MODULE_5__["default"]());
 
     _defineProperty(this, "operator", new _pages_operator_operator__WEBPACK_IMPORTED_MODULE_4__["default"]());
   }
@@ -69646,6 +69646,61 @@ var DashboardClient = /*#__PURE__*/function () {
 function DashClient() {
   return new DashboardClient();
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/Klien.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/pages/clients/Klien.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Klien; });
+/* harmony import */ var _document_Dokumen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./document/Dokumen */ "./resources/js/components/pages/clients/document/Dokumen.js");
+/* harmony import */ var _hakewajiban_ClientHakdanKewajiban__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hakewajiban/ClientHakdanKewajiban */ "./resources/js/components/pages/clients/hakewajiban/ClientHakdanKewajiban.js");
+/* harmony import */ var _lingkup_ClientRuangLingkup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lingkup/ClientRuangLingkup */ "./resources/js/components/pages/clients/lingkup/ClientRuangLingkup.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var Klien = /*#__PURE__*/function () {
+  function Klien() {
+    _classCallCheck(this, Klien);
+
+    _defineProperty(this, "id", '');
+
+    _defineProperty(this, "documents", new _document_Dokumen__WEBPACK_IMPORTED_MODULE_0__["default"]());
+
+    _defineProperty(this, "hdk", new _hakewajiban_ClientHakdanKewajiban__WEBPACK_IMPORTED_MODULE_1__["default"]());
+
+    _defineProperty(this, "rLingkup", new _lingkup_ClientRuangLingkup__WEBPACK_IMPORTED_MODULE_2__["default"]());
+  }
+
+  _createClass(Klien, [{
+    key: "init",
+    value: function init() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      this.id = id;
+      this.documents = new _document_Dokumen__WEBPACK_IMPORTED_MODULE_0__["default"](id);
+      return this;
+    }
+  }]);
+
+  return Klien;
+}();
+
+
 
 /***/ }),
 
@@ -70239,53 +70294,6 @@ var Dokumen = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/clients/document/KlienDokumen.js":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/pages/clients/document/KlienDokumen.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Klien; });
-/* harmony import */ var _Dokumen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dokumen */ "./resources/js/components/pages/clients/document/Dokumen.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-var Klien = /*#__PURE__*/function () {
-  function Klien() {
-    _classCallCheck(this, Klien);
-
-    _defineProperty(this, "id", '');
-
-    _defineProperty(this, "documents", new _Dokumen__WEBPACK_IMPORTED_MODULE_0__["default"]());
-  }
-
-  _createClass(Klien, [{
-    key: "init",
-    value: function init() {
-      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      this.id = id;
-      this.documents = new _Dokumen__WEBPACK_IMPORTED_MODULE_0__["default"](id);
-      return this;
-    }
-  }]);
-
-  return Klien;
-}();
-
-
-
-/***/ }),
-
 /***/ "./resources/js/components/pages/clients/document/components/DataTable.js":
 /*!********************************************************************************!*\
   !*** ./resources/js/components/pages/clients/document/components/DataTable.js ***!
@@ -70358,8 +70366,8 @@ var DataTableDokumen = /*#__PURE__*/function () {
             name: "dinas_tujuan",
             data: "dinas_tujuan"
           }, {
-            name: "status",
-            data: "status"
+            name: "status_str",
+            data: "status_str"
           }, {
             name: "aksi",
             data: "aksi"
@@ -70758,9 +70766,9 @@ var RoleClients = /*#__PURE__*/function () {
       teks = _objectSpread(_objectSpread({}, teks), {}, {
         perusahaan: options[selIndex].text
       });
-      $("#role-pr").html("\n                <strong>Role</strong> ".concat(teks.role, " ").concat(teks.perusahaan, " \n            "));
+      $("#role-pr").html("\n                <strong>Role:</strong> <span class='text-primary'>".concat(teks.role.toUpperCase(), " ").concat(teks.perusahaan, "</span> \n            "));
       this.penanggungJawabId = value;
-      myAlert.swAlert("Role Berhasil di set ke ".concat(teks.role), 'Set Role', function () {
+      myAlert.swAlert("Role Berhasil di set ke ".concat(teks.role.toUpperCase(), " ").concat(teks.perusahaan), 'Set Role', function () {
         return null;
       }, 'success');
     }
@@ -70770,6 +70778,447 @@ var RoleClients = /*#__PURE__*/function () {
 }();
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/hakewajiban/ClientHakdanKewajiban.js":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/hakewajiban/ClientHakdanKewajiban.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return HakDanKewajiban; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../formats/Lists/Lists */ "./resources/js/components/pages/formats/Lists/Lists.js");
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+/* harmony import */ var _scripts_FormInputDisable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../scripts/FormInputDisable */ "./resources/js/scripts/FormInputDisable.js");
+
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+var HakDanKewajiban = /*#__PURE__*/function () {
+  function HakDanKewajiban() {
+    _classCallCheck(this, HakDanKewajiban);
+
+    _defineProperty(this, "dok_id", '');
+
+    _defineProperty(this, "list", []);
+  }
+
+  _createClass(HakDanKewajiban, [{
+    key: "openModal",
+    value: function () {
+      var _openModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var id,
+            _args = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                id = _args.length > 0 && _args[0] !== undefined ? _args[0] : '';
+                this.dok_id = id;
+                _context.next = 4;
+                return this.modals();
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function openModal() {
+        return _openModal.apply(this, arguments);
+      }
+
+      return openModal;
+    }()
+  }, {
+    key: "modals",
+    value: function () {
+      var _modals = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this = this;
+
+        var url_tmp, url, modal;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                url_tmp = window.myUrl.hdank.modals;
+                url = url_tmp.replace(/(_DOC_)/g, this.dok_id);
+                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"](url, '', 'Hak dan Kewajiban', false);
+                _context3.next = 5;
+                return modal.ajax();
+
+              case 5:
+                modal.openModal( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                      switch (_context2.prev = _context2.next) {
+                        case 0:
+                          _context2.next = 2;
+                          return _this.process();
+
+                        case 2:
+                          Object(_scripts_FormInputDisable__WEBPACK_IMPORTED_MODULE_5__["default"])();
+                          return _context2.abrupt("return", null);
+
+                        case 4:
+                        case "end":
+                          return _context2.stop();
+                      }
+                    }
+                  }, _callee2);
+                })), true);
+
+              case 6:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function modals() {
+        return _modals.apply(this, arguments);
+      }
+
+      return modals;
+    }()
+  }, {
+    key: "process",
+    value: function () {
+      var _process = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var list, p1, p2, ajax, url, _yield$ajax$get, hasil;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                list = window.myUrl.hdank.list;
+                p1 = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["ListFormat"].replace(/(_JUDUL_|_WARNA_|_FOOTER_)/gi, function (match) {
+                  var obj = {
+                    _JUDUL_: "PIHAK PERTAMA",
+                    _WARNA_: "simelonecolor",
+                    _FOOTER_: ''
+                  };
+                  return obj[match];
+                });
+                p2 = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["ListFormat"].replace(/(_JUDUL_|_WARNA_|_FOOTER_)/gi, function (match) {
+                  var obj = {
+                    _JUDUL_: "PIHAK KEDUA",
+                    _WARNA_: "simelonecolor",
+                    _FOOTER_: ''
+                  };
+                  return obj[match];
+                });
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"]();
+                url = list.replace(/_DOC_/g, this.dok_id);
+                _context4.next = 7;
+                return ajax.get(url);
+
+              case 7:
+                _yield$ajax$get = _context4.sent;
+                hasil = _yield$ajax$get.data.data;
+                this.list = hasil;
+                this.draw(p1, p2);
+
+              case 11:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function process() {
+        return _process.apply(this, arguments);
+      }
+
+      return process;
+    }()
+  }, {
+    key: "draw",
+    value: function draw() {
+      var pihak1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+      var pihak2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+      var p1hak = this.drawContent("Usulan Hak", "", "card-primary", "pertama", "hak", 'hp1');
+      var p1kewajiban = this.drawContent("Usulan Kewajiban", "", "card-primary", "pertama", "kewajiban", 'kp1');
+      var p1 = pihak1.replace(/_KONTEN_/g, "<br>".concat(p1hak, "<br>").concat(p1kewajiban));
+      var p2hak = this.drawContent("Usulan Hak", "", "card-primary", "kedua", "hak", 'hp2');
+      var p2kwj = this.drawContent("Usulan Kewajiban", "", "card-primary", "kedua", "kewajiban", 'kp2');
+      var p2 = pihak2.replace(/_KONTEN_/g, "<br>".concat(p2hak, "<br>").concat(p2kwj));
+      $("#hdk1").html(p1);
+      $("#hdk2").html(p2);
+    }
+  }, {
+    key: "hapus",
+    value: function () {
+      var _hapus = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id) {
+        var _this2 = this;
+
+        var model, pesan;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                model = {
+                  _method: "delete",
+                  _token: $("input[name='_token']").val()
+                };
+                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__["default"]();
+                pesan.swalYesNo("Ingin Menghapus Data?", "HAPUS ITEM", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+                  var url_tmp, url, ajax;
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+                    while (1) {
+                      switch (_context5.prev = _context5.next) {
+                        case 0:
+                          _context5.prev = 0;
+                          url_tmp = window.myUrl.hdank["delete"];
+                          url = url_tmp.replace(/(_HAKAPI_)/g, id);
+                          ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"](url);
+                          _context5.next = 6;
+                          return ajax.send(model);
+
+                        case 6:
+                          pesan.swAlert("Sukses Menghapus data", "Sukses", function () {
+                            return null;
+                          }, 'success');
+
+                          _this2.process();
+
+                          _context5.next = 13;
+                          break;
+
+                        case 10:
+                          _context5.prev = 10;
+                          _context5.t0 = _context5["catch"](0);
+                          pesan.swAlert("Gagal Menghapus data", "Galat", function () {
+                            return null;
+                          }, 'error');
+
+                        case 13:
+                        case "end":
+                          return _context5.stop();
+                      }
+                    }
+                  }, _callee5, null, [[0, 10]]);
+                })));
+
+              case 3:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }));
+
+      function hapus(_x) {
+        return _hapus.apply(this, arguments);
+      }
+
+      return hapus;
+    }()
+  }, {
+    key: "save",
+    value: function () {
+      var _save = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(value, jenis, pihak) {
+        var pesan, model, url_tmp, url, ajax, _yield$ajax$send, bodyPesan, head, ikon;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__["default"]();
+                model = {
+                  document_id: this.dok_id,
+                  nilai: value,
+                  pihak: pihak,
+                  jenis: jenis,
+                  _token: $("input[name='_token']").val()
+                };
+                _context7.prev = 2;
+                url_tmp = window.myUrl.hdank.store;
+                url = url_tmp;
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"](url);
+                _context7.next = 8;
+                return ajax.send(model);
+
+              case 8:
+                _yield$ajax$send = _context7.sent;
+                bodyPesan = _yield$ajax$send.message;
+                head = _yield$ajax$send.title;
+                ikon = _yield$ajax$send.icon;
+                pesan.swAlert(bodyPesan, head, function () {
+                  return null;
+                }, ikon);
+                this.process();
+                _context7.next = 20;
+                break;
+
+              case 16:
+                _context7.prev = 16;
+                _context7.t0 = _context7["catch"](2);
+                pesan.swAlert("Gagal Menyimpan data", "Galat", function () {
+                  return null;
+                }, 'error');
+                console.log(_context7.t0);
+
+              case 20:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this, [[2, 16]]);
+      }));
+
+      function save(_x2, _x3, _x4) {
+        return _save.apply(this, arguments);
+      }
+
+      return save;
+    }()
+  }, {
+    key: "drawContent",
+    value: function drawContent(judul, warna, clas, pihak, jenis, kode) {
+      var content = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["ListFormat"].replace(/_JUDUL_|_WARNA_|_CLASS_/gi, function (match) {
+        var obj = {
+          _JUDUL_: judul,
+          _WARNA_: warna,
+          _CLASS_: clas
+        };
+        return obj[match];
+      });
+      var frmt = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["ItemListFormat"];
+      var html = '';
+      var i = 1;
+
+      var _iterator = _createForOfIteratorHelper(this.list),
+          _step;
+
+      try {
+        var _loop = function _loop() {
+          var lst = _step.value;
+
+          if (lst.pihak === pihak && lst.jenis == jenis) {
+            var fn = "window.hdank.hapus(".concat(lst.id, ")");
+            var fmtChild = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["ItemContent"].replace(/(_ISFADE_|_NOMOR_|_NILAI_|_FNC_)/gi, function (match) {
+              var obj = {
+                _ISFADE_: lst.deleted === '2' || lst.deleted === '1' ? 'yud-hide' : "",
+                _NOMOR_: i,
+                _NILAI_: lst.deleted === '2' ? "<s>".concat(lst.nilai, "</s>") : lst.nilai,
+                _FNC_: fn
+              };
+              return obj[match];
+            });
+            html += fmtChild;
+            i++;
+          }
+        };
+
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          _loop();
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      frmt = frmt.replace(/_KONTEN_/g, html);
+      content = content.replace(/(_KONTEN_|_FOOTER_)/gi, function (match) {
+        var foot = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["CARD_FOOTER_FMT"].replace(/(_IDOBJECT_|_FNC_|_PLACEHOLDER_|_BTNCAPS_)/gi, function (match_ft) {
+          var obj = {
+            _IDOBJECT_: "".concat(kode),
+            _PLACEHOLDER_: "MASUKKAN ".concat(jenis.toUpperCase(), " PIHAK ").concat(pihak.toUpperCase()),
+            _BTNCAPS_: "Kirim",
+            _FNC_: "window.hdank.save($('#".concat(kode, "').val(),'").concat(jenis, "','").concat(pihak, "')")
+          };
+          return obj[match_ft];
+        });
+        var obj = {
+          _KONTEN_: "".concat(frmt),
+          _FOOTER_: foot
+        };
+        return obj[match];
+      });
+      return content;
+    }
+  }]);
+
+  return HakDanKewajiban;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/lingkup/ClientRuangLingkup.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/lingkup/ClientRuangLingkup.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RuangLingkupClient; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RuangLingkupClient = function RuangLingkupClient() {
+  _classCallCheck(this, RuangLingkupClient);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/formats/Lists/Lists.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/pages/formats/Lists/Lists.js ***!
+  \**************************************************************/
+/*! exports provided: ListFormat, CARD_FOOTER_FMT, ItemListFormat, ItemContent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListFormat", function() { return ListFormat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CARD_FOOTER_FMT", function() { return CARD_FOOTER_FMT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemListFormat", function() { return ItemListFormat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemContent", function() { return ItemContent; });
+var ListFormat = "\n<div class=\"card _CLASS_ \">\n\t<div class=\"card-header _WARNA_\">\n\t\t<h3 class=\"card-title\">_JUDUL_</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            _KONTEN_\n        </div>\n    </div>\n    _FOOTER_\n</div>\n\n\n\n";
+var CARD_FOOTER_FMT = "\n<div class=\"card-footer\">\n\t\t<div class=\"input-group\">\n\t\t\t<input type=\"text\"   id='_IDOBJECT_' placeholder='_PLACEHOLDER_' class=\"form-control\">\n\t\t\t<span class=\"input-group-append\">\n\t\t\t\t<a href=\"#\" onclick=\"_FNC_\" class=\"btn btn-success\">_BTNCAPS_</a>\n\t\t\t</span>\n\t\t</div>                \n\t</div>\n\n";
+var ItemListFormat = "\n        <ul class=\"products-list product-list-in-card pl-2 pr-2\">\n            _KONTEN_\n        </ul>\n";
+var ItemContent = "\n<li class=\"item\">\n                    <div class='container-fluid'>\n                        <div class='row justify-content-between'>\n                            \n                            <span class=\"product-description\" \n                                style='width:90%;\n                                        white-space:normal;\n                                        overflow-wrap: break-word;\n                                        \n                                        '>\n                                <span class='flex-row justify-content-between align-items-start' >\n                                    <span class='p-0' >_NOMOR_.</span>\n                                    <span class='p-8' style='text-align:justify;'>\n                                        _NILAI_\n                                    </span>\n                                </span>\n                            </span>\n                            <button type='button' onclick='_FNC_' aria-label='Close' class='close text-danger _ISFADE_' href='#'>\n                                <span aria-hidden='true'>\n                                <strong>&times;</strong>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n\t\t\t    </li> \n";
 
 /***/ }),
 
@@ -71538,6 +71987,39 @@ var PDFUploader = /*#__PURE__*/function () {
 }();
 
 
+
+/***/ }),
+
+/***/ "./resources/js/scripts/FormInputDisable.js":
+/*!**************************************************!*\
+  !*** ./resources/js/scripts/FormInputDisable.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DisableEnter; });
+function DisableEnter() {
+  $('form input').keydown(function (e) {
+    if (e.keyCode == 13) {
+      e.preventDefault();
+      return false;
+    }
+  });
+  $('form select').keydown(function (e) {
+    if (e.keyCode == 13) {
+      e.preventDefault();
+      return false;
+    }
+  });
+  $('form textarea').keydown(function (e) {
+    if (e.keyCode == 13) {
+      e.preventDefault();
+      return false;
+    }
+  });
+}
 
 /***/ }),
 

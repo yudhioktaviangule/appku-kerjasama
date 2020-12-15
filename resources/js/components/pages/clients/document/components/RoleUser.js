@@ -89,10 +89,10 @@ export default class RoleClients{
 
         $("#role-pr").html(
             `
-                <strong>Role</strong> ${teks.role} ${teks.perusahaan} 
+                <strong>Role:</strong> <span class='text-primary'>${teks.role.toUpperCase()} ${teks.perusahaan}</span> 
             `
         )
         this.penanggungJawabId = value;
-        myAlert.swAlert(`Role Berhasil di set ke ${teks.role}`,'Set Role',()=>{return null;},'success');
+        myAlert.swAlert(`Role Berhasil di set ke ${teks.role.toUpperCase()} ${teks.perusahaan}`,'Set Role',()=>{return null;},'success');
     }
 }

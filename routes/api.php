@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\WebApi\OperatorApi\Kerjasama\KehendakApi;
 use App\Http\Controllers\Api\WebApi\MailingApi;
 use App\Http\Controllers\Api\WebApi\OperatorApi\Kerjasama\SelectTwoPejabatApi;
 use App\Http\Controllers\Api\WebApi\Client\Kerjasama\RoleApi;
+use App\Http\Controllers\Api\WebApi\Client\Dokumen\HdanKApi as HakApi;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -29,9 +30,10 @@ Route::group(['prefix'=>'client'],function(){
     
     Route::post("client-api-penanggungjawabku/upload/{id?}",[PenanggungJawabUploadSkApi::class,'upload'])->name('upload.sk.jabatan');
     
-    Route::get("select2-walikota-api/{slug}",[PejabatApi::class,'pejabat'])->name('api.walikota.select2');
+    Route::get("select2-pejabat/{slug}",[PejabatApi::class,'pejabat'])->name('api.walikota.select2');
     Route::resource("doc-api",DokumenApi::class);
     Route::resource("role_user",RoleApi::class);
+    Route::resource("hakapi",HakApi::class);
     
 });
 

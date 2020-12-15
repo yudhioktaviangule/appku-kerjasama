@@ -2,34 +2,28 @@
 namespace App\Includes;
 use App\Models\Document;
 class StateDokumen {
-    public function getStateDoc(Document $doc)
+    public function getStateDoc($state='')
     {
-        $tindak = $doc->tindakanTerakhir();
-        $state = $tindak->stdoc;
+        
         switch ($state) {
             case '0':
                 return "Menunggu";
             case '1':
-                return "Diterima Admin";
+                return "Dokumen Telah diberi nomor";
             case '2':
-                return "Dikirim Ke Kasubag/Kabag";
+                return "Diproses Kasubag";
             case '3':
-                return "Dokumen telah diterima Oleh Kasubag/Kabag";
+                return "Negosiasi antar pihak ";
             case '4':
-                return "Disposisi Ke Bag. Hukum";
+                return "Mencapai Kesepakatan";
             case '5':
-                return "Dokumen telah diterima Oleh Bag. Hukum";
+                return "Disposisi Bag. Hukum";
             case '6':
-                return "Dikirim Kembali ke Kasubag/Kabag";
+                return "Siap Dirapatkan";
             case '7':
-                return "Dokumen telah diterima Oleh Kasubag/Kabag";
+                return "Siap Ditandatangani";
             case '8':
-                return "Dokumen siap dirapatkan";
-            case '9':
-                return "Dokumen siap ditandatangani";
-            case '10':
                 return "Dokumen selesai";
-            
             default:
                return "ditolak";
         }

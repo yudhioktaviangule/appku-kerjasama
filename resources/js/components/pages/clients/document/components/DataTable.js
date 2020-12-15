@@ -33,7 +33,7 @@ export default class DataTableDokumen {
                     {name:"perusahaan",data:"perusahaan"},
                     {name:"tentang",data:"tentang"},
                     {name:"dinas_tujuan",data:"dinas_tujuan"},
-                    {name:"status",data:"status"},
+                    {name:"status_str",data:"status_str"},
                     {name:"aksi",data:"aksi"},
                 ];
                 const dt   = new CreateDataTable(obj)

@@ -4,7 +4,7 @@ import Alert from '../scripts/Alert';
 import Walikota from './pages/kasubag_root/Walikota';
 
 import Operator from './pages/operator/operator';
-import Klien from './pages/clients/document/KlienDokumen';
+import Klien from './pages/clients/Klien';
 
 
 

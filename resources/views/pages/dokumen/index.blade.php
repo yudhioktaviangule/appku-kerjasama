@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <h3 class="card-title"  >
                         <span id='role-pr' style='width:50%;text-overflow:ellipsis'>
-                            <strong >Role</strong>
+                            <strong >Role:</strong> Belum memilih role
                         </span>
                     </h3>
                     <div class="card-tools">
@@ -97,12 +97,19 @@
                 },
                 dinas:{
                     select2:"{{ route('api.walikota.select2',['slug','slug']) }}"
+                },
+                hdank:{
+                    list:"{{route('hakapi.index')}}?doc=_DOC_",
+                    modals:"{{route('hakapi.create')}}?doc=_DOC_",
+                    store:"{{route('hakapi.store')}}",
+                    delete:"{{route('hakapi.destroy',['hakapi'=>'_HAKAPI_'])}}",
                 }
 
             }
             window.client = window.APP.Client;
             
             window.dokumen = window.client.init({{ Auth::id() }}).documents;
+            window.hdank     = window.client.hdk;
 
         });
 

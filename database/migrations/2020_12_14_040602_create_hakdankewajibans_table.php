@@ -18,7 +18,7 @@ class CreateHakdankewajibansTable extends Migration
             $table->integer('document_id');
             $table->enum("pihak",['pertama','kedua']);
             $table->enum("jenis",['hak','kewajiban']);
-            $table->string("nilai");
+            $table->longtext("nilai");
             $table->enum("deleted",['0','1','2'])->comment('0:terdelete,1:terdelete user,2:terdelete kasubag');
             $table->timestamps();
         });
