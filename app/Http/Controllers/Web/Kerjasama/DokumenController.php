@@ -35,25 +35,22 @@ class DokumenController extends Controller{
         
         $request = $this->request; 
         try{
-            $store = $request->only('ketentuan_umum','pelaksanaan','pejabat_id','penanggung_jawab_id','tentang','maksud','tujuan','lingkup','pihak_pertama','pihak_kedua');
-            $object = json_decode(json_encode($store));
-            $cek = PenanggungJawab::where("id",$object->penanggung_jawab_id)->first();
-            if($cek==NULL){
-                $this->redirectBack("Akses Ditolak","Simpan",route('pejabat.index'));
-            }else{
-                $tambahan = ['nomor'=>"0"];
-                $data = array_merge($store,$tambahan);
-                $d = Dokumen::create($data);
-                $tindakan = Tindakan::create([
-                    'document_id' => $d->id,
-                    'user_id'     => Auth::id(),
-                    'stdoc'       => '0',
-                    'keterangan'  => 'Dokumen Baru dibuat'
-
-                ]);
-               $dataJSONToSend=json_encode($d);
-                $this->redirectBackWithLStorage($dataJSONToSend,"Sukses","Simpan",route('dokumen.index'));
-            }
+            $post    = $request->only("penanggung_jawab_id",'maksud_dan_tujuan','tentang','pejabat_id','pelaksanaan','ketentuan_umum');
+            $arr     = ['nomor' => '0','status' => '0'];
+            $post    = array_merge($post,$arr); 
+            $dokumen = new Dokumen();
+            $dokumen->fill($post);
+            $dokumen->save();
+            $dataTindak = [
+                'document_id' => $dokumen->id,
+                'user_id'     => Auth::id(),
+                'keterangan'  => 'Dokumen di registrasi',
+                'stdoc'       => '0'
+            ];
+            $tindak = new Tindakan();
+            $tindak->fill($dataTindak);
+            $tindak->save();
+            $this->redirectBack("Data Dokumen tentang $post[tentang] telah terkirim","Kirim Dokumen",route('dokumen.index'));
 
         }catch(\Exception $e){
             $p = $request->input();

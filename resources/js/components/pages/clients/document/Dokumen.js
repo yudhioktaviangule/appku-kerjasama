@@ -12,9 +12,12 @@ export default class Dokumen{
     form;
     constructor(user_id=''){
         console.log("initializing document...")
-        this.id        = user_id;
-        this.dataTabel = new DataTableDokumen(this.id);
-        this.role      = new RoleClients(this.id);
+        if(user_id!=''){
+            this.id        = user_id;
+            this.dataTabel = new DataTableDokumen(this.id);
+            this.role      = new RoleClients(this.id);
+            this.dataTabel.init(this.id);
+        }
         
     }
     async setModal(){

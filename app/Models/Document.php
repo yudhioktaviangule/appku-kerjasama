@@ -9,17 +9,14 @@ class Document extends Model
 {
     use HasFactory,SoftDeletes;
     protected $fillable=[
-    'penanggung_jawab_id',
-    'pejabat_id',
-    'nomor',
-    'tentang',
-    'maksud',
-    'tujuan',
-    'lingkup',
-    'pihak_pertama',
-    'pihak_kedua',
-    'pelaksanaan',
-    'ketentuan_umum',
+        'penanggung_jawab_id',
+        'pejabat_id',
+        'nomor',
+        'tentang',
+        'maksud_dan_tujuan',
+        
+        'pelaksanaan',
+        'ketentuan_umum',
     ];
     public function getPenanggungJawab()
     {

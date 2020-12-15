@@ -70171,9 +70171,13 @@ var Dokumen = /*#__PURE__*/function () {
     _defineProperty(this, "form", void 0);
 
     console.log("initializing document...");
-    this.id = user_id;
-    this.dataTabel = new _components_DataTable__WEBPACK_IMPORTED_MODULE_1__["default"](this.id);
-    this.role = new _components_RoleUser__WEBPACK_IMPORTED_MODULE_2__["default"](this.id);
+
+    if (user_id != '') {
+      this.id = user_id;
+      this.dataTabel = new _components_DataTable__WEBPACK_IMPORTED_MODULE_1__["default"](this.id);
+      this.role = new _components_RoleUser__WEBPACK_IMPORTED_MODULE_2__["default"](this.id);
+      this.dataTabel.init(this.id);
+    }
   }
 
   _createClass(Dokumen, [{
@@ -70292,6 +70296,7 @@ var Klien = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DataTableDokumen; });
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -70300,17 +70305,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
+
 var DataTableDokumen = /*#__PURE__*/function () {
   function DataTableDokumen() {
-    var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
 
     _classCallCheck(this, DataTableDokumen);
 
-    _defineProperty(this, "user", '');
+    _defineProperty(this, "user", "");
 
     this.user = id;
 
-    if (id != '') {
+    if (id != "" || id != undefined || id != null) {
       this.init();
     }
   }
@@ -70318,9 +70325,50 @@ var DataTableDokumen = /*#__PURE__*/function () {
   _createClass(DataTableDokumen, [{
     key: "init",
     value: function init() {
-      var user_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      //    console.log('initializing datatable...');
-      this.user = user_id;
+      var _this = this;
+
+      var user_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+      $(document).ready(function () {
+        var url_p = window.myUrl.dokumen.dataTable;
+        console.log("initializing datatable...");
+        _this.user = user_id;
+
+        _this.dataTable(url_p);
+      });
+    }
+  }, {
+    key: "dataTable",
+    value: function dataTable(dUrl) {
+      try {
+        if (this.user != '') {
+          console.log(dUrl);
+          var url = dUrl.replace(/(@uid)/, this.user);
+          console.log(url);
+          var obj = $("#table-dokumen");
+          var col = [{
+            name: "nomor",
+            data: "nomor"
+          }, {
+            name: "perusahaan",
+            data: "perusahaan"
+          }, {
+            name: "tentang",
+            data: "tentang"
+          }, {
+            name: "dinas_tujuan",
+            data: "dinas_tujuan"
+          }, {
+            name: "status",
+            data: "status"
+          }, {
+            name: "aksi",
+            data: "aksi"
+          }];
+          var dt = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](obj);
+          var ajax = dt.createAjaxParam(url);
+          dt.dataTable(col, ajax);
+        }
+      } catch (e) {}
     }
   }]);
 
@@ -70345,6 +70393,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
 /* harmony import */ var _scripts_SelectDua__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../scripts/SelectDua */ "./resources/js/scripts/SelectDua.js");
+/* harmony import */ var _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../plugin/ckeditor/index */ "./resources/js/plugin/ckeditor/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -70358,6 +70407,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -70378,7 +70428,7 @@ var FormDokumen = /*#__PURE__*/function () {
   _createClass(FormDokumen, [{
     key: "openModalAdd",
     value: function () {
-      var _openModalAdd = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var _openModalAdd = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var _this = this;
 
         var onShow,
@@ -70387,31 +70437,48 @@ var FormDokumen = /*#__PURE__*/function () {
             urlGet,
             urlAction,
             modal,
-            _args = arguments;
+            _args2 = arguments;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                onShow = _args.length > 0 && _args[0] !== undefined ? _args[0] : undefined;
+                onShow = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : undefined;
                 _myUrl = myUrl, _myUrl$dokumen = _myUrl.dokumen, urlGet = _myUrl$dokumen.create, urlAction = _myUrl$dokumen.store;
                 modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"](urlGet, urlAction, "Register Dokumen Baru", true);
-                _context.next = 5;
+                _context2.next = 5;
                 return modal.ajax();
 
               case 5:
-                modal.openModal(function () {
-                  _this.select2ku();
+                modal.openModal( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          _context.next = 2;
+                          return _this.select2ku();
 
-                  return false;
-                }, true);
+                        case 2:
+                          $("#pjid").html("\n                <input type='hidden' name='penanggung_jawab_id' value=\"".concat(_this.penanggunJawabId, "\"/>\n            "));
+
+                          _this.initCKE();
+
+                          return _context.abrupt("return", false);
+
+                        case 5:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _callee);
+                })), true);
 
               case 6:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }));
 
       function openModalAdd() {
@@ -70421,23 +70488,46 @@ var FormDokumen = /*#__PURE__*/function () {
       return openModalAdd;
     }()
   }, {
+    key: "initCKE",
+    value: function initCKE() {
+      var obj = {
+        pelaksanaan: "pelaksanaan",
+        maksud: "maksud_tujuan",
+        ketentuan: "ketentuan_umum"
+      };
+      var editor = new _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_3__["default"]();
+      editor.ck('justify,textindent');
+      var exeditor = editor.ckeditor;
+
+      for (var o in obj) {
+        var m = obj[o];
+        $("#".concat(m)).val("<div style='margin:1.5em'><p></p></div>");
+        exeditor.replace(m);
+      }
+    }
+  }, {
     key: "select2ku",
     value: function () {
-      var _select2ku = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var obj, sel;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      var _select2ku = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var obj, sel, _myUrl2, urlDinas;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 obj = $("#dinas-tujuan");
                 sel = new _scripts_SelectDua__WEBPACK_IMPORTED_MODULE_2__["SelectDua"]();
+                _myUrl2 = myUrl, urlDinas = _myUrl2.dinas.select2;
+                sel.createAJax(urlDinas);
+                sel.setObject(obj);
+                sel.selectDua();
 
-              case 2:
+              case 6:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2);
+        }, _callee3);
       }));
 
       function select2ku() {

@@ -91,13 +91,17 @@
                 getPerusahaan:"{{ route('role_user.show',['role_user'=>'@id']) }}",
                 getChain:"{{ route('role_user.edit',['role_user'=>'@id']) }}",
                 dokumen:{
+                    dataTable:"{{ route('doc-api.index') }}?uid=@uid",
                     create:"{{ route('doc-api.create') }}?pjid={{ Auth::id() }}",
                     store:"{{ route('dokumen.store') }}",
+                },
+                dinas:{
+                    select2:"{{ route('api.walikota.select2',['slug','slug']) }}"
                 }
 
             }
             window.client = window.APP.Client;
-            //console.log(client);
+            
             window.dokumen = window.client.init({{ Auth::id() }}).documents;
 
         });
