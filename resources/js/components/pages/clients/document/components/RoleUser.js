@@ -15,7 +15,7 @@ export default class RoleClients{
         }
     }
     async getPerusahaan(){
-
+        $("#load-role").show()
         const {getPerusahaan:url_p} = window.myUrl;
         const url = url_p.replace(/(@id)/g,this.id);
         const ajax = new MyAjax(url);
@@ -23,6 +23,7 @@ export default class RoleClients{
         this.olahData(result)
     }
     olahData(results){
+        
         
         let html =`<option value=''>--PILIH PERUSAHAAN--</option>`;
         for(let result of results){
@@ -33,13 +34,16 @@ export default class RoleClients{
         }
         
         $("#cb-perusahaan").html(html);
+        $("#load-role").hide()
     }
     async chain(id){
+        $("#load-role").show()
         const {getChain:url_p} = window.myUrl;
         const url  = url_p.replace(/(@id)/g,id);
         const ajax = new MyAjax(url);
         const {data:results} = await ajax.get(url);
         this.chainRenderer(results)
+        $("#load-role").hide()
     }
     chainRenderer(results){
         this.hideButton();
@@ -92,6 +96,7 @@ export default class RoleClients{
                 <strong>Role:</strong> <span class='text-primary'>${teks.role.toUpperCase()} ${teks.perusahaan}</span> 
             `
         )
+        $("#collapes-buton").click();
         this.penanggungJawabId = value;
         myAlert.swAlert(`Role Berhasil di set ke ${teks.role.toUpperCase()} ${teks.perusahaan}`,'Set Role',()=>{return null;},'success');
     }

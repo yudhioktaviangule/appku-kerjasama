@@ -12,15 +12,17 @@ class DokumenApi extends Controller{
     private $request;
     public function __construct(Request $request){
         $this->request = $request; 
-     //   $this->middleware('auth.api');
-       // $this->middleware('auth.api.only.client');
+        $this->middleware('auth.api');
+        $this->middleware('auth.api.only.client');
     }
     public function index(){
         $request = $this->request; 
         $uid = $request->uid;
-        $user =\App\Models\User::where("id",$uid)->first();
+        $user = \App\Models\User::where("id",$uid)->first();
+        $ppid = $user->getPenanggungJawabId();
+        //dd($ppid);
         if($user!==NULL){
-            $data = Document::get();
+            $data = Document::whereIn('penanggung_jawab_id',$ppid)->get();
             $dt   = Tabelku ::of($data)->addIndexColumn();
             $dt->addColumn('nomor',function($json){
                 $dec = json_decode($json);

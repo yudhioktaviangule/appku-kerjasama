@@ -6,10 +6,12 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
         
-      <a class="dropdown-item" onclick="window.hdank.openModal({{ $data->id }})" href="#">Hak dan Kewajiban</a>
-      <a class="dropdown-item" href="#">Ruang Lingkup</a>
-      @if($data->status==='3')
-      <a class="dropdown-item" href="#">Negosiasi</a>
+      @if($data->status==='3'||$data->status=='0')
+        <a class="dropdown-item" onclick="window.hdank.openModal({{ $data->id }})" href="#">Hak dan Kewajiban</a>
+        <a class="dropdown-item" href="#" onclick="window.lingkup.openModal({{ $data->id }})">Ruang Lingkup</a>
+      @else
+        
+        <a class="dropdown-item" href="#" >Aksi Tidak Tersedia</a>
       @endif
     </div>
   </div>

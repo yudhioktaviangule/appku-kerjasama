@@ -3,6 +3,7 @@ import DataTableDokumen from './components/DataTable';
 import RoleClients from './components/RoleUser';
 import FormDokumen from './components/Form';
 import Alert from '../../../../scripts/Alert';
+import RuangLingkupClient from '../lingkup/ClientRuangLingkup';
 
 export default class Dokumen{
     id        = '';
@@ -17,6 +18,7 @@ export default class Dokumen{
             this.dataTabel = new DataTableDokumen(this.id);
             this.role      = new RoleClients(this.id);
             this.dataTabel.init(this.id);
+            this.rLingkup = new RuangLingkupClient();
         }
         
     }

@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\WebApi\MailingApi;
 use App\Http\Controllers\Api\WebApi\OperatorApi\Kerjasama\SelectTwoPejabatApi;
 use App\Http\Controllers\Api\WebApi\Client\Kerjasama\RoleApi;
 use App\Http\Controllers\Api\WebApi\Client\Dokumen\HdanKApi as HakApi;
+use App\Http\Controllers\Api\WebApi\Client\Dokumen\RuangLingkupApi as RLingkupClient;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -34,6 +35,7 @@ Route::group(['prefix'=>'client'],function(){
     Route::resource("doc-api",DokumenApi::class);
     Route::resource("role_user",RoleApi::class);
     Route::resource("hakapi",HakApi::class);
+    Route::resource("rlapi",RLingkupClient::class);
     
 });
 

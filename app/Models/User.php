@@ -34,4 +34,33 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function getPerusahaan()
+    {
+        return Perusahaan::where("user_id",$this->id)->get();
+    }
+
+    
+    public function getPenanggungJawab()
+    {
+        $id=$this->id;
+        $data = $this->getPerusahaan();
+        $allid=[];
+        foreach ($data as $key => $value) {
+            $allid[]=$value->id;
+        }
+       return PenanggungJawab::whereIn("perusahaan_id",$allid)->get();
+    }
+    public function getPenanggungJawabId()
+    {
+        $data = $this->getPenanggungJawab();
+        $resp = [];
+        foreach ($data as $key => $value) {
+            $resp[]=$value->id;
+        }
+        return $resp;
+    }
+
+
 }

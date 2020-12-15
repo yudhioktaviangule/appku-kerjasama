@@ -247,7 +247,7 @@
       $("auth").html(`@csrf`)
       $("put").html(`<input type='hidden' name='_method' value='put'>`)
     }, 1);
-  })
+  });
 </script>
 @yield('js')
 </body>

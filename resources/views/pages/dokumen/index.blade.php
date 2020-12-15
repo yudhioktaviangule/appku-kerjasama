@@ -14,14 +14,13 @@
                         </span>
                     </h3>
                     <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <button type="button" id='collapes-buton' class="btn btn-tool" data-card-widget="collapse">
                             <i class="fas fa-minus"></i>
                         </button>
                     </div>
                 </div>
                 <div class="card-body">
-                <div >
-                        
+                    <div >
                         <div class="col">
                             <div class="col">
                                 <div id="pilih-role">
@@ -36,11 +35,11 @@
                                 
                             </div>
                             <div class="col">
-                               
+                            
                                     <div id="chain-child">
     
                                     </div>
-                               
+                            
                             </div>    
                             <div class="col">
                                 <div class="form-group">
@@ -51,6 +50,10 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class='overlay dark' id='load-role'>
+                    <i class="fas fa-2x fa-circle-notch fa-spin"></i>
+                </div>    
             </div>
 </div>    
 
@@ -103,13 +106,20 @@
                     modals:"{{route('hakapi.create')}}?doc=_DOC_",
                     store:"{{route('hakapi.store')}}",
                     delete:"{{route('hakapi.destroy',['hakapi'=>'_HAKAPI_'])}}",
+                },
+                rlingkup:{
+                    modals:"{{route('rlapi.create')}}",
+                    list:"{{route('rlapi.index')}}?doc=_DOC_",
+                    store:"{{route('rlapi.store')}}",
+                    delete:"{{route('rlapi.destroy',['rlapi'=>'_DOC_'])}}",
                 }
 
             }
-            window.client = window.APP.Client;
+            window.client  = window.APP.Client;
             
             window.dokumen = window.client.init({{ Auth::id() }}).documents;
-            window.hdank     = window.client.hdk;
+            window.hdank   = window.client.hdk;
+            window.lingkup = window.client.rLingkup;
 
         });
 

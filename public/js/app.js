@@ -70190,6 +70190,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_RoleUser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RoleUser */ "./resources/js/components/pages/clients/document/components/RoleUser.js");
 /* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Form */ "./resources/js/components/pages/clients/document/components/Form.js");
 /* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+/* harmony import */ var _lingkup_ClientRuangLingkup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lingkup/ClientRuangLingkup */ "./resources/js/components/pages/clients/lingkup/ClientRuangLingkup.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -70203,6 +70204,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -70232,6 +70234,7 @@ var Dokumen = /*#__PURE__*/function () {
       this.dataTabel = new _components_DataTable__WEBPACK_IMPORTED_MODULE_1__["default"](this.id);
       this.role = new _components_RoleUser__WEBPACK_IMPORTED_MODULE_2__["default"](this.id);
       this.dataTabel.init(this.id);
+      this.rLingkup = new _lingkup_ClientRuangLingkup__WEBPACK_IMPORTED_MODULE_5__["default"]();
     }
   }
 
@@ -70627,18 +70630,19 @@ var RoleClients = /*#__PURE__*/function () {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                $("#load-role").show();
                 url_p = window.myUrl.getPerusahaan;
                 url = url_p.replace(/(@id)/g, this.id);
                 ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__["default"](url);
-                _context.next = 5;
+                _context.next = 6;
                 return ajax.get(url);
 
-              case 5:
+              case 6:
                 _yield$ajax$get = _context.sent;
                 result = _yield$ajax$get.data;
                 this.olahData(result);
 
-              case 8:
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -70673,6 +70677,7 @@ var RoleClients = /*#__PURE__*/function () {
       }
 
       $("#cb-perusahaan").html(html);
+      $("#load-role").hide();
     }
   }, {
     key: "chain",
@@ -70684,18 +70689,20 @@ var RoleClients = /*#__PURE__*/function () {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                $("#load-role").show();
                 url_p = window.myUrl.getChain;
                 url = url_p.replace(/(@id)/g, id);
                 ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__["default"](url);
-                _context2.next = 5;
+                _context2.next = 6;
                 return ajax.get(url);
 
-              case 5:
+              case 6:
                 _yield$ajax$get2 = _context2.sent;
                 results = _yield$ajax$get2.data;
                 this.chainRenderer(results);
+                $("#load-role").hide();
 
-              case 8:
+              case 10:
               case "end":
                 return _context2.stop();
             }
@@ -70767,6 +70774,7 @@ var RoleClients = /*#__PURE__*/function () {
         perusahaan: options[selIndex].text
       });
       $("#role-pr").html("\n                <strong>Role:</strong> <span class='text-primary'>".concat(teks.role.toUpperCase(), " ").concat(teks.perusahaan, "</span> \n            "));
+      $("#collapes-buton").click();
       this.penanggungJawabId = value;
       myAlert.swAlert("Role Berhasil di set ke ".concat(teks.role.toUpperCase(), " ").concat(teks.perusahaan), 'Set Role', function () {
         return null;
@@ -71192,11 +71200,393 @@ var HakDanKewajiban = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RuangLingkupClient; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+/* harmony import */ var _scripts_FormInputDisable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../scripts/FormInputDisable */ "./resources/js/scripts/FormInputDisable.js");
+/* harmony import */ var _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../formats/Lists/Lists */ "./resources/js/components/pages/formats/Lists/Lists.js");
+
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var RuangLingkupClient = function RuangLingkupClient() {
-  _classCallCheck(this, RuangLingkupClient);
-};
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+var RuangLingkupClient = /*#__PURE__*/function () {
+  function RuangLingkupClient() {
+    _classCallCheck(this, RuangLingkupClient);
+
+    _defineProperty(this, "document_id", "");
+
+    _defineProperty(this, "list", []);
+  }
+
+  _createClass(RuangLingkupClient, [{
+    key: "openModal",
+    value: function () {
+      var _openModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var dokumen,
+            modals,
+            url,
+            _args = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                dokumen = _args.length > 0 && _args[0] !== undefined ? _args[0] : "";
+                console.log("preparing modal....");
+                modals = window.myUrl.rlingkup.modals;
+                this.document_id = dokumen;
+                url = modals.replace(/_DOC_/g, this.document_id);
+                _context.next = 7;
+                return this.modals(url);
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function openModal() {
+        return _openModal.apply(this, arguments);
+      }
+
+      return openModal;
+    }()
+  }, {
+    key: "modals",
+    value: function () {
+      var _modals = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(urlGet) {
+        var _this = this;
+
+        var modls;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                console.log("send request....");
+                modls = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"](urlGet, "", "Ruang Lingkup", false);
+                _context2.next = 4;
+                return modls.ajax();
+
+              case 4:
+                modls.openModal(function () {
+                  _this.processing();
+
+                  return false;
+                }, false);
+                console.log("opening");
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function modals(_x) {
+        return _modals.apply(this, arguments);
+      }
+
+      return modals;
+    }()
+  }, {
+    key: "processing",
+    value: function () {
+      var _processing = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var wrapper;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return this.getList();
+
+              case 2:
+                wrapper = this.createContentWrapper();
+                wrapper = this.iterateList(wrapper);
+                this.draw(wrapper);
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function processing() {
+        return _processing.apply(this, arguments);
+      }
+
+      return processing;
+    }()
+  }, {
+    key: "draw",
+    value: function draw(content) {
+      $("#my-lingkup").html(content);
+      setTimeout(function () {
+        Object(_scripts_FormInputDisable__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+          $("#lingkup").val(), 'active';
+        });
+        $("#load-data").hide();
+      }, 1000);
+    }
+  }, {
+    key: "getList",
+    value: function () {
+      var _getList = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var url_tmp, url, ajax, _yield$ajax$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                url_tmp = window.myUrl.rlingkup.list;
+                url = url_tmp.replace(/(_DOC_)/g, this.document_id);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__["default"]();
+                _context4.next = 5;
+                return ajax.get(url);
+
+              case 5:
+                _yield$ajax$get = _context4.sent;
+                data = _yield$ajax$get.data;
+                this.list = data;
+                console.log('a', this.list);
+
+              case 9:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function getList() {
+        return _getList.apply(this, arguments);
+      }
+
+      return getList;
+    }()
+  }, {
+    key: "iterateList",
+    value: function iterateList(w) {
+      var html = '';
+      var i = 1;
+
+      var _iterator = _createForOfIteratorHelper(this.list),
+          _step;
+
+      try {
+        var _loop = function _loop() {
+          var ls = _step.value;
+
+          if (ls.status === 'active') {
+            var zitemContent = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_5__["ItemContent"];
+            var repl = zitemContent.replace(/(_NOMOR_|_NILAI_|_FNC_|_ISFADE_)/gi, function (match) {
+              var obj = {
+                _NOMOR_: i,
+                _NILAI_: ls.lingkup,
+                _FNC_: "window.lingkup.delete(".concat(ls.id, ")"),
+                _ISFADE_: ""
+              }; //console.log("repl",obj);
+
+              return obj[match];
+            }); // console.log("replacement",repl)             
+
+            html += repl;
+            i++;
+          }
+        };
+
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          _loop();
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      console.log("NKD", html);
+
+      var _ItemList = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_5__["ItemListFormat"].replace(/(_KONTEN_)/g, html);
+
+      var cont = w.replace(/(_KONTEN_)/g, _ItemList);
+      return cont;
+    }
+  }, {
+    key: "createContentWrapper",
+    value: function createContentWrapper() {
+      var formatWrap = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_5__["ListFormat"].replace(/(_CLASS_|_WARNA_|_JUDUL_|_FOOTER_)/gi, function (match) {
+        var fFot = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_5__["CARD_FOOTER_FMT"].replace(/(_IDOBJECT_|_PLACEHOLDER_|_FNC_|_BTNCAPS_)/gi, function (matc_ft) {
+          var obj = {
+            _IDOBJECT_: "lingkup",
+            _PLACEHOLDER_: "Masukkan data RUANG LINGKUP",
+            _FNC_: "window.lingkup.save($('#lingkup').val(),'active')",
+            _BTNCAPS_: "Kirim"
+          };
+          return obj[matc_ft];
+        });
+        var obj = {
+          _CLASS_: "card-primary",
+          _WARNA_: "",
+          _JUDUL_: "Ruang Lingkup",
+          _FOOTER_: "".concat(fFot, "\n                        <div class='overlay dark' id='load-data'>\n                            <i class=\"fas fa-2x fa-circle-notch fa-spin\"></i>\n                        </div>")
+        };
+        return obj[match];
+      });
+      return formatWrap;
+    }
+  }, {
+    key: "save",
+    value: function () {
+      var _save = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(lingkup, status) {
+        var pesan, model, url, ajax;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+
+                if (!(lingkup === '')) {
+                  _context5.next = 4;
+                  break;
+                }
+
+                pesan.swAlert("Harap isi semua isian untuk dapat menyimpan data", "Isian Kosong", function () {
+                  return null;
+                }, 'error');
+                return _context5.abrupt("return");
+
+              case 4:
+                _context5.prev = 4;
+                model = {
+                  lingkup: lingkup,
+                  status: status,
+                  document_id: this.document_id,
+                  _token: $("input[name='_token']").val()
+                };
+                url = window.myUrl.rlingkup.store;
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__["default"](url);
+                _context5.next = 10;
+                return ajax.send(model);
+
+              case 10:
+                _context5.next = 12;
+                return this.processing();
+
+              case 12:
+                _context5.next = 19;
+                break;
+
+              case 14:
+                _context5.prev = 14;
+                _context5.t0 = _context5["catch"](4);
+                pesan.swAlert('Tidak dapat Menyimpan Dokumen', 'Galat', function () {
+                  return false;
+                }, 'error');
+                _context5.next = 19;
+                return this.processing();
+
+              case 19:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this, [[4, 14]]);
+      }));
+
+      function save(_x2, _x3) {
+        return _save.apply(this, arguments);
+      }
+
+      return save;
+    }()
+  }, {
+    key: "delete",
+    value: function () {
+      var _delete2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(id) {
+        var _this2 = this;
+
+        var pesan;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+                pesan.swalYesNo("Ingin Menghapus Ruang Lingkup ini?", "Hapus Ruang Lingkup", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+                  var url_tmp, url, ajax, model;
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+                    while (1) {
+                      switch (_context6.prev = _context6.next) {
+                        case 0:
+                          url_tmp = window.myUrl.rlingkup["delete"];
+                          url = url_tmp.replace(/(_DOC_)/g, id);
+                          ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__["default"](url);
+                          model = {
+                            _method: 'delete',
+                            _token: $("input[name='_token']").val()
+                          };
+                          _context6.next = 6;
+                          return ajax.send(model);
+
+                        case 6:
+                          _context6.next = 8;
+                          return _this2.processing();
+
+                        case 8:
+                        case "end":
+                          return _context6.stop();
+                      }
+                    }
+                  }, _callee6);
+                })), function () {
+                  return 0;
+                });
+
+              case 2:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7);
+      }));
+
+      function _delete(_x4) {
+        return _delete2.apply(this, arguments);
+      }
+
+      return _delete;
+    }()
+  }]);
+
+  return RuangLingkupClient;
+}();
 
 
 
@@ -72001,21 +72391,27 @@ var PDFUploader = /*#__PURE__*/function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DisableEnter; });
 function DisableEnter() {
+  var onKey13 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {
+    return null;
+  };
   $('form input').keydown(function (e) {
     if (e.keyCode == 13) {
       e.preventDefault();
+      onKey13();
       return false;
     }
   });
   $('form select').keydown(function (e) {
     if (e.keyCode == 13) {
       e.preventDefault();
+      onKey13();
       return false;
     }
   });
   $('form textarea').keydown(function (e) {
     if (e.keyCode == 13) {
       e.preventDefault();
+      onKey13();
       return false;
     }
   });
