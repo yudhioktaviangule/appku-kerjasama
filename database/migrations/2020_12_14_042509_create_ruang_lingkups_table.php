@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTindakLanjutDocsTable extends Migration
+class CreateRuangLingkupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateTindakLanjutDocsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tindak_lanjut_docs', function (Blueprint $table) {
+        Schema::create('ruang_lingkups', function (Blueprint $table) {
             $table->id();
-            $table->integer('document_id');
-            $table->integer('user_id');
-            $table->enum('stdoc',[0,1,2,3,4,5,6,7,8,9])->comment('lihat di table dokumen')->default(0);
-            $table->string("keterangan")->default("-");
+            $table->integer("document_id");
+            $table->string("lingkup");
+            $table->enum('status',['active','deleted','del_ksb']);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ class CreateTindakLanjutDocsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tindak_lanjut_docs');
+        Schema::dropIfExists('ruang_lingkups');
     }
 }

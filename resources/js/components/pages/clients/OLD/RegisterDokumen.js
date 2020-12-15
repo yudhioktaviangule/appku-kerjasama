@@ -1,12 +1,12 @@
 
-import MyAjax from '../../../scripts/Ajax';
-import CreateDataTable from '../../../scripts/DataTable';
+import MyAjax from '../../../../scripts/Ajax';
+import CreateDataTable from '../../../../scripts/DataTable';
 import DtbDokumen from './RegDokumen/DtbDokumen';
 import FormDokumen from './RegDokumen/FormDokumen';
 import RuangLingkup from './RegDokumen/RuangLingkup';
 import PihakPertama from './RegDokumen/PihakPertama';
 import PihakKedua from './RegDokumen/PihakKedua';
-import Alert from '../../../scripts/Alert';
+import Alert from '../../../../scripts/Alert';
 import MailDokumenDibuat from './RegDokumen/Mailer';
 
 
@@ -25,6 +25,7 @@ export default class RegisterDokumen{
     pihak1 = new PihakPertama();
     pihak2 = new PihakKedua();
     notification = new MailDokumenDibuat();
+    dataTablex;
     form;
     penanggungJawab = null;
     async init(user_id){
@@ -97,7 +98,7 @@ export default class RegisterDokumen{
         
     }
     initDataTable(){
-        new DtbDokumen($("#table-dokumen"),this.user).initDataTable();
+        this.dataTablex = new DtbDokumen($("#table-dokumen"),this.user).initDataTable();
     }
     renderAll(){
         this.lingkup.render();

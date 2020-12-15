@@ -1,9 +1,9 @@
 
-import Modals from '../../../../scripts/Modals';
+import Modals from '../../../../../scripts/Modals';
 import ElementModals from './ElementModals';
-import RuangLingkup from '../../clients/RegDokumen/RuangLingkup';
-import PihakPertama from '../../clients/RegDokumen/PihakPertama';
-import PihakKedua from '../../clients/RegDokumen/PihakKedua';
+import RuangLingkup from '../../../clients/OLD/RegDokumen/RuangLingkup';
+import PihakPertama from '../../../clients/OLD/RegDokumen/PihakPertama';
+import PihakKedua from '../../../clients/OLD/RegDokumen/PihakKedua';
 
 export default class KbModals{ 
     formEl=`

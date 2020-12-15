@@ -2,15 +2,17 @@
 @section("title",'Dokumen')
 @section("crumb")
     <!-- <li class="breadcrumb-item">Clients</li> -->
-    <li class="breadcrumb-item active">Registrasi Dokumen</li>
+    <li class="breadcrumb-item active">Dokumen</li>
 @endsection
 @section("content")
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-4" id="mcontent">
+<div class="col-5" id="mcontent">
             <div class="card" id='mcontent-card'>
                 <div class="card-header">
-                    <h3 class="card-title" id='role-pr'>Role</h3>
+                    <h3 class="card-title"  >
+                        <span id='role-pr' style='width:50%;text-overflow:ellipsis'>
+                            <strong >Role</strong>
+                        </span>
+                    </h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
                             <i class="fas fa-minus"></i>
@@ -25,22 +27,24 @@
                                 <div id="pilih-role">
                                     <div class="form-group">
                                         <label for="">Pilih Perusahaan</label>
-                                        <select onchange='window.register.chainCombo($(this).val())' class='form-control' id="cb-perusahaan"></select>
+                                        <select onchange='dokumen.role.chain($(this).val())' class='form-control' id="cb-perusahaan">
+
+                                        </select>
 
                                     </div>
                                 </div>
                                 
                             </div>
                             <div class="col">
-                                <div class="form-group">
+                               
                                     <div id="chain-child">
     
                                     </div>
-                                </div>
+                               
                             </div>    
                             <div class="col">
                                 <div class="form-group">
-                                        <a href="#" class='btn btn-info btn-block' onclick='window.register.setPenanggungJawab()' id='btn-cari'>Gunakan Role</a>
+                                        <a href="#" class='btn btn-info btn-block' onclick='window.dokumen.role.set($("#penanggung-jawab"))' id='btn-cari'>Gunakan Role</a>
                                 </div>
 
                             </div>
@@ -48,79 +52,56 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12">
-            
-            <div class="card" id='table-walikota'>
-                <div class="card-header">
-                    <div class="d-flex justify-content-between">
-                        <h3 class='card-title'>
-                            Dokumenku
-                        </h3>
-                        <a href="#" onclick='window.register.addModal()' class='btn btn-primary' >
-                            Registrasi Dokumen
-                        </a>
-                    
-                    
+</div>    
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Daftar Dokumen</h3>
+                <div class="card-tools">
+                        <button onclick='window.dokumen.setModal()' type="button" class="btn btn-sm btn-primary">
+                            Register
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
                     </div>
-                </div>
-                <div class="card-body">
-                   
-                    <div class="form-group row">
-
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id='table-dokumen'>
-                                <thead>
-                                    <tr>
-                                        <th>Nomor</th>
-                                        <th>Perusahaan</th>
-                                        <th>Tentang</th>
-                                        <th>Tujuan Kerjasama</th>
-                                        <th>
-                                            Status Dokumen
-                                        </th>
-                                        <th>Keterangan</th>
-                                    </tr>
-                                </thead>
-                            </table>
-    
-                        </div>
-
-                    </div>    
-                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered" id="table-dokumen">
+                    <thead>
+                        <tr>
+                            <th>Nomor</th>
+                            <th>Perusahaan</th>
+                            <th>Tentang</th>
+                            <th>Dinas Tujuan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
-    
-
-</div>
 @endsection
-
 @section("js")
-        <script>
-            $(document).ready(()=>{
-                window.myUrl = {
-                    perusahaan:{
-                        get:`{{route('client-api-perusahaan.index')}}?uid={{Auth::id()}}&type=true`
-                    },
-                    pj:{
-                        get:`{{route('client-api-penanggungjawabku.show',['client_api_penanggungjawabku'=>'pid-uid'])}}`,
-                    },
-                    dokumen:{
-                        dataTable:"{{route('doc-api.index')}}?pjid=@pjid@",
-                        create:"{{route('doc-api.create')}}?pjid=@pjid",
-                        store:"{{route('dokumen.store')}}",
-                    },
-                    pejabat:{
-                        select2:"{{route('api.walikota.select2',['slug'=>'_count_-_limit_-_offset_'])}}"
-                    },
-                    mail:{
-                        berkasDibuat:"{{route('berkas.buat.mail',['document_id'=>'@doc@'])}}"
-                    }
+    <script>
+        $(document).ready(()=>{
+            window.myUrl = {
+                getPerusahaan:"{{ route('role_user.show',['role_user'=>'@id']) }}",
+                getChain:"{{ route('role_user.edit',['role_user'=>'@id']) }}",
+                dokumen:{
+                    create:"{{ route('doc-api.create') }}?pjid={{ Auth::id() }}",
+                    store:"{{ route('dokumen.store') }}",
                 }
-                register = window.APP.regDokumen;
-                register.init('{{Auth::id()}}');
-           
-            });
-        </script>
+
+            }
+            window.client = window.APP.Client;
+            //console.log(client);
+            window.dokumen = window.client.init({{ Auth::id() }}).documents;
+
+        });
+
+
+    </script>
 @endsection

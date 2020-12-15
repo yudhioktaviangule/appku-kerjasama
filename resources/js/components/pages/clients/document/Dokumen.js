@@ -1,0 +1,40 @@
+
+import DataTableDokumen from './components/DataTable';
+import RoleClients from './components/RoleUser';
+import FormDokumen from './components/Form';
+import Alert from '../../../../scripts/Alert';
+
+export default class Dokumen{
+    id        = '';
+    penanggungJawabId = '';
+    dataTabel = new DataTableDokumen();
+    role      = new RoleClients();
+    form;
+    constructor(user_id=''){
+        console.log("initializing document...")
+        this.id        = user_id;
+        this.dataTabel = new DataTableDokumen(this.id);
+        this.role      = new RoleClients(this.id);
+        
+    }
+    async setModal(){
+        this.penanggungJawabId=this.role.penanggungJawabId;
+        if(this.penanggungJawabId==''){
+            this.createPesan(
+                'Harap Pilih Role Terlebih Dahulu',
+                'Galat',
+                ()=>{return false},
+                'error')
+        }else{
+
+            this.form=new FormDokumen(this.penanggungJawabId)
+            await this.form.openModalAdd(()=>{
+                return false;
+            });
+        }
+    }
+    createPesan(message,title,fun=()=>{},type){
+        const pesan = new Alert();
+        pesan.swAlert(message,title,fun,type)
+    }
+}

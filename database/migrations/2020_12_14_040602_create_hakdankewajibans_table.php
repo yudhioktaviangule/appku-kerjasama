@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTindakLanjutDocsTable extends Migration
+class CreateHakdankewajibansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateTindakLanjutDocsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tindak_lanjut_docs', function (Blueprint $table) {
+        Schema::create('hakdankewajibans', function (Blueprint $table) {
             $table->id();
             $table->integer('document_id');
-            $table->integer('user_id');
-            $table->enum('stdoc',[0,1,2,3,4,5,6,7,8,9])->comment('lihat di table dokumen')->default(0);
-            $table->string("keterangan")->default("-");
-            $table->softDeletes();
+            $table->enum("pihak",['pertama','kedua']);
+            $table->enum("jenis",['hak','kewajiban']);
+            $table->string("nilai");
+            $table->enum("deleted",['0','1','2'])->comment('0:terdelete,1:terdelete user,2:terdelete kasubag');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateTindakLanjutDocsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tindak_lanjut_docs');
+        Schema::dropIfExists('hakdankewajibans');
     }
 }

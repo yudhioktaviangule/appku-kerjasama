@@ -11,15 +11,23 @@ export default class CreateDataTable{
         
         console.log("creating datatable");
       console.log("columns",cols);
-        $(this.obj).DataTable({
+        let datatable = $(this.obj).DataTable({
             ...options,
+            processing:true,
+            serverSide:true,
             columns:cols,
             ajax:{...ajax.ajax,type:'GET'},
             language:{
                 search:"Cari",
-                loadingRecords:"Mengambil Data"
+                loadingRecords:"Mengambil Data",
+                processing:"Memproses",
+                searchPlaceholder:"Cari data",
+                emptyTable:"Tidak ada Entri data",
+                
             }
         })
+        datatable.draw();
+        return datatable;
     }
 
     createAjaxParam(url='',data=''){

@@ -18,6 +18,7 @@ class OperatorOnlyApi
     {
         $authorizedLevel = [
             'operator',
+            'kasubag',
             
             
         ];

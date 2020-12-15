@@ -69230,10 +69230,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_clients_PenanggungJawab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/clients/PenanggungJawab */ "./resources/js/components/pages/clients/PenanggungJawab.js");
 /* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/Alert */ "./resources/js/scripts/Alert.js");
 /* harmony import */ var _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/kasubag_root/Walikota */ "./resources/js/components/pages/kasubag_root/Walikota.js");
-/* harmony import */ var _pages_clients_RegisterDokumen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/clients/RegisterDokumen */ "./resources/js/components/pages/clients/RegisterDokumen.js");
-/* harmony import */ var _pages_operator_OpDashboard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/operator/OpDashboard */ "./resources/js/components/pages/operator/OpDashboard.js");
-/* harmony import */ var _pages_kasubag_root_KbDashboard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/kasubag_root/KbDashboard */ "./resources/js/components/pages/kasubag_root/KbDashboard.js");
-/* harmony import */ var _pages_operator_arsip_MainArsip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/operator/arsip/MainArsip */ "./resources/js/components/pages/operator/arsip/MainArsip.js");
+/* harmony import */ var _pages_operator_operator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/operator/operator */ "./resources/js/components/pages/operator/operator.js");
+/* harmony import */ var _pages_clients_document_KlienDokumen__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/clients/document/KlienDokumen */ "./resources/js/components/pages/clients/document/KlienDokumen.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -69241,8 +69239,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
 
 
 
@@ -69261,13 +69257,9 @@ var MainRouter = /*#__PURE__*/function () {
 
     _defineProperty(this, "walikota", new _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__["default"]());
 
-    _defineProperty(this, "regDokumen", new _pages_clients_RegisterDokumen__WEBPACK_IMPORTED_MODULE_4__["default"]());
+    _defineProperty(this, "Client", new _pages_clients_document_KlienDokumen__WEBPACK_IMPORTED_MODULE_5__["default"]());
 
-    _defineProperty(this, "opDash", new _pages_operator_OpDashboard__WEBPACK_IMPORTED_MODULE_5__["default"]());
-
-    _defineProperty(this, "kbDash", new _pages_kasubag_root_KbDashboard__WEBPACK_IMPORTED_MODULE_6__["default"]());
-
-    _defineProperty(this, "arsip", new _pages_operator_arsip_MainArsip__WEBPACK_IMPORTED_MODULE_7__["default"]());
+    _defineProperty(this, "operator", new _pages_operator_operator__WEBPACK_IMPORTED_MODULE_4__["default"]());
   }
 
   _createClass(MainRouter, [{
@@ -70127,100 +70119,22 @@ var PenanggungJawab = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/clients/RegDokumen/DtbDokumen.js":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/pages/clients/RegDokumen/DtbDokumen.js ***!
-  \************************************************************************/
+/***/ "./resources/js/components/pages/clients/document/Dokumen.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/pages/clients/document/Dokumen.js ***!
+  \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DtbDokumen; });
-/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-var DtbDokumen = /*#__PURE__*/function () {
-  function DtbDokumen(dataTableDOM, penanggung_jawab_id) {
-    _classCallCheck(this, DtbDokumen);
-
-    _defineProperty(this, "dom", void 0);
-
-    _defineProperty(this, "pj_id", void 0);
-
-    _defineProperty(this, "tbl", void 0);
-
-    _defineProperty(this, "columns", [{
-      name: 'nomor',
-      data: 'nomor'
-    }, {
-      name: 'perusahaan',
-      data: 'perusahaan'
-    }, {
-      name: 'tentang',
-      data: 'tentang'
-    }, {
-      name: 'tujuan',
-      data: 'tujuan'
-    }, {
-      name: 'aksi',
-      data: 'aksi'
-    }, {
-      name: 'keterangan',
-      data: 'keterangan'
-    }]);
-
-    this.pj_id = penanggung_jawab_id;
-    this.dom = dataTableDOM;
-  }
-
-  _createClass(DtbDokumen, [{
-    key: "initDataTable",
-    value: function initDataTable() {
-      var _this = this;
-
-      console.log("initializeDataTable");
-      var dataTable = myUrl.dokumen.dataTable;
-      var url = dataTable.replace(/(@pjid@)/g, this.pj_id);
-      var xtable = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.dom);
-      var ajax = xtable.createAjaxParam(url);
-      $("#table-walikota").show(1000);
-      setTimeout(function () {
-        xtable.dataTable(_this.columns, ajax);
-      }, 1000);
-    }
-  }]);
-
-  return DtbDokumen;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/clients/RegDokumen/FormDokumen.js":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/pages/clients/RegDokumen/FormDokumen.js ***!
-  \*************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormDokumen; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Dokumen; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
-/* harmony import */ var _scripts_SelectDua__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../scripts/SelectDua */ "./resources/js/scripts/SelectDua.js");
-/* harmony import */ var _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../plugin/ckeditor/index */ "./resources/js/plugin/ckeditor/index.js");
+/* harmony import */ var _components_DataTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/DataTable */ "./resources/js/components/pages/clients/document/components/DataTable.js");
+/* harmony import */ var _components_RoleUser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RoleUser */ "./resources/js/components/pages/clients/document/components/RoleUser.js");
+/* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Form */ "./resources/js/components/pages/clients/document/components/Form.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -70239,103 +70153,58 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var FormDokumen = /*#__PURE__*/function () {
-  function FormDokumen() {
-    _classCallCheck(this, FormDokumen);
 
-    _defineProperty(this, "pjid", 0);
+var Dokumen = /*#__PURE__*/function () {
+  function Dokumen() {
+    var user_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
-    _defineProperty(this, "editore", new _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_3__["default"]());
+    _classCallCheck(this, Dokumen);
 
-    _defineProperty(this, "select2", new _scripts_SelectDua__WEBPACK_IMPORTED_MODULE_2__["SelectDua"]());
+    _defineProperty(this, "id", '');
+
+    _defineProperty(this, "penanggungJawabId", '');
+
+    _defineProperty(this, "dataTabel", new _components_DataTable__WEBPACK_IMPORTED_MODULE_1__["default"]());
+
+    _defineProperty(this, "role", new _components_RoleUser__WEBPACK_IMPORTED_MODULE_2__["default"]());
+
+    _defineProperty(this, "form", void 0);
+
+    console.log("initializing document...");
+    this.id = user_id;
+    this.dataTabel = new _components_DataTable__WEBPACK_IMPORTED_MODULE_1__["default"](this.id);
+    this.role = new _components_RoleUser__WEBPACK_IMPORTED_MODULE_2__["default"](this.id);
   }
 
-  _createClass(FormDokumen, [{
-    key: "init",
-    value: function init(penanggung) {
-      this.pjid = penanggung;
-      return this;
-    }
-  }, {
-    key: "loadForm",
+  _createClass(Dokumen, [{
+    key: "setModal",
     value: function () {
-      var _loadForm = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this = this;
-
-        var title,
-            onload,
-            _myUrl,
-            _myUrl$dokumen,
-            regex,
-            simpan,
-            sel2,
-            url,
-            modals,
-            _args = arguments;
-
+      var _setModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                title = _args.length > 0 && _args[0] !== undefined ? _args[0] : '';
-                onload = _args.length > 1 && _args[1] !== undefined ? _args[1] : null;
-                _myUrl = myUrl, _myUrl$dokumen = _myUrl.dokumen, regex = _myUrl$dokumen.create, simpan = _myUrl$dokumen.store, sel2 = _myUrl.pejabat.select2;
-                url = regex.replace(/(@pjid)/g, this.pjid);
-                modals = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"](url, simpan, title, false);
-                _context.next = 7;
-                return modals.ajax();
+                this.penanggungJawabId = this.role.penanggungJawabId;
 
-              case 7:
-                modals.openModal(function () {
-                  if (onload != null) {
-                    onload();
-                    var obj = {
-                      _count_: 5,
-                      _limit_: 5,
-                      _offset_: 0
-                    };
-                    var matchet = new RegExp("/(_count_|_limit_|_offset_)/gi");
-                    url = sel2.replace(matchet, function (match) {
-                      return obj[match];
-                    });
+                if (!(this.penanggungJawabId == '')) {
+                  _context.next = 5;
+                  break;
+                }
 
-                    _this.select2.createAJax(url);
+                this.createPesan('Harap Pilih Role Terlebih Dahulu', 'Galat', function () {
+                  return false;
+                }, 'error');
+                _context.next = 8;
+                break;
 
-                    _this.select2.setObject($("#slc"));
+              case 5:
+                this.form = new _components_Form__WEBPACK_IMPORTED_MODULE_3__["default"](this.penanggungJawabId);
+                _context.next = 8;
+                return this.form.openModalAdd(function () {
+                  return false;
+                });
 
-                    var template = function template() {
-                      var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-                        id: 0,
-                        text: "0"
-                      };
-                      console.log(state);
-
-                      if (!state.id) {
-                        return state.text;
-                      }
-
-                      var $state = $("\n                        \n                        <strong>".concat(state.text, "</strong><br>\n                        <span>").concat(state.name, "</span><br>\n                    \n                    "));
-                      return $state;
-                    };
-
-                    _this.select2.selectDua({
-                      templateResult: template
-                    });
-
-                    $("input[name='penanggung_jawab_id']").val(_this.pjid);
-
-                    _this.editore.ck('justify,textindent');
-
-                    var ckeditor = _this.editore.ckeditor;
-                    ckeditor.replace("maksud");
-                    ckeditor.replace("tujuan");
-                    ckeditor.replace("pelaksanaan");
-                    ckeditor.replace("ketentuan_hukum");
-                  }
-                }, true);
-                return _context.abrupt("return", this);
-
-              case 9:
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -70343,11 +70212,239 @@ var FormDokumen = /*#__PURE__*/function () {
         }, _callee, this);
       }));
 
-      function loadForm() {
-        return _loadForm.apply(this, arguments);
+      function setModal() {
+        return _setModal.apply(this, arguments);
       }
 
-      return loadForm;
+      return setModal;
+    }()
+  }, {
+    key: "createPesan",
+    value: function createPesan(message, title) {
+      var fun = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+      var type = arguments.length > 3 ? arguments[3] : undefined;
+      var pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__["default"]();
+      pesan.swAlert(message, title, fun, type);
+    }
+  }]);
+
+  return Dokumen;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/document/KlienDokumen.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/document/KlienDokumen.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Klien; });
+/* harmony import */ var _Dokumen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dokumen */ "./resources/js/components/pages/clients/document/Dokumen.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var Klien = /*#__PURE__*/function () {
+  function Klien() {
+    _classCallCheck(this, Klien);
+
+    _defineProperty(this, "id", '');
+
+    _defineProperty(this, "documents", new _Dokumen__WEBPACK_IMPORTED_MODULE_0__["default"]());
+  }
+
+  _createClass(Klien, [{
+    key: "init",
+    value: function init() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      this.id = id;
+      this.documents = new _Dokumen__WEBPACK_IMPORTED_MODULE_0__["default"](id);
+      return this;
+    }
+  }]);
+
+  return Klien;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/document/components/DataTable.js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/document/components/DataTable.js ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DataTableDokumen; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var DataTableDokumen = /*#__PURE__*/function () {
+  function DataTableDokumen() {
+    var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+    _classCallCheck(this, DataTableDokumen);
+
+    _defineProperty(this, "user", '');
+
+    this.user = id;
+
+    if (id != '') {
+      this.init();
+    }
+  }
+
+  _createClass(DataTableDokumen, [{
+    key: "init",
+    value: function init() {
+      var user_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      //    console.log('initializing datatable...');
+      this.user = user_id;
+    }
+  }]);
+
+  return DataTableDokumen;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/clients/document/components/Form.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/document/components/Form.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormDokumen; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _scripts_SelectDua__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../scripts/SelectDua */ "./resources/js/scripts/SelectDua.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var FormDokumen = /*#__PURE__*/function () {
+  function FormDokumen() {
+    var pen = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+    _classCallCheck(this, FormDokumen);
+
+    _defineProperty(this, "penanggunJawabId", 0);
+
+    if (pen != 0) {
+      this.penanggunJawabId = pen;
+    }
+  }
+
+  _createClass(FormDokumen, [{
+    key: "openModalAdd",
+    value: function () {
+      var _openModalAdd = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
+        var onShow,
+            _myUrl,
+            _myUrl$dokumen,
+            urlGet,
+            urlAction,
+            modal,
+            _args = arguments;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                onShow = _args.length > 0 && _args[0] !== undefined ? _args[0] : undefined;
+                _myUrl = myUrl, _myUrl$dokumen = _myUrl.dokumen, urlGet = _myUrl$dokumen.create, urlAction = _myUrl$dokumen.store;
+                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"](urlGet, urlAction, "Register Dokumen Baru", true);
+                _context.next = 5;
+                return modal.ajax();
+
+              case 5:
+                modal.openModal(function () {
+                  _this.select2ku();
+
+                  return false;
+                }, true);
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function openModalAdd() {
+        return _openModalAdd.apply(this, arguments);
+      }
+
+      return openModalAdd;
+    }()
+  }, {
+    key: "select2ku",
+    value: function () {
+      var _select2ku = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var obj, sel;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                obj = $("#dinas-tujuan");
+                sel = new _scripts_SelectDua__WEBPACK_IMPORTED_MODULE_2__["SelectDua"]();
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function select2ku() {
+        return _select2ku.apply(this, arguments);
+      }
+
+      return select2ku;
     }()
   }]);
 
@@ -70358,20 +70455,34 @@ var FormDokumen = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/clients/RegDokumen/Mailer.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/pages/clients/RegDokumen/Mailer.js ***!
-  \********************************************************************/
+/***/ "./resources/js/components/pages/clients/document/components/RoleUser.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/pages/clients/document/components/RoleUser.js ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MailDokumenDibuat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RoleClients; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var _formats_role_FormatSelects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../formats/role/FormatSelects */ "./resources/js/components/pages/formats/role/FormatSelects.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
 
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -70383,883 +70494,58 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var MailDokumenDibuat = /*#__PURE__*/function () {
-  function MailDokumenDibuat() {
-    _classCallCheck(this, MailDokumenDibuat);
+
+
+
+
+var RoleClients = /*#__PURE__*/function () {
+  function RoleClients() {
+    var user_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+    _classCallCheck(this, RoleClients);
+
+    _defineProperty(this, "id", '');
+
+    _defineProperty(this, "penanggungJawabId", '');
+
+    this.id = user_id;
+
+    if (user_id != '') {
+      this.getPerusahaan();
+      this.hideButton();
+    }
   }
 
-  _createClass(MailDokumenDibuat, [{
-    key: "send",
+  _createClass(RoleClients, [{
+    key: "getPerusahaan",
     value: function () {
-      var _send = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(document_id) {
-        var _this = this;
+      var _getPerusahaan = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var url_p, url, ajax, _yield$ajax$get, result;
 
-        var mail, url, ajax;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                mail = window.myUrl.mail.berkasDibuat;
-                url = mail.replace(/(@doc@)/g, document_id);
-                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url, 'GET');
+                url_p = window.myUrl.getPerusahaan;
+                url = url_p.replace(/(@id)/g, this.id);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__["default"](url);
                 _context.next = 5;
                 return ajax.get(url);
 
               case 5:
-                console.log("mail has send");
-                console.log("deleting session...");
-                setTimeout(function () {
-                  _this.deleteSession();
-                }, 1000);
+                _yield$ajax$get = _context.sent;
+                result = _yield$ajax$get.data;
+                this.olahData(result);
 
               case 8:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      function send(_x) {
-        return _send.apply(this, arguments);
-      }
-
-      return send;
-    }()
-  }, {
-    key: "deleteSession",
-    value: function deleteSession() {
-      var storage = window.localStorage;
-      storage.removeItem("mailing");
-      console.log("session has been deleted!");
-    }
-  }, {
-    key: "init",
-    value: function () {
-      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var storage, mail, json;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.prev = 0;
-                console.log('mail initializing...');
-                storage = window.localStorage;
-                mail = storage.getItem("mailing");
-                json = this.convertDataToJSON(mail);
-                console.log('mail sending...');
-                _context2.next = 8;
-                return this.send(json.id);
-
-              case 8:
-                _context2.next = 12;
-                break;
-
-              case 10:
-                _context2.prev = 10;
-                _context2.t0 = _context2["catch"](0);
-
-              case 12:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this, [[0, 10]]);
-      }));
-
-      function init() {
-        return _init.apply(this, arguments);
-      }
-
-      return init;
-    }()
-  }, {
-    key: "convertDataToJSON",
-    value: function convertDataToJSON(data) {
-      try {
-        var json = JSON.parse(data);
-        return json;
-      } catch (e) {
-        console.log("an error occured", e);
-      }
-    }
-  }]);
-
-  return MailDokumenDibuat;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/clients/RegDokumen/PihakKedua.js":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/pages/clients/RegDokumen/PihakKedua.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PihakKedua; });
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var PihakKedua = /*#__PURE__*/function () {
-  _createClass(PihakKedua, [{
-    key: "init",
-    value: function init() {
-      this.obj.hak = $("#hak-p2");
-    }
-  }]);
-
-  function PihakKedua() {
-    var method = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'register';
-    var pp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
-    _classCallCheck(this, PihakKedua);
-
-    _defineProperty(this, "rsb", 'register');
-
-    _defineProperty(this, "formatList", "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a x='tbl' href=\"#\" class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ");
-
-    _defineProperty(this, "obj", {
-      hak: '',
-      kewajiban: ''
-    });
-
-    _defineProperty(this, "pihakKedua", {
-      hak: [],
-      kewajiban: []
-    });
-
-    _defineProperty(this, "hakFormat", {
-      hak: ""
-    });
-
-    _defineProperty(this, "kewajibanFormat", {
-      kewajiban: ""
-    });
-
-    this.rsb = method;
-
-    if (pp) {
-      this.formatList = "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a x='tbl' href=\"#\" class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ";
-    } else {
-      this.formatList = "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                \n            </span>\n        </li>    \n    ";
-    }
-  }
-
-  _createClass(PihakKedua, [{
-    key: "addHak",
-    value: function addHak(textObj) {
-      var cval = textObj.val();
-
-      if (cval == "") {
-        var pesan = new Alert();
-        pesan.swAlert('Gagal Tambahkan data, Hak masih kosong', 'Hak Pihak Kedua', function () {
-          return;
-        }, 'error');
-        return null;
-      }
-
-      this.hakFormat = _objectSpread(_objectSpread({}, this.hakFormat), {}, {
-        hak: cval
-      });
-      this.pihakKedua.hak.push(this.hakFormat);
-      this.renderHak();
-      textObj.val("");
-      console.log('adding Hak Pihak Kedua');
-    }
-  }, {
-    key: "renderHak",
-    value: function renderHak() {
-      var _this = this;
-
-      var html = '';
-      var index = 0;
-
-      var _iterator = _createForOfIteratorHelper(this.pihakKedua.hak),
-          _step;
-
-      try {
-        var _loop = function _loop() {
-          var hak = _step.value;
-          var hakku = hak.hak;
-          var fungsi = {
-            _FUNGSI_: "window.".concat(_this.rsb, ".pihak2.removeHak(").concat(index, ")"),
-            _NO_: index + 1,
-            _CONTENT_: hakku
-          };
-
-          var flist = _this.formatList.replace(/(_NO_|_CONTENT_|_FUNGSI_)/gi, function (match) {
-            return fungsi[match];
-          });
-
-          html += flist;
-          index++;
-        };
-
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          _loop();
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      $("#hak-p2").html(html);
-      $("#pihak-kedua").val(JSON.stringify(this.pihakKedua));
-
-      try {
-        window.register.validasi();
-      } catch (e) {}
-    }
-  }, {
-    key: "removeHak",
-    value: function removeHak(index) {
-      this.pihakKedua.hak.splice(index, 1);
-      this.renderHak();
-    }
-  }, {
-    key: "addKewajiban",
-    value: function addKewajiban(textObj) {
-      var cval = textObj.val();
-
-      if (cval == "") {
-        var pesan = new Alert();
-        pesan.swAlert('Gagal Tambahkan data, Kewajiban masih kosong', 'Kewajiban Pihak Kedua', function () {
-          return;
-        }, 'error');
-        return null;
-      }
-
-      this.kewajibanFormat = _objectSpread(_objectSpread({}, this.kewajibanFormat), {}, {
-        kewajiban: cval
-      });
-      this.pihakKedua.kewajiban.push(this.kewajibanFormat);
-      this.renderKewajiban();
-      textObj.val("");
-      console.log('adding Kewajiban Pihak Kedua');
-    }
-  }, {
-    key: "renderKewajiban",
-    value: function renderKewajiban() {
-      var _this2 = this;
-
-      console.log('rendering', this.pihakKedua);
-      var html = '';
-      var index = 0;
-
-      var _iterator2 = _createForOfIteratorHelper(this.pihakKedua.kewajiban),
-          _step2;
-
-      try {
-        var _loop2 = function _loop2() {
-          var Kewajiban = _step2.value;
-          var value = Kewajiban.kewajiban;
-          var fungsi = {
-            _FUNGSI_: "window.".concat(_this2.rsb, ".pihak2.removeKewajiban(").concat(index, ")"),
-            _NO_: index + 1,
-            _CONTENT_: value
-          };
-
-          var flist = _this2.formatList.replace(/(_NO_|_CONTENT_|_FUNGSI_)/gi, function (match) {
-            return fungsi[match];
-          });
-
-          html += flist;
-          index++;
-        };
-
-        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-          _loop2();
-        }
-      } catch (err) {
-        _iterator2.e(err);
-      } finally {
-        _iterator2.f();
-      }
-
-      $("#ls-kewajiban-2").html(html);
-      $("#pihak-kedua").val(JSON.stringify(this.pihakKedua));
-
-      try {
-        window.register.validasi();
-      } catch (e) {}
-    }
-  }, {
-    key: "removeKewajiban",
-    value: function removeKewajiban(index) {
-      this.pihakKedua.kewajiban.splice(index, 1);
-      this.renderKewajiban();
-    }
-  }]);
-
-  return PihakKedua;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/clients/RegDokumen/PihakPertama.js":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/pages/clients/RegDokumen/PihakPertama.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PihakPertama; });
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var PihakPertama = /*#__PURE__*/function () {
-  _createClass(PihakPertama, [{
-    key: "init",
-    value: function init() {
-      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'register';
-      this.obj.hak = $("#list-hak-pihak-pertama");
-    }
-  }]);
-
-  function PihakPertama() {
-    var rtype = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'register';
-    var pp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
-    _classCallCheck(this, PihakPertama);
-
-    _defineProperty(this, "rgs", 'register');
-
-    _defineProperty(this, "formatList", "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a href=\"#\" x='tbl' class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ");
-
-    _defineProperty(this, "obj", {
-      hak: '',
-      kewajiban: ''
-    });
-
-    _defineProperty(this, "pihakPertama", {
-      hak: [],
-      kewajiban: []
-    });
-
-    _defineProperty(this, "hakFormat", {
-      hak: ""
-    });
-
-    _defineProperty(this, "kewajibanFormat", {
-      kewajiban: ""
-    });
-
-    this.rgs = rtype;
-
-    if (pp) {
-      this.formatList = "\n            <li class=\"item\">\n                <span class=\"product-description\">\n                    _NO_. _CONTENT_\n                    <a href=\"#\" x='tbl' class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                        <i class=\"fas fa-minus\"></i>\n                    </a>\n                </span>\n            </li>    \n        ";
-    } else {
-      this.formatList = "\n            <li class=\"item\">\n                <span class=\"product-description\">\n                    _NO_. _CONTENT_\n                    \n                </span>\n            </li>    \n        ";
-    }
-  }
-
-  _createClass(PihakPertama, [{
-    key: "addHak",
-    value: function addHak(textObj) {
-      var cval = textObj.val();
-
-      if (cval == "") {
-        var pesan = new Alert();
-        pesan.swAlert('Gagal Tambahkan data, Hak masih kosong', 'Hak Pihak Pertama', function () {
-          return;
-        }, 'error');
-        return null;
-      }
-
-      this.hakFormat = _objectSpread(_objectSpread({}, this.hakFormat), {}, {
-        hak: cval
-      });
-      this.pihakPertama.hak.push(this.hakFormat);
-      this.renderHak();
-      textObj.val("");
-      console.log('adding Hak Pihak Pertama');
-    }
-  }, {
-    key: "renderHak",
-    value: function renderHak() {
-      var _this = this;
-
-      var html = '';
-      var index = 0;
-
-      var _iterator = _createForOfIteratorHelper(this.pihakPertama.hak),
-          _step;
-
-      try {
-        var _loop = function _loop() {
-          var hak = _step.value;
-          var hakku = hak.hak;
-          var fungsi = {
-            _FUNGSI_: "window.".concat(_this.rgs, ".pihak1.removeHak(").concat(index, ")"),
-            _NO_: index + 1,
-            _CONTENT_: hakku
-          };
-
-          var flist = _this.formatList.replace(/(_NO_|_CONTENT_|_FUNGSI_)/gi, function (match) {
-            return fungsi[match];
-          });
-
-          html += flist;
-          index++;
-        };
-
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          _loop();
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      $("#list-hak-pihak-pertama").html(html);
-      $("#pihak-pertama").val(JSON.stringify(this.pihakPertama));
-
-      try {
-        window.register.validasi();
-      } catch (e) {}
-    }
-  }, {
-    key: "removeHak",
-    value: function removeHak(index) {
-      this.pihakPertama.hak.splice(index, 1);
-      this.renderHak();
-    }
-  }, {
-    key: "addKewajiban",
-    value: function addKewajiban(textObj) {
-      var cval = textObj.val();
-
-      if (cval == "") {
-        var pesan = new Alert();
-        pesan.swAlert('Gagal Tambahkan data, Kewajiban masih kosong', 'Kewajiban pihak Pertama', function () {
-          return;
-        }, 'error');
-        return null;
-      }
-
-      this.kewajibanFormat = _objectSpread(_objectSpread({}, this.kewajibanFormat), {}, {
-        kewajiban: cval
-      });
-      this.pihakPertama.kewajiban.push(this.kewajibanFormat);
-      this.renderKewajiban();
-      textObj.val("");
-      console.log('adding Kewajiban pihak Pertama');
-    }
-  }, {
-    key: "renderKewajiban",
-    value: function renderKewajiban() {
-      var _this2 = this;
-
-      var html = '';
-      var index = 0;
-
-      var _iterator2 = _createForOfIteratorHelper(this.pihakPertama.kewajiban),
-          _step2;
-
-      try {
-        var _loop2 = function _loop2() {
-          var Kewajiban = _step2.value;
-          var kewajibanku = Kewajiban.kewajiban;
-          var fungsi = {
-            _FUNGSI_: "window.".concat(_this2.rgs, ".pihak1.removeKewajiban(").concat(index, ")"),
-            _NO_: index + 1,
-            _CONTENT_: kewajibanku
-          };
-
-          var flist = _this2.formatList.replace(/(_NO_|_CONTENT_|_FUNGSI_)/gi, function (match) {
-            return fungsi[match];
-          });
-
-          html += flist;
-          index++;
-        };
-
-        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-          _loop2();
-        }
-      } catch (err) {
-        _iterator2.e(err);
-      } finally {
-        _iterator2.f();
-      }
-
-      $("#list-kewajiban-pihak-pertama").html(html);
-      $("#pihak-pertama").val(JSON.stringify(this.pihakPertama));
-
-      try {} catch (e) {
-        window.register.validasi();
-      }
-    }
-  }, {
-    key: "removeKewajiban",
-    value: function removeKewajiban(index) {
-      this.pihakPertama.kewajiban.splice(index, 1);
-      this.renderKewajiban();
-    }
-  }]);
-
-  return PihakPertama;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RuangLingkup; });
-/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-var RuangLingkup = /*#__PURE__*/function () {
-  function RuangLingkup() {
-    _classCallCheck(this, RuangLingkup);
-
-    _defineProperty(this, "arrLingkup", []);
-
-    _defineProperty(this, "formatList", "\n        <li class=\"item\">\n            <span class=\"product-description\">\n                _NO_. _CONTENT_\n                <a x='tbl' href=\"#\" name='a_tinggi' class=\"btn btn-sm btn-danger float-right\" onclick='_FUNGSI_'>\n                    <i class=\"fas fa-minus\"></i>\n                </a>\n            </span>\n        </li>    \n    ");
-
-    _defineProperty(this, "lingkupFormat", {
-      lingkup: ""
-    });
-  }
-
-  _createClass(RuangLingkup, [{
-    key: "add",
-    value: function add(textObj) {
-      var cval = textObj.val();
-
-      if (cval == "") {
-        var pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_0__["default"]();
-        pesan.swAlert('Gagal Tambahkan data, Ruang Lingkup masih kosong', 'Lingkup', function () {
-          return;
-        }, 'error');
-        return null;
-      }
-
-      this.lingkupFormat = _objectSpread(_objectSpread({}, this.lingkupFormat), {}, {
-        lingkup: cval
-      });
-      this.arrLingkup.push(this.lingkupFormat);
-      this.render();
-      textObj.val("");
-      console.log('adding ruang lingkup');
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this = this;
-
-      var onRender = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {
-        return null;
-      };
-      var html = '';
-      var index = 0;
-
-      var _iterator = _createForOfIteratorHelper(this.arrLingkup),
-          _step;
-
-      try {
-        var _loop = function _loop() {
-          var lingkup = _step.value;
-          var hakku = lingkup.lingkup;
-          var fungsi = {
-            _FUNGSI_: "window.register.lingkup.remove(".concat(index, ")"),
-            _NO_: index + 1,
-            _CONTENT_: hakku
-          };
-
-          var flist = _this.formatList.replace(/(_NO_|_CONTENT_|_FUNGSI_)/gi, function (match) {
-            return fungsi[match];
-          });
-
-          html += flist;
-          index++;
-        };
-
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          _loop();
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      $("#list-lingkup").html(html);
-      $("#jumlah-lingkup").html(this.arrLingkup.length);
-      $("#lingkup-json").val(JSON.stringify(this.arrLingkup));
-      onRender();
-
-      try {
-        window.register.validasi();
-      } catch (e) {}
-    }
-  }, {
-    key: "remove",
-    value: function remove(index) {
-      this.arrLingkup.splice(index, 1);
-      this.render();
-    }
-  }, {
-    key: "capLihat",
-    value: function capLihat(obj) {
-      var val = obj.html();
-      var objNext = obj.attr("href");
-      var cClass = $(objNext).attr("class");
-      console.log('cClass', cClass);
-      var tutup = cClass.toLowerCase() === 'collapse show';
-
-      if (!tutup) {
-        obj.html("<i class='fas fa-times'></i> Close");
-      } else {
-        obj.html("<i class='fas fa-eye'></i> Lihat");
-      }
-    }
-  }]);
-
-  return RuangLingkup;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/clients/RegisterDokumen.js":
-/*!******************************************************************!*\
-  !*** ./resources/js/components/pages/clients/RegisterDokumen.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RegisterDokumen; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
-/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
-/* harmony import */ var _RegDokumen_DtbDokumen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegDokumen/DtbDokumen */ "./resources/js/components/pages/clients/RegDokumen/DtbDokumen.js");
-/* harmony import */ var _RegDokumen_FormDokumen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RegDokumen/FormDokumen */ "./resources/js/components/pages/clients/RegDokumen/FormDokumen.js");
-/* harmony import */ var _RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RegDokumen/RuangLingkup */ "./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js");
-/* harmony import */ var _RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./RegDokumen/PihakPertama */ "./resources/js/components/pages/clients/RegDokumen/PihakPertama.js");
-/* harmony import */ var _RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./RegDokumen/PihakKedua */ "./resources/js/components/pages/clients/RegDokumen/PihakKedua.js");
-/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
-/* harmony import */ var _RegDokumen_Mailer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./RegDokumen/Mailer */ "./resources/js/components/pages/clients/RegDokumen/Mailer.js");
-
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-
-
-
-var RegisterDokumen = /*#__PURE__*/function () {
-  function RegisterDokumen() {
-    _classCallCheck(this, RegisterDokumen);
-
-    _defineProperty(this, "showing", false);
-
-    _defineProperty(this, "user", void 0);
-
-    _defineProperty(this, "chainSelect", "\n    <label for=\"\">Penanggung Jawab</label>\n    <select id=\"penanggung_jawab_id\" onchange=\"window.register.enableSearch()\" id=\"chain-child\" class='form-control'>\n        @rebuild\n    </select>\n\n    ");
-
-    _defineProperty(this, "lingkup", new _RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_5__["default"]());
-
-    _defineProperty(this, "pihak1", new _RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_6__["default"]());
-
-    _defineProperty(this, "pihak2", new _RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_7__["default"]());
-
-    _defineProperty(this, "notification", new _RegDokumen_Mailer__WEBPACK_IMPORTED_MODULE_9__["default"]());
-
-    _defineProperty(this, "form", void 0);
-
-    _defineProperty(this, "penanggungJawab", null);
-  }
-
-  _createClass(RegisterDokumen, [{
-    key: "init",
-    value: function () {
-      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(user_id) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                this.user = user_id;
-                this.getPerusahaan();
-                this.initDataTable();
-                this.showing = false;
-                this.notification.init();
-
-              case 5:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee, this);
-      }));
-
-      function init(_x) {
-        return _init.apply(this, arguments);
-      }
-
-      return init;
-    }()
-  }, {
-    key: "enableSearch",
-    value: function enableSearch() {
-      $("#btn-cari").show(400);
-      $("#btn-cari").show(400);
-    }
-  }, {
-    key: "setPenanggungJawab",
-    value: function setPenanggungJawab() {
-      this.penanggungJawab = $("#penanggung_jawab_id").val();
-      this.roleCaption();
-    }
-  }, {
-    key: "roleCaption",
-    value: function roleCaption() {
-      try {
-        var perrCap = $("#cb-perusahaan option:selected").text();
-        var perrcl = $("#penanggung_jawab_id option:selected").text();
-        $("#role-pr").html("<strong>Role</strong>: ".concat(perrcl, ", ").concat(perrCap));
-        $("#mcontent-card").addClass("collapsed-card");
-        var alert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_8__["default"]();
-        alert.swAlert("Silahkan Klik Tombol Registrasi Dokumen", 'Set Role');
-      } catch (e) {}
-    }
-  }, {
-    key: "getPerusahaan",
-    value: function () {
-      var _getPerusahaan = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var get, axios, _yield$axios$get, data, html, _iterator, _step, d;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                $("#btn-cari").hide();
-                get = window.myUrl.perusahaan.get;
-                axios = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](get, 'GET');
-                _context2.next = 5;
-                return axios.get(get);
-
-              case 5:
-                _yield$axios$get = _context2.sent;
-                data = _yield$axios$get.data;
-                html = "<option value=''></option>";
-                _iterator = _createForOfIteratorHelper(data);
-
-                try {
-                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                    d = _step.value;
-                    html += "\n                <option value=".concat(d.id, ">").concat(d.name, "</option>\n            ");
-                  }
-                } catch (err) {
-                  _iterator.e(err);
-                } finally {
-                  _iterator.f();
-                }
-
-                $("#cb-perusahaan").html(html);
-
-              case 11:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
       }));
 
       function getPerusahaan() {
@@ -71269,230 +70555,145 @@ var RegisterDokumen = /*#__PURE__*/function () {
       return getPerusahaan;
     }()
   }, {
-    key: "chainCombo",
-    value: function () {
-      var _chainCombo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(perusahaan_id) {
-        var obj, get, url, axios, _yield$axios$get2, data, html, _iterator2, _step2, x, chsel;
+    key: "olahData",
+    value: function olahData(results) {
+      var html = "<option value=''>--PILIH PERUSAHAAN--</option>";
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                $("#btn-cari").hide();
-                obj = {
-                  pid: perusahaan_id,
-                  uid: this.user
-                };
-                get = myUrl.pj.get;
-                url = get.replace(/(pid|uid)/gi, function (match) {
-                  return obj[match];
-                });
-                axios = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url, 'GET');
-                _context3.next = 7;
-                return axios.get(url);
+      var _iterator = _createForOfIteratorHelper(results),
+          _step;
 
-              case 7:
-                _yield$axios$get2 = _context3.sent;
-                data = _yield$axios$get2.data;
-                html = "<option></option>";
-                _iterator2 = _createForOfIteratorHelper(data);
-
-                try {
-                  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                    x = _step2.value;
-                    html += "\n                <option value=".concat(x.id, ">").concat(x.jabatan, "</option>\n            ");
-                  }
-                } catch (err) {
-                  _iterator2.e(err);
-                } finally {
-                  _iterator2.f();
-                }
-
-                chsel = this.chainSelect.replace(/(@rebuild)/g, html);
-                $("#chain-child").html(chsel);
-
-              case 14:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this);
-      }));
-
-      function chainCombo(_x2) {
-        return _chainCombo.apply(this, arguments);
-      }
-
-      return chainCombo;
-    }()
-  }, {
-    key: "initDataTable",
-    value: function initDataTable() {
-      new _RegDokumen_DtbDokumen__WEBPACK_IMPORTED_MODULE_3__["default"]($("#table-dokumen"), this.user).initDataTable();
-    }
-  }, {
-    key: "renderAll",
-    value: function renderAll() {
-      this.lingkup.render();
-      this.pihak1.renderHak();
-      this.pihak1.renderKewajiban();
-      this.pihak2.renderHak();
-      this.pihak2.renderKewajiban();
-    }
-  }, {
-    key: "validasi",
-    value: function validasi() {
-      var objForm = {
-        tentang: {
-          obj: '#tentang'
-        },
-        maksud: {
-          obj: '#maksud'
-        },
-        tujuan: {
-          obj: '#tujuan'
-        },
-        lingkup: {
-          obj: "input[name = 'lingkup']"
-        },
-        pihak_pertama: {
-          obj: "input[name = 'pihak_pertama']"
-        },
-        pihak_kedua: {
-          obj: "input[name = 'pihak_kedua']"
-        },
-        pelaksanaan: {
-          obj: "input[name = 'pelaksanaan']"
-        },
-        ketentuan_umum: {
-          obj: "input[name='ketentuan_umum']"
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _result = _step.value;
+          //console.log(result);
+          html += "\n                <option value='".concat(_result.id, "'>").concat(_result.name, "</option>\n            ");
         }
-      };
-      var validasi = true;
-
-      for (var form in objForm) {
-        var value = $(form).val();
-
-        if (value === '' || value === null || value === undefined) {
-          validasi = false;
-        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
       }
 
-      if (validasi) {
-        $("#mdl-save").hide();
-      } else {
-        $("#mdl-save").show();
-      }
+      $("#cb-perusahaan").html(html);
     }
   }, {
-    key: "addModal",
+    key: "chain",
     value: function () {
-      var _addModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var _this = this;
+      var _chain = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+        var url_p, url, ajax, _yield$ajax$get2, results;
 
-        var pesan, dokumen;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_8__["default"]();
-
-                if (!(this.penanggungJawab != null)) {
-                  _context4.next = 8;
-                  break;
-                }
-
-                dokumen = new _RegDokumen_FormDokumen__WEBPACK_IMPORTED_MODULE_4__["default"]().init(this.penanggungJawab);
-                _context4.next = 5;
-                return dokumen.loadForm("Register Dokumen", function () {
-                  if (!_this.showing) {
-                    _this.renderAll();
-
-                    _this.showing = true;
-                  }
-                });
+                url_p = window.myUrl.getChain;
+                url = url_p.replace(/(@id)/g, id);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__["default"](url);
+                _context2.next = 5;
+                return ajax.get(url);
 
               case 5:
-                this.form = _context4.sent;
-                _context4.next = 9;
-                break;
+                _yield$ajax$get2 = _context2.sent;
+                results = _yield$ajax$get2.data;
+                this.chainRenderer(results);
 
               case 8:
-                pesan.swAlert('Pilih Role Terlebih dahulu', 'Role Error', function () {
-                  return;
-                }, "error");
-
-              case 9:
               case "end":
-                return _context4.stop();
+                return _context2.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee2, this);
       }));
 
-      function addModal() {
-        return _addModal.apply(this, arguments);
+      function chain(_x) {
+        return _chain.apply(this, arguments);
       }
 
-      return addModal;
+      return chain;
     }()
+  }, {
+    key: "chainRenderer",
+    value: function chainRenderer(results) {
+      this.hideButton();
+      var html = "<option value=''>--PILIH JABATAN PENANGGUNGJAWAB--</option>";
+
+      var _iterator2 = _createForOfIteratorHelper(results),
+          _step2;
+
+      try {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var _result2 = _step2.value;
+          html += "\n            <option value='".concat(_result2.id, "'>").concat(_result2.jabatan, "</option>\n            ");
+        }
+      } catch (err) {
+        _iterator2.e(err);
+      } finally {
+        _iterator2.f();
+      }
+
+      var obj = {
+        _CAPTION_: "Penanggung Jawab",
+        _DATA_: html,
+        _OBJECTID_: 'penanggung-jawab',
+        _FUNGSI_: "window.dokumen.role.showButton()"
+      };
+      var format = _formats_role_FormatSelects__WEBPACK_IMPORTED_MODULE_3__["Selects"].replace(/(_CAPTION_|_DATA_|_OBJECTID_|_FUNGSI_)/gi, function (match) {
+        return obj[match];
+      });
+      $("#chain-child").html(format);
+    }
+  }, {
+    key: "showButton",
+    value: function showButton() {
+      $("#btn-cari").show(500);
+    }
+  }, {
+    key: "hideButton",
+    value: function hideButton() {
+      $("#btn-cari").hide(500);
+    }
+  }, {
+    key: "set",
+    value: function set(obj) {
+      var myAlert = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__["default"]();
+      var selIndex = obj[0].selectedIndex;
+      var options = obj[0].options;
+      var teks = {
+        role: options[selIndex].text,
+        perusahaan: ''
+      };
+      var value = $(obj[0]).val();
+      selIndex = $("#cb-perusahaan")[0].selectedIndex;
+      options = $("#cb-perusahaan")[0].options;
+      teks = _objectSpread(_objectSpread({}, teks), {}, {
+        perusahaan: options[selIndex].text
+      });
+      $("#role-pr").html("\n                <strong>Role</strong> ".concat(teks.role, " ").concat(teks.perusahaan, " \n            "));
+      this.penanggungJawabId = value;
+      myAlert.swAlert("Role Berhasil di set ke ".concat(teks.role), 'Set Role', function () {
+        return null;
+      }, 'success');
+    }
   }]);
 
-  return RegisterDokumen;
+  return RoleClients;
 }();
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/kasubag_root/KbDashboard.js":
-/*!*******************************************************************!*\
-  !*** ./resources/js/components/pages/kasubag_root/KbDashboard.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
+/***/ "./resources/js/components/pages/formats/role/FormatSelects.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/pages/formats/role/FormatSelects.js ***!
+  \*********************************************************************/
+/*! exports provided: Selects */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return KbDashboard; });
-/* harmony import */ var _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard/OpDataTable */ "./resources/js/components/pages/kasubag_root/dashboard/OpDataTable.js");
-/* harmony import */ var _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard/OpModals */ "./resources/js/components/pages/kasubag_root/dashboard/OpModals.js");
-/* harmony import */ var _dashboard_Mailer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard/Mailer */ "./resources/js/components/pages/kasubag_root/dashboard/Mailer.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-var KbDashboard = /*#__PURE__*/function () {
-  function KbDashboard() {
-    _classCallCheck(this, KbDashboard);
-
-    _defineProperty(this, "dataTable", new _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
-
-    _defineProperty(this, "modals", new _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_1__["default"]());
-
-    _defineProperty(this, "mailer", new _dashboard_Mailer__WEBPACK_IMPORTED_MODULE_2__["default"]());
-  }
-
-  _createClass(KbDashboard, [{
-    key: "init",
-    value: function init() {
-      this.dataTable.init();
-      this.mailer.init();
-    }
-  }]);
-
-  return KbDashboard;
-}();
-
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Selects", function() { return Selects; });
+var Selects = "\n    <div class='form-group'>\n        <label for='_OBJECTID_'>_CAPTION_</label>\n        <select class='form-control' id='_OBJECTID_' name='_OBJECTID_' onchange='_FUNGSI_'>\n            _DATA_\n        </select>\n    </div>\n\n";
 
 /***/ }),
 
@@ -71708,895 +70909,17 @@ var Walikota = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/kasubag_root/dashboard/ElementModals.js":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/pages/kasubag_root/dashboard/ElementModals.js ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var ElementModals = {
-  lingkup: "<div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Ruang Lingkup</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t<!-- /.card-header -->\n\t<div class=\"card-body p-0\">\n\t\t<ul id='list-lingkup' class=\"products-list product-list-in-card pl-2 pr-2\">\n\t\t\t<li class=\"item\">\n\n\t\t\t\t<span class=\"product-description\">\n\t\t\t\t\tBelum Menambahkan List \n\t\t\t\t\t\n\t\t\t\t</span>\n\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<!-- /.card-body -->\n\t\n\t<!-- /.card-footer -->\n</div>",
-  pihak1: "\n    <div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Pihak Pertama</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            <!-- inputan yang dikirim ke server -->\n            <input type=\"hidden\" name=\"pihak_pertama\"id='pihak-pertama'>\n            <!-- card hak -->  <br>\n                <div class=\"form-group\">\n                <!--hak-->\n                    <div class=\"card card-primary\">\n                        <div class=\"card-header\">\n                            <h3 class=\"card-title\">Usulan Hak</h3>\n                            <div class=\"card-tools\">\n                                <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                    <i class=\"fas fa-minus\"></i>\n                                </button>\n                            </div>\n                        </div>\n\n                        <div class=\"card-body p-0\">\n                            <div class=\"container-fluid\">\n                                <p>Daftar Usulan Hak</p>\n                                <ul id='list-hak-pihak-pertama' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                    <li class=\"item\">\n                                        <span class=\"product-description text-center\">\n                                            Belum Menambahkan List \n                                            \n                                        </span>\n                                    </li>\n                                </ul>\n                            </div>\n                        </div>\n                        <div class=\"card-footer\" x='tbl'>\n                            <div class=\"input-group\">\n                                <input type=\"text\" autocomplete=\"off\" id='hak1' placeholder='Masukkan Usulan Hak pihak pertama' class=\"form-control\">\n                                <span class=\"input-group-append\">\n                                        <a href=\"#\" onclick=\"window.opdashboard.modals.pihak1.addHak($('#hak1'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                                </span>\n                            </div>\n                        </div>\n                    </div>\n                <!--endhak-->\n                </div>\n\n\n            <!-- end card hak -->  \n            \n            <!-- card kewajiban -->\n            <div class=\"form-group\">\n                <!--  kewajiban -->\n                <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Kewajiban</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Kewajiban</p>\n                            <ul id='list-kewajiban-pihak-pertama' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                        \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='kewajiban1' placeholder='Masukkan Usulan Kewajiban pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak1.addKewajiban($('#kewajiban1'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>                \n                <!-- end kewajiban -->\n            </div>\n            <!-- batas card kewajiban -->\n        </div>\n\t    </div>\n    </div> ",
-  pihak2: "\n\n<div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Pihak Kedua</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            <!-- inputan yang dikirim ke server -->\n            <input type=\"hidden\" id='pihak-kedua' name='pihak_kedua'>\n            <!-- card hak -->  <br>\n                <div class=\"form-group\">\n                    <!-- content hak -->\n                    <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Hak</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Hak</p>\n                            <ul id='hak-p2' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='hak2' placeholder='Masukkan Usulan Hak pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak2.addHak($('#hak2'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n                    <!-- end hak -->\n                </div>\n            <!-- end card hak -->  \n            \n            <!-- card kewajiban -->\n            <div class=\"form-group\">\n                    <!--kwjb-->\n                    <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Kewajiban</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Kewajiban</p>\n                            <ul id='ls-kewajiban-2' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                        \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='kewajiban2' placeholder='Masukkan Usulan Kewajiban pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak2.addKewajiban($('#kewajiban2'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n                    <!--e_kwjb-->\n                </div>\n            <!-- batas card kewajiban -->\n        </div>\n\t</div>\n</div>\n"
-};
-/* harmony default export */ __webpack_exports__["default"] = (ElementModals);
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/kasubag_root/dashboard/Mailer.js":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/pages/kasubag_root/dashboard/Mailer.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MailerToHukum; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-var MailerToHukum = /*#__PURE__*/function () {
-  function MailerToHukum() {
-    _classCallCheck(this, MailerToHukum);
-  }
-
-  _createClass(MailerToHukum, [{
-    key: "sendToHukum",
-    value: function () {
-      var _sendToHukum = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
-        var _myUrl, kdb, url, ajax;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _myUrl = myUrl, kdb = _myUrl.email.toHukum;
-                url = kdb.replace(/(@doc@)/, id);
-                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url, 'GET');
-                console.log("sending email...");
-                _context.prev = 4;
-                _context.next = 7;
-                return ajax.get(url);
-
-              case 7:
-                _context.next = 12;
-                break;
-
-              case 9:
-                _context.prev = 9;
-                _context.t0 = _context["catch"](4);
-                console.log(_context.t0);
-
-              case 12:
-                console.log("email has send");
-                this.removeCache();
-
-              case 14:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this, [[4, 9]]);
-      }));
-
-      function sendToHukum(_x) {
-        return _sendToHukum.apply(this, arguments);
-      }
-
-      return sendToHukum;
-    }()
-  }, {
-    key: "sendToClient",
-    value: function () {
-      var _sendToClient = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
-        var _myUrl2, kdb, url, ajax;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _myUrl2 = myUrl, kdb = _myUrl2.email.tolak;
-                url = kdb.replace(/(@doc@)/, id);
-                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url, 'GET');
-                console.log("sending email...");
-                _context2.prev = 4;
-                _context2.next = 7;
-                return ajax.get(url);
-
-              case 7:
-                _context2.next = 12;
-                break;
-
-              case 9:
-                _context2.prev = 9;
-                _context2.t0 = _context2["catch"](4);
-                console.log(_context2.t0);
-
-              case 12:
-                console.log("email has send");
-                this.removeCache();
-
-              case 14:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this, [[4, 9]]);
-      }));
-
-      function sendToClient(_x2) {
-        return _sendToClient.apply(this, arguments);
-      }
-
-      return sendToClient;
-    }()
-  }, {
-    key: "removeCache",
-    value: function removeCache() {
-      var local = window.localStorage;
-      local.removeItem("mailing");
-    }
-  }, {
-    key: "init",
-    value: function () {
-      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var storage, mail, json;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.prev = 0;
-                console.log('mail initializing...');
-                storage = window.localStorage;
-                mail = storage.getItem("mailing");
-                json = this.convertDataToJSON(mail);
-                console.log('mail sending...');
-                _context3.t0 = json.type;
-                _context3.next = _context3.t0 === 4 ? 9 : _context3.t0 === 6 ? 11 : 12;
-                break;
-
-              case 9:
-                this.sendToHukum(json.id);
-                return _context3.abrupt("break", 14);
-
-              case 11:
-                return _context3.abrupt("break", 14);
-
-              case 12:
-                this.sendToClient(json.id);
-                return _context3.abrupt("break", 14);
-
-              case 14:
-                _context3.next = 18;
-                break;
-
-              case 16:
-                _context3.prev = 16;
-                _context3.t1 = _context3["catch"](0);
-
-              case 18:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this, [[0, 16]]);
-      }));
-
-      function init() {
-        return _init.apply(this, arguments);
-      }
-
-      return init;
-    }()
-  }, {
-    key: "convertDataToJSON",
-    value: function convertDataToJSON(data) {
-      try {
-        var json = JSON.parse(data);
-        return json;
-      } catch (e) {
-        console.log("an error occured", e);
-      }
-    }
-  }]);
-
-  return MailerToHukum;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/kasubag_root/dashboard/OpDataTable.js":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/pages/kasubag_root/dashboard/OpDataTable.js ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return KbDataTable; });
-/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-var KbDataTable = /*#__PURE__*/function () {
-  function KbDataTable() {
-    _classCallCheck(this, KbDataTable);
-
-    _defineProperty(this, "columns", [{
-      name: 'no',
-      data: 'no'
-    }, {
-      name: 'pengirim',
-      data: 'pengirim'
-    }, {
-      name: 'tentang',
-      data: 'tentang'
-    }, {
-      name: 'tanggal',
-      data: 'tanggal'
-    }, {
-      name: 'tujuan',
-      data: 'tujuan'
-    }, {
-      name: 'aksi',
-      data: 'aksi'
-    }]);
-
-    _defineProperty(this, "table", $("#tb-doc"));
-
-    _defineProperty(this, "dataTable", new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
-  }
-
-  _createClass(KbDataTable, [{
-    key: "init",
-    value: function init() {
-      var url = window.myUrl.document.dataTable;
-      this.dataTable = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.table);
-      console.log(url);
-      var ajax = this.dataTable.createAjaxParam(url);
-      this.dataTable.dataTable(this.columns, ajax);
-    }
-  }]);
-
-  return KbDataTable;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/kasubag_root/dashboard/OpModals.js":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/pages/kasubag_root/dashboard/OpModals.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return KbModals; });
-/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
-/* harmony import */ var _ElementModals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ElementModals */ "./resources/js/components/pages/kasubag_root/dashboard/ElementModals.js");
-/* harmony import */ var _clients_RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../clients/RegDokumen/RuangLingkup */ "./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js");
-/* harmony import */ var _clients_RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../clients/RegDokumen/PihakPertama */ "./resources/js/components/pages/clients/RegDokumen/PihakPertama.js");
-/* harmony import */ var _clients_RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../clients/RegDokumen/PihakKedua */ "./resources/js/components/pages/clients/RegDokumen/PihakKedua.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-var KbModals = /*#__PURE__*/function () {
-  function KbModals() {
-    _classCallCheck(this, KbModals);
-
-    _defineProperty(this, "formEl", "\n    <auth></auth>\n    <put></put>\n    <div class=\"form-group\">\n        <label for=\"\">Nomor Dokumen</label>\n        <input required type=\"text\" class=\"form-control\" name='nomor'>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Tentang</label>\n        <p>@tentang@</p>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Maksud</label>\n        <p>@maksud@</p>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Tujuan</label>\n        <p>@tujuan@</p>\n    </div>\n        \n     <input type='hidden' name='stdoc' value='@stdoc@'>\n     ".concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].lingkup, "\n     ").concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].pihak1, "\n     ").concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].pihak2, "\n    "));
-
-    _defineProperty(this, "lingkup", new _clients_RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_2__["default"]());
-
-    _defineProperty(this, "pihak1", new _clients_RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_3__["default"]('opdashboard.modals', false));
-
-    _defineProperty(this, "pihak2", new _clients_RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_4__["default"]('opdashboard.modals', false));
-  }
-
-  _createClass(KbModals, [{
-    key: "open",
-    value: function open() {
-      var _this = this;
-
-      var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Tambahkan Nomor Dokumen';
-      var id = arguments.length > 1 ? arguments[1] : undefined;
-      var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '1';
-      var obj = arguments.length > 3 ? arguments[3] : undefined;
-      var xurl = window.myUrl.document.teruskanKeKabag;
-      var lingup = obj.data("lingkup");
-      this.lingkup.arrLingkup = lingup;
-      this.pihak1.pihakPertama = obj.data("pihak_pertama");
-      this.pihak2.pihakKedua = obj.data("pihak_kedua");
-      var url = xurl.replace(/(@op_doc@)/g, id);
-      var modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_0__["default"]('', url, title);
-      var obs = {
-        '@tentang@': obj.data('tentang'),
-        '@maksud@': obj.data('maksud'),
-        '@stdoc@': type,
-        '@tujuan@': obj.data('tujuan')
-      };
-      modal.contents = this.formEl.replace(/(@stdoc@|@tentang@|@maksud@|@tujuan@)/g, function (match) {
-        return obs[match];
-      });
-      console.log('TIPE', type);
-      modal.openModal(function () {
-        _this.lingkup.render(function () {
-          return null;
-        });
-
-        $("a[name='a_tinggi']").hide();
-
-        _this.pihak1.renderHak();
-
-        _this.pihak1.renderKewajiban();
-
-        _this.pihak2.renderHak();
-
-        _this.pihak2.renderKewajiban();
-
-        if (type == '0') {
-          $("input[name='nomor']").attr('readonly', false);
-        } else {
-          $("[x='tbl']").hide();
-          $("input[name='nomor']").val(obj.data("nomor"));
-          $("input[name='nomor']").attr('readonly', true);
-        }
-      }, true);
-    }
-  }]);
-
-  return KbModals;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/OpDashboard.js":
-/*!***************************************************************!*\
-  !*** ./resources/js/components/pages/operator/OpDashboard.js ***!
-  \***************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OpDashboard; });
-/* harmony import */ var _dashboard_Mailer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard/Mailer */ "./resources/js/components/pages/operator/dashboard/Mailer.js");
-/* harmony import */ var _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard/OpDataTable */ "./resources/js/components/pages/operator/dashboard/OpDataTable.js");
-/* harmony import */ var _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard/OpModals */ "./resources/js/components/pages/operator/dashboard/OpModals.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-var OpDashboard = /*#__PURE__*/function () {
-  function OpDashboard() {
-    _classCallCheck(this, OpDashboard);
-
-    _defineProperty(this, "dataTable", new _dashboard_OpDataTable__WEBPACK_IMPORTED_MODULE_1__["default"]());
-
-    _defineProperty(this, "mail", new _dashboard_Mailer__WEBPACK_IMPORTED_MODULE_0__["default"]());
-
-    _defineProperty(this, "modals", new _dashboard_OpModals__WEBPACK_IMPORTED_MODULE_2__["default"]());
-
-    _defineProperty(this, "pejabat", void 0);
-  }
-
-  _createClass(OpDashboard, [{
-    key: "init",
-    value: function init() {
-      this.dataTable.init();
-      this.mail.init();
-    }
-  }]);
-
-  return OpDashboard;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/arsip/ArsipDataTable.js":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/pages/operator/arsip/ArsipDataTable.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ArsipDataTable; });
-/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-var ArsipDataTable = /*#__PURE__*/function () {
-  function ArsipDataTable() {
-    _classCallCheck(this, ArsipDataTable);
-
-    _defineProperty(this, "columns", [{
-      name: 'nomor',
-      data: 'nomor'
-    }, {
-      name: 'instansi',
-      data: 'instansi'
-    }, {
-      name: 'tentang',
-      data: 'tentang'
-    }, {
-      name: 'aksi',
-      data: 'aksi'
-    }]);
-
-    _defineProperty(this, "table", "                    \n    <table class=\"table table-bordered\" id='table-arsip'>\n        <thead>\n            <tr>\n                <th>Nomor</th>\n                <th>Perusahaan/Instansi</th>\n                <th>Tentang</th>\n                <th>\n                    <div class=\"text-right\">\n                        Aksi\n                    </div>\n                </th>\n            </tr>\n        </thead>\n    </table>\n    ");
-  }
-
-  _createClass(ArsipDataTable, [{
-    key: "init",
-    value: function init(main) {
-      var dt = window.myUrl.arsip.dataTable;
-      $("#body-content").html(this.table);
-      var url = dt;
-      var tbl = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]($("#table-arsip"));
-      var ajax = tbl.createAjaxParam(url, {});
-      tbl.dataTable(this.columns, ajax, {});
-    }
-  }]);
-
-  return ArsipDataTable;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/arsip/Component/FormPerjanjian.js":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/pages/operator/arsip/Component/FormPerjanjian.js ***!
-  \**********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormPerjanjian; });
-/* harmony import */ var _KerjasamaContentFormat_Kjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../KerjasamaContentFormat/Kjs */ "./resources/js/components/pages/operator/arsip/KerjasamaContentFormat/Kjs.js");
-/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-var FormPerjanjian = /*#__PURE__*/function () {
-  function FormPerjanjian() {
-    _classCallCheck(this, FormPerjanjian);
-
-    _defineProperty(this, "ELEMENT", _KerjasamaContentFormat_Kjs__WEBPACK_IMPORTED_MODULE_0__["FORM_ELEMENT"]);
-
-    _defineProperty(this, "Modal", new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"]('', '', 'Buat Surat Kerjasama', false));
-  }
-
-  _createClass(FormPerjanjian, [{
-    key: "show",
-    value: function show(object) {
-      var el = this.ELEMENT.replace(/(@obxj@)/g, object.id);
-      this.Modal.openModal(function () {
-        $(".modal-body").html(el);
-      });
-    }
-  }, {
-    key: "close",
-    value: function close() {
-      this.Modal.closeModal();
-    }
-  }]);
-
-  return FormPerjanjian;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/arsip/KehendakContentFormat/Kehendak.js":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/pages/operator/arsip/KehendakContentFormat/Kehendak.js ***!
-  \****************************************************************************************/
-/*! exports provided: Cformat */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Cformat", function() { return contentformat; });
-var contentformat = "\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PERNYATAAN KEHENDAK</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>ANTARA</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_INSTANSIPIHAK1_</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>DENGAN</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_NAMAPERUSAHAAN_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>TENTANG</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_TENTANG_</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">_INSTANSIPIHAK1_, indonesia dan</span><span style=\"color:#000000\"><strong> </strong></span><span style=\"color:#ff0000\">&nbsp;</span><span style=\"color:#000000\">selanjutnya disebut sebagai &ldquo;Para Pihak&rdquo; <strong>MENGAKUI&nbsp;</strong></span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">pentingnya prinsip-prinsip kesetaraan dan saling menguntungkan; <strong>SESUAI</strong>&nbsp; dengan hukum, peraturan&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">dan prosedur administrasi yang berlaku di Indonesia; <strong>DENGAN INI</strong> menyatakan niat Para Pihak untuk&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">akan membuat suatu Memorandum Saling Pengertian tentang kerjasama&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">yang akan menjadi dasar untuk pengembangan kerjasama dalam bidang-bidang sebagai berikut:</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>&nbsp;</strong></span></span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Pernyataan kehendak ini dapat mencakup bidang-bidang lainnya atas kesepakatan bersama oleh Para Pihak. Pernyataan kehendak ini berlaku efektif dan tetap berlaku untuk jangka waktu 1 (satu) tahun sejak tanggal penandatanganan. <strong>DIBUAT</strong> dalam rangkap 2 (dua) di&nbsp; pada&nbsp; ...... Bulan .......... tahun ......, dalam bahasa Indonesia.</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Untuk,</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">_INSTANSIPIHAK1_, INDONESIA</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Untuk,</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_NAMAPERUSAHAAN_</strong></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>_NAMAPEJABAT_</u></strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"color:#000000; font-family:Arial\"><strong>_JABATANPEJABAT_</strong></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_NAMAUSER_</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_JABATANUSER_</strong></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p>&nbsp;</p>\n\n";
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/arsip/KerjasamaContentFormat/Kjs.js":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/pages/operator/arsip/KerjasamaContentFormat/Kjs.js ***!
-  \************************************************************************************/
-/*! exports provided: CONTENT, ITEM, FORM_ELEMENT */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CONTENT", function() { return CONTENT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ITEM", function() { return ITEM; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_ELEMENT", function() { return FORM_ELEMENT; });
-var CONTENT = "\n<div style=\"margin-left:2.5cm; margin-right:3cm\">\n<p style=\"text-align:justify\">&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PERJANJIAN KERJASAMA</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>ANTARA</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PEMERINTAH KOTA MAKASSAR</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>DENGAN</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_PERUSAHAAN_</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>TENTANG</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_TENTANG_</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>NOMOR : </strong>&nbsp;<strong>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>NOMOR :</strong> <strong>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Pada hari ini ...................tanggal...................bulan...................tahun........................, bertempat di ................... kami yang bertanda tangan dibawah ini :</span></span></span></p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_NAMAPEJABAT_</strong></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:21px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">:</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:395px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Jabatan _JABPEJABAT_ berdasarkan Surat Keputusan &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. bertindak untuk dan atas nama pemerintah Kota Makassar.selanjutnya disebut PIHAK PERTAMA. ------------------------------------------------</span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_NAMAUSER_</strong></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:21px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">:</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:395px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Jabatan <strong>_JABATANUSER_</strong> berdasarkan <strong>_SK_ </strong>bertindak untuk dan atas nama&nbsp; selanjutnya disebut PIHAK KEDUA. ----------------------------------------</span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Menindaklanjuti Nota Kesepakatan No <strong>:_NOMOR_NOTA_KESEPAKATAN_</strong>Tentang<strong> _TENTANG_</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Memperhatikan Dasar hukum sebagai berikut :</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">..................</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">...................</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">..................</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">.................</span></span></span></p>\n\n<p><br />\n<br />\n<br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB I</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>KETENTUAN UMUM</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 1</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Dalam Perjanjian Kerja Sama ini yang dimaksud dengan :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_KETENTUAN_UMUM_</strong></span></span></span></p>\n\n<p><br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB II</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>MAKSUD DAN TUJUAN</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 2</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Maksud dari Perjanjian Kerjasama ini, adalah&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_MAKSUD_</strong></span></span></span></p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tujuan dari Perjanjian Kerjasama ini, adalah&nbsp;&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_TUJUAN_</strong></span></span></span></p>\n\n<p><br />\n<br />\n<br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB III</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>RUANG LINGKUP</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 3</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Ruang lingkup Perjanjian Kerja Sama ini meliputi :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_LIST_LINGKUP_</strong></span></span></span></p>\n\n<p><br />\n<br />\n<br />\n<br />\n<br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB IV</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PELAKSANAAN</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 4</strong></span></span></span></p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PARA PIHAK sepakat <strong>&nbsp;:&nbsp;</strong></span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_PELAKSANAAN_</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 5</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>HAK DAN KEWAJIBAN</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PIHAK PERTAMA mempunyai hak :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_HAK_PIHAK1_</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PIHAK PERTAMA mempunyai kewajiban :</span></span></span></p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_KEWAJIBAN_PIHAK1_</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PIHAK KEDUA mempunyai hak :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:24px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_HAK_PIHAK2_</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PIHAK KEDUA mempunyai kewajiban :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:30px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_KEWAJIBAN_PIHAK2_</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:48px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 6</strong></span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PEMBIAYAAN</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-indent:0\">&nbsp;</p>\n\n<p style=\"margin-left:50px; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Biaya yang timbul dari pelaksanaan Perjanjian Kerja Sama ini dibebankan pada Para Pihak sesuai dengan tetap merujuk pada ketersediaan anggaran dan ketentuan perundang undangan yang berlaku :</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PASAL 7</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>KELOMPOK KERJA, INFORMASI DAN REKOMENDASI</strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PARA PIHAK </strong>dapat membentuk suatu Kelompok&nbsp; Kerja bersama yang beranggotakan dari Wakil-Wakil&nbsp; kedua belah&nbsp; pihak&nbsp; yang yang wajib&nbsp; melakukan pemantauan dan evaluasi pelaksanaan evaluasi&nbsp; pelaksanaan &nbsp; &nbsp; kerjasama yang berada dalam cakupan Nota Kesepakatan. Kelompok&nbsp; &nbsp; kerja&nbsp; bersama akan bertemu apabila&nbsp; dipandang perlu,&nbsp; secara bergantian&nbsp; di&nbsp; Makassar;</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Setiap perwakilan&nbsp; dari&nbsp; <strong>PARA PIHAK </strong>wajib, &nbsp; berdasarkan pengetahuan dan penilaian menggunakan &nbsp; upaya terbaik&nbsp; untuk&nbsp; menyediakan informasi&nbsp; dan bantuan&nbsp; yang&nbsp; diperlukan kepada <strong>PARA PIHAK </strong>dan bertanggung jawab atas akurasi,kelengkapan&nbsp; atau kapabilitas informasi atau bantuan&nbsp; yang diberikan.</span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PASAL 8</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>HAK KEKAYAAN INTELEKTUAL</strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PARA PIHAK </strong>wajib menghormati&nbsp; Hak kekayaan intelektual&nbsp; pihak&nbsp; lain&nbsp; sesuai dengan dengan&nbsp; hukum nasional&nbsp; yang berlaku</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Dalam&nbsp; &nbsp; &nbsp; pengaturan&nbsp; khusus, &nbsp; &nbsp; program&nbsp; atau &nbsp; proyek&nbsp; yang&nbsp; menghasilkan&nbsp; &nbsp; &nbsp; kekayaan intelektual,&nbsp; &nbsp; <strong>PARA PIHAK&nbsp; </strong>memasukkannya dalam pengaturan&nbsp; terpisah sesuai&nbsp; dengan hukum dan peraturan nasional yang berlaku</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila&nbsp; salah satu pihak&nbsp; ingin mengungkapkan data dan&nbsp; informasi&nbsp; dari pihak lain&nbsp; atas hasil&nbsp; yang&nbsp; diperoleh&nbsp; <strong>PARA PIHAK </strong>dalam pelaksanaan &nbsp; Nota Kesepahaman ini,&nbsp; maka pihak yang akan mengungkapkan &nbsp; rahasia&nbsp; wajib mendapatkan&nbsp; persetujuan tertulis&nbsp; dalam bentuk perjanjian &nbsp; <em>non-disclosure </em>dari Pihak lain&nbsp; sebelum pembukaan &nbsp; informasi dan data tersebut</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PASAL 9</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>JANGKA WAKTU PERJANJIAN</strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Jangka waktu Perjanjian Kerja sama ini berlaku &lt;JANGKA WAKTU PERJANJIAN&gt; (............) tahun, terhitung sejak tanggal ............................. sampai&nbsp;</strong></span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>dengan ...............................</strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Perjanjian Kerjasama ini&nbsp; dapat diperpanjang paling&nbsp; lama ............(..........) tahun berikutnya berdasarkan kesepakatan <strong>PARA PIHAK</strong> terlebih dahulu.&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PIHAK KEDUA</strong> menyampaikan maksud perpanjangan kepada <strong>PIHAK PERTAMA</strong> selambat-lambatnya 2 (dua) bulan sebelum berakhirnya Perjanjian Kerja sama ini;</span></span></span></p>\n\n<p><br />\n<br />\n<br />\n<br />\n<br />\n<br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB V</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>KEADAAN KAHAR (FORCE MAJEURE)</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 10</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Keadaan kahar (Force Majure) termasuk kebakaran, ledakan, gempa bumi, topan, hujan badai, banjir, wabah dan bencana lainnya, maker, huru hara, perang, perselisihan buruh, pemogokan, kebijakan pemerintah (moneter) yang berpengaruh langsung pada pelaksanaan perjanjian ini;---------------------------------------------------------</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tidak meliputi Pihak dikenai tanggungjawab untuk memenuhi kewajiban berdasarkan perjanjian ini sepanjang hal tersebut terhalangi, tercegah atau tertundah pelaksanaannya oleh kegiatan kahar (force majure);--------------------------------------------</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Dalam jangka waktu 14 (empat belas) hari sejak terjadinya keadaan kahar, <strong>PIHAK</strong> yang terkena membuat atau menyampaikan pemberitahuan tertulis kepada <strong>PIHAK</strong> yang tidak terkena dengan menerangkan keadaan kahar tersebut dan memberikan perkiraan yang dapat dipercaya atas jangka waktu sejak keadaan kahar sampai pelaksanaan diharapkan terlaksananya kembali.-------------------------------------------------</span></span></span></p>\n\n<p style=\"text-align:justify\"><br />\n&nbsp;</p>\n\n<p style=\"margin-left:29px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 11</strong></span></span></span></p>\n\n<p style=\"margin-left:29px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PENYELESAIAN PERSELISIHAN</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila dalam pelaksanaan perjanjian ini terjadi perselisihan atau perbedaan pendapat diantara <strong>PARA PIHAK</strong> , maka <strong>PARA PIHAK</strong>&nbsp; bersepakat untuk menyelesaikan perselisihan melalui jalan musyawarah untuk mencapai mufakat;-----</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila tidak tercapai penyelesaian untuk mufakat sebagaimana dimaksud ayat (1), <strong>PARA PIHAK</strong> sepakat menyelesaikan perselisihan melalui Pengadilan Negeri yang membawahi wilayah hukum Kota Makassar.-----------------------------------------------------</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center; text-indent:-42.55pt\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 12</strong></span></span></span></p>\n\n<p style=\"text-align:center; text-indent:-42.55pt\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>KETENTUAN LAIN &ndash; LAIN</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Perjanjian ini mengikat kedua belah pihak sejak <strong>PIHAK PERTAMA</strong> dan <strong>PIHAK KEDUA</strong> menandatangani perjanjian hibah ini;---------------------------------------------------</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila <strong>PIHAK KEDUA</strong> akan melakukan perubahan terhadap isi Perjanjian kerjasama ini, maka <strong>PIHAK KEDUA wajib</strong> memberitahukan kepada <strong>PIHAK PERTAMA</strong> melalui persuratan resmi tercatat dan atau melalui email :<strong style='margin-left:1em'>_USER_EMAIL_<strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila <strong>PIHAK PERTAMA</strong> akan melakukan perubahan terhadap isi Perjanjian kerjasama ini, maka <strong>PIHAK PERTAMA wajib</strong> memberitahukan kepada <strong>PIHAK KEDUA</strong> melalui persuratan resmi tercatat dan atau melalui email : <strong>_ADMIN_EMAIL_</strong></span></span></span></p>\n\n<p><br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 13</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PERUBAHAN (ADDENDUM)</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Hal hal yang belum diatur dalam perjanjian ini akan diatur lebih lanjut sesuai kesepakatan <strong>PARA PIHAK</strong>;-------------------------------------------------------------------------</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila dalam pelaksanaan perjanjian ini terjadi perubahan maupun penambahan, akan diatur lebih lanjut dalam Addendum perjanjian yang merupakan bagian yang tidak terpisahkan dari Perjanjian ini.----------------------------------------------------------------</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal&nbsp; 14</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PENUTUP</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>&nbsp;</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Demikian Perjanjian Kerja Sama ini ditandatangani oleh&nbsp; <strong>PARA&nbsp; PIHAK&nbsp; </strong>di pada&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">hari &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;dan tanggal&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;., dalam rangkap 2 (dua)&nbsp; masing-masing bermaterai cukup, untuk <strong>PIHAK PERTAMA</strong> satu rangkap dan <strong>PIHAK KEDUA</strong> satu rangkap.--------------------------------------</span></span></span></p>\n\n<p><br />\n<br />\n<br />\n&nbsp;</p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PIHAK PERTAMA</strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PEMERINTAH KOTA MAKASSAR</strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>MAKASSAR</strong></span></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_WALIKOTA_</strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>WALIKOTA MAKASSAR</strong></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">&nbsp;</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PIHAK KEDUA</strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_PERUSAHAAN_</strong></span></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><br />\n\t\t\t<span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>_NAMAUSER_</u></strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>_JABATANUSER_</u></strong></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<div style=\"page-break-after:always\"><span style=\"display:none\">&nbsp;</span></div>\n\n<p>&nbsp;</p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Paraf berjenjang persetujuan&nbsp;</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Draft Dokumen Kerjasama</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">_INSTANSI_</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Sebagai OPD yang akan melakukan Korespondensi dan tindak lanjut teknis Dokumen Kerjasama ini</span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Kabag Perekonomian</span></span></span></p>\n\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Dan Kerjasama</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tanggal</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Paraf</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p style=\"text-align:center\">_JABPEJABAT_</p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</u></strong></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Kabag Hukum dan HAM</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tanggal</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Paraf</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..</u></strong></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Kasubag Kerjasama</span></span></span></p>\n\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Antar Daerah/Lembaga</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tanggal</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Paraf</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>............................</u></strong></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p><br />\n&nbsp;</p>\n</div>\n\n";
-var ITEM = "\n<li style=\"list-style-type: disc;\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_ITEM_</strong></span></span></li>\n";
-var FORM_ELEMENT = "\n\t<div class='form-group'>\n\t\t<label>Nomor Nota Kesepakatan</label>\n\t\t<input class='form-control' id='nomor_nota_sepakat' onchange=\"window.arsip.binding('nomor',$(this).val())\">\n\t</div>\n\t<div class='form-group'>\n\t\t<label>E-Mail Pemberitahuan</label>\n\t\t<input class='form-control' id='admin_email' type='email' onchange=\"window.arsip.binding('email',$(this).val())\">\n\t</div>\n\t<div class='form-group'>\n\t\t<label>Nama Walikota</label>\n\t\t<input class='form-control' id='walikota' onchange=\"window.arsip.binding('walikota',$(this).val())\">\n\t</div>\n\t<div class='form-group text-right'>\n\t\t<a class='btn btn-primary' href='#' onclick='window.arsip.actionToKerjasama(\"@obxj@\")'>Buat Surat Kerjasama</a>\n\t</div>\n\n";
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/arsip/MainArsip.js":
-/*!*******************************************************************!*\
-  !*** ./resources/js/components/pages/operator/arsip/MainArsip.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MainArsip; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ArsipDataTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ArsipDataTable */ "./resources/js/components/pages/operator/arsip/ArsipDataTable.js");
-/* harmony import */ var _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PernyataanKehendak */ "./resources/js/components/pages/operator/arsip/PernyataanKehendak.js");
-/* harmony import */ var _NotaSepakat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NotaSepakat */ "./resources/js/components/pages/operator/arsip/NotaSepakat.js");
-/* harmony import */ var _Perjanjian__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Perjanjian */ "./resources/js/components/pages/operator/arsip/Perjanjian.js");
-/* harmony import */ var _Component_FormPerjanjian__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Component/FormPerjanjian */ "./resources/js/components/pages/operator/arsip/Component/FormPerjanjian.js");
-/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-var MainArsip = /*#__PURE__*/function () {
-  function MainArsip() {
-    _classCallCheck(this, MainArsip);
-
-    _defineProperty(this, "dataTable", new _ArsipDataTable__WEBPACK_IMPORTED_MODULE_1__["default"]());
-
-    _defineProperty(this, "pernyataanKehendak", new _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_2__["PernyataanKehendak"]());
-
-    _defineProperty(this, "nota", new _NotaSepakat__WEBPACK_IMPORTED_MODULE_3__["default"]());
-
-    _defineProperty(this, "janji", new _Perjanjian__WEBPACK_IMPORTED_MODULE_4__["default"]());
-
-    _defineProperty(this, "form", new _Component_FormPerjanjian__WEBPACK_IMPORTED_MODULE_5__["default"]());
-
-    _defineProperty(this, "model", {
-      nomor: '0',
-      walikota: '',
-      email: ''
-    });
-
-    _defineProperty(this, "captionTitle", {
-      normal: {
-        head: "Pilih Dokumen",
-        sub: "Pilih dokumen untuk dibuatkan Arsip"
-      },
-      kehendak: {
-        head: "Pernyataan kehendak",
-        sub: "No. Dokumen: _NOMOR_"
-      },
-      nota: {
-        head: "Nota Kesepakatan",
-        sub: "No. Dokumen: _NOMOR_"
-      },
-      perjanjian: {
-        head: "Perjanjian Kerja Sama",
-        sub: "No. Dokumen: _NOMOR_"
-      }
-    });
-  }
-
-  _createClass(MainArsip, [{
-    key: "binding",
-    value: function binding(type, value) {
-      this.model = _objectSpread(_objectSpread({}, this.model), {}, _defineProperty({}, type, value));
-    }
-  }, {
-    key: "init",
-    value: function init() {
-      this.dataTable.init(this);
-      this.setTitle();
-      $("#kirim").hide(500);
-    }
-  }, {
-    key: "submitForm",
-    value: function submitForm() {
-      $("#form-arsip").submit();
-    }
-  }, {
-    key: "setKehendak",
-    value: function () {
-      var _setKehendak = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var document_id,
-            _args = arguments;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                document_id = _args.length > 0 && _args[0] !== undefined ? _args[0] : "";
-                this.pernyataanKehendak = new _PernyataanKehendak__WEBPACK_IMPORTED_MODULE_2__["PernyataanKehendak"](document_id);
-                _context.next = 4;
-                return this.pernyataanKehendak.init();
-
-              case 4:
-                $("#kirim").show(500);
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function setKehendak() {
-        return _setKehendak.apply(this, arguments);
-      }
-
-      return setKehendak;
-    }()
-  }, {
-    key: "setPerjanjian",
-    value: function () {
-      var _setPerjanjian = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(document_id) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                this.janji = new _Perjanjian__WEBPACK_IMPORTED_MODULE_4__["default"](document_id, this.model);
-                _context2.next = 3;
-                return this.janji.init();
-
-              case 3:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function setPerjanjian(_x) {
-        return _setPerjanjian.apply(this, arguments);
-      }
-
-      return setPerjanjian;
-    }()
-  }, {
-    key: "setNota",
-    value: function () {
-      var _setNota = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var document_id,
-            _args3 = arguments;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                document_id = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : '';
-                this.nota = new _NotaSepakat__WEBPACK_IMPORTED_MODULE_3__["default"](document_id);
-                _context3.next = 4;
-                return this.nota.init();
-
-              case 4:
-                $("#kirim").show(500);
-
-              case 5:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this);
-      }));
-
-      function setNota() {
-        return _setNota.apply(this, arguments);
-      }
-
-      return setNota;
-    }()
-  }, {
-    key: "kirim",
-    value: function kirim() {}
-  }, {
-    key: "setTitle",
-    value: function setTitle() {
-      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "normal";
-      var nomorDocument = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-      $("#p-title").html(this.captionTitle[type].head);
-      var sub = this.captionTitle[type].sub;
-      var subTitle = sub.replace(/(_NOMOR_)/g, nomorDocument);
-      $("#sub-title").html(subTitle);
-    }
-  }, {
-    key: "kehendakClick",
-    value: function kehendakClick(object) {
-      this.setTitle("kehendak", object.nomor);
-      this.setKehendak(object.id);
-    }
-  }, {
-    key: "notaClick",
-    value: function notaClick(object) {
-      this.setTitle("nota", object.nomor);
-      this.setNota(object.id);
-    }
-  }, {
-    key: "janjiClick",
-    value: function janjiClick(object) {
-      this.form.show(object);
-      this.setTitle("perjanjian", object.nomor);
-    }
-  }, {
-    key: "actionToKerjasama",
-    value: function actionToKerjasama(id) {
-      if (this.validasi()) {
-        this.setPerjanjian(id);
-        this.form.close();
-      } else {
-        var p = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_6__["default"]();
-        p.swAlert("Harap Isi Email,Nama Walikota dan Nomor Nota Kesepakatan Untuk melanjutkan aksi", "Galat", function () {
-          return;
-        }, "error");
-      }
-    }
-  }, {
-    key: "validasi",
-    value: function validasi() {
-      for (var mod in this.model) {
-        var val = this.model[mod];
-
-        if (val == '' || val == undefined || val == '0' || val == null) {
-          return false;
-        }
-      }
-
-      return true;
-    }
-  }]);
-
-  return MainArsip;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/arsip/NotaKesepakatanFormat/Nota.js":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/pages/operator/arsip/NotaKesepakatanFormat/Nota.js ***!
-  \************************************************************************************/
-/*! exports provided: ITEM_LINGKUP, NOTA_EDITOR_CONTENT */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ITEM_LINGKUP", function() { return ITEM_LINGKUP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NOTA_EDITOR_CONTENT", function() { return NOTA_EDITOR_CONTENT; });
-var NOTA_EDITOR_CONTENT = "<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>NOTA KESEPAKATAN</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>NOMOR ................</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>NOMOR ...............</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>ANTARA</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_INSTANSI_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>REPUBLIK INDONESIA</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>DAN</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_PERUSAHAAN_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>TENTANG</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_TENTANG_</strong></span></span></p>\n\n<p><br />\n&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Pada hari ini ...................tanggal...................bulan...................tahun........................, bertempat di ................... kami yang bertanda tangan dibawah ini :</span></span></p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<ol>\n\t\t\t\t<li style=\"list-style-type:decimal\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_NAMAPEJABAT_</strong></span></span></li>\n\t\t\t</ol>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:22px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">:</span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:394px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Jabatan _JABPEJABAT_. bertindak untuk dan atas nama _INSTANSI_ selanjutnya disebut PIHAK PERTAMA. ------------------------------------------------</span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<ol start=\"2\">\n\t\t\t\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_NAMAUSER_</strong></span></span></li>\n\t\t\t</ol>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:22px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">:</span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:394px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Jabatan <strong>_JABATANUSER_</strong> berdasarkan _SK_ bertindak untuk dan atas nama <strong>&nbsp;</strong>selanjutnya disebut PIHAK KEDUA. ----------------------------------------</span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p style=\"text-indent:50px\">&nbsp;</p>\n\n<div style=\"page-break-after:always\"><span style=\"display:none\">&nbsp;</span></div>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>MENGINGAT</strong> Pemerintah Kota Makassar Republik Indonesia dan<strong> </strong>&nbsp;&nbsp;(secara kolektif disebut di sini sebagai &quot;Para Pihak&quot; dan masing-masing disebut sebagai &quot;Pihak&quot;) telah setuju untuk melakukan Nota Kesepakatan yang merupakan pernyataan minat dari Para Pihak, dan catatan pemahaman antara, Para Pihak untuk bekerja sama, dan menjelaskan&nbsp; dasar bekerjasama antara, Para Pihak;</span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Memperhatikan Dasar hukum sebagai berikut :</span></span></p>\n\n<ol>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">..................</span></span></li>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">...................</span></span></li>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">..................</span></span></li>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">.................</span></span></li>\n</ol>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>MENGINGAT</strong> mengakui dan menyetujui bahwa Nota Kesepakatan ini adalah catatan dan keinginan dari pemahaman Para Pihak dan tidak akan memiliki efek mengikat secara hukum. Para Pihak telah mencapai pemahaman sebagai berikut:</span></span><br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 1</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>SASARAN NOTA KESEPAKATAN</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Bertindak sesuai dengan Pasal 2 dari Nota Kesepakatan ini untuk berkolaborasi dengan Pemerintah Kota Makassar dalam beberapa bidang yang diatur dalam Pasal 2. Rincian Bidang kolaborasi akan dimasukkan kemudian dalam Perjanjian Kerja Sama yang saling mengikat sebagai pelaksanaan dari Nota Kesepakatan ini.</span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Masing-masing Pihak mengakui dan menyetujui bahwa perjanjian tertulis tersebut akan dinegosiasikan dan dimasukkan ke dalam hal kegiatan khusus yang ditetapkan di bawah Pasal 2 dari Nota Kesepakatan ini.</span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Para Pihak wajib memperhatikan prinsip-prinsip kejujuran dan itikad baik dalam negosiasi dan pelaksanaan perjanjian lanjut berikutnya dan sehubungan dengan Nota Kesepakatan ini, dan dalam setiap kegiatan kolaboratif yang dimaksudkan di sini.</span></span></p>\n\n<div style=\"page-break-after:always\"><span style=\"display:none\">&nbsp;</span></div>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 2</strong></span></span></p>\n\n<p style=\"text-align:center; text-indent:-21.25pt\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>LINGKUP KERJASAMA</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Pemerintah Kota Makassar menyanggupi untuk berkolaborasi dengan <strong>&nbsp;</strong>dan setuju, untuk berkolaborasi dengan Pemerintah Kota Makassar dalam bidang sebagai berikut :</span></span></p>\n\n<p><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_LINGKUP_LIST_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 3</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>JANGKA WAKTU</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Diluar hal-hal yang menyatakan berakhirnya atau terjadinya pemutusan Nota Kesepahaman ini, Nota Kesepahaman ini mulai dan tetap berlaku untuk jangka waktu 1 (satu) tahun sejak pelaksanaan kegiatan, dan akan diperpanjang sesuai kesepakatan bersama. Para Pihak selanjutnya menyetujui dan berusaha menyimpulkan dan merumuskan perjanjian tertulis definitif untuk menetapkan syarat dan kondisi dari hal-hal sebagaimana diatur dalam Nota Kesepahaman ini dalam waktu enam bulan sejak tanggal pelaksanaan. Secara tertulis, jangka waktu Nota Kesepahaman ini dapat diperpanjang dengan kesepakatan Para Pihak.</span></span><br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 4</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PELAKSANAAN</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<ol>\n\t<li style=\"list-style-type: decimal; text-align: justify;\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Setiap pekerjaan, diskusi, pertemuan atau kegiatan lain yang diperlukan untuk tujuan Nota Kesepahaman ini dapat dilakukan di tempat lain yang akan diatur dan disepakati oleh Para Pihak. Rincian spesifik, metode dan program pelaksanaan Nota Kesepahaman ini harus dikembangkan dan diselesaikan serta tunduk pada kesepakatan Para Pihak.</span></span><br />\n\t<br />\n\t&nbsp;\n\t<div style=\"page-break-after:always\"><span style=\"display:none\">&nbsp;</span></div>\n\n\t<p>&nbsp;</p>\n\t</li>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Pelaksanaan Nota Kesepakatan ini akan dilakukan oleh :</span></span></li>\n</ol>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">PIHAK PERTAMA :</span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">PEMERINTAH KOTA MAKASSAR</span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_INSTANSI_</strong></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">PIHAK KEDUA :</span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_NAMAUSER_</strong></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_JABATANUSER_</strong></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_PERUSAHAAN_</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 5</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>KELOMPOK KERJA, INFORMASI DAN REKOMENDASI</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<ol>\n\t<li style=\"list-style-type: decimal; text-align: justify;\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Para Pihak dapat membentuk suatu Kelompok Kerja Bersama yang beranggotakan dari Wakil-Wakil kedua belak Pihak yang wajib melakukan pemantauan dan evaluasi pelaksanaan evaluasi pelaksanaan kerja sama yang berada dalam cakupan Nota Kesepahaman. Kelompok Kerja Bersama akan bertemu apabila dipandang perlu, secara bergantian di Makassar atau di lokasi pihak&nbsp;</span></span></li>\n\t<li style=\"list-style-type: decimal; text-align: justify;\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Setiap perwakilan berwenang dari Para Pihak wajib, berdasarkan pengetahuan dan penilaian mereka pada waktu yang bersangkutan, menggunakan upaya terbaik mereka untuk menyediakan informasi dan bantuan yang diperlukan kepada Para Pihak, untuk tujuan pelaksanaan Nota Kesepahaman ini.&nbsp; Perwakilan berwenang tersebut harus bertanggung jawab atas akurasi, kelengkapan atau kapabilitas informasi atau bantuan yang diberikan.&nbsp;</span></span></li>\n</ol>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 6</strong></span></span></p>\n\n<p style=\"margin-left:19px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>HAK KEKAYAAN INTELEKTUAL&nbsp;</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<ol>\n\t<li style=\"list-style-type: decimal; text-align: justify;\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Masing masing pihak wajib menghormati Hak kekayaan Intelektual pihak lain sesuai dengan hukum nasional yang berlaku.</span></span></li>\n\t<li style=\"list-style-type: decimal; text-align: justify;\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Dalam pengaturan khusus, program atau proyek yang menghasilkan kekayaan intelektual, para pihak wajib memasukkannya dalam pengaturan terpisah sesuai dengan hukum dan peraturan nasional yang .</span></span></li>\n\t<li style=\"list-style-type: decimal; text-align: justify;\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Apabila salah satu pihak ingin mengungkapkan data dan informasi dari pihak lain atas hasil yang diperoleh Para Pihak dalam pelaksanaan Nota Kesepahaman ini, Pihak yang akan mengungkapkan rahasia wajib mendapatkan persetujuan tertulis dalam bentuk perjanjian <em>non-disclosure</em> dari Pihak lain sebelum pembukaan informasi dan data tersebut.</span></span></li>\n</ol>\n\n<p><br />\n&nbsp;</p>\n\n<p style=\"margin-left:19px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 7</strong></span></span></p>\n\n<p style=\"margin-left:19px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PENYELESAIAN SENGKETA</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Setiap perbedaan atau perselisihan yang timbul dari penafsiran, pelaksanaan atau penerapan setiap ketentuan dari Nota Kesepahaman ini akan diselesaikan secara damai melalui konsultasi atau negosiasi antara Para Pihak dengan itikad baik dan dengan dasar saling menghormati dan saling menguntungkan tanpa merujuk pada pihak lainnya atau pihak ketiga atau pengadilan internasional, organisasi atau forum.</span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 9</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PENGAKHIRAN</strong></span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Salah satu Pihak dapat mengakhiri Memorandum ini sebelum tanggal berakhirnya yang tercantum pada Pasal 3 dengan memberitahukan Pihak lainnya tentang pengakhiran tersebut. Memorandum tersebut, berakhir tiga puluh hari setelah diterimanya pemberitahuan pengakhiran, kecuali pemberitahuan ditarik oleh keputusan bersama Para Pihak sebelum akhir periode ini.&nbsp;</span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\">&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\">&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\">&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\">&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>SEBAGAI BUKTI</strong>, Para Pihak telah menandatangani Memorandum ini pada tanggal di bawah ini.</span></span></p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>UNTUK&nbsp;</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_INSTANSI_</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>REPUBLIK INDONESIA</strong></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong><u>_NAMAPEJABAT_</u></strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_JABPEJABAT_</strong></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>UNTUK</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_PERUSAHAAN_</strong></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_NAMAUSER_</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_JABATANUSER_</strong></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>DITANDATANGANI</strong> pada hari &hellip;&hellip;&hellip;&hellip;.. tanggal&hellip;&hellip;bulan&hellip;&hellip;..tahun&hellip;&hellip;&hellip;.di&nbsp; dalam dua salinan asli.</span></span></p>\n\n<p>&nbsp;</p>\n\n";
-var ITEM_LINGKUP = "\n\t<li style=\"list-style-type: disc;\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_LINGKUP_ITEM_</strong></span></span></li>\n";
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/arsip/NotaSepakat.js":
+/***/ "./resources/js/components/pages/operator/dokumen/dashboard.js":
 /*!*********************************************************************!*\
-  !*** ./resources/js/components/pages/operator/arsip/NotaSepakat.js ***!
+  !*** ./resources/js/components/pages/operator/dokumen/dashboard.js ***!
   \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NotaKesepakatan; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _NotaKesepakatanFormat_Nota__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotaKesepakatanFormat/Nota */ "./resources/js/components/pages/operator/arsip/NotaKesepakatanFormat/Nota.js");
-/* harmony import */ var _scripts_BLN__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../scripts/BLN */ "./resources/js/scripts/BLN.js");
-/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
-/* harmony import */ var _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../plugin/ckeditor/index */ "./resources/js/plugin/ckeditor/index.js");
-
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OperatorDashboard; });
+/* harmony import */ var _dashboard_component_DashboardDataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard_component/DashboardDataTable */ "./resources/js/components/pages/operator/dokumen/dashboard_component/DashboardDataTable.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -72607,913 +70930,82 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+var OperatorDashboard = /*#__PURE__*/function () {
+  function OperatorDashboard() {
+    _classCallCheck(this, OperatorDashboard);
 
-
-
-var NotaKesepakatan = /*#__PURE__*/function () {
-  function NotaKesepakatan() {
-    var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-    _classCallCheck(this, NotaKesepakatan);
-
-    _defineProperty(this, "document_id", '');
-
-    _defineProperty(this, "judul", "Nota Kesepakatan");
-
-    _defineProperty(this, "content", "\n        <div class='form-group'>\n            <textarea class='form-control' name='isi' id='nota-sepakat'></textarea>\n        </div>\n    ");
-
-    this.document_id = id;
+    _defineProperty(this, "dataTable", new _dashboard_component_DashboardDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
   }
 
-  _createClass(NotaKesepakatan, [{
-    key: "init",
-    value: function () {
-      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var konten, listContent;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                konten = _NotaKesepakatanFormat_Nota__WEBPACK_IMPORTED_MODULE_1__["NOTA_EDITOR_CONTENT"];
-                listContent = _NotaKesepakatanFormat_Nota__WEBPACK_IMPORTED_MODULE_1__["ITEM_LINGKUP"];
-                $("#body-content").html(this.content);
-                _context.next = 5;
-                return this.getResource(konten);
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function init() {
-        return _init.apply(this, arguments);
-      }
-
-      return init;
-    }()
-  }, {
-    key: "getResource",
-    value: function () {
-      var _getResource = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(konten) {
-        var sruce, url, ajax, result, _result$data, arsip, _result$data$dokumen, _TENTANG_, _LINGKUP_LIST_, _result$data$pejabat, _INSTANSIPIHAK1_, _JABPEJABAT_, _NAMAPEJABAT_, _result$data$user_que, _NAMAUSER_, _result$data$user_que2, _JABATANUSER_, _SK_, _PERUSAHAAN_, _BULAN_, _TAHUN_, _TANGGAL_, content, b, json, lingkupList, objx;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                sruce = window.myUrl.sruce;
-                url = sruce.get.replace(/(@document@)/g, this.document_id) + "?type=Nota Kesepakatan";
-                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"](url, 'GET');
-                _context2.next = 5;
-                return ajax.get(url);
-
-              case 5:
-                result = _context2.sent;
-                _result$data = result.data, arsip = _result$data.arsip, _result$data$dokumen = _result$data.dokumen, _TENTANG_ = _result$data$dokumen.tentang, _LINGKUP_LIST_ = _result$data$dokumen.lingkup, _result$data$pejabat = _result$data.pejabat, _INSTANSIPIHAK1_ = _result$data$pejabat.instansi, _JABPEJABAT_ = _result$data$pejabat.jabatan, _NAMAPEJABAT_ = _result$data$pejabat.name, _result$data$user_que = _result$data.user_query, _NAMAUSER_ = _result$data$user_que.user.name, _result$data$user_que2 = _result$data$user_que.jabatan, _JABATANUSER_ = _result$data$user_que2.jabatan, _SK_ = _result$data$user_que2.nomor_sk_jabatan, _PERUSAHAAN_ = _result$data$user_que.perusahaan.name, _BULAN_ = _result$data.bulan, _TAHUN_ = _result$data.tahun, _TANGGAL_ = _result$data.tanggal;
-                content = '';
-
-                if (arsip == null) {
-                  b = Object(_scripts_BLN__WEBPACK_IMPORTED_MODULE_2__["default"])(_BULAN_);
-                  json = JSON.parse(_LINGKUP_LIST_);
-                  lingkupList = this.parseLingkup(json);
-                  objx = {
-                    _TENTANG_: _TENTANG_,
-                    _INSTANSI_: _INSTANSIPIHAK1_,
-                    _JABPEJABAT_: _JABPEJABAT_,
-                    _NAMAPEJABAT_: _NAMAPEJABAT_,
-                    _NAMAUSER_: _NAMAUSER_,
-                    _JABATANUSER_: _JABATANUSER_,
-                    _PERUSAHAAN_: _PERUSAHAAN_,
-                    _BULAN_: b,
-                    _TAHUN_: _TAHUN_,
-                    _TANGGAL_: _TANGGAL_,
-                    _LINGKUP_LIST_: lingkupList,
-                    _SK_: _SK_
-                  };
-                  content = konten.replace(/_SK_|_TENTANG_|_INSTANSI_|_JABPEJABAT_|_NAMAPEJABAT_|_NAMAUSER_|_JABATANUSER_|_PERUSAHAAN_|_LINGKUP_LIST_|_BULAN_|_TAHUN_|_TANGGAL_/gi, function (match) {
-                    return objx[match].toUpperCase();
-                  }); //content = konten;
-                } else {
-                  content = arsip.isi;
-                }
-
-                $("[name=isi]").val(content);
-                this.setTextEditor();
-                $("input[name='judul']").val('Nota Kesepakatan');
-                $("input[name='document_id']").val(this.document_id);
-
-              case 13:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function getResource(_x) {
-        return _getResource.apply(this, arguments);
-      }
-
-      return getResource;
-    }()
-  }, {
-    key: "parseLingkup",
-    value: function parseLingkup(json) {
-      var html = "<ul>";
-
-      var _iterator = _createForOfIteratorHelper(json),
-          _step;
-
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var lk = _step.value;
-          html += _NotaKesepakatanFormat_Nota__WEBPACK_IMPORTED_MODULE_1__["ITEM_LINGKUP"].replace(/(_LINGKUP_ITEM_)/g, lk.lingkup);
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      html += '</ul>';
-      return html;
-    }
-  }, {
-    key: "setTextEditor",
-    value: function setTextEditor() {
-      var ck = new _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_4__["default"]();
-      ck.ck('justify,textindent', 1000);
-      ck.ckeditor.replace('nota-sepakat');
-    }
-  }]);
-
-  return NotaKesepakatan;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/arsip/Perjanjian.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/pages/operator/arsip/Perjanjian.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Perjanjian; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
-/* harmony import */ var _KerjasamaContentFormat_Kjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./KerjasamaContentFormat/Kjs */ "./resources/js/components/pages/operator/arsip/KerjasamaContentFormat/Kjs.js");
-/* harmony import */ var _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../plugin/ckeditor/index */ "./resources/js/plugin/ckeditor/index.js");
-
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-var Perjanjian = /*#__PURE__*/function () {
-  function Perjanjian() {
-    var doc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-    var model = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    _classCallCheck(this, Perjanjian);
-
-    _defineProperty(this, "title", 'Perjanjian Kerjasama');
-
-    _defineProperty(this, "document_id", void 0);
-
-    _defineProperty(this, "models", {
-      email: '',
-      nomor: '',
-      walikota: ''
-    });
-
-    this.document_id = doc;
-    this.models = model;
-  }
-
-  _createClass(Perjanjian, [{
-    key: "init",
-    value: function () {
-      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var konten;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                konten = "\n        <div class='form-group'>\n            <textarea class='form-control' name='isi' id='janji'></textarea>\n        </div>       \n        ";
-                $("#body-content").html(konten);
-                _context.next = 4;
-                return this.getResource();
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function init() {
-        return _init.apply(this, arguments);
-      }
-
-      return init;
-    }()
-  }, {
-    key: "getResource",
-    value: function () {
-      var _getResource = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var scure, url, ajax, res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                scure = window.myUrl.sruce;
-                url = scure.get.replace(/(@document@)/g, this.document_id) + "?type=".concat(this.title);
-                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url);
-                _context2.next = 5;
-                return ajax.get(url);
-
-              case 5:
-                res = _context2.sent;
-                this.resultProcess(res);
-
-              case 7:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function getResource() {
-        return _getResource.apply(this, arguments);
-      }
-
-      return getResource;
-    }()
-  }, {
-    key: "resultProcess",
-    value: function resultProcess(_ref) {
-      var data = _ref.data;
-      var arsip = data.arsip,
-          _data$dokumen = data.dokumen,
-          _TENTANG_ = _data$dokumen.tentang,
-          _MAKSUD_ = _data$dokumen.maksud,
-          _TUJUAN_ = _data$dokumen.tujuan,
-          _LINGKUP_LIST_ = _data$dokumen.lingkup,
-          PIHAK1 = _data$dokumen.pihak_pertama,
-          PIHAK2 = _data$dokumen.pihak_kedua,
-          _PELAKSANAAN_ = _data$dokumen.pelaksanaan,
-          _KETENTUAN_UMUM_ = _data$dokumen.ketentuan_umum,
-          _data$pejabat = data.pejabat,
-          _INSTANSIPIHAK1_ = _data$pejabat.instansi,
-          _JABPEJABAT_ = _data$pejabat.jabatan,
-          _NAMAPEJABAT_ = _data$pejabat.name,
-          _data$user_query = data.user_query,
-          _data$user_query$user = _data$user_query.user,
-          _NAMAUSER_ = _data$user_query$user.name,
-          _USER_EMAIL_ = _data$user_query$user.email,
-          _data$user_query$jaba = _data$user_query.jabatan,
-          _JABATANUSER_ = _data$user_query$jaba.jabatan,
-          _SK_ = _data$user_query$jaba.nomor_sk_jabatan,
-          _PERUSAHAAN_ = _data$user_query.perusahaan.name,
-          _BULAN_ = data.bulan,
-          _TAHUN_ = data.tahun,
-          _TANGGAL_ = data.tanggal;
-      var content = '';
-      var pihak1 = {
-        hak: '',
-        kewajiban: ''
-      };
-      var pihak2 = {
-        hak: '',
-        kewajiban: ''
-      };
-      var json;
-      var lingkupList;
-
-      if (arsip == null) {
-        try {
-          json = JSON.parse(PIHAK1);
-          pihak1.hak = this.pihakContent(json, 'hak');
-          pihak1.kewajiban = this.pihakContent(json, 'kewajiban');
-          json = JSON.parse(PIHAK2);
-          pihak2.hak = this.pihakContent(json, 'hak');
-          pihak2.kewajiban = this.pihakContent(json, 'kewajiban');
-          json = {
-            lingkup: JSON.parse(_LINGKUP_LIST_)
-          };
-          lingkupList = this.pihakContent(json, 'lingkup');
-          var objx = {
-            _TENTANG_: _TENTANG_,
-            _MAKSUD_: _MAKSUD_,
-            _TUJUAN_: _TUJUAN_,
-            _INSTANSI_: _INSTANSIPIHAK1_,
-            _JABPEJABAT_: _JABPEJABAT_,
-            _NAMAPEJABAT_: _NAMAPEJABAT_,
-            _NAMAUSER_: _NAMAUSER_,
-            _USER_EMAIL_: _USER_EMAIL_,
-            _JABATANUSER_: _JABATANUSER_,
-            _PERUSAHAAN_: _PERUSAHAAN_,
-            _SK_: _SK_,
-            _KETENTUAN_UMUM_: _KETENTUAN_UMUM_,
-            _PELAKSANAAN_: _PELAKSANAAN_,
-            _LIST_LINGKUP_: lingkupList,
-            _HAK_PIHAK1_: pihak1.hak,
-            _KEWAJIBAN_PIHAK1_: pihak1.kewajiban,
-            _HAK_PIHAK2_: pihak2.hak,
-            _KEWAJIBAN_PIHAK2_: pihak2.kewajiban,
-            _ADMIN_EMAIL_: this.models.email,
-            _WALIKOTA_: this.models.walikota,
-            _NOMOR_NOTA_KESEPAKATAN_: this.models.nomor
-          };
-          $("#janji").val(this.setContentEditor(objx));
-        } catch (e) {
-          console.log(e);
-        }
-      } else {}
-
-      var cke = new _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_3__["default"]();
-      cke.ck("justify,textindent", 1000);
-      var ckeditor = cke.ckeditor;
-      ckeditor.replace('janji');
-    }
-  }, {
-    key: "setContentEditor",
-    value: function setContentEditor(objx) {
-      var k = [];
-
-      for (var obj in objx) {
-        k.push(obj);
-      }
-
-      k = k.join("|");
-      k = "".concat(k);
-      k = new RegExp(k, 'gi');
-      console.log('K', k);
-      var kten = _KerjasamaContentFormat_Kjs__WEBPACK_IMPORTED_MODULE_2__["CONTENT"];
-      var contents = kten.replace(k, function (match) {
-        return objx[match];
-      });
-      console.log(contents);
-      return contents;
-    }
-  }, {
-    key: "pihakContent",
-    value: function pihakContent(json) {
-      var key = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'hak';
-      var contents = json[key];
-      var html = '<ul>';
-
-      var _iterator = _createForOfIteratorHelper(contents),
-          _step;
-
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var content = _step.value;
-          html += _KerjasamaContentFormat_Kjs__WEBPACK_IMPORTED_MODULE_2__["ITEM"].replace(/(_ITEM_)/g, content[key]);
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      html += '</ul>';
-      return html;
-    }
-  }]);
-
-  return Perjanjian;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/arsip/PernyataanKehendak.js":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/pages/operator/arsip/PernyataanKehendak.js ***!
-  \****************************************************************************/
-/*! exports provided: PernyataanKehendak */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PernyataanKehendak", function() { return PernyataanKehendak; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../plugin/ckeditor/index */ "./resources/js/plugin/ckeditor/index.js");
-/* harmony import */ var _KehendakContentFormat_Kehendak__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./KehendakContentFormat/Kehendak */ "./resources/js/components/pages/operator/arsip/KehendakContentFormat/Kehendak.js");
-/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
-/* harmony import */ var _scripts_BLN__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../scripts/BLN */ "./resources/js/scripts/BLN.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-var PernyataanKehendak = /*#__PURE__*/function () {
-  function PernyataanKehendak(id) {
-    _classCallCheck(this, PernyataanKehendak);
-
-    _defineProperty(this, "document_id", '');
-
-    _defineProperty(this, "content", "\n        <div class='form-group'>\n            <textarea class='form-control' name='isi' id='pern-kehendak-text'>_KONTEN_</textarea>\n        </div>\n    ");
-
-    _defineProperty(this, "isikonten", _KehendakContentFormat_Kehendak__WEBPACK_IMPORTED_MODULE_2__["Cformat"]);
-
-    this.document_id = id;
-  }
-
-  _createClass(PernyataanKehendak, [{
-    key: "init",
-    value: function () {
-      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                this.setContent();
-
-              case 1:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function init() {
-        return _init.apply(this, arguments);
-      }
-
-      return init;
-    }()
-  }, {
-    key: "setContent",
-    value: function () {
-      var _setContent = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var cten, konten;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                cten = "\n        <div class='form-group'>\n        <textarea class='form-control' name='isi' id='pern-kehendak-text'>_KONTEN_</textarea>\n    </div>\n        ";
-                console.log(cten);
-                konten = cten.replace(/(_KONTEN_)/g, this.isikonten);
-                _context2.next = 5;
-                return this.setFieldValue(konten);
-
-              case 5:
-                konten = _context2.sent;
-
-              case 6:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function setContent() {
-        return _setContent.apply(this, arguments);
-      }
-
-      return setContent;
-    }()
-  }, {
-    key: "setFieldValue",
-    value: function () {
-      var _setFieldValue = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(konten) {
-        var cten, sruce, url, ajax, result, _result$data, arsip, _TENTANG_, _result$data$pejabat, _INSTANSIPIHAK1_, _JABATANPEJABAT_, _NAMAPEJABAT_, _result$data$user_que, _NAMAUSER_, _JABATANUSER_, _NAMAPERUSAHAAN_, _BULAN_, _TAHUN_, _TANGGAL_, content, b, objx;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                cten = "\n        <div class='form-group'>\n        <textarea class='form-control' name='isi' id='pern-kehendak-text'>_KONTEN_</textarea>\n    </div>";
-                sruce = window.myUrl.sruce;
-                url = sruce.get.replace(/(@document@)/g, this.document_id) + "?type=Pernyataan Kehendak";
-                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"](url, 'GET');
-                _context3.next = 6;
-                return ajax.get(url);
-
-              case 6:
-                result = _context3.sent;
-                _result$data = result.data, arsip = _result$data.arsip, _TENTANG_ = _result$data.dokumen.tentang, _result$data$pejabat = _result$data.pejabat, _INSTANSIPIHAK1_ = _result$data$pejabat.instansi, _JABATANPEJABAT_ = _result$data$pejabat.jabatan, _NAMAPEJABAT_ = _result$data$pejabat.name, _result$data$user_que = _result$data.user_query, _NAMAUSER_ = _result$data$user_que.user.name, _JABATANUSER_ = _result$data$user_que.jabatan.jabatan, _NAMAPERUSAHAAN_ = _result$data$user_que.perusahaan.name, _BULAN_ = _result$data.bulan, _TAHUN_ = _result$data.tahun, _TANGGAL_ = _result$data.tanggal;
-                content = '';
-
-                if (arsip !== null) {
-                  content = cten.replace(/(_KONTEN_)/g, arsip.isi);
-                } else {
-                  b = Object(_scripts_BLN__WEBPACK_IMPORTED_MODULE_4__["default"])(_BULAN_);
-                  objx = {
-                    _TENTANG_: _TENTANG_,
-                    _INSTANSIPIHAK1_: _INSTANSIPIHAK1_,
-                    _JABATANPEJABAT_: _JABATANPEJABAT_,
-                    _NAMAPEJABAT_: _NAMAPEJABAT_,
-                    _NAMAUSER_: _NAMAUSER_,
-                    _JABATANUSER_: _JABATANUSER_,
-                    _NAMAPERUSAHAAN_: _NAMAPERUSAHAAN_,
-                    _BULAN_: b,
-                    _TAHUN_: _TAHUN_,
-                    _TANGGAL_: _TANGGAL_
-                  };
-                  content = konten.replace(/_TENTANG_|_INSTANSIPIHAK1_|_JABATANPEJABAT_|_NAMAPEJABAT_|_NAMAUSER_|_JABATANUSER_|_NAMAPERUSAHAAN_|_BULAN_|_TAHUN_|_TANGGAL_/gi, function (match) {
-                    return objx[match].toUpperCase();
-                  });
-                }
-
-                $("#body-content").html(content);
-                $("input[name='judul']").val('Pernyataan Kehendak');
-                $("input[name='document_id']").val(this.document_id);
-                this.setTextEditor();
-
-              case 14:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this);
-      }));
-
-      function setFieldValue(_x) {
-        return _setFieldValue.apply(this, arguments);
-      }
-
-      return setFieldValue;
-    }()
-  }, {
-    key: "setTextEditor",
-    value: function setTextEditor() {
-      var ck = new _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_1__["default"]();
-      ck.ck('justify,textindent', 1000);
-      ck.ckeditor.replace('pern-kehendak-text');
-    }
-  }]);
-
-  return PernyataanKehendak;
-}();
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/dashboard/ElementModals.js":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/pages/operator/dashboard/ElementModals.js ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var ElementModals = {
-  lingkup: "<div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Ruang Lingkup</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t<!-- /.card-header -->\n\t<div class=\"card-body p-0\">\n\t\t<ul id='list-lingkup' class=\"products-list product-list-in-card pl-2 pr-2\">\n\t\t\t<li class=\"item\">\n\n\t\t\t\t<span class=\"product-description\">\n\t\t\t\t\tBelum Menambahkan List \n\t\t\t\t\t\n\t\t\t\t</span>\n\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<!-- /.card-body -->\n\t\n\t<!-- /.card-footer -->\n</div>",
-  pihak1: "\n    <div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Pihak Pertama</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            <!-- inputan yang dikirim ke server -->\n            <input type=\"hidden\" name=\"pihak_pertama\"id='pihak-pertama'>\n            <!-- card hak -->  <br>\n                <div class=\"form-group\">\n                <!--hak-->\n                    <div class=\"card card-primary\">\n                        <div class=\"card-header\">\n                            <h3 class=\"card-title\">Usulan Hak</h3>\n                            <div class=\"card-tools\">\n                                <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                    <i class=\"fas fa-minus\"></i>\n                                </button>\n                            </div>\n                        </div>\n\n                        <div class=\"card-body p-0\">\n                            <div class=\"container-fluid\">\n                                <p>Daftar Usulan Hak</p>\n                                <ul id='list-hak-pihak-pertama' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                    <li class=\"item\">\n                                        <span class=\"product-description text-center\">\n                                            Belum Menambahkan List \n                                            \n                                        </span>\n                                    </li>\n                                </ul>\n                            </div>\n                        </div>\n                        <div class=\"card-footer\" x='tbl'>\n                            <div class=\"input-group\">\n                                <input type=\"text\" autocomplete=\"off\" id='hak1' placeholder='Masukkan Usulan Hak pihak pertama' class=\"form-control\">\n                                <span class=\"input-group-append\">\n                                        <a href=\"#\" onclick=\"window.opdashboard.modals.pihak1.addHak($('#hak1'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                                </span>\n                            </div>\n                        </div>\n                    </div>\n                <!--endhak-->\n                </div>\n\n\n            <!-- end card hak -->  \n            \n            <!-- card kewajiban -->\n            <div class=\"form-group\">\n                <!--  kewajiban -->\n                <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Kewajiban</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Kewajiban</p>\n                            <ul id='list-kewajiban-pihak-pertama' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                        \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='kewajiban1' placeholder='Masukkan Usulan Kewajiban pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak1.addKewajiban($('#kewajiban1'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>                \n                <!-- end kewajiban -->\n            </div>\n            <!-- batas card kewajiban -->\n        </div>\n\t    </div>\n    </div> ",
-  pihak2: "\n\n<div class=\"card \">\n\t<div class=\"card-header simelonecolor\">\n\t\t<h3 class=\"card-title\">Pihak Kedua</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            <!-- inputan yang dikirim ke server -->\n            <input type=\"hidden\" id='pihak-kedua' name='pihak_kedua'>\n            <!-- card hak -->  <br>\n                <div class=\"form-group\">\n                    <!-- content hak -->\n                    <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Hak</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Hak</p>\n                            <ul id='hak-p2' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='hak2' placeholder='Masukkan Usulan Hak pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak2.addHak($('#hak2'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n                    <!-- end hak -->\n                </div>\n            <!-- end card hak -->  \n            \n            <!-- card kewajiban -->\n            <div class=\"form-group\">\n                    <!--kwjb-->\n                    <div class=\"card card-primary\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Usulan Kewajiban</h3>\n                        <div class=\"card-tools\">\n                            <button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n                                <i class=\"fas fa-minus\"></i>\n                            </button>\n                        </div>\n                    </div>\n                    \n                    <div class=\"card-body p-0\">\n                        <div class=\"container-fluid\">\n                            <p>Daftar Usulan Kewajiban</p>\n                            <ul id='ls-kewajiban-2' class=\"products-list product-list-in-card pl-2 pr-2\">\n                                <li class=\"item\">\n                                    <span class=\"product-description text-center\">\n                                        Belum Menambahkan List \n                                        \n                                    </span>\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"card-footer\" x='tbl'>\n                        <div class=\"input-group\">\n                            <input type=\"text\" autocomplete=\"off\" id='kewajiban2' placeholder='Masukkan Usulan Kewajiban pihak pertama' class=\"form-control\">\n                            <span class=\"input-group-append\">\n                                    <a href=\"#\" onclick=\"window.opdashboard.modals.pihak2.addKewajiban($('#kewajiban2'))\" class=\"btn btn-success\" >Tambah Usulan</a>\n                            </span>\n                        </div>\n                    </div>\n                </div>\n                    <!--e_kwjb-->\n                </div>\n            <!-- batas card kewajiban -->\n        </div>\n\t</div>\n</div>\n"
-};
-/* harmony default export */ __webpack_exports__["default"] = (ElementModals);
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/dashboard/Mailer.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/pages/operator/dashboard/Mailer.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MailToKasubag; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-var MailToKasubag = /*#__PURE__*/function () {
-  function MailToKasubag() {
-    _classCallCheck(this, MailToKasubag);
-  }
-
-  _createClass(MailToKasubag, [{
-    key: "send",
-    value: function () {
-      var _send = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
-        var _myUrl, kdb, url, ajax;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _myUrl = myUrl, kdb = _myUrl.email.sendKasubag;
-                url = kdb.replace(/(@doc)/, id);
-                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url, 'GET');
-                console.log("sending email...");
-                _context.prev = 4;
-                _context.next = 7;
-                return ajax.get(url);
-
-              case 7:
-                _context.next = 12;
-                break;
-
-              case 9:
-                _context.prev = 9;
-                _context.t0 = _context["catch"](4);
-                console.log(_context.t0);
-
-              case 12:
-                console.log("email has send");
-
-              case 13:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, null, [[4, 9]]);
-      }));
-
-      function send(_x) {
-        return _send.apply(this, arguments);
-      }
-
-      return send;
-    }()
-  }, {
-    key: "init",
-    value: function () {
-      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var storage, mail, json;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.prev = 0;
-                console.log('mail initializing...');
-                storage = window.localStorage;
-                mail = storage.getItem("mailing");
-                json = this.convertDataToJSON(mail);
-                console.log('mail sending...');
-                _context2.next = 8;
-                return this.send(json.id);
-
-              case 8:
-                _context2.next = 13;
-                break;
-
-              case 10:
-                _context2.prev = 10;
-                _context2.t0 = _context2["catch"](0);
-                console.log(_context2.t0);
-
-              case 13:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this, [[0, 10]]);
-      }));
-
-      function init() {
-        return _init.apply(this, arguments);
-      }
-
-      return init;
-    }()
-  }, {
-    key: "convertDataToJSON",
-    value: function convertDataToJSON(data) {
-      try {
-        var json = JSON.parse(data);
-        return json;
-      } catch (e) {
-        console.log("an error occured", e);
-      }
-    }
-  }]);
-
-  return MailToKasubag;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/operator/dashboard/OpDataTable.js":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/pages/operator/dashboard/OpDataTable.js ***!
-  \*************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OpDataTables; });
-/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-var OpDataTables = /*#__PURE__*/function () {
-  function OpDataTables() {
-    _classCallCheck(this, OpDataTables);
-
-    _defineProperty(this, "columns", [{
-      name: 'no',
-      data: 'no'
-    }, {
-      name: 'pengirim',
-      data: 'pengirim'
-    }, {
-      name: 'tentang',
-      data: 'tentang'
-    }, {
-      name: 'tanggal',
-      data: 'tanggal'
-    }, {
-      name: 'tujuan',
-      data: 'tujuan'
-    }, {
-      name: 'aksi',
-      data: 'aksi'
-    }]);
-
-    _defineProperty(this, "table", $("#tb-doc"));
-
-    _defineProperty(this, "dataTable", new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
-  }
-
-  _createClass(OpDataTables, [{
+  _createClass(OperatorDashboard, [{
     key: "init",
     value: function init() {
-      var url = window.myUrl.document.dataTable;
-      this.dataTable = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.table);
-      console.log(url);
-      var ajax = this.dataTable.createAjaxParam(url);
-      this.dataTable.dataTable(this.columns, ajax);
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    }
+  }, {
+    key: "dataTableInitialize",
+    value: function dataTableInitialize() {
+      console.log("initializing datatable...");
     }
   }]);
 
-  return OpDataTables;
+  return OperatorDashboard;
 }();
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/operator/dashboard/OpModals.js":
-/*!**********************************************************************!*\
-  !*** ./resources/js/components/pages/operator/dashboard/OpModals.js ***!
-  \**********************************************************************/
+/***/ "./resources/js/components/pages/operator/dokumen/dashboard_component/DashboardDataTable.js":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/pages/operator/dokumen/dashboard_component/DashboardDataTable.js ***!
+  \**************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OP_Modals; });
-/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
-/* harmony import */ var _ElementModals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ElementModals */ "./resources/js/components/pages/operator/dashboard/ElementModals.js");
-/* harmony import */ var _clients_RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../clients/RegDokumen/RuangLingkup */ "./resources/js/components/pages/clients/RegDokumen/RuangLingkup.js");
-/* harmony import */ var _clients_RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../clients/RegDokumen/PihakPertama */ "./resources/js/components/pages/clients/RegDokumen/PihakPertama.js");
-/* harmony import */ var _clients_RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../clients/RegDokumen/PihakKedua */ "./resources/js/components/pages/clients/RegDokumen/PihakKedua.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DashboardDataTable; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+var DashboardDataTable = function DashboardDataTable() {
+  var op_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+  _classCallCheck(this, DashboardDataTable);
+
+  _defineProperty(this, "operator", '');
+
+  this.operator = op_id;
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/operator.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/pages/operator/operator.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Operator; });
+/* harmony import */ var _dokumen_dashboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dokumen/dashboard */ "./resources/js/components/pages/operator/dokumen/dashboard.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
+var Operator = function Operator() {
+  _classCallCheck(this, Operator);
 
-
-
-
-var OP_Modals = /*#__PURE__*/function () {
-  function OP_Modals() {
-    _classCallCheck(this, OP_Modals);
-
-    _defineProperty(this, "formEl", "\n    <auth></auth>\n    <put></put>\n    <div class=\"form-group\">\n        <label for=\"\">Nomor Dokumen</label>\n        <input required type=\"text\" class=\"form-control\" name='nomor'>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Tentang</label>\n        <p>@tentang@</p>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Maksud</label>\n        <p>@maksud@</p>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"\">Tujuan</label>\n        <p>@tujuan@</p>\n    </div>\n        \n     <input type='hidden' name='stdoc' value='@stdoc@'>\n     ".concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].lingkup, "\n     ").concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].pihak1, "\n     ").concat(_ElementModals__WEBPACK_IMPORTED_MODULE_1__["default"].pihak2, "\n    "));
-
-    _defineProperty(this, "lingkup", new _clients_RegDokumen_RuangLingkup__WEBPACK_IMPORTED_MODULE_2__["default"]());
-
-    _defineProperty(this, "pihak1", new _clients_RegDokumen_PihakPertama__WEBPACK_IMPORTED_MODULE_3__["default"]('opdashboard.modals'));
-
-    _defineProperty(this, "pihak2", new _clients_RegDokumen_PihakKedua__WEBPACK_IMPORTED_MODULE_4__["default"]('opdashboard.modals'));
-  }
-
-  _createClass(OP_Modals, [{
-    key: "open",
-    value: function open() {
-      var _this = this;
-
-      var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Tambahkan Nomor Dokumen';
-      var id = arguments.length > 1 ? arguments[1] : undefined;
-      var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '1';
-      var obj = arguments.length > 3 ? arguments[3] : undefined;
-      var xurl = window.myUrl.document.teruskanKeKabag;
-      var lingup = obj.data("lingkup");
-      this.lingkup.arrLingkup = lingup;
-      this.pihak1.pihakPertama = obj.data("pihak_pertama");
-      this.pihak2.pihakKedua = obj.data("pihak_kedua");
-      var url = xurl.replace(/(@op_doc@)/g, id);
-      var modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_0__["default"]('', url, title);
-      var obs = {
-        '@tentang@': obj.data('tentang'),
-        '@maksud@': obj.data('maksud'),
-        '@stdoc@': type,
-        '@tujuan@': obj.data('tujuan')
-      };
-      modal.contents = this.formEl.replace(/(@stdoc@|@tentang@|@maksud@|@tujuan@)/g, function (match) {
-        return obs[match];
-      });
-      modal.openModal(function () {
-        _this.lingkup.render(function () {
-          $("a[name='a_tinggi']").hide();
-
-          _this.pihak1.renderHak();
-
-          _this.pihak1.renderKewajiban();
-
-          _this.pihak2.renderHak();
-
-          _this.pihak2.renderKewajiban();
-
-          console.log('type', type);
-
-          if (type !== 2) {
-            $("input[name='nomor']").attr('readonly', false);
-          } else {
-            $("[x='tbl']").hide();
-            $("input[name='nomor']").val(obj.data("nomor"));
-            $("input[name='nomor']").attr('readonly', true);
-          }
-        });
-      }, true);
-    }
-  }]);
-
-  return OP_Modals;
-}();
+  _defineProperty(this, "dashboard", new _dokumen_dashboard__WEBPACK_IMPORTED_MODULE_0__["default"]());
+};
 
 
 
@@ -73808,59 +71300,6 @@ var Alert = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/scripts/BLN.js":
-/*!*************************************!*\
-  !*** ./resources/js/scripts/BLN.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var BulanName = function BulanName(b) {
-  switch (b) {
-    case '01':
-      return "Januari";
-
-    case '02':
-      return "Februari";
-
-    case '03':
-      return "Maret";
-
-    case '04':
-      return "April";
-
-    case '05':
-      return "Mei";
-
-    case '06':
-      return "Juni";
-
-    case '07':
-      return "Juli";
-
-    case '08':
-      return "Agustus";
-
-    case '09':
-      return "September";
-
-    case '10':
-      return "Oktober";
-
-    case '11':
-      return "Nopember";
-
-    case '12':
-      return "Desember";
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (BulanName);
-
-/***/ }),
-
 /***/ "./resources/js/scripts/DataTable.js":
 /*!*******************************************!*\
   !*** ./resources/js/scripts/DataTable.js ***!
@@ -73903,16 +71342,23 @@ var CreateDataTable = /*#__PURE__*/function () {
       var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
       console.log("creating datatable");
       console.log("columns", cols);
-      $(this.obj).DataTable(_objectSpread(_objectSpread({}, options), {}, {
+      var datatable = $(this.obj).DataTable(_objectSpread(_objectSpread({}, options), {}, {
+        processing: true,
+        serverSide: true,
         columns: cols,
         ajax: _objectSpread(_objectSpread({}, ajax.ajax), {}, {
           type: 'GET'
         }),
         language: {
           search: "Cari",
-          loadingRecords: "Mengambil Data"
+          loadingRecords: "Mengambil Data",
+          processing: "Memproses",
+          searchPlaceholder: "Cari data",
+          emptyTable: "Tidak ada Entri data"
         }
       }));
+      datatable.draw();
+      return datatable;
     }
   }, {
     key: "createAjaxParam",

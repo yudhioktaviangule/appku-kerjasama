@@ -17,7 +17,8 @@ class OperatorOnlyController
     public function handle(Request $request, Closure $next)
     {
         $authenticated = [
-            'operator'
+            'operator',
+            'kasubag',
 
         ];
         $data = Auth::user();

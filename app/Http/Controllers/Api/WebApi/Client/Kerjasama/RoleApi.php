@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api\WebApi\Kerjasama;
+namespace App\Http\Controllers\Api\WebApi\Client\Kerjasama;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Document;
-use App\Includes\StateDokumen as Status;
-use Illuminate\Support\Facades\View;
-use Tabelku;
-class DokumenApi extends Controller{
+use App\Models\Perusahaan;
+use App\Models\PenanggungJawab;
+
+class RoleApi extends Controller{
     private $request;
     public function __construct(Request $request){
         $this->request = $request; 
@@ -17,17 +16,19 @@ class DokumenApi extends Controller{
     }
     public function index(){
         $request = $this->request; 
-        
     }
     public function create(){
         $request = $this->request; 
-        return response()->view("pages.dokumen.api.add",['pjid'=>$request->pjid]);
     }
     public function show($id=''){
         $request = $this->request; 
+        $data = Perusahaan::where("user_id",$id)->get();
+        return response()->json($data);
     }
     public function edit($id=''){
         $request = $this->request; 
+        $data = PenanggungJawab::where("perusahaan_id",$id)->get();
+        return response()->json($data);
     }
     public function store(){
         $request = $this->request; 

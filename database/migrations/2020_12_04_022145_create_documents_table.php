@@ -19,13 +19,24 @@ class CreateDocumentsTable extends Migration
             $table->integer('pejabat_id');
             $table->string('nomor',40);
             $table->string('tentang');
-            $table->string('maksud');
-            $table->string('tujuan');
+            $table->longtext('maksud_dan_tujuan');
+            
             $table->longtext('ketentuan_umum');
             $table->longtext('pelaksanaan');
-            $table->longtext('lingkup');
-            $table->longtext('pihak_pertama');
-            $table->longtext('pihak_kedua');
+            $table->enum('status',['0','1','2','3','4','5','6','7','8','9'])->comment("
+                0:registrasi
+                1:penomoran
+                2:proses kasubag
+                3:kasubag berinteraksi dengan client
+                4:mencapai kesepakatan antar kasubag dan client
+                5:diteruskan ke bagian hukum
+                6:siap dirapatkan
+                7:siap ditanda tangani
+                8:selesai
+                9:dokumen ditolak
+
+            ");
+
             $table->softDeletes();
             $table->timestamps();
         });

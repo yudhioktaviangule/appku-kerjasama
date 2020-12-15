@@ -49,7 +49,7 @@
             </a>
           </li>
           @endif
-          @if($level=='operator')
+          @if($level=='operator'||$level=='root'||$level=='kasubag')
           <li class="nav-item">
             <a href="{{route('arsip.index')}}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>

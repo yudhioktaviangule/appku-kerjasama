@@ -1,5 +1,5 @@
 
-import Alert from '../../../../scripts/Alert';
+import Alert from '../../../../../scripts/Alert';
 
 export default class RuangLingkup{
     arrLingkup=[]
