@@ -31,4 +31,8 @@ class Document extends Model
     {
         return TindakLanjutDoc::where("document_id",$this->id)->orderBy('stdoc','desc')->first();
     }
+    public function getLingkup()
+    {
+        return RuangLingkup::where("document_id",$this->id)->get();
+    }
 }

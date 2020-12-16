@@ -71922,6 +71922,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Negosiasi; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -71936,6 +71939,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
+
+
 var Negosiasi = /*#__PURE__*/function () {
   function Negosiasi() {
     _classCallCheck(this, Negosiasi);
@@ -71946,19 +71952,41 @@ var Negosiasi = /*#__PURE__*/function () {
   _createClass(Negosiasi, [{
     key: "init",
     value: function init(document_id) {
+      var _this = this;
+
       this.id = document_id;
+      this.url = {
+        get: function get() {
+          var url_tmp = window.myUrl.negosiasi.create;
+          var xurl = url_tmp.replace(/_DOC_/g, _this.id);
+          return xurl;
+        },
+        store: function store() {
+          var xurl = window.myUrl.negosiasi.store;
+          return xurl;
+        }
+      };
     }
   }, {
     key: "openModals",
     value: function () {
       var _openModals = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(document_id) {
+        var modal;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 this.init(document_id);
+                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__["default"](this.url.get(), '', "Lihat Dokumen", false);
+                _context.next = 4;
+                return modal.ajax();
 
-              case 1:
+              case 4:
+                modal.openModal(function () {
+                  return 0;
+                }, true);
+
+              case 5:
               case "end":
                 return _context.stop();
             }

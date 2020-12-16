@@ -117,12 +117,14 @@
                     dataTable:`{{ route('ksbdoc.index') }}`,
                 },
                 negosiasi:{
-                    "create":`{{  }}`,
+                    "create":`{{ route('ksbnego.create') }}?doc=_DOC_`,
+                    "store":`{{ route('ksbnego.store') }}?doc=_DOC_`,
                 },
             };
             window.kasubag = window.APP.kasubag;
             window.kasubag.init({{Auth::id()}});
             window.dt      = kasubag.dataTable; 
+            window.nego    = kasubag.nego;
             window.dt.init({{ Auth::id() }})
 
         });
