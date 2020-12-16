@@ -89,14 +89,13 @@
                         <h3 class='card-title'>Daftar Dokumen</h3>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered" id='tb-doc'>
+                        <table class="table table-bordered" id='table-kasubag'>
                             <thead>
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Instansi/Perusahaan</th>
+                                    <th>Instansi</th>
                                     <th>Tentang</th>
-                                    <th>Tanggal Registrasi</th>
-                                    <th>Pejabat Tujuan</th>
+                                    <th>Tujuan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -114,17 +113,18 @@
         $(document).ready(()=>{
 
             window.myUrl = {
-                document:{
-                    dataTable:"{{route('op_doc_api.index')}}?uid={{Auth::id()}}",
-                    teruskanKeKabag:"{{route('kasubag_doc.update',['kasubag_doc'=>'@op_doc@'])}}"
+                dash:{
+                    dataTable:`{{ route('ksbdoc.index') }}`,
                 },
-                email:{
-                    toHukum:`{{route("berkas.kirim.hukum.mail",[ "document_id"=>"@doc@","kasubag_id"=>Auth::id() ])}}`,
-                    tolak:`{{route("berkas.tolak.mail",[ "document_id"=>"@doc@",'kasubag_id'=>Auth::id()])}}`
-                }
-            }
-            window.opdashboard = window.APP.kbDash;
-            opdashboard.init()
+                negosiasi:{
+                    "create":`{{  }}`,
+                },
+            };
+            window.kasubag = window.APP.kasubag;
+            window.kasubag.init({{Auth::id()}});
+            window.dt      = kasubag.dataTable; 
+            window.dt.init({{ Auth::id() }})
+
         });
     </script>
 @endsection

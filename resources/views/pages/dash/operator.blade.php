@@ -36,7 +36,7 @@
                     <div class="progress-bar" style="width: 70%"></div>
                     </div>
                     <span class="progress-description">
-                    Dokumen Diterima admin
+                        Dokumen Diterima admin
                     </span>
                 </div>
                 <!-- /.info-box-content -->
@@ -53,7 +53,7 @@
                     <div class="progress-bar" style="width: 70%"></div>
                     </div>
                     <span class="progress-description">
-                    Dokumen Diproses
+                        Dokumen Diproses
                     </span>
                 </div>
                 <!-- /.info-box-content -->
@@ -89,14 +89,13 @@
                         <h3 class='card-title'>Daftar Dokumen</h3>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered" id='tb-doc'>
+                        <table class="table table-bordered" id='table-operator'>
                             <thead>
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Instansi/Perusahaan</th>
+                                    <th>Instansi</th>
                                     <th>Tentang</th>
-                                    <th>Tanggal Registrasi</th>
-                                    <th>Pejabat Tujuan</th>
+                                    <th>Tujuan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -114,17 +113,29 @@
         $(document).ready(()=>{
 
             window.myUrl = {
-                document:{
-                    dataTable:"{{route('op_doc_api.index')}}",
-                    teruskanKeKabag:"{{route('op_dokumen.update',['op_dokuman'=>'@op_doc@'])}}",
+                dash:{
+                    dataTable:`{{route('opdash.index')}}`,
                     
                 },
-                email:{
-                    sendKasubag:`{{route('berkas.kirim.kasubag.mail',['document_id'=>"@doc",'op_id'=>Auth::id()])}}`
-                }
-            }
-            window.opdashboard = window.APP.opDash;
-            opdashboard.init()
+                nomorDoc:{
+                    create:`{{route('opdoc.create')}}?doc=_DOC_`,
+                    store:`{{route('opdoc.store')}}`,
+                },
+                teruskanKasubag:{
+                    create:`{{route('optokasubag.create')}}?doc=_DOC_`,
+                    store:`{{route('optokasubag.store')}}`,
+                },
+                email:{}
+            };
+            window.operator  = window.APP.operator;
+            window.dashboard = operator.dashboard.init();
+
+            //child object
+            window.dataTable       = dashboard.setDataTable({{ Auth::id() }});
+
+            window.nomorDoc        = dashboard.nomorDoc.init();
+            window.teruskanKasubag = dashboard.terukanKasubag;
+           
         });
     </script>
 @endsection

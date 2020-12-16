@@ -50,14 +50,7 @@
           </li>
           @endif
           @if($level=='operator'||$level=='root'||$level=='kasubag')
-          <li class="nav-item">
-            <a href="{{route('arsip.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Konseptor
-              </p>
-            </a>
-          </li>
+          
           @endif
           <li class="nav-item">
             <a href="#" onclick="window.APP.logout()" class="nav-link">

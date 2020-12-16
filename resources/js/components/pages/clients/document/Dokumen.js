@@ -13,14 +13,14 @@ export default class Dokumen{
     form;
     constructor(user_id=''){
         console.log("initializing document...")
-        if(user_id!=''){
-            this.id        = user_id;
-            this.dataTabel = new DataTableDokumen(this.id);
-            this.role      = new RoleClients(this.id);
-            this.dataTabel.init(this.id);
-            this.rLingkup = new RuangLingkupClient();
-        }
-        
+        this.id        = user_id;
+    }
+    init(){
+        this.dataTabel = new DataTableDokumen(this.id);
+        this.role      = new RoleClients(this.id);
+        this.dataTabel.init(this.id);
+        this.rLingkup = new RuangLingkupClient();
+        return this;
     }
     async setModal(){
         this.penanggungJawabId=this.role.penanggungJawabId;

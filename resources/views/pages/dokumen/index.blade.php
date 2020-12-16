@@ -118,6 +118,7 @@
             window.client  = window.APP.Client;
             
             window.dokumen = window.client.init({{ Auth::id() }}).documents;
+            window.dokumen = window.dokumen.init();
             window.hdank   = window.client.hdk;
             window.lingkup = window.client.rLingkup;
 

@@ -69232,6 +69232,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_kasubag_root_Walikota__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/kasubag_root/Walikota */ "./resources/js/components/pages/kasubag_root/Walikota.js");
 /* harmony import */ var _pages_operator_operator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/operator/operator */ "./resources/js/components/pages/operator/operator.js");
 /* harmony import */ var _pages_clients_Klien__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/clients/Klien */ "./resources/js/components/pages/clients/Klien.js");
+/* harmony import */ var _pages_kasubag_root_kasubag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/kasubag_root/kasubag */ "./resources/js/components/pages/kasubag_root/kasubag.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -69239,6 +69240,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -69260,6 +69262,8 @@ var MainRouter = /*#__PURE__*/function () {
     _defineProperty(this, "Client", new _pages_clients_Klien__WEBPACK_IMPORTED_MODULE_5__["default"]());
 
     _defineProperty(this, "operator", new _pages_operator_operator__WEBPACK_IMPORTED_MODULE_4__["default"]());
+
+    _defineProperty(this, "kasubag", new _pages_kasubag_root_kasubag__WEBPACK_IMPORTED_MODULE_6__["default"]());
   }
 
   _createClass(MainRouter, [{
@@ -69680,11 +69684,11 @@ var Klien = /*#__PURE__*/function () {
 
     _defineProperty(this, "id", '');
 
-    _defineProperty(this, "documents", new _document_Dokumen__WEBPACK_IMPORTED_MODULE_0__["default"]());
+    _defineProperty(this, "documents", void 0);
 
-    _defineProperty(this, "hdk", new _hakewajiban_ClientHakdanKewajiban__WEBPACK_IMPORTED_MODULE_1__["default"]());
+    _defineProperty(this, "hdk", void 0);
 
-    _defineProperty(this, "rLingkup", new _lingkup_ClientRuangLingkup__WEBPACK_IMPORTED_MODULE_2__["default"]());
+    _defineProperty(this, "rLingkup", void 0);
   }
 
   _createClass(Klien, [{
@@ -69693,6 +69697,8 @@ var Klien = /*#__PURE__*/function () {
       var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       this.id = id;
       this.documents = new _document_Dokumen__WEBPACK_IMPORTED_MODULE_0__["default"](id);
+      this.hdk = new _hakewajiban_ClientHakdanKewajiban__WEBPACK_IMPORTED_MODULE_1__["default"]();
+      this.rLingkup = new _lingkup_ClientRuangLingkup__WEBPACK_IMPORTED_MODULE_2__["default"]();
       return this;
     }
   }]);
@@ -70228,17 +70234,19 @@ var Dokumen = /*#__PURE__*/function () {
     _defineProperty(this, "form", void 0);
 
     console.log("initializing document...");
+    this.id = user_id;
+  }
 
-    if (user_id != '') {
-      this.id = user_id;
+  _createClass(Dokumen, [{
+    key: "init",
+    value: function init() {
       this.dataTabel = new _components_DataTable__WEBPACK_IMPORTED_MODULE_1__["default"](this.id);
       this.role = new _components_RoleUser__WEBPACK_IMPORTED_MODULE_2__["default"](this.id);
       this.dataTabel.init(this.id);
       this.rLingkup = new _lingkup_ClientRuangLingkup__WEBPACK_IMPORTED_MODULE_5__["default"]();
+      return this;
     }
-  }
-
-  _createClass(Dokumen, [{
+  }, {
     key: "setModal",
     value: function () {
       var _setModal = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -70336,16 +70344,11 @@ var DataTableDokumen = /*#__PURE__*/function () {
   _createClass(DataTableDokumen, [{
     key: "init",
     value: function init() {
-      var _this = this;
-
       var user_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-      $(document).ready(function () {
-        var url_p = window.myUrl.dokumen.dataTable;
-        console.log("initializing datatable...");
-        _this.user = user_id;
-
-        _this.dataTable(url_p);
-      });
+      var url_p = window.myUrl.dokumen.dataTable;
+      console.log("initializing datatable...");
+      this.user = user_id;
+      this.dataTable(url_p);
     }
   }, {
     key: "dataTable",
@@ -71838,6 +71841,194 @@ var Walikota = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/kasubag_root/dokumen/DataTable.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/dokumen/DataTable.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DataTable; });
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var DataTable = /*#__PURE__*/function () {
+  function DataTable() {
+    _classCallCheck(this, DataTable);
+
+    _defineProperty(this, "col", [{
+      data: 'nomor',
+      name: "nomor"
+    }, {
+      data: 'instansi',
+      name: "instansi"
+    }, {
+      data: 'tentang',
+      name: "tentang"
+    }, {
+      data: 'dinas_tujuan',
+      name: "dinas_tujuan"
+    }, {
+      data: 'aksi',
+      name: "aksi"
+    }]);
+
+    _defineProperty(this, "kasubag", void 0);
+  }
+
+  _createClass(DataTable, [{
+    key: "init",
+    value: function init() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      this.kasubag = id;
+      this.tableDom = $("#table-kasubag");
+      this.createMyDtb();
+    }
+  }, {
+    key: "createMyDtb",
+    value: function createMyDtb() {
+      var url = window.myUrl.dash.dataTable;
+      var dtb = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.tableDom);
+      dtb.dataTable(this.col, dtb.createAjaxParam(url));
+    }
+  }]);
+
+  return DataTable;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/kasubag_root/dokumen/Negosiasi.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/dokumen/Negosiasi.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Negosiasi; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Negosiasi = /*#__PURE__*/function () {
+  function Negosiasi() {
+    _classCallCheck(this, Negosiasi);
+
+    _defineProperty(this, "id", void 0);
+  }
+
+  _createClass(Negosiasi, [{
+    key: "init",
+    value: function init(document_id) {
+      this.id = document_id;
+    }
+  }, {
+    key: "openModals",
+    value: function () {
+      var _openModals = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(document_id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.init(document_id);
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function openModals(_x) {
+        return _openModals.apply(this, arguments);
+      }
+
+      return openModals;
+    }()
+  }]);
+
+  return Negosiasi;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/kasubag_root/kasubag.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/kasubag.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Kasubag; });
+/* harmony import */ var _dokumen_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dokumen/DataTable */ "./resources/js/components/pages/kasubag_root/dokumen/DataTable.js");
+/* harmony import */ var _dokumen_Negosiasi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dokumen/Negosiasi */ "./resources/js/components/pages/kasubag_root/dokumen/Negosiasi.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var Kasubag = /*#__PURE__*/function () {
+  function Kasubag() {
+    _classCallCheck(this, Kasubag);
+
+    _defineProperty(this, "id", '');
+
+    _defineProperty(this, "dataTable", void 0);
+  }
+
+  _createClass(Kasubag, [{
+    key: "init",
+    value: function init(kasubag_id) {
+      this.id = kasubag_id;
+      this.dataTable = new _dokumen_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]();
+      this.nego = new _dokumen_Negosiasi__WEBPACK_IMPORTED_MODULE_1__["default"]();
+    }
+  }]);
+
+  return Kasubag;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/operator/dokumen/dashboard.js":
 /*!*********************************************************************!*\
   !*** ./resources/js/components/pages/operator/dokumen/dashboard.js ***!
@@ -71849,6 +72040,69 @@ var Walikota = /*#__PURE__*/function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OperatorDashboard; });
 /* harmony import */ var _dashboard_component_DashboardDataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard_component/DashboardDataTable */ "./resources/js/components/pages/operator/dokumen/dashboard_component/DashboardDataTable.js");
+/* harmony import */ var _dashboard_component_BuatNomorDokumen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard_component/BuatNomorDokumen */ "./resources/js/components/pages/operator/dokumen/dashboard_component/BuatNomorDokumen.js");
+/* harmony import */ var _dashboard_component_TeruskanKeKasubag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dashboard_component/TeruskanKeKasubag */ "./resources/js/components/pages/operator/dokumen/dashboard_component/TeruskanKeKasubag.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+
+var OperatorDashboard = /*#__PURE__*/function () {
+  function OperatorDashboard() {
+    _classCallCheck(this, OperatorDashboard);
+  }
+
+  _createClass(OperatorDashboard, [{
+    key: "init",
+    value: function init() {
+      this.dataTable = new _dashboard_component_DashboardDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]();
+      this.nomorDoc = new _dashboard_component_BuatNomorDokumen__WEBPACK_IMPORTED_MODULE_1__["default"]();
+      this.terukanKasubag = new _dashboard_component_TeruskanKeKasubag__WEBPACK_IMPORTED_MODULE_2__["default"]();
+      return this;
+    }
+  }, {
+    key: "setDataTable",
+    value: function setDataTable() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      this.dataTable.init(id);
+      return this.dataTable;
+    }
+  }]);
+
+  return OperatorDashboard;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/dokumen/dashboard_component/BuatNomorDokumen.js":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/pages/operator/dokumen/dashboard_component/BuatNomorDokumen.js ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BuatNomorDokumen; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+/* harmony import */ var _scripts_FormInputDisable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../scripts/FormInputDisable */ "./resources/js/scripts/FormInputDisable.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -71859,26 +72113,121 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var OperatorDashboard = /*#__PURE__*/function () {
-  function OperatorDashboard() {
-    _classCallCheck(this, OperatorDashboard);
 
-    _defineProperty(this, "dataTable", new _dashboard_component_DashboardDataTable__WEBPACK_IMPORTED_MODULE_0__["default"]());
+
+
+var BuatNomorDokumen = /*#__PURE__*/function () {
+  function BuatNomorDokumen() {
+    _classCallCheck(this, BuatNomorDokumen);
+
+    _defineProperty(this, "url", {
+      get: '',
+      action: ''
+    });
   }
 
-  _createClass(OperatorDashboard, [{
-    key: "init",
-    value: function init() {
-      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  _createClass(BuatNomorDokumen, [{
+    key: "setUrls",
+    value: function setUrls(document_id) {
+      var _window$myUrl$nomorDo = window.myUrl.nomorDoc,
+          url_create = _window$myUrl$nomorDo.create,
+          url_store = _window$myUrl$nomorDo.store;
+      this.url.get = url_create.replace(/(_DOC_)/g, document_id);
+      this.url.action = url_store;
     }
   }, {
-    key: "dataTableInitialize",
-    value: function dataTableInitialize() {
-      console.log("initializing datatable...");
+    key: "openModals",
+    value: function () {
+      var _openModals = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(document_id) {
+        var modal;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.setUrls(document_id);
+                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"](this.url.get, '', "Buat Nomor Dokumen", false);
+                _context.next = 4;
+                return modal.ajax();
+
+              case 4:
+                modal.openModal(function () {
+                  Object(_scripts_FormInputDisable__WEBPACK_IMPORTED_MODULE_4__["default"])();
+                  return 0;
+                }, false);
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function openModals(_x) {
+        return _openModals.apply(this, arguments);
+      }
+
+      return openModals;
+    }()
+  }, {
+    key: "init",
+    value: function init() {
+      return this;
     }
+  }, {
+    key: "save",
+    value: function () {
+      var _save = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(doc_id) {
+        var pesan, model, ajax, _yield$ajax$send, message, isError;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+                model = {
+                  document_id: doc_id,
+                  nomor: $("#nomor").val(),
+                  _token: $("input[name='_token']").val()
+                };
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__["default"](this.url.action);
+                _context2.next = 5;
+                return ajax.send(model);
+
+              case 5:
+                _yield$ajax$send = _context2.sent;
+                message = _yield$ajax$send.message;
+                isError = _yield$ajax$send.isError;
+
+                if (isError) {
+                  pesan.swAlert(message, "Update Dokumen", function () {
+                    $("[data-dismiss='modal']").click();
+                    return false;
+                  }, 'error');
+                } else {
+                  pesan.swAlert(message, "Update Dokumen", function () {
+                    $("[data-dismiss='modal']").click();
+                    return false;
+                  }, 'success');
+                }
+
+              case 9:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function save(_x2) {
+        return _save.apply(this, arguments);
+      }
+
+      return save;
+    }()
   }]);
 
-  return OperatorDashboard;
+  return BuatNomorDokumen;
 }();
 
 
@@ -71895,21 +72244,188 @@ var OperatorDashboard = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DashboardDataTable; });
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var DashboardDataTable = function DashboardDataTable() {
-  var op_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-  _classCallCheck(this, DashboardDataTable);
-
-  _defineProperty(this, "operator", '');
-
-  this.operator = op_id;
-};
 
 
+var DashboardDataTable = /*#__PURE__*/function () {
+  function DashboardDataTable() {
+    _classCallCheck(this, DashboardDataTable);
+
+    _defineProperty(this, "operator", '');
+
+    _defineProperty(this, "tableDom", void 0);
+
+    _defineProperty(this, "ajaxDtb", void 0);
+
+    _defineProperty(this, "column", [{
+      name: "nomor",
+      data: 'nomor'
+    }, {
+      name: "instansi",
+      data: 'instansi'
+    }, {
+      name: "tentang",
+      data: 'tentang'
+    }, {
+      name: "dinas_tujuan",
+      data: 'dinas_tujuan'
+    }, {
+      name: "aksi",
+      data: 'aksi'
+    }]);
+  }
+
+  _createClass(DashboardDataTable, [{
+    key: "init",
+    value: function init() {
+      var op_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      this.operator = op_id;
+      this.tableDom = $("#table-operator");
+      this.createMyDtb();
+    }
+  }, {
+    key: "createMyDtb",
+    value: function createMyDtb() {
+      var url = window.myUrl.dash.dataTable;
+      var dtb = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.tableDom);
+      dtb.dataTable(this.column, dtb.createAjaxParam(url));
+    }
+  }]);
+
+  return DashboardDataTable;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/operator/dokumen/dashboard_component/TeruskanKeKasubag.js":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/pages/operator/dokumen/dashboard_component/TeruskanKeKasubag.js ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var TeruskanKeKasubag = /*#__PURE__*/function () {
+  function TeruskanKeKasubag() {
+    _classCallCheck(this, TeruskanKeKasubag);
+
+    _defineProperty(this, "url_save", void 0);
+  }
+
+  _createClass(TeruskanKeKasubag, [{
+    key: "openModals",
+    value: function () {
+      var _openModals = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(document_id) {
+        var _window$myUrl$teruska, url_create_tmp, url_store, modal;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _window$myUrl$teruska = window.myUrl.teruskanKasubag, url_create_tmp = _window$myUrl$teruska.create, url_store = _window$myUrl$teruska.store;
+                this.url_save = url_store;
+                modal = new _scripts_Modals__WEBPACK_IMPORTED_MODULE_1__["default"](url_create_tmp.replace(/_DOC_/g, document_id), '', 'Teruskan Ke Kasubag', false);
+                _context.next = 5;
+                return modal.ajax();
+
+              case 5:
+                modal.openModal();
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function openModals(_x) {
+        return _openModals.apply(this, arguments);
+      }
+
+      return openModals;
+    }()
+  }, {
+    key: "save",
+    value: function () {
+      var _save = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+        var pesan, url, ajax, res, message, isError;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+                url = this.url_save;
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_2__["default"](url);
+                _context2.next = 5;
+                return ajax.send({
+                  status: "2",
+                  document_id: id,
+                  _token: $("[name=_token]").val()
+                });
+
+              case 5:
+                res = _context2.sent;
+                message = res.message, isError = res.isError;
+                pesan.swAlert(message, "Kirim Dokumen ke Kasubag", function () {
+                  $('[data-dismiss="modal"]').click();
+                  return null;
+                }, isError ? "error" : "success");
+
+              case 8:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function save(_x2) {
+        return _save.apply(this, arguments);
+      }
+
+      return save;
+    }()
+  }]);
+
+  return TeruskanKeKasubag;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (TeruskanKeKasubag);
 
 /***/ }),
 

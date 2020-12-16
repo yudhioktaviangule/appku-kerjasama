@@ -7,9 +7,7 @@ use App\Http\Controllers\Web\Master\Perusahaan\UploadIjinController;
 use App\Http\Controllers\Web\Master\PejabatController;
 use App\Http\Controllers\Web\RestrictController;
 use App\Http\Controllers\Web\Kerjasama\DokumenController;
-use App\Http\Controllers\Web\Kerjasama\OpDokumenController;
-use App\Http\Controllers\Web\Kerjasama\KasubagDokumenController;
-use App\Http\Controllers\Web\Kerjasama\ArsipController;
+use App\Http\Controllers\Web\Operator\Dokumen\DashboardController as OperatorDashboard;
 
 
 Route::get('/', function () {
@@ -24,12 +22,14 @@ Route::group(['prefix'=>"master"],function(){
     Route::resource('pejabat',PejabatController::class);
 });
 
+
 Route::group(['prefix'=>"kerjasama"],function(){
     Route::resource('dokumen',DokumenController::class);
-    Route::resource('pejabat',PejabatController::class);
-    Route::resource('op_dokumen',OpDokumenController::class);
-    Route::resource('kasubag_doc',KasubagDokumenController::class);
-    Route::resource('arsip',ArsipController::class);
+    
+});
+
+Route::group(['prefix'=>"operator"],function(){
+    Route::resource('opdashboard',OperatorDashboard::class);
     
 });
 

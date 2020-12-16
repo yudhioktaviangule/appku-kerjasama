@@ -11,14 +11,13 @@ export default class DataTableDokumen {
     }
 
     init(user_id = "") {
-        $(document).ready(()=>{
+        
             const {dokumen:{dataTable:url_p}} = window.myUrl;
             console.log("initializing datatable...");
             this.user = user_id;
             
             this.dataTable(url_p);
 
-        })
     }
 
     dataTable(dUrl) {
