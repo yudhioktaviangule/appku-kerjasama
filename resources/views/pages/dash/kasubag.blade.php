@@ -127,6 +127,9 @@
                     'store':"{{route('ksbhdank.store')}}",
                     'delete':"{{route('ksbhdank.destroy',['ksbhdank'=>'_hdank_'])}}",
                 },
+                agenda:{
+                    "store":"{{ route('agenda.store') }}",
+                }
                 
             };
             window.kasubag = window.APP.kasubag;
@@ -134,6 +137,8 @@
             window.dt      = kasubag.dataTable; 
             window.nego    = kasubag.nego;
             window.dt.init({{ Auth::id() }})
+
+            window.agenda = kasubag.agenda;
             
 
 

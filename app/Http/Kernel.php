@@ -71,6 +71,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'operator.only' => \App\Http\Middleware\AuthRestrictClient::class,
         'auth.api' => \App\Http\Middleware\AuthForApi::class,
+        'auth.hkm.kasubag' => \App\Http\Middleware\HukumDanKasubagWebMiddleware::class,
         'role.operator.api' => \App\Http\Middleware\OperatorOnlyApi::class,
         'role.operator.web' => \App\Http\Middleware\OperatorOnlyController::class,
         'only.client' => \App\Http\Middleware\OnlyClient::class,

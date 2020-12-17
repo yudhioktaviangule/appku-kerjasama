@@ -18,7 +18,7 @@ class DokumenApi extends Controller{
     public function index(){
         $request = $this->request; 
         Document::where("status",'2')->update(['status'=>'3']);
-        $data    = Document::whereIn('status',['2','3','4','5','6'])->get();
+        $data    = Document::whereIn('status',['2','3','4','5','6','7','8'])->get();
         $table   = Tabelku::of($data)->addIndexColumn();
         
         $table->addColumn("aksi",function($json){

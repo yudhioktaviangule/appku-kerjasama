@@ -34,7 +34,7 @@ export default class HakDanKewajiban{
     }
     async requery(id){
         
-        this.init(id,'requery by id = '+id);
+        //this.init(id,'requery by id = '+id);
         
         
     }
@@ -42,20 +42,29 @@ export default class HakDanKewajiban{
         this.createUrl(id);
         const ajax = new MyAjax(this.url.cekdok());
         const { data:{dokumen:{status:status_doc,}} } = await ajax.get(this.url.cekdok());
+        let show = ['#btn-terusan','#btn-refresh'];
         
-        if(status_doc==='4'){
+        if(parseInt(status_doc)==4){
             $("#btn-terusan").show(500);
             $("#btn-refresh").hide(500);
+            $('[name="bt-simpan"]').hide();
+            $('[name="foter"]').hide();
         }else{
             $("#btn-refresh").show(500);
             $("#btn-terusan").hide(500);
-
+            $('[name="bt-simpan"]').show();
+            $('[name="foter"]').show();
         }
+
+        
+
+
+
         
     }
     async init(document_id,from='init'){
         
-        this.disableButton(document_id)         
+               
         this.ddocument_id = document_id;
         this.createUrl(document_id);
         const url         = this.url.list();
@@ -65,6 +74,7 @@ export default class HakDanKewajiban{
         this.p1           = this.createWrapperContent("pertama");
         this.p2           = this.createWrapperContent("kedua");
         this.renderData();
+        this.disableButton(document_id)  
     }
     renderData(){
         const html = `

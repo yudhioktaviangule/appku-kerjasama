@@ -1,10 +1,15 @@
 
 <div class="container-fluid">
+    <div class="text-right">
+        @include("pages.kasubag.nego_component.tombol")
 
+    </div>
+        
         <br>
         <div class="card card-primary card-outline card-outline-tabs">
             <div class="card-header p-0 border-bottom-0">
                 <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+               
                     <li class="nav-item">
                         <a class="nav-link active" 
                             id="ctf-umum-tab" 
@@ -63,7 +68,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" 
-                            id            = "ctf-pelaksanaan-tab" 
+                            id            = "ctf-hakwajib-tab" 
                             data-toggle   = "pill" 
                             href          = "#ctf-hakwajib" 
                             role          = "tab" 
@@ -73,6 +78,7 @@
                             Hak dan Kewajiban
                         </a>
                     </li>
+                    
                     
                    
                     
@@ -88,6 +94,14 @@
                         role            = "tabpanel" 
                         aria-labelledby = "ctf-umum-tab">
                         @include("pages.kasubag.nego_component.infoumum")
+                        
+                    </div>
+                    <div 
+                        class           = "tab-pane fade " 
+                        id              = "ctf-teruskan" 
+                        role            = "tabpanel" 
+                        aria-labelledby = "ctf-teruskan-tab">
+                        
                         
                     </div>
                     

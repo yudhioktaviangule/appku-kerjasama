@@ -70,7 +70,7 @@
                         </button>
                     </div>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-bordered" id="table-dokumen">
                     <thead>
                         <tr>
@@ -97,6 +97,7 @@
                     dataTable:"{{ route('doc-api.index') }}?uid=@uid",
                     create:"{{ route('doc-api.create') }}?pjid={{ Auth::id() }}",
                     store:"{{ route('dokumen.store') }}",
+                    lengkap:"{{ route('cekdok.show',['cekdok'=>'_cekdok_']) }}",
                 },
                 dinas:{
                     select2:"{{ route('api.walikota.select2',['slug','slug']) }}"

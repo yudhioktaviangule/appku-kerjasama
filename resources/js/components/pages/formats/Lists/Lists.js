@@ -21,7 +21,7 @@ export const ListFormat=`
 
 `
 export const CARD_FOOTER_FMT=`
-<div class="card-footer">
+<div name='foter' class="card-footer">
 		<div class="input-group">
 			<input type="text"   id='_IDOBJECT_' placeholder='_PLACEHOLDER_' class="form-control">
 			<span class="input-group-append">
@@ -55,7 +55,7 @@ export const ItemContent=`
                                     </span>
                                 </span>
                             </span>
-                            <button type='button' onclick='_FNC_' aria-label='Close' class='close text-danger _ISFADE_' href='#'>
+                            <button name='bt-simpan' type='button' onclick='_FNC_' aria-label='Close' class='close text-danger _ISFADE_' href='#'>
                                 <span aria-hidden='true'>
                                 <strong>&times;</strong>
                                 </span>

@@ -21,7 +21,7 @@ export default class HakDanKewajiban{
         modal.openModal(async ()=>{
             await this.process();
             DisableEnter();
-            await get
+            
             return null;
         },true)
     }
@@ -50,17 +50,41 @@ export default class HakDanKewajiban{
         
         this.draw(p1,p2)
     }
-    draw(pihak1=``,pihak2=``){
-        let p1hak=this.drawContent("Usulan Hak","","card-primary","pertama","hak",'hp1')
-        let p1kewajiban=this.drawContent("Usulan Kewajiban","","card-primary","pertama","kewajiban",'kp1')
-        let p1 = pihak1.replace(/_KONTEN_/g,`<br>${p1hak}<br>${p1kewajiban}`)
-        let p2hak=this.drawContent("Usulan Hak","","card-primary","kedua","hak",'hp2');
-        let p2kwj=this.drawContent("Usulan Kewajiban","","card-primary","kedua","kewajiban",'kp2');
-        let p2 = pihak2.replace(/_KONTEN_/g,`<br>${p2hak}<br>${p2kwj}`)
+    async draw(pihak1=``,pihak2=``){
+        let p1hak       = this.drawContent("Usulan Hak","","card-primary","pertama","hak",'hp1')
+        let p1kewajiban = this.drawContent("Usulan Kewajiban","","card-primary","pertama","kewajiban",'kp1')
+        let p1          = pihak1.replace(/_KONTEN_/g,`<br>${p1hak}<br>${p1kewajiban}`)
+        let p2hak       = this.drawContent("Usulan Hak","","card-primary","kedua","hak",'hp2');
+        let p2kwj       = this.drawContent("Usulan Kewajiban","","card-primary","kedua","kewajiban",'kp2');
+        let p2          = pihak2.replace(/_KONTEN_/g,`<br>${p2hak}<br>${p2kwj}`)
 
         $("#hdk1").html(p1);
         $("#hdk2").html(p2);
-
+        await this.disbtn();
+    }
+    createUrl(){
+        this.url ={
+            cekdok:()=>{
+                const {dokumen:{lengkap:cekdok}}=window.myUrl;
+                return cekdok.replace(/(_cekdok_)/g,this.dok_id);
+            }
+        } 
+    }
+    async disbtn(){
+        this.createUrl();
+        const ajax = new MyAjax(this.url.cekdok());
+        const result = await ajax.get(this.url.cekdok());
+        console.log(result);
+        const {data:{dokumen:{status:status_doc}}} = result;
+        if(status_doc!=='3'){
+            
+            $('button[name="bt-simpan"]').hide();
+            $('div[name="foter"]').hide();
+        }else{
+            
+            $('button[name="bt-simpan"]').show();
+            $('div[name="foter"]').show();
+        }
     }
     async hapus(id){
         let model={

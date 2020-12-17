@@ -23,17 +23,18 @@ class CreateDocumentsTable extends Migration
             
             $table->longtext('ketentuan_umum');
             $table->longtext('pelaksanaan');
-            $table->enum('status',['0','1','2','3','4','5','6','7','8','9'])->comment("
+            $table->enum('status',['0','1','2','3','4','5','6','7','8','9','99'])->comment("
                 0:registrasi
                 1:penomoran
                 2:proses kasubag
                 3:kasubag berinteraksi dengan client
                 4:mencapai kesepakatan antar kasubag dan client
                 5:diteruskan ke bagian hukum
-                6:siap dirapatkan
-                7:siap ditanda tangani
-                8:selesai
-                9:dokumen ditolak
+                6:diteruskan kembali ke kasubag
+                7:pembuatan agenda rapat
+                8:siap ditanda tangani
+                9:selesai
+                99:dokumen ditolak
 
             ");
 

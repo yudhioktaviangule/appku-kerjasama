@@ -223,6 +223,10 @@
   <input type="hidden" name="_method" value="delete">
   <auth></auth>
 </form>
+<form style='display:none' action="" id="hidden-form" method="POST">
+    <auth></auth>
+    <input type="hidden" name='valJSON'>
+</form>
 @php 
     $token = md5(Auth::id());
 @endphp
@@ -233,10 +237,13 @@
 <!-- REQUIRED SCRIPTS -->
 
 <script src="{{asset('dist/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('dist/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('dist/plugins/moment/moment-with-locales.min.js')}}"></script>
 <script src="{{asset('dist/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('dist/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('dist/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script src="{{asset('dist/select2/dist/js/select2.full.js')}}"></script>
+<script src="{{asset('dist/plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js')}}"></script>
 
 <script src="{{asset('dist/plugins/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>

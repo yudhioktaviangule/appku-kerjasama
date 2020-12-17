@@ -70901,13 +70901,9 @@ var HakDanKewajiban = /*#__PURE__*/function () {
 
                         case 2:
                           Object(_scripts_FormInputDisable__WEBPACK_IMPORTED_MODULE_5__["default"])();
-                          _context2.next = 5;
-                          return get;
-
-                        case 5:
                           return _context2.abrupt("return", null);
 
-                        case 6:
+                        case 4:
                         case "end":
                           return _context2.stop();
                       }
@@ -70983,45 +70979,128 @@ var HakDanKewajiban = /*#__PURE__*/function () {
     }()
   }, {
     key: "draw",
-    value: function draw() {
-      var pihak1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-      var pihak2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-      var p1hak = this.drawContent("Usulan Hak", "", "card-primary", "pertama", "hak", 'hp1');
-      var p1kewajiban = this.drawContent("Usulan Kewajiban", "", "card-primary", "pertama", "kewajiban", 'kp1');
-      var p1 = pihak1.replace(/_KONTEN_/g, "<br>".concat(p1hak, "<br>").concat(p1kewajiban));
-      var p2hak = this.drawContent("Usulan Hak", "", "card-primary", "kedua", "hak", 'hp2');
-      var p2kwj = this.drawContent("Usulan Kewajiban", "", "card-primary", "kedua", "kewajiban", 'kp2');
-      var p2 = pihak2.replace(/_KONTEN_/g, "<br>".concat(p2hak, "<br>").concat(p2kwj));
-      $("#hdk1").html(p1);
-      $("#hdk2").html(p2);
+    value: function () {
+      var _draw = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var pihak1,
+            pihak2,
+            p1hak,
+            p1kewajiban,
+            p1,
+            p2hak,
+            p2kwj,
+            p2,
+            _args5 = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                pihak1 = _args5.length > 0 && _args5[0] !== undefined ? _args5[0] : "";
+                pihak2 = _args5.length > 1 && _args5[1] !== undefined ? _args5[1] : "";
+                p1hak = this.drawContent("Usulan Hak", "", "card-primary", "pertama", "hak", 'hp1');
+                p1kewajiban = this.drawContent("Usulan Kewajiban", "", "card-primary", "pertama", "kewajiban", 'kp1');
+                p1 = pihak1.replace(/_KONTEN_/g, "<br>".concat(p1hak, "<br>").concat(p1kewajiban));
+                p2hak = this.drawContent("Usulan Hak", "", "card-primary", "kedua", "hak", 'hp2');
+                p2kwj = this.drawContent("Usulan Kewajiban", "", "card-primary", "kedua", "kewajiban", 'kp2');
+                p2 = pihak2.replace(/_KONTEN_/g, "<br>".concat(p2hak, "<br>").concat(p2kwj));
+                $("#hdk1").html(p1);
+                $("#hdk2").html(p2);
+                _context5.next = 12;
+                return this.disbtn();
+
+              case 12:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this);
+      }));
+
+      function draw() {
+        return _draw.apply(this, arguments);
+      }
+
+      return draw;
+    }()
+  }, {
+    key: "createUrl",
+    value: function createUrl() {
+      var _this2 = this;
+
+      this.url = {
+        cekdok: function cekdok() {
+          var cekdok = window.myUrl.dokumen.lengkap;
+          return cekdok.replace(/(_cekdok_)/g, _this2.dok_id);
+        }
+      };
     }
   }, {
-    key: "hapus",
+    key: "disbtn",
     value: function () {
-      var _hapus = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(id) {
-        var _this2 = this;
-
-        var model, pesan;
+      var _disbtn = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var ajax, result, status_doc;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
+              case 0:
+                this.createUrl();
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"](this.url.cekdok());
+                _context6.next = 4;
+                return ajax.get(this.url.cekdok());
+
+              case 4:
+                result = _context6.sent;
+                console.log(result);
+                status_doc = result.data.dokumen.status;
+
+                if (status_doc !== '3') {
+                  $('button[name="bt-simpan"]').hide();
+                  $('div[name="foter"]').hide();
+                } else {
+                  $('button[name="bt-simpan"]').show();
+                  $('div[name="foter"]').show();
+                }
+
+              case 8:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function disbtn() {
+        return _disbtn.apply(this, arguments);
+      }
+
+      return disbtn;
+    }()
+  }, {
+    key: "hapus",
+    value: function () {
+      var _hapus = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(id) {
+        var _this3 = this;
+
+        var model, pesan;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
               case 0:
                 model = {
                   _method: "delete",
                   _token: $("input[name='_token']").val()
                 };
                 pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__["default"]();
-                pesan.swalYesNo("Ingin Menghapus Data?", "HAPUS ITEM", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+                pesan.swalYesNo("Ingin Menghapus Data?", "HAPUS ITEM", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
                   var url_tmp, url, ajax;
-                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
                     while (1) {
-                      switch (_context5.prev = _context5.next) {
+                      switch (_context7.prev = _context7.next) {
                         case 0:
-                          _context5.prev = 0;
+                          _context7.prev = 0;
                           url_tmp = window.myUrl.hdank["delete"];
                           url = url_tmp.replace(/(_HAKAPI_)/g, id);
                           ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"](url);
-                          _context5.next = 6;
+                          _context7.next = 6;
                           return ajax.send(model);
 
                         case 6:
@@ -71029,32 +71108,32 @@ var HakDanKewajiban = /*#__PURE__*/function () {
                             return null;
                           }, 'success');
 
-                          _this2.process();
+                          _this3.process();
 
-                          _context5.next = 13;
+                          _context7.next = 13;
                           break;
 
                         case 10:
-                          _context5.prev = 10;
-                          _context5.t0 = _context5["catch"](0);
+                          _context7.prev = 10;
+                          _context7.t0 = _context7["catch"](0);
                           pesan.swAlert("Gagal Menghapus data", "Galat", function () {
                             return null;
                           }, 'error');
 
                         case 13:
                         case "end":
-                          return _context5.stop();
+                          return _context7.stop();
                       }
                     }
-                  }, _callee5, null, [[0, 10]]);
+                  }, _callee7, null, [[0, 10]]);
                 })));
 
               case 3:
               case "end":
-                return _context6.stop();
+                return _context8.stop();
             }
           }
-        }, _callee6);
+        }, _callee8);
       }));
 
       function hapus(_x) {
@@ -71066,12 +71145,12 @@ var HakDanKewajiban = /*#__PURE__*/function () {
   }, {
     key: "save",
     value: function () {
-      var _save = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(value, jenis, pihak) {
+      var _save = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9(value, jenis, pihak) {
         var pesan, model, url_tmp, url, ajax, _yield$ajax$send, bodyPesan, head, ikon;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context9) {
           while (1) {
-            switch (_context7.prev = _context7.next) {
+            switch (_context9.prev = _context9.next) {
               case 0:
                 pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_4__["default"]();
                 model = {
@@ -71081,15 +71160,15 @@ var HakDanKewajiban = /*#__PURE__*/function () {
                   jenis: jenis,
                   _token: $("input[name='_token']").val()
                 };
-                _context7.prev = 2;
+                _context9.prev = 2;
                 url_tmp = window.myUrl.hdank.store;
                 url = url_tmp;
                 ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"](url);
-                _context7.next = 8;
+                _context9.next = 8;
                 return ajax.send(model);
 
               case 8:
-                _yield$ajax$send = _context7.sent;
+                _yield$ajax$send = _context9.sent;
                 bodyPesan = _yield$ajax$send.message;
                 head = _yield$ajax$send.title;
                 ikon = _yield$ajax$send.icon;
@@ -71097,23 +71176,23 @@ var HakDanKewajiban = /*#__PURE__*/function () {
                   return null;
                 }, ikon);
                 this.process();
-                _context7.next = 20;
+                _context9.next = 20;
                 break;
 
               case 16:
-                _context7.prev = 16;
-                _context7.t0 = _context7["catch"](2);
+                _context9.prev = 16;
+                _context9.t0 = _context9["catch"](2);
                 pesan.swAlert("Gagal Menyimpan data", "Galat", function () {
                   return null;
                 }, 'error');
-                console.log(_context7.t0);
+                console.log(_context9.t0);
 
               case 20:
               case "end":
-                return _context7.stop();
+                return _context9.stop();
             }
           }
-        }, _callee7, this, [[2, 16]]);
+        }, _callee9, this, [[2, 16]]);
       }));
 
       function save(_x2, _x3, _x4) {
@@ -71613,9 +71692,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemListFormat", function() { return ItemListFormat; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemContent", function() { return ItemContent; });
 var ListFormat = "\n<div class=\"card _CLASS_ \">\n\t<div class=\"card-header _WARNA_\">\n\t\t<h3 class=\"card-title\">_JUDUL_</h3>\n\t\t<div class=\"card-tools\">\n\t\t\t<button type=\"button\" class=\"btn btn-tool\" data-card-widget=\"collapse\">\n\t\t\t\t<i class=\"fas fa-minus\"></i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\t\n\t<div class=\"card-body p-0\">\n\t\t<div class=\"container-fluid\">\n            _KONTEN_\n        </div>\n    </div>\n    _FOOTER_\n</div>\n\n\n\n";
-var CARD_FOOTER_FMT = "\n<div class=\"card-footer\">\n\t\t<div class=\"input-group\">\n\t\t\t<input type=\"text\"   id='_IDOBJECT_' placeholder='_PLACEHOLDER_' class=\"form-control\">\n\t\t\t<span class=\"input-group-append\">\n\t\t\t\t<a href=\"#\" onclick=\"_FNC_\" class=\"btn btn-success\">_BTNCAPS_</a>\n\t\t\t</span>\n\t\t</div>                \n\t</div>\n\n";
+var CARD_FOOTER_FMT = "\n<div name='foter' class=\"card-footer\">\n\t\t<div class=\"input-group\">\n\t\t\t<input type=\"text\"   id='_IDOBJECT_' placeholder='_PLACEHOLDER_' class=\"form-control\">\n\t\t\t<span class=\"input-group-append\">\n\t\t\t\t<a href=\"#\" onclick=\"_FNC_\" class=\"btn btn-success\">_BTNCAPS_</a>\n\t\t\t</span>\n\t\t</div>                \n\t</div>\n\n";
 var ItemListFormat = "\n        <ul class=\"products-list product-list-in-card pl-2 pr-2\">\n            _KONTEN_\n        </ul>\n";
-var ItemContent = "\n<li class=\"item\">\n                    <div class='container-fluid'>\n                        <div class='row justify-content-between'>\n                            \n                            <span class=\"product-description\" \n                                style='width:90%;\n                                        white-space:normal;\n                                        overflow-wrap: break-word;\n                                        \n                                        '>\n                                <span class='flex-row justify-content-between align-items-start' >\n                                    <span class='p-0' >_NOMOR_.</span>\n                                    <span class='p-8' style='text-align:justify;'>\n                                        _NILAI_\n                                    </span>\n                                </span>\n                            </span>\n                            <button type='button' onclick='_FNC_' aria-label='Close' class='close text-danger _ISFADE_' href='#'>\n                                <span aria-hidden='true'>\n                                <strong>&times;</strong>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n\t\t\t    </li> \n";
+var ItemContent = "\n<li class=\"item\">\n                    <div class='container-fluid'>\n                        <div class='row justify-content-between'>\n                            \n                            <span class=\"product-description\" \n                                style='width:90%;\n                                        white-space:normal;\n                                        overflow-wrap: break-word;\n                                        \n                                        '>\n                                <span class='flex-row justify-content-between align-items-start' >\n                                    <span class='p-0' >_NOMOR_.</span>\n                                    <span class='p-8' style='text-align:justify;'>\n                                        _NILAI_\n                                    </span>\n                                </span>\n                            </span>\n                            <button name='bt-simpan' type='button' onclick='_FNC_' aria-label='Close' class='close text-danger _ISFADE_' href='#'>\n                                <span aria-hidden='true'>\n                                <strong>&times;</strong>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n\t\t\t    </li> \n";
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/formats/forms/format.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/pages/formats/forms/format.js ***!
+  \***************************************************************/
+/*! exports provided: BS4_INPUT_FORMAT, TEMPUS_DATE_TIME */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BS4_INPUT_FORMAT", function() { return BS4_INPUT_FORMAT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TEMPUS_DATE_TIME", function() { return TEMPUS_DATE_TIME; });
+var BS4_INPUT_FORMAT = "<div class='form-group'>\n    <label for=\"_NAME_\">_CAPTION_</label>\n    <input onchange=\"_FINCTION_\" type=\"_TYPE_\" class='form-control form-control-sm' name='_NAME_' id='_NAME_'>\n</div>";
+var TEMPUS_DATE_TIME = "\n    <div class='form-group'>\n    \n        <label>\n            _CAPTION_\n        </label>\n        <div class=\"input-group date\" id=\"_TIMEPICKID_\" data-target-input=\"nearest\">\n            <input readonly name=\"_TIMEPICKID_\" type=\"text\" class=\"form-control datetimepicker-input\" data-target=\"#_TIMEPICKID_\"/>\n            <div class=\"input-group-append bg-primary\" data-target=\"#_TIMEPICKID_\" data-toggle=\"datetimepicker\">\n                <div class=\"input-group-text\"><i class=\"far _ICON_\"></i></div>\n                </div>\n            </div>\n            <!-- /.input group -->\n        </div>\n    </div\n";
 
 /***/ }),
 
@@ -71630,6 +71725,26 @@ var ItemContent = "\n<li class=\"item\">\n                    <div class='contai
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Selects", function() { return Selects; });
 var Selects = "\n    <div class='form-group'>\n        <label for='_OBJECTID_'>_CAPTION_</label>\n        <select class='form-control' id='_OBJECTID_' name='_OBJECTID_' onchange='_FUNGSI_'>\n            _DATA_\n        </select>\n    </div>\n\n";
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/hukum/Hukum.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/pages/hukum/Hukum.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Hukum; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Hukum = function Hukum() {
+  _classCallCheck(this, Hukum);
+};
+
+
 
 /***/ }),
 
@@ -71839,6 +71954,103 @@ var Walikota = /*#__PURE__*/function () {
   }]);
 
   return Walikota;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/kasubag_root/dokumen/AgendaRapat.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/dokumen/AgendaRapat.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AgendaRapat; });
+/* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _scripts_Tempus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../scripts/Tempus */ "./resources/js/scripts/Tempus.js");
+/* harmony import */ var _formats_forms_format__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../formats/forms/format */ "./resources/js/components/pages/formats/forms/format.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var AgendaRapat = /*#__PURE__*/function () {
+  function AgendaRapat() {
+    _classCallCheck(this, AgendaRapat);
+
+    _defineProperty(this, "id", void 0);
+  }
+
+  _createClass(AgendaRapat, [{
+    key: "init",
+    value: function init() {
+      $(".card-footer").hide();
+    }
+  }, {
+    key: "createAgenda",
+    value: function createAgenda(dokumen_id) {
+      this.id = dokumen_id;
+      var tempus = new _scripts_Tempus__WEBPACK_IMPORTED_MODULE_1__["default"]();
+      var tanggal = _formats_forms_format__WEBPACK_IMPORTED_MODULE_2__["TEMPUS_DATE_TIME"].replace(/_TIMEPICKID_|_CAPTION_|_ICON_/gi, function (match) {
+        var obj = {
+          _TIMEPICKID_: "tanggal",
+          _CAPTION_: "Tanggal Rapat",
+          _ICON_: "fa-calendar"
+        };
+        return obj[match];
+      });
+      var waktu = _formats_forms_format__WEBPACK_IMPORTED_MODULE_2__["TEMPUS_DATE_TIME"].replace(/_ICON_|_TIMEPICKID_|_CAPTION_/gi, function (match) {
+        var obj = {
+          _TIMEPICKID_: "waktu",
+          _CAPTION_: "Waktu Rapat",
+          _ICON_: "fa-clock"
+        };
+        return obj[match];
+      });
+      var tempat = _formats_forms_format__WEBPACK_IMPORTED_MODULE_2__["BS4_INPUT_FORMAT"].replace(/_FINCTION_|_NAME_|_CAPTION_/gi, function (match) {
+        var obj = {
+          _NAME_: "tempat",
+          _CAPTION_: "Tempat",
+          _FINCTION_: ""
+        };
+        return obj[match];
+      });
+      var html = "\n            ".concat(tempat, "\n            ").concat(tanggal, "\n            ").concat(waktu, "\n        ");
+      $("#agenda-wrapper").html(html);
+      tempus.timePick($("#waktu"), "HH:mm");
+      tempus.timePick($("#tanggal"), "YYYY-MM-DD");
+      $(".card-footer").toggle('show');
+      $("#btn-agenda").toggle('hide');
+    }
+  }, {
+    key: "save",
+    value: function save() {
+      var model = {
+        tanggal: $("[name='tanggal']").val(),
+        waktu: $("[name='waktu']").val() + ":00",
+        tempat: $("#tempat").val(),
+        document_id: this.id
+      };
+      var form = $("#hidden-form");
+      model = JSON.stringify(model);
+      $("[name='valJSON']").val(model);
+      form.attr("action", window.myUrl.agenda.store);
+      form.submit();
+    }
+  }]);
+
+  return AgendaRapat;
 }();
 
 
@@ -72149,14 +72361,11 @@ var HakDanKewajiban = /*#__PURE__*/function () {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.init(id, 'requery by id = ' + id);
-
-              case 1:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee);
       }));
 
       function requery(_x) {
@@ -72169,7 +72378,7 @@ var HakDanKewajiban = /*#__PURE__*/function () {
     key: "disableButton",
     value: function () {
       var _disableButton = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
-        var ajax, _yield$ajax$get, status_doc;
+        var ajax, _yield$ajax$get, status_doc, show;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
@@ -72183,16 +72392,21 @@ var HakDanKewajiban = /*#__PURE__*/function () {
               case 4:
                 _yield$ajax$get = _context2.sent;
                 status_doc = _yield$ajax$get.data.dokumen.status;
+                show = ['#btn-terusan', '#btn-refresh'];
 
-                if (status_doc === '4') {
+                if (parseInt(status_doc) == 4) {
                   $("#btn-terusan").show(500);
                   $("#btn-refresh").hide(500);
+                  $('[name="bt-simpan"]').hide();
+                  $('[name="foter"]').hide();
                 } else {
                   $("#btn-refresh").show(500);
                   $("#btn-terusan").hide(500);
+                  $('[name="bt-simpan"]').show();
+                  $('[name="foter"]').show();
                 }
 
-              case 7:
+              case 8:
               case "end":
                 return _context2.stop();
             }
@@ -72222,21 +72436,21 @@ var HakDanKewajiban = /*#__PURE__*/function () {
             switch (_context3.prev = _context3.next) {
               case 0:
                 from = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : 'init';
-                this.disableButton(document_id);
                 this.ddocument_id = document_id;
                 this.createUrl(document_id);
                 url = this.url.list();
                 mAjax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"]();
-                _context3.next = 8;
+                _context3.next = 7;
                 return mAjax.get(url);
 
-              case 8:
+              case 7:
                 _yield$mAjax$get = _context3.sent;
                 data = _yield$mAjax$get.data;
                 this.list = data;
                 this.p1 = this.createWrapperContent("pertama");
                 this.p2 = this.createWrapperContent("kedua");
                 this.renderData();
+                this.disableButton(document_id);
 
               case 14:
               case "end":
@@ -72514,6 +72728,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Kasubag; });
 /* harmony import */ var _dokumen_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dokumen/DataTable */ "./resources/js/components/pages/kasubag_root/dokumen/DataTable.js");
 /* harmony import */ var _dokumen_Negosiasi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dokumen/Negosiasi */ "./resources/js/components/pages/kasubag_root/dokumen/Negosiasi.js");
+/* harmony import */ var _hukum_Hukum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hukum/Hukum */ "./resources/js/components/pages/hukum/Hukum.js");
+/* harmony import */ var _dokumen_AgendaRapat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dokumen/AgendaRapat */ "./resources/js/components/pages/kasubag_root/dokumen/AgendaRapat.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -72521,6 +72737,8 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -72540,6 +72758,8 @@ var Kasubag = /*#__PURE__*/function () {
       this.id = kasubag_id;
       this.dataTable = new _dokumen_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]();
       this.nego = new _dokumen_Negosiasi__WEBPACK_IMPORTED_MODULE_1__["default"]();
+      this.hakAccessHukum = new _hukum_Hukum__WEBPACK_IMPORTED_MODULE_2__["default"]();
+      this.agenda = new _dokumen_AgendaRapat__WEBPACK_IMPORTED_MODULE_3__["default"]();
     }
   }]);
 
@@ -73700,6 +73920,44 @@ var SelectDua = /*#__PURE__*/function () {
 
   return SelectDua;
 }();
+
+/***/ }),
+
+/***/ "./resources/js/scripts/Tempus.js":
+/*!****************************************!*\
+  !*** ./resources/js/scripts/Tempus.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TempusDominusBS; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var TempusDominusBS = /*#__PURE__*/function () {
+  function TempusDominusBS() {
+    _classCallCheck(this, TempusDominusBS);
+  }
+
+  _createClass(TempusDominusBS, [{
+    key: "timePick",
+    value: function timePick(obj) {
+      var formatx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'HH:mm';
+      obj.datetimepicker({
+        format: formatx
+      });
+    }
+  }]);
+
+  return TempusDominusBS;
+}();
+
+
 
 /***/ }),
 

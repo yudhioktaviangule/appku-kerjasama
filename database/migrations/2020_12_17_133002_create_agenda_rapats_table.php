@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDocumentMeetsTable extends Migration
+class CreateAgendaRapatsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateDocumentMeetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('document_meets', function (Blueprint $table) {
+        Schema::create('agenda_rapats', function (Blueprint $table) {
             $table->id();
+            $table->integer('document_id');
+            $table->string('tempat');
+            $table->timestamp('tanggal_rapat');
+            
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateDocumentMeetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('document_meets');
+        Schema::dropIfExists('agenda_rapats');
     }
 }

@@ -17,7 +17,13 @@ class HdanKApi extends Controller{
     public function index(){
         $request = $this->request; 
         $document_id = $request->doc==NULL?'':$request->doc;
-        $data = HdanK::where('document_id',$document_id)->whereIn("deleted",["0","2","1"])->get();
+        $gdata = Document::where("id",$document_id)->first();
+        if(intval($gdata->status)>3){
+            $data = HdanK::where('document_id',$document_id)->whereIn("deleted",["0","1"]);
+        }else{
+            $data = HdanK::where('document_id',$document_id)->whereIn("deleted",["0","2","1"]);
+        }
+        $data = $data->get();
         return response()->json([
             'post'=>$request->input(),
             'data'=>$data

@@ -8,6 +8,12 @@ use App\Http\Controllers\Web\Master\PejabatController;
 use App\Http\Controllers\Web\RestrictController;
 use App\Http\Controllers\Web\Kerjasama\DokumenController;
 use App\Http\Controllers\Web\Operator\Dokumen\DashboardController as OperatorDashboard;
+use App\Http\Controllers\Web\Client\HdankController as ClientHdank;
+use App\Http\Controllers\Web\Kasubag\HdankController as KsbHdank;
+use App\Http\Controllers\Web\Kasubag\AgendaRapatController as KsbAgendaRapat;
+use App\Http\Controllers\Web\Kasubag\SiapDitandatanganiController as KsbTTD;
+
+use App\Http\Controllers\Web\BagHukum\DokumenController as BagHukumDokumen;
 
 
 Route::get('/', function () {
@@ -25,6 +31,13 @@ Route::group(['prefix'=>"master"],function(){
 
 Route::group(['prefix'=>"kerjasama"],function(){
     Route::resource('dokumen',DokumenController::class);
+    Route::resource('clhdank',ClientHdank::class);
+
+    Route::resource('ksbhdankweb',KsbHdank::class);
+    Route::resource('agenda',KsbAgendaRapat::class);
+    Route::resource('ttd',KsbTTD::class);
+    
+    Route::resource('hkmdocweb',BagHukumDokumen::class);
     
 });
 
