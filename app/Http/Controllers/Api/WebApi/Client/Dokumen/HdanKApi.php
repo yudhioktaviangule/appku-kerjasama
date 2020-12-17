@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\WebApi\Client\Dokumen;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Hakdankewajiban AS HdanK;
+use App\Models\Document;
 
 class HdanKApi extends Controller{
     private $request;
@@ -24,7 +25,10 @@ class HdanKApi extends Controller{
     }
     public function create(){
         $request = $this->request; 
-        return response()->view('pages.hak_dan_kewajiban.api.add');
+        $id = $request->doc==NULL?"":$request->doc;
+        $dokumen = Document::where("id",$id)->first();
+
+        return response()->view('pages.hak_dan_kewajiban.api.add',compact("dokumen"));
     }
     public function show($id=''){
         $request = $this->request; 

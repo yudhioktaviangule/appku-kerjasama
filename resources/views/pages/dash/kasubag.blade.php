@@ -115,17 +115,27 @@
             window.myUrl = {
                 dash:{
                     dataTable:`{{ route('ksbdoc.index') }}`,
+                    cekdok:`{{route('cekdok.show',['cekdok'=>'_cekdok_'])}}`,
                 },
                 negosiasi:{
                     "create":`{{ route('ksbnego.create') }}?doc=_DOC_`,
                     "store":`{{ route('ksbnego.store') }}?doc=_DOC_`,
+                    "update":`{{ route('ksbnego.update',['ksbnego'=>'_DOC_']) }}`,
                 },
+                hdank:{
+                    'get':"{{ route('ksbhdank.show',['ksbhdank'=>'_hdank_']) }}",
+                    'store':"{{route('ksbhdank.store')}}",
+                    'delete':"{{route('ksbhdank.destroy',['ksbhdank'=>'_hdank_'])}}",
+                },
+                
             };
             window.kasubag = window.APP.kasubag;
             window.kasubag.init({{Auth::id()}});
             window.dt      = kasubag.dataTable; 
             window.nego    = kasubag.nego;
             window.dt.init({{ Auth::id() }})
+            
+
 
         });
     </script>

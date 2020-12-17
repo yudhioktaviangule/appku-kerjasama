@@ -17,8 +17,8 @@ class NegosiasiUserApi extends Controller{
     }
     public function create(){
         $request = $this->request;
-        $id = $request->doc==NULL?'':$request->doc;
-        $data = Document::where("id",$id)->first();
+        $id      = $request->doc == NULL?'': $request->doc;
+        $data    = Document::where("id",$id)->first();
         return response()->view('pages.kasubag.nego',compact('data'));
     }
     public function show($id=''){
@@ -31,7 +31,22 @@ class NegosiasiUserApi extends Controller{
         $request = $this->request; 
     }
     public function update($id=''){
-        $request = $this->request; 
+        try{
+            $request = $this->request; 
+            $post = $request->only('status');
+            $data = Document::where('id',$id);
+            $cek = $data->first();
+            if($cek===NULL):
+                return response()->json(['message'=>"Dokumen Gagal Diteruskan","isError"=>true,'detail'=>"Data Tidak Ditemukan"]);
+            endif;
+            Document::update($post);
+            return response()->json(['message'=>"Dokumen Berhasil Diteruskan, Data Tidak ditemukan","isError"=>false]);
+            
+        }catch(\Exception $e){
+            return response()->json(['message'=>"Dokumen Berhasil Diteruskan, Data Tidak ditemukan","isError"=>false,'detail'=>$e]);
+
+        }
+
     }
     public function destroy($id=''){
         #code

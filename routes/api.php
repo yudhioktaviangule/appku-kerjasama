@@ -17,7 +17,9 @@ use App\Http\Controllers\Api\WebApi\Operator\Dokumen\DokumenApi as OpDokumen;
 use App\Http\Controllers\Api\WebApi\Operator\Dokumen\TeruskanKasubagApi as OpTeruskanKasubag;
 
 use App\Http\Controllers\Api\WebApi\Kasubag\Dokumen\DokumenApi as KsbDokumen;
+use App\Http\Controllers\Api\WebApi\Kasubag\Dokumen\HdanKApi as KsbHdank;
 use App\Http\Controllers\Api\WebApi\Kasubag\Aksi\NegosiasiUserApi as KsbNego;
+use App\Http\Controllers\Api\WebApi\DokumenLengkapApi as DokumenData;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -47,9 +49,13 @@ Route::group(['prefix'=>"operator"],function(){
     Route::resource('optokasubag',OpTeruskanKasubag::class);
 });
 Route::group(['prefix'=>"kasubag"],function(){
-    
     Route::resource('ksbdoc',KsbDokumen::class);
     Route::resource('ksbnego',KsbNego::class);
+    Route::resource('ksbhdank',KsbHdank::class);
+    
+});
+Route::group(['prefix'=>"dokumen-data"],function(){
+    Route::resource('cekdok',DokumenData::class);
     
 });
 

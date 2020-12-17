@@ -70901,9 +70901,13 @@ var HakDanKewajiban = /*#__PURE__*/function () {
 
                         case 2:
                           Object(_scripts_FormInputDisable__WEBPACK_IMPORTED_MODULE_5__["default"])();
+                          _context2.next = 5;
+                          return get;
+
+                        case 5:
                           return _context2.abrupt("return", null);
 
-                        case 4:
+                        case 6:
                         case "end":
                           return _context2.stop();
                       }
@@ -71925,6 +71929,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _scripts_Modals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../scripts/Modals */ "./resources/js/scripts/Modals.js");
+/* harmony import */ var _nego_component_HakDanKewajiban__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./nego_component/HakDanKewajiban */ "./resources/js/components/pages/kasubag_root/dokumen/nego_component/HakDanKewajiban.js");
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -71942,11 +71948,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var Negosiasi = /*#__PURE__*/function () {
   function Negosiasi() {
     _classCallCheck(this, Negosiasi);
 
     _defineProperty(this, "id", void 0);
+
+    _defineProperty(this, "hdank", void 0);
   }
 
   _createClass(Negosiasi, [{
@@ -71955,6 +71965,7 @@ var Negosiasi = /*#__PURE__*/function () {
       var _this = this;
 
       this.id = document_id;
+      this.hdank = new _nego_component_HakDanKewajiban__WEBPACK_IMPORTED_MODULE_3__["default"]();
       this.url = {
         get: function get() {
           var url_tmp = window.myUrl.negosiasi.create;
@@ -72000,9 +72011,491 @@ var Negosiasi = /*#__PURE__*/function () {
 
       return openModals;
     }()
+  }, {
+    key: "teruskanBagHukum",
+    value: function () {
+      var _teruskanBagHukum = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        var url, ajax, _yield$ajax$send, message, isError;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                url = function url() {
+                  var url_tmp = window.myUrl.negosiasi.update;
+                  var url = url_tmp.replace(/(_DOC_)/g, _this2.id);
+                  return url;
+                };
+
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_4__["default"](url());
+                _context2.next = 4;
+                return ajax.send({
+                  _token: $('[name="_token"]').val(),
+                  _method: "update",
+                  status: "5"
+                });
+
+              case 4:
+                _yield$ajax$send = _context2.sent;
+                message = _yield$ajax$send.message;
+                isError = _yield$ajax$send.isError;
+
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function teruskanBagHukum() {
+        return _teruskanBagHukum.apply(this, arguments);
+      }
+
+      return teruskanBagHukum;
+    }()
   }]);
 
   return Negosiasi;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/kasubag_root/dokumen/nego_component/HakDanKewajiban.js":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/pages/kasubag_root/dokumen/nego_component/HakDanKewajiban.js ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return HakDanKewajiban; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+/* harmony import */ var _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../formats/Lists/Lists */ "./resources/js/components/pages/formats/Lists/Lists.js");
+/* harmony import */ var _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../scripts/Alert */ "./resources/js/scripts/Alert.js");
+
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var HakDanKewajiban = /*#__PURE__*/function () {
+  function HakDanKewajiban() {
+    _classCallCheck(this, HakDanKewajiban);
+
+    _defineProperty(this, "list", []);
+
+    _defineProperty(this, "wrapperContent", "");
+
+    _defineProperty(this, "ddocument_id", '');
+  }
+
+  _createClass(HakDanKewajiban, [{
+    key: "createUrl",
+    value: function createUrl(id) {
+      this.url = {
+        list: function list() {
+          var url_tmp = window.myUrl.hdank.get;
+          return url_tmp.replace(/(_hdank_)/g, id);
+        },
+        store: function store() {
+          var url_tmp = window.myUrl.hdank.store;
+          return url_tmp;
+        },
+        "delete": function _delete(idx) {
+          var url_tmp = window.myUrl.hdank["delete"];
+          return url_tmp.replace(/(_hdank_)/g, idx);
+        },
+        cekdok: function cekdok() {
+          var url_tmp = window.myUrl.dash.cekdok;
+          return url_tmp.replace(/(_cekdok_)/g, id);
+        }
+      };
+    }
+  }, {
+    key: "requery",
+    value: function () {
+      var _requery = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.init(id, 'requery by id = ' + id);
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function requery(_x) {
+        return _requery.apply(this, arguments);
+      }
+
+      return requery;
+    }()
+  }, {
+    key: "disableButton",
+    value: function () {
+      var _disableButton = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+        var ajax, _yield$ajax$get, status_doc;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                this.createUrl(id);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](this.url.cekdok());
+                _context2.next = 4;
+                return ajax.get(this.url.cekdok());
+
+              case 4:
+                _yield$ajax$get = _context2.sent;
+                status_doc = _yield$ajax$get.data.dokumen.status;
+
+                if (status_doc === '4') {
+                  $("#btn-terusan").show(500);
+                  $("#btn-refresh").hide(500);
+                } else {
+                  $("#btn-refresh").show(500);
+                  $("#btn-terusan").hide(500);
+                }
+
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function disableButton(_x2) {
+        return _disableButton.apply(this, arguments);
+      }
+
+      return disableButton;
+    }()
+  }, {
+    key: "init",
+    value: function () {
+      var _init = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(document_id) {
+        var from,
+            url,
+            mAjax,
+            _yield$mAjax$get,
+            data,
+            _args3 = arguments;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                from = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : 'init';
+                this.disableButton(document_id);
+                this.ddocument_id = document_id;
+                this.createUrl(document_id);
+                url = this.url.list();
+                mAjax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"]();
+                _context3.next = 8;
+                return mAjax.get(url);
+
+              case 8:
+                _yield$mAjax$get = _context3.sent;
+                data = _yield$mAjax$get.data;
+                this.list = data;
+                this.p1 = this.createWrapperContent("pertama");
+                this.p2 = this.createWrapperContent("kedua");
+                this.renderData();
+
+              case 14:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function init(_x3) {
+        return _init.apply(this, arguments);
+      }
+
+      return init;
+    }()
+  }, {
+    key: "renderData",
+    value: function renderData() {
+      var html = "\n            <div class='container-fluid'>\n                <div class='row'>\n                    <div class='col-6'>\n                        ".concat(this.p1, "\n                    </div>\n                    <div class='col-6'>\n                        ").concat(this.p2, "\n                    </div>\n                </div>\n            </div>\n        ");
+      $("#hk-content").html(html);
+    }
+  }, {
+    key: "removeItem",
+    value: function () {
+      var _removeItem = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
+        var _this = this;
+
+        var url_del, model, hapus, pesan;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                url_del = this.url["delete"](id);
+                model = {
+                  _method: "delete",
+                  _token: $('[name="_token"]').val()
+                };
+                hapus = false;
+                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+                pesan.messageBebas({
+                  content: "Ingin Menghapus Secara Permanen?",
+                  title: 'Hapus Data',
+                  onConfirm: function onConfirm() {
+                    console.log('confirm');
+                    model = _objectSpread(_objectSpread({}, model), {}, {
+                      permanent: true
+                    });
+
+                    _this.execAjax(url_del, model);
+
+                    return null;
+                  },
+                  onDeny: function onDeny() {
+                    console.log('deny');
+
+                    _this.execAjax(url_del, model);
+
+                    return null;
+                  },
+                  onCancel: function onCancel() {
+                    console.log('cancel');
+                    return null;
+                  }
+                });
+
+              case 5:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function removeItem(_x4) {
+        return _removeItem.apply(this, arguments);
+      }
+
+      return removeItem;
+    }()
+  }, {
+    key: "execAjax",
+    value: function () {
+      var _execAjax = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(url_del, model) {
+        var _this2 = this;
+
+        var pesan, ajax, _yield$ajax$send, message, isError;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](url_del);
+                _context5.next = 4;
+                return ajax.send(model);
+
+              case 4:
+                _yield$ajax$send = _context5.sent;
+                message = _yield$ajax$send.message;
+                isError = _yield$ajax$send.isError;
+                pesan.swAlert(message, isError ? "GALAT" : "Berhasil", function () {
+                  _this2.init(_this2.ddocument_id);
+
+                  return null;
+                }, isError ? "error" : "success");
+
+              case 8:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }));
+
+      function execAjax(_x5, _x6) {
+        return _execAjax.apply(this, arguments);
+      }
+
+      return execAjax;
+    }()
+  }, {
+    key: "add",
+    value: function () {
+      var _add = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(value, jenis, pihak) {
+        var _this3 = this;
+
+        var pesan, model, ajax, _yield$ajax$send2, message, isError;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                pesan = new _scripts_Alert__WEBPACK_IMPORTED_MODULE_3__["default"]();
+
+                if (!(value === '')) {
+                  _context6.next = 4;
+                  break;
+                }
+
+                pesan.swAlert("Maaf Tidak bisa Menambahkan data. isian masih kosong", 'Galat', function () {
+                  return null;
+                }, 'error');
+                return _context6.abrupt("return", null);
+
+              case 4:
+                model = {
+                  document_id: this.ddocument_id,
+                  nilai: value,
+                  jenis: jenis,
+                  pihak: pihak,
+                  _token: $('[name="_token"]').val()
+                };
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_1__["default"](this.url.store());
+                _context6.next = 8;
+                return ajax.send(model);
+
+              case 8:
+                _yield$ajax$send2 = _context6.sent;
+                message = _yield$ajax$send2.message;
+                isError = _yield$ajax$send2.isError;
+                pesan.swAlert(message, isError ? "GALAT" : "Berhasil", function () {
+                  _this3.init(_this3.ddocument_id);
+
+                  return null;
+                }, isError ? "error" : "success");
+
+              case 12:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function add(_x7, _x8, _x9) {
+        return _add.apply(this, arguments);
+      }
+
+      return add;
+    }()
+  }, {
+    key: "createWrapperContent",
+    value: function createWrapperContent() {
+      var _this4 = this;
+
+      var pihak = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'pertama';
+      var fWrapper = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["ListFormat"].replace(/(_KONTEN_|_CLASS_|_JUDUL_|_WARNA_|_FOOTER_)/gi, function (mtch) {
+        var sWrap = function sWrap(iPihak, jenis, kode) {
+          var WRAP_TOP = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["ListFormat"].replace(/(_KONTEN_|_CLASS_|_JUDUL_|_WARNA_|_FOOTER_)/gi, function (mtch22) {
+            var listWrapper = _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["ItemListFormat"].replace(/(_KONTEN_)/g, function () {
+              var html = "";
+              var i = 1;
+
+              var _iterator = _createForOfIteratorHelper(_this4.list),
+                  _step;
+
+              try {
+                var _loop = function _loop() {
+                  var l = _step.value;
+
+                  if (l.pihak.toUpperCase() === iPihak.toUpperCase() && jenis === l.jenis) {
+                    html += _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["ItemContent"].replace(/(_NOMOR_|_NILAI_|_FNC_|_ISFADE_)/gi, function (mtcdetcontent) {
+                      var objdetContent = {
+                        _NOMOR_: i,
+                        _NILAI_: l.deleted === '2' ? "<strike>".concat(l.nilai, "</strike> <i class='text-danger'>Dihapus oleh Kasubag</i>") : l.nilai,
+                        _FNC_: "window.nego.hdank.removeItem(".concat(l.id, ")"),
+                        _ISFADE_: ''
+                      };
+                      return objdetContent[mtcdetcontent];
+                    });
+                    i++;
+                  }
+                };
+
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                  _loop();
+                }
+              } catch (err) {
+                _iterator.e(err);
+              } finally {
+                _iterator.f();
+              }
+
+              return html;
+            });
+            var ovjxx = {
+              _CLASS_: "",
+              _JUDUL_: "USULAN ".concat(jenis.toUpperCase()),
+              _WARNA_: "bg-info",
+              _FOOTER_: _formats_Lists_Lists__WEBPACK_IMPORTED_MODULE_2__["CARD_FOOTER_FMT"].replace(/(_IDOBJECT_|_PLACEHOLDER_|_BTNCAPS_|_FNC_)/gi, function (ftmt) {
+                var obj = {
+                  _IDOBJECT_: "".concat(kode),
+                  _PLACEHOLDER_: "MASUKKAN ".concat(jenis.toUpperCase(), " PIHAK ").concat(iPihak.toUpperCase()),
+                  _BTNCAPS_: "KIRIM",
+                  _FNC_: "window.nego.hdank.add($('#" + kode + "').val(),'".concat(jenis, "','").concat(iPihak, "')")
+                };
+                return obj[ftmt];
+              }),
+              _KONTEN_: "".concat(listWrapper)
+            };
+            return ovjxx[mtch22];
+          });
+          return WRAP_TOP;
+        };
+
+        var ovj = {
+          _CLASS_: "",
+          _JUDUL_: "PIHAK ".concat(pihak.toUpperCase()),
+          _WARNA_: "bg-danger",
+          _FOOTER_: "",
+          _KONTEN_: "\n                <br>\n                <br>\n                <div class='container-fluid'>\n                    ".concat(sWrap(pihak, 'hak', "hk".concat(pihak)), "<br>\n                    ").concat(sWrap(pihak, 'kewajiban', "kw".concat(pihak)), "\n                </div>")
+        };
+        return ovj[mtch];
+      });
+      return fWrapper;
+    }
+  }]);
+
+  return HakDanKewajiban;
 }();
 
 
@@ -72741,6 +73234,40 @@ var Alert = /*#__PURE__*/function () {
       }).then(function (result) {
         if (result.isConfirmed) {
           onConfirm();
+        }
+      });
+    }
+  }, {
+    key: "messageBebas",
+    value: function messageBebas() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+        content: '',
+        title: '',
+        onConfirm: function onConfirm() {
+          return null;
+        },
+        onDeny: function onDeny() {
+          return null;
+        },
+        onCancel: function onCancel() {
+          return null;
+        }
+      };
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire({
+        text: options.content,
+        title: options.title,
+        confirmButtonText: "YA",
+        showDenyButton: true,
+        denyButtonText: "TIDAK",
+        showCancelButton: true,
+        cancelButtonText: "BATALKAN"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          options.onConfirm();
+        } else if (result.isDenied) {
+          options.onDeny();
+        } else {
+          options.onCancel();
         }
       });
     }

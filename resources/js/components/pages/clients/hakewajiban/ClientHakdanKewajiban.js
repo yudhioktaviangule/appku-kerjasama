@@ -21,6 +21,7 @@ export default class HakDanKewajiban{
         modal.openModal(async ()=>{
             await this.process();
             DisableEnter();
+            await get
             return null;
         },true)
     }

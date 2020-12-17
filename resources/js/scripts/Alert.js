@@ -19,6 +19,39 @@ export default class Alert{
         })
     }
 
+    messageBebas(options={
+        content:'',
+        title:'',
+        onConfirm:()=>{
+            return null
+        },
+        onDeny:()=>{
+            return null
+        },
+        onCancel:()=>{
+            return null
+        }
+
+    }){
+        Swal.fire({
+            text:options.content,
+            title:options.title,
+            confirmButtonText:"YA",
+            showDenyButton:true,
+            denyButtonText:"TIDAK",
+            showCancelButton:true,
+            cancelButtonText:"BATALKAN"
+        }).then(result=>{
+            if(result.isConfirmed){
+                options.onConfirm()
+            }else if(result.isDenied){
+                options.onDeny();
+            }else{
+                options.onCancel();
+            }
+        })
+    }
+
     swalYesNo(content,title,onConfirm=()=>{},onCancel=()=>{}){
         Swal.fire({
             text:content,

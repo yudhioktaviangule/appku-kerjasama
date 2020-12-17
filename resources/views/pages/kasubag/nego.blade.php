@@ -1,7 +1,8 @@
 
 <div class="container-fluid">
-    <div class="col">
-        <div class="card card- card-outline card-outline-tabs">
+
+        <br>
+        <div class="card card-primary card-outline card-outline-tabs">
             <div class="card-header p-0 border-bottom-0">
                 <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                     <li class="nav-item">
@@ -67,7 +68,8 @@
                             href          = "#ctf-hakwajib" 
                             role          = "tab" 
                             aria-controls = "ctf-hakwajib" 
-                            aria-selected = "false">
+                            aria-selected = "false"
+                            onclick       = "window.nego.hdank.init({{$data->id}})">
                             Hak dan Kewajiban
                         </a>
                     </li>
@@ -75,6 +77,7 @@
                    
                     
                 </ul>
+                
             </div>
     
             <div class="card-body">
@@ -132,6 +135,6 @@
             </div>
             
         </div>
-    </div>
+    
 
 </div>
