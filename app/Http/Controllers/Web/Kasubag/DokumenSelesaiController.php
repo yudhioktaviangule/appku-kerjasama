@@ -4,82 +4,38 @@ namespace App\Http\Controllers\Web\Kasubag;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-class DokumenSelesaiController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+use App\Models\Document;
+use App\Includes\JSFactory;
+class DokumenSelesaiController extends Controller{
+    use JSFactory;
+    private $request;
+    public function __construct(Request $request){
+        $this->request = $request; 
+        $this->middleware('auth');
+        $this->middleware('role.root.kasubag');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index(){
+        $request = $this->request; 
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function create(){
+        $request = $this->request; 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function show($id=''){
+        $request = $this->request; 
+        $dok = Document::class;
+        $dok::where("id",$id)->update(['status'=>'9']);
+        $this->redirectBack("Dokumen Telah diselesaikan, Silahkan masuk ke Menu Konseptor untuk membuat Pernyataan Kehendak, Nota Kesepakatan dan Perjanjian Kerjasama","Dokumen",url('/home'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function edit($id=''){
+        $request = $this->request; 
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function store(){
+        $request = $this->request; 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function update($id=''){
+        $request = $this->request; 
+    }
+    public function destroy($id=''){
+        #code
     }
 }

@@ -44,7 +44,7 @@ export default class HakDanKewajiban{
         const { data:{dokumen:{status:status_doc,}} } = await ajax.get(this.url.cekdok());
         let show = ['#btn-terusan','#btn-refresh'];
         
-        if(parseInt(status_doc)==4){
+        if(parseInt(status_doc)>3){
             $("#btn-terusan").show(500);
             $("#btn-refresh").hide(500);
             $('[name="bt-simpan"]').hide();

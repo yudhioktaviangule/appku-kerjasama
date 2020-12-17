@@ -40,7 +40,7 @@
     </a>
 @endif
 @if($data->status==='8')
-    <a id='btn-agenda' href="#"  class="btn btn-success">
+    <a id='btn-agenda' href="{{route('selesai.show',['selesai'=>$data->id])}}"  class="btn btn-success">
         <i class="fas fa-check"></i>&nbsp;Selesaikan Proses 
     </a>
 @endif

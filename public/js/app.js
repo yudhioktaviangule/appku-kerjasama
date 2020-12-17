@@ -72394,7 +72394,7 @@ var HakDanKewajiban = /*#__PURE__*/function () {
                 status_doc = _yield$ajax$get.data.dokumen.status;
                 show = ['#btn-terusan', '#btn-refresh'];
 
-                if (parseInt(status_doc) == 4) {
+                if (parseInt(status_doc) > 3) {
                   $("#btn-terusan").show(500);
                   $("#btn-refresh").hide(500);
                   $('[name="bt-simpan"]').hide();

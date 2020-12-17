@@ -12,6 +12,7 @@ use App\Http\Controllers\Web\Client\HdankController as ClientHdank;
 use App\Http\Controllers\Web\Kasubag\HdankController as KsbHdank;
 use App\Http\Controllers\Web\Kasubag\AgendaRapatController as KsbAgendaRapat;
 use App\Http\Controllers\Web\Kasubag\SiapDitandatanganiController as KsbTTD;
+use App\Http\Controllers\Web\Kasubag\DokumenSelesaiController as KsbSelesai;
 
 use App\Http\Controllers\Web\BagHukum\DokumenController as BagHukumDokumen;
 
@@ -36,6 +37,7 @@ Route::group(['prefix'=>"kerjasama"],function(){
     Route::resource('ksbhdankweb',KsbHdank::class);
     Route::resource('agenda',KsbAgendaRapat::class);
     Route::resource('ttd',KsbTTD::class);
+    Route::resource('selesai',KsbSelesai::class);
     
     Route::resource('hkmdocweb',BagHukumDokumen::class);
     
