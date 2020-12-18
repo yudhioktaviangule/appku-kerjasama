@@ -9,7 +9,7 @@ export default class CreateDataTable{
 
     dataTable(cols,ajax,options={}){
         
-        console.log("creating datatable");
+      console.log("creating datatable");
       console.log("columns",cols);
         let datatable = $(this.obj).DataTable({
             ...options,
@@ -27,6 +27,7 @@ export default class CreateDataTable{
             }
         })
         datatable.draw();
+        console.log("finishing drawing datatable");
         return datatable;
     }
 

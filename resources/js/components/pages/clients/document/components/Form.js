@@ -38,6 +38,7 @@ export default class FormDokumen {
         };
         
         let editor= new CKeditor();
+        
         editor.ck('justify,textindent');
         let exeditor = editor.ckeditor;
         for(let o in obj){

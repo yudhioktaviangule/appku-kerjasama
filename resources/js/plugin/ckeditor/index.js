@@ -8,8 +8,10 @@ export default class CKeditor{
     }
 
     ck(confy='',height=0){
-        this.konfigurasi(confy,height)
         
+        this.konfigurasi(confy,height)
         return this;
+        
     }
+    
 }

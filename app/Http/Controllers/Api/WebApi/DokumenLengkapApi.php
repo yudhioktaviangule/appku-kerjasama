@@ -22,11 +22,14 @@ class DokumenLengkapApi extends Controller{
         $dokumen = Document::where("id",$id)->first();
         $data = [
             'dokumen' => $dokumen,
-            "dari" => [
+            "dari"    => [
                 'penanggung_jawab' => $dokumen->getPenanggungJawab(),
-                'perusahaan' => $dokumen->getPenanggungJawab()->getPerusahaan(),
-                'user' => $dokumen->getPenanggungJawab()->getPerusahaan()->getUser(),
-            ]
+                'perusahaan'       => $dokumen->getPenanggungJawab()->getPerusahaan(),
+                'user'             => $dokumen->getPenanggungJawab()->getPerusahaan()->getUser(),
+            ],
+            "dinas_tujuan"  => $dokumen->getPejabat(),
+            "lingkup" => $dokumen->getLingkup(),
+            "hdank"         => $dokumen->getHdank()
         ];
        return  response()->json($data);
     }

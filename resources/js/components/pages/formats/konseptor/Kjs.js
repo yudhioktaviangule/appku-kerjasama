@@ -1,7 +1,7 @@
 
 const CONTENT =
 `
-<div style="margin-left:2.5cm; margin-right:3cm">
+
 <p style="text-align:justify">&nbsp;</p>
 
 <p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><span style="color:#000000"><strong>PERJANJIAN KERJASAMA</strong></span></span></span></p>
@@ -396,7 +396,6 @@ const CONTENT =
 
 <p><br />
 &nbsp;</p>
-</div>
 
 `;
 const ITEM = `
@@ -420,4 +419,4 @@ const FORM_ELEMENT=`
 	</div>
 
 `;
-export {CONTENT,ITEM,FORM_ELEMENT} 
+export {CONTENT as KerjasamaKonten,ITEM as KerjasamaItem,FORM_ELEMENT as KerjasamaFormEl} 

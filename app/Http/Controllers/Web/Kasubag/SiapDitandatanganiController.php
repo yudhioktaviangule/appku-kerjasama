@@ -25,7 +25,7 @@ class SiapDitandatanganiController extends Controller{
     public function show($id=''){
         $request = $this->request; 
         Document::where("id",$id)->update(['status'=>'8']);
-        $this->redirectBack("Dokumen Siap ditanda tangani","Dokumen",url('/home'));       
+        $this->redirectBack("Dokumen Siap ditanda tangani, Silahkan masuk ke menu konseptor untuk membuat Pernyataan Kehendak, Nota Kesepakatan dan Perjanjian Kerjasama","Dokumen",url('/home'));       
     }
     public function edit($id=''){
         $request = $this->request; 

@@ -15,6 +15,7 @@ use App\Http\Controllers\Web\Kasubag\SiapDitandatanganiController as KsbTTD;
 use App\Http\Controllers\Web\Kasubag\DokumenSelesaiController as KsbSelesai;
 
 use App\Http\Controllers\Web\BagHukum\DokumenController as BagHukumDokumen;
+use App\Http\Controllers\Web\Admin\ConseptorsController as Konseptor;
 
 
 Route::get('/', function () {
@@ -41,6 +42,11 @@ Route::group(['prefix'=>"kerjasama"],function(){
     
     Route::resource('hkmdocweb',BagHukumDokumen::class);
     
+});
+
+Route::group(['prefix'=>'dokumen'],function(){
+
+    Route::resource('konseptor',Konseptor::class);
 });
 
 Route::group(['prefix'=>"operator"],function(){

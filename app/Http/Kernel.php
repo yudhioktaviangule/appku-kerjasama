@@ -55,6 +55,14 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\Authenticate::class,
             \App\Http\Middleware\OnlyRootKasubagWeb::class,
         ],
+        'role.root.kasubag.operator' => [
+            \App\Http\Middleware\Authenticate::class,
+            \App\Http\Middleware\OpdanKasubag::class,
+        ],
+        'auth.api.conseptor' => [
+            \App\Http\Middleware\AuthForApi::class,
+            \App\Http\Middleware\OpdanKasubagApi::class,
+        ],
         
 
         
@@ -78,6 +86,7 @@ class Kernel extends HttpKernel
         'auth.api.only.client' => \App\Http\Middleware\OnlyClientApi::class,
         'auth.api.restrict.client'=>\App\Http\Middleware\RootKasubagHukumOperatorApi::class,
         'auth.api.kasubag.root'=>\App\Http\Middleware\OnlyRootKasubagApi::class,
+        
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

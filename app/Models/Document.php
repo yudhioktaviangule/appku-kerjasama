@@ -35,4 +35,8 @@ class Document extends Model
     {
         return RuangLingkup::where("document_id",$this->id)->get();
     }
+    public function getHdank()
+    {
+        return Hakdankewajiban::where("document_id",$this->id)->get();
+    }
 }

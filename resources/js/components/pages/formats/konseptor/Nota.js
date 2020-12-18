@@ -1,18 +1,18 @@
-const NOTA_EDITOR_CONTENT =`<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>NOTA KESEPAKATAN</strong></span></span></p>
+const MoUContent =`<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>NOTA KESEPAKATAN</strong></span></span></p>
 
-<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>NOMOR ................</strong></span></span></p>
+<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>NOMOR _NOMOR_</strong></span></span></p>
 
 <p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>NOMOR ...............</strong></span></span></p>
 
 <p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>ANTARA</strong></span></span></p>
 
-<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>_INSTANSI_</strong></span></span></p>
+<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>_INSTANSIP1_</strong></span></span></p>
 
 <p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>REPUBLIK INDONESIA</strong></span></span></p>
 
 <p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>DAN</strong></span></span></p>
 
-<p style="text-align:center"><span style="font-family:Arial"><span style="font-size:16px"><strong>_PERUSAHAAN_</strong></span></span></p>
+<p style="text-align:center"><span style="font-family:Arial"><span style="font-size:16px"><strong>_INSTANSIP2_</strong></span></span></p>
 
 <p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>TENTANG</strong></span></span></p>
 
@@ -29,27 +29,27 @@ const NOTA_EDITOR_CONTENT =`<p style="text-align:center"><span style="font-size:
 		<tr>
 			<td style="border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px">
 			<ol>
-				<li style="list-style-type:decimal"><span style="font-family:Arial"><span style="font-size:16px"><strong>_NAMAPEJABAT_</strong></span></span></li>
+				<li style="list-style-type:decimal"><span style="font-family:Arial"><span style="font-size:16px"><strong>_P1_</strong></span></span></li>
 			</ol>
 			</td>
 			<td style="border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:22px">
 			<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">:</span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:394px">
-			<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Jabatan _JABPEJABAT_. bertindak untuk dan atas nama _INSTANSI_ selanjutnya disebut PIHAK PERTAMA. ------------------------------------------------</span></span></p>
+			<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Jabatan _JABATANP1_. bertindak untuk dan atas nama _INSTANSI_ selanjutnya disebut PIHAK PERTAMA. ------------------------------------------------</span></span></p>
 			</td>
 		</tr>
 		<tr>
 			<td style="border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px">
 			<ol start="2">
-				<li style="list-style-type:decimal"><span style="font-size:16px"><span style="font-family:Arial"><strong>_NAMAUSER_</strong></span></span></li>
+				<li style="list-style-type:decimal"><span style="font-size:16px"><span style="font-family:Arial"><strong>_P2_</strong></span></span></li>
 			</ol>
 			</td>
 			<td style="border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:22px">
 			<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">:</span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:394px">
-			<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Jabatan <strong>_JABATANUSER_</strong> berdasarkan _SK_ bertindak untuk dan atas nama <strong>&nbsp;</strong>selanjutnya disebut PIHAK KEDUA. ----------------------------------------</span></span></p>
+			<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Jabatan <strong>_JABATANP2_</strong> berdasarkan _SK_ bertindak untuk dan atas nama <strong>&nbsp;</strong>selanjutnya disebut PIHAK KEDUA. ----------------------------------------</span></span></p>
 			</td>
 		</tr>
 	</tbody>
@@ -96,7 +96,7 @@ const NOTA_EDITOR_CONTENT =`<p style="text-align:center"><span style="font-size:
 
 <p style="text-align:justify; text-indent:50px"><span style="font-size:16px"><span style="font-family:Arial">Pemerintah Kota Makassar menyanggupi untuk berkolaborasi dengan <strong>&nbsp;</strong>dan setuju, untuk berkolaborasi dengan Pemerintah Kota Makassar dalam bidang sebagai berikut :</span></span></p>
 
-<p><span style="font-family:Arial"><span style="font-size:16px"><strong>_LINGKUP_LIST_</strong></span></span></p>
+<p><span style="font-family:Arial"><span style="font-size:16px"><strong>_LINGKUP_</strong></span></span></p>
 
 <p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>PASAL 3</strong></span></span></p>
 
@@ -114,7 +114,7 @@ const NOTA_EDITOR_CONTENT =`<p style="text-align:center"><span style="font-size:
 <p>&nbsp;</p>
 
 <ol>
-	<li style="list-style-type: decimal; text-align: justify;"><span style="font-size:16px"><span style="font-family:Arial">Setiap pekerjaan, diskusi, pertemuan atau kegiatan lain yang diperlukan untuk tujuan Nota Kesepahaman ini dapat dilakukan di tempat lain yang akan diatur dan disepakati oleh Para Pihak. Rincian spesifik, metode dan program pelaksanaan Nota Kesepahaman ini harus dikembangkan dan diselesaikan serta tunduk pada kesepakatan Para Pihak.</span></span><br />
+	<li style="list-style-type:decimal; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Setiap pekerjaan, diskusi, pertemuan atau kegiatan lain yang diperlukan untuk tujuan Nota Kesepahaman ini dapat dilakukan di tempat lain yang akan diatur dan disepakati oleh Para Pihak. Rincian spesifik, metode dan program pelaksanaan Nota Kesepahaman ini harus dikembangkan dan diselesaikan serta tunduk pada kesepakatan Para Pihak.</span></span><br />
 	<br />
 	&nbsp;
 	<div style="page-break-after:always"><span style="display:none">&nbsp;</span></div>
@@ -128,15 +128,15 @@ const NOTA_EDITOR_CONTENT =`<p style="text-align:center"><span style="font-size:
 
 <p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">PEMERINTAH KOTA MAKASSAR</span></span></p>
 
-<p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><strong>_INSTANSI_</strong></span></span></p>
+<p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><strong>_INSTANSIP1_</strong></span></span></p>
 
 <p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">PIHAK KEDUA :</span></span></p>
 
-<p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><strong>_NAMAUSER_</strong></span></span></p>
+<p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><strong>_P2_</strong></span></span></p>
 
-<p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><strong>_JABATANUSER_</strong></span></span></p>
+<p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><strong>_JABATANP2_</strong></span></span></p>
 
-<p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><strong>_PERUSAHAAN_</strong></span></span></p>
+<p style="margin-left:48px; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial"><strong>_INSTANSIP2_</strong></span></span></p>
 
 <p>&nbsp;</p>
 
@@ -149,8 +149,8 @@ const NOTA_EDITOR_CONTENT =`<p style="text-align:center"><span style="font-size:
 <p>&nbsp;</p>
 
 <ol>
-	<li style="list-style-type: decimal; text-align: justify;"><span style="font-size:16px"><span style="font-family:Arial">Para Pihak dapat membentuk suatu Kelompok Kerja Bersama yang beranggotakan dari Wakil-Wakil kedua belak Pihak yang wajib melakukan pemantauan dan evaluasi pelaksanaan evaluasi pelaksanaan kerja sama yang berada dalam cakupan Nota Kesepahaman. Kelompok Kerja Bersama akan bertemu apabila dipandang perlu, secara bergantian di Makassar atau di lokasi pihak&nbsp;</span></span></li>
-	<li style="list-style-type: decimal; text-align: justify;"><span style="font-size:16px"><span style="font-family:Arial">Setiap perwakilan berwenang dari Para Pihak wajib, berdasarkan pengetahuan dan penilaian mereka pada waktu yang bersangkutan, menggunakan upaya terbaik mereka untuk menyediakan informasi dan bantuan yang diperlukan kepada Para Pihak, untuk tujuan pelaksanaan Nota Kesepahaman ini.&nbsp; Perwakilan berwenang tersebut harus bertanggung jawab atas akurasi, kelengkapan atau kapabilitas informasi atau bantuan yang diberikan.&nbsp;</span></span></li>
+	<li style="list-style-type:decimal; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Para Pihak dapat membentuk suatu Kelompok Kerja Bersama yang beranggotakan dari Wakil-Wakil kedua belak Pihak yang wajib melakukan pemantauan dan evaluasi pelaksanaan evaluasi pelaksanaan kerja sama yang berada dalam cakupan Nota Kesepahaman. Kelompok Kerja Bersama akan bertemu apabila dipandang perlu, secara bergantian di Makassar atau di lokasi pihak&nbsp;</span></span></li>
+	<li style="list-style-type:decimal; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Setiap perwakilan berwenang dari Para Pihak wajib, berdasarkan pengetahuan dan penilaian mereka pada waktu yang bersangkutan, menggunakan upaya terbaik mereka untuk menyediakan informasi dan bantuan yang diperlukan kepada Para Pihak, untuk tujuan pelaksanaan Nota Kesepahaman ini.&nbsp; Perwakilan berwenang tersebut harus bertanggung jawab atas akurasi, kelengkapan atau kapabilitas informasi atau bantuan yang diberikan.&nbsp;</span></span></li>
 </ol>
 
 <p>&nbsp;</p>
@@ -170,9 +170,9 @@ const NOTA_EDITOR_CONTENT =`<p style="text-align:center"><span style="font-size:
 <p>&nbsp;</p>
 
 <ol>
-	<li style="list-style-type: decimal; text-align: justify;"><span style="font-size:16px"><span style="font-family:Arial">Masing masing pihak wajib menghormati Hak kekayaan Intelektual pihak lain sesuai dengan hukum nasional yang berlaku.</span></span></li>
-	<li style="list-style-type: decimal; text-align: justify;"><span style="font-size:16px"><span style="font-family:Arial">Dalam pengaturan khusus, program atau proyek yang menghasilkan kekayaan intelektual, para pihak wajib memasukkannya dalam pengaturan terpisah sesuai dengan hukum dan peraturan nasional yang .</span></span></li>
-	<li style="list-style-type: decimal; text-align: justify;"><span style="font-size:16px"><span style="font-family:Arial">Apabila salah satu pihak ingin mengungkapkan data dan informasi dari pihak lain atas hasil yang diperoleh Para Pihak dalam pelaksanaan Nota Kesepahaman ini, Pihak yang akan mengungkapkan rahasia wajib mendapatkan persetujuan tertulis dalam bentuk perjanjian <em>non-disclosure</em> dari Pihak lain sebelum pembukaan informasi dan data tersebut.</span></span></li>
+	<li style="list-style-type:decimal; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Masing masing pihak wajib menghormati Hak kekayaan Intelektual pihak lain sesuai dengan hukum nasional yang berlaku.</span></span></li>
+	<li style="list-style-type:decimal; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Dalam pengaturan khusus, program atau proyek yang menghasilkan kekayaan intelektual, para pihak wajib memasukkannya dalam pengaturan terpisah sesuai dengan hukum dan peraturan nasional yang .</span></span></li>
+	<li style="list-style-type:decimal; text-align:justify"><span style="font-size:16px"><span style="font-family:Arial">Apabila salah satu pihak ingin mengungkapkan data dan informasi dari pihak lain atas hasil yang diperoleh Para Pihak dalam pelaksanaan Nota Kesepahaman ini, Pihak yang akan mengungkapkan rahasia wajib mendapatkan persetujuan tertulis dalam bentuk perjanjian <em>non-disclosure</em> dari Pihak lain sebelum pembukaan informasi dan data tersebut.</span></span></li>
 </ol>
 
 <p><br />
@@ -211,32 +211,32 @@ const NOTA_EDITOR_CONTENT =`<p style="text-align:center"><span style="font-size:
 			<td style="border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px">
 			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>UNTUK&nbsp;</strong></span></span></p>
 
-			<p style="text-align:center"><span style="font-family:Arial"><span style="font-size:16px"><strong>_INSTANSI_</strong></span></span></p>
+			<p style="text-align:center"><span style="font-family:Arial"><span style="font-size:16px"><strong>_INSTANSIP1_</strong></span></span></p>
 
 			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>REPUBLIK INDONESIA</strong></span></span></p>
 			<br />
 			<br />
 			<br />
 			&nbsp;
-			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong><u>_NAMAPEJABAT_</u></strong></span></span></p>
+			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong><u>_P1_</u></strong></span></span></p>
 
-			<p style="text-align:center"><span style="font-family:Arial"><span style="font-size:16px"><strong>_JABPEJABAT_</strong></span></span></p>
+			<p style="text-align:center"><span style="font-family:Arial"><span style="font-size:16px"><strong>_JABATANP1_</strong></span></span></p>
 			<br />
 			<br />
 			&nbsp;</td>
 			<td style="border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px">
 			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>UNTUK</strong></span></span></p>
 
-			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>_PERUSAHAAN_</strong></span></span></p>
+			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>_INSTANSIP1_</strong></span></span></p>
 			<br />
 			<br />
 			<br />
 			<br />
 			<br />
 			&nbsp;
-			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>_NAMAUSER_</strong></span></span></p>
+			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>_P1_</strong></span></span></p>
 
-			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>_JABATANUSER_</strong></span></span></p>
+			<p style="text-align:center"><span style="font-size:16px"><span style="font-family:Arial"><strong>_JABATANP1_</strong></span></span></p>
 			</td>
 		</tr>
 	</tbody>
@@ -246,10 +246,9 @@ const NOTA_EDITOR_CONTENT =`<p style="text-align:center"><span style="font-size:
 <p style="text-align:justify; text-indent:50px"><span style="font-size:16px"><span style="font-family:Arial"><strong>DITANDATANGANI</strong> pada hari &hellip;&hellip;&hellip;&hellip;.. tanggal&hellip;&hellip;bulan&hellip;&hellip;..tahun&hellip;&hellip;&hellip;.di&nbsp; dalam dua salinan asli.</span></span></p>
 
 <p>&nbsp;</p>
-
 `
 
 const ITEM_LINGKUP = `
 	<li style="list-style-type: disc;"><span style="font-family:Arial"><span style="font-size:16px"><strong>_LINGKUP_ITEM_</strong></span></span></li>
 `
-export {ITEM_LINGKUP,NOTA_EDITOR_CONTENT};
+export {MoUContent};

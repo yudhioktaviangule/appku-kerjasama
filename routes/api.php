@@ -21,6 +21,8 @@ use App\Http\Controllers\Api\WebApi\Kasubag\Dokumen\HdanKApi as KsbHdank;
 use App\Http\Controllers\Api\WebApi\Kasubag\Aksi\NegosiasiUserApi as KsbNego;
 use App\Http\Controllers\Api\WebApi\DokumenLengkapApi as DokumenData;
 
+use App\Http\Controllers\Api\WebApi\Admin\ConseptorsApi;
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -56,6 +58,10 @@ Route::group(['prefix'=>"kasubag"],function(){
 });
 Route::group(['prefix'=>"dokumen-data"],function(){
     Route::resource('cekdok',DokumenData::class);
+    
+});
+Route::group(['prefix'=>"arsip"],function(){
+    Route::resource('apikonseptor',ConseptorsApi::class);
     
 });
 

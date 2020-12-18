@@ -69233,6 +69233,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_operator_operator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/operator/operator */ "./resources/js/components/pages/operator/operator.js");
 /* harmony import */ var _pages_clients_Klien__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/clients/Klien */ "./resources/js/components/pages/clients/Klien.js");
 /* harmony import */ var _pages_kasubag_root_kasubag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/kasubag_root/kasubag */ "./resources/js/components/pages/kasubag_root/kasubag.js");
+/* harmony import */ var _pages_konseptor_Konseptor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/konseptor/Konseptor */ "./resources/js/components/pages/konseptor/Konseptor.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -69240,6 +69241,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -69264,6 +69266,8 @@ var MainRouter = /*#__PURE__*/function () {
     _defineProperty(this, "operator", new _pages_operator_operator__WEBPACK_IMPORTED_MODULE_4__["default"]());
 
     _defineProperty(this, "kasubag", new _pages_kasubag_root_kasubag__WEBPACK_IMPORTED_MODULE_6__["default"]());
+
+    _defineProperty(this, "konseptor", new _pages_konseptor_Konseptor__WEBPACK_IMPORTED_MODULE_7__["default"]());
   }
 
   _createClass(MainRouter, [{
@@ -71714,6 +71718,85 @@ var TEMPUS_DATE_TIME = "\n    <div class='form-group'>\n    \n        <label>\n 
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/formats/index.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/pages/formats/index.js ***!
+  \********************************************************/
+/*! exports provided: KEHENDAK_KONSEPTOR_FORMAT, FORM_ELEMENT_KERJASAMA, KONTEN_KERJASAMA, ITEM_ALL, MOU_FORMAT */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _konseptor_Kehendak__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./konseptor/Kehendak */ "./resources/js/components/pages/formats/konseptor/Kehendak.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "KEHENDAK_KONSEPTOR_FORMAT", function() { return _konseptor_Kehendak__WEBPACK_IMPORTED_MODULE_0__["KehendakKonseptor"]; });
+
+/* harmony import */ var _konseptor_Kjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./konseptor/Kjs */ "./resources/js/components/pages/formats/konseptor/Kjs.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FORM_ELEMENT_KERJASAMA", function() { return _konseptor_Kjs__WEBPACK_IMPORTED_MODULE_1__["KerjasamaFormEl"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "KONTEN_KERJASAMA", function() { return _konseptor_Kjs__WEBPACK_IMPORTED_MODULE_1__["KerjasamaKonten"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ITEM_ALL", function() { return _konseptor_Kjs__WEBPACK_IMPORTED_MODULE_1__["KerjasamaItem"]; });
+
+/* harmony import */ var _konseptor_Nota__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./konseptor/Nota */ "./resources/js/components/pages/formats/konseptor/Nota.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MOU_FORMAT", function() { return _konseptor_Nota__WEBPACK_IMPORTED_MODULE_2__["MoUContent"]; });
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/formats/konseptor/Kehendak.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/pages/formats/konseptor/Kehendak.js ***!
+  \*********************************************************************/
+/*! exports provided: KehendakKonseptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KehendakKonseptor", function() { return contentformat; });
+var contentformat = "<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PERNYATAAN KEHENDAK</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>ANTARA</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_INSTANSIP1_</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>DENGAN</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_INSTANSIP2_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>TENTANG</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_TENTANG_</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">_INSTANSIP1_, indonesia dan</span><span style=\"color:#000000\"><strong> </strong></span><span style=\"color:#ff0000\">&nbsp;</span><span style=\"color:#000000\">selanjutnya disebut sebagai &ldquo;Para Pihak&rdquo; <strong>MENGAKUI&nbsp;</strong></span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">pentingnya prinsip-prinsip kesetaraan dan saling menguntungkan; <strong>SESUAI</strong>&nbsp; dengan hukum, peraturan&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">dan prosedur administrasi yang berlaku di Indonesia; <strong>DENGAN INI</strong> menyatakan niat Para Pihak untuk&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">akan membuat suatu Memorandum Saling Pengertian tentang kerjasama&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">yang akan menjadi dasar untuk pengembangan kerjasama dalam bidang-bidang sebagai berikut:</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>&nbsp;</strong></span></span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Pernyataan kehendak ini dapat mencakup bidang-bidang lainnya atas kesepakatan bersama oleh Para Pihak. Pernyataan kehendak ini berlaku efektif dan tetap berlaku untuk jangka waktu 1 (satu) tahun sejak tanggal penandatanganan. <strong>DIBUAT</strong> dalam rangkap 2 (dua) di&nbsp; pada&nbsp; ...... Bulan .......... tahun ......, dalam bahasa Indonesia.</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Untuk,</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">_INSTANSIP1_, INDONESIA</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Untuk,</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_INSTANSIP2_</strong></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>_P1_</u></strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"color:#000000; font-family:Arial\"><strong>_JABATANP1_</strong></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\">&nbsp;</p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_P2_</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_JABATANP2_</strong></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p>&nbsp;</p>\n";
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/formats/konseptor/Kjs.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/pages/formats/konseptor/Kjs.js ***!
+  \****************************************************************/
+/*! exports provided: KerjasamaKonten, KerjasamaItem, KerjasamaFormEl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KerjasamaKonten", function() { return CONTENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KerjasamaItem", function() { return ITEM; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KerjasamaFormEl", function() { return FORM_ELEMENT; });
+var CONTENT = "\n\n<p style=\"text-align:justify\">&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PERJANJIAN KERJASAMA</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>ANTARA</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PEMERINTAH KOTA MAKASSAR</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>DENGAN</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_PERUSAHAAN_</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>TENTANG</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_TENTANG_</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>NOMOR : </strong>&nbsp;<strong>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>NOMOR :</strong> <strong>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Pada hari ini ...................tanggal...................bulan...................tahun........................, bertempat di ................... kami yang bertanda tangan dibawah ini :</span></span></span></p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_NAMAPEJABAT_</strong></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:21px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">:</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:395px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Jabatan _JABPEJABAT_ berdasarkan Surat Keputusan &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. bertindak untuk dan atas nama pemerintah Kota Makassar.selanjutnya disebut PIHAK PERTAMA. ------------------------------------------------</span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_NAMAUSER_</strong></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:21px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">:</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:395px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Jabatan <strong>_JABATANUSER_</strong> berdasarkan <strong>_SK_ </strong>bertindak untuk dan atas nama&nbsp; selanjutnya disebut PIHAK KEDUA. ----------------------------------------</span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Menindaklanjuti Nota Kesepakatan No <strong>:_NOMOR_NOTA_KESEPAKATAN_</strong>Tentang<strong> _TENTANG_</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Memperhatikan Dasar hukum sebagai berikut :</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">..................</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">...................</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">..................</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">.................</span></span></span></p>\n\n<p><br />\n<br />\n<br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB I</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>KETENTUAN UMUM</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 1</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Dalam Perjanjian Kerja Sama ini yang dimaksud dengan :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_KETENTUAN_UMUM_</strong></span></span></span></p>\n\n<p><br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB II</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>MAKSUD DAN TUJUAN</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 2</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Maksud dari Perjanjian Kerjasama ini, adalah&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_MAKSUD_</strong></span></span></span></p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tujuan dari Perjanjian Kerjasama ini, adalah&nbsp;&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_TUJUAN_</strong></span></span></span></p>\n\n<p><br />\n<br />\n<br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB III</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>RUANG LINGKUP</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 3</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Ruang lingkup Perjanjian Kerja Sama ini meliputi :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_LIST_LINGKUP_</strong></span></span></span></p>\n\n<p><br />\n<br />\n<br />\n<br />\n<br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB IV</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PELAKSANAAN</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 4</strong></span></span></span></p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PARA PIHAK sepakat <strong>&nbsp;:&nbsp;</strong></span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_PELAKSANAAN_</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 5</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>HAK DAN KEWAJIBAN</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PIHAK PERTAMA mempunyai hak :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_HAK_PIHAK1_</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PIHAK PERTAMA mempunyai kewajiban :</span></span></span></p>\n\n<p style=\"margin-left:24px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_KEWAJIBAN_PIHAK1_</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PIHAK KEDUA mempunyai hak :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:24px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_HAK_PIHAK2_</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">PIHAK KEDUA mempunyai kewajiban :&nbsp;</span></span></span></p>\n\n<p style=\"margin-left:30px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_KEWAJIBAN_PIHAK2_</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:48px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 6</strong></span></span></span></p>\n\n<p style=\"margin-left:48px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PEMBIAYAAN</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-indent:0\">&nbsp;</p>\n\n<p style=\"margin-left:50px; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Biaya yang timbul dari pelaksanaan Perjanjian Kerja Sama ini dibebankan pada Para Pihak sesuai dengan tetap merujuk pada ketersediaan anggaran dan ketentuan perundang undangan yang berlaku :</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PASAL 7</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>KELOMPOK KERJA, INFORMASI DAN REKOMENDASI</strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PARA PIHAK </strong>dapat membentuk suatu Kelompok&nbsp; Kerja bersama yang beranggotakan dari Wakil-Wakil&nbsp; kedua belah&nbsp; pihak&nbsp; yang yang wajib&nbsp; melakukan pemantauan dan evaluasi pelaksanaan evaluasi&nbsp; pelaksanaan &nbsp; &nbsp; kerjasama yang berada dalam cakupan Nota Kesepakatan. Kelompok&nbsp; &nbsp; kerja&nbsp; bersama akan bertemu apabila&nbsp; dipandang perlu,&nbsp; secara bergantian&nbsp; di&nbsp; Makassar;</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Setiap perwakilan&nbsp; dari&nbsp; <strong>PARA PIHAK </strong>wajib, &nbsp; berdasarkan pengetahuan dan penilaian menggunakan &nbsp; upaya terbaik&nbsp; untuk&nbsp; menyediakan informasi&nbsp; dan bantuan&nbsp; yang&nbsp; diperlukan kepada <strong>PARA PIHAK </strong>dan bertanggung jawab atas akurasi,kelengkapan&nbsp; atau kapabilitas informasi atau bantuan&nbsp; yang diberikan.</span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PASAL 8</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>HAK KEKAYAAN INTELEKTUAL</strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PARA PIHAK </strong>wajib menghormati&nbsp; Hak kekayaan intelektual&nbsp; pihak&nbsp; lain&nbsp; sesuai dengan dengan&nbsp; hukum nasional&nbsp; yang berlaku</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Dalam&nbsp; &nbsp; &nbsp; pengaturan&nbsp; khusus, &nbsp; &nbsp; program&nbsp; atau &nbsp; proyek&nbsp; yang&nbsp; menghasilkan&nbsp; &nbsp; &nbsp; kekayaan intelektual,&nbsp; &nbsp; <strong>PARA PIHAK&nbsp; </strong>memasukkannya dalam pengaturan&nbsp; terpisah sesuai&nbsp; dengan hukum dan peraturan nasional yang berlaku</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila&nbsp; salah satu pihak&nbsp; ingin mengungkapkan data dan&nbsp; informasi&nbsp; dari pihak lain&nbsp; atas hasil&nbsp; yang&nbsp; diperoleh&nbsp; <strong>PARA PIHAK </strong>dalam pelaksanaan &nbsp; Nota Kesepahaman ini,&nbsp; maka pihak yang akan mengungkapkan &nbsp; rahasia&nbsp; wajib mendapatkan&nbsp; persetujuan tertulis&nbsp; dalam bentuk perjanjian &nbsp; <em>non-disclosure </em>dari Pihak lain&nbsp; sebelum pembukaan &nbsp; informasi dan data tersebut</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PASAL 9</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>JANGKA WAKTU PERJANJIAN</strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Jangka waktu Perjanjian Kerja sama ini berlaku &lt;JANGKA WAKTU PERJANJIAN&gt; (............) tahun, terhitung sejak tanggal ............................. sampai&nbsp;</strong></span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>dengan ...............................</strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Perjanjian Kerjasama ini&nbsp; dapat diperpanjang paling&nbsp; lama ............(..........) tahun berikutnya berdasarkan kesepakatan <strong>PARA PIHAK</strong> terlebih dahulu.&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PIHAK KEDUA</strong> menyampaikan maksud perpanjangan kepada <strong>PIHAK PERTAMA</strong> selambat-lambatnya 2 (dua) bulan sebelum berakhirnya Perjanjian Kerja sama ini;</span></span></span></p>\n\n<p><br />\n<br />\n<br />\n<br />\n<br />\n<br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>BAB V</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>KEADAAN KAHAR (FORCE MAJEURE)</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 10</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Keadaan kahar (Force Majure) termasuk kebakaran, ledakan, gempa bumi, topan, hujan badai, banjir, wabah dan bencana lainnya, maker, huru hara, perang, perselisihan buruh, pemogokan, kebijakan pemerintah (moneter) yang berpengaruh langsung pada pelaksanaan perjanjian ini;---------------------------------------------------------</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tidak meliputi Pihak dikenai tanggungjawab untuk memenuhi kewajiban berdasarkan perjanjian ini sepanjang hal tersebut terhalangi, tercegah atau tertundah pelaksanaannya oleh kegiatan kahar (force majure);--------------------------------------------</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Dalam jangka waktu 14 (empat belas) hari sejak terjadinya keadaan kahar, <strong>PIHAK</strong> yang terkena membuat atau menyampaikan pemberitahuan tertulis kepada <strong>PIHAK</strong> yang tidak terkena dengan menerangkan keadaan kahar tersebut dan memberikan perkiraan yang dapat dipercaya atas jangka waktu sejak keadaan kahar sampai pelaksanaan diharapkan terlaksananya kembali.-------------------------------------------------</span></span></span></p>\n\n<p style=\"text-align:justify\"><br />\n&nbsp;</p>\n\n<p style=\"margin-left:29px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 11</strong></span></span></span></p>\n\n<p style=\"margin-left:29px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PENYELESAIAN PERSELISIHAN</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila dalam pelaksanaan perjanjian ini terjadi perselisihan atau perbedaan pendapat diantara <strong>PARA PIHAK</strong> , maka <strong>PARA PIHAK</strong>&nbsp; bersepakat untuk menyelesaikan perselisihan melalui jalan musyawarah untuk mencapai mufakat;-----</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila tidak tercapai penyelesaian untuk mufakat sebagaimana dimaksud ayat (1), <strong>PARA PIHAK</strong> sepakat menyelesaikan perselisihan melalui Pengadilan Negeri yang membawahi wilayah hukum Kota Makassar.-----------------------------------------------------</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center; text-indent:-42.55pt\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 12</strong></span></span></span></p>\n\n<p style=\"text-align:center; text-indent:-42.55pt\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>KETENTUAN LAIN &ndash; LAIN</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Perjanjian ini mengikat kedua belah pihak sejak <strong>PIHAK PERTAMA</strong> dan <strong>PIHAK KEDUA</strong> menandatangani perjanjian hibah ini;---------------------------------------------------</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila <strong>PIHAK KEDUA</strong> akan melakukan perubahan terhadap isi Perjanjian kerjasama ini, maka <strong>PIHAK KEDUA wajib</strong> memberitahukan kepada <strong>PIHAK PERTAMA</strong> melalui persuratan resmi tercatat dan atau melalui email :<strong style='margin-left:1em'>_USER_EMAIL_<strong></span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila <strong>PIHAK PERTAMA</strong> akan melakukan perubahan terhadap isi Perjanjian kerjasama ini, maka <strong>PIHAK PERTAMA wajib</strong> memberitahukan kepada <strong>PIHAK KEDUA</strong> melalui persuratan resmi tercatat dan atau melalui email : <strong>_ADMIN_EMAIL_</strong></span></span></span></p>\n\n<p><br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal 13</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PERUBAHAN (ADDENDUM)</strong></span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Hal hal yang belum diatur dalam perjanjian ini akan diatur lebih lanjut sesuai kesepakatan <strong>PARA PIHAK</strong>;-------------------------------------------------------------------------</span></span></span></p>\n\n<p style=\"margin-left:50px; text-align:justify; text-indent:-50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Apabila dalam pelaksanaan perjanjian ini terjadi perubahan maupun penambahan, akan diatur lebih lanjut dalam Addendum perjanjian yang merupakan bagian yang tidak terpisahkan dari Perjanjian ini.----------------------------------------------------------------</span></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>Pasal&nbsp; 14</strong></span></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PENUTUP</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>&nbsp;</strong></span></span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Demikian Perjanjian Kerja Sama ini ditandatangani oleh&nbsp; <strong>PARA&nbsp; PIHAK&nbsp; </strong>di pada&nbsp;</span></span></span><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">hari &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;dan tanggal&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;., dalam rangkap 2 (dua)&nbsp; masing-masing bermaterai cukup, untuk <strong>PIHAK PERTAMA</strong> satu rangkap dan <strong>PIHAK KEDUA</strong> satu rangkap.--------------------------------------</span></span></span></p>\n\n<p><br />\n<br />\n<br />\n&nbsp;</p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PIHAK PERTAMA</strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PEMERINTAH KOTA MAKASSAR</strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>MAKASSAR</strong></span></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_WALIKOTA_</strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>WALIKOTA MAKASSAR</strong></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">&nbsp;</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>PIHAK KEDUA</strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong>_PERUSAHAAN_</strong></span></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><br />\n\t\t\t<span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>_NAMAUSER_</u></strong></span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>_JABATANUSER_</u></strong></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<div style=\"page-break-after:always\"><span style=\"display:none\">&nbsp;</span></div>\n\n<p>&nbsp;</p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Paraf berjenjang persetujuan&nbsp;</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Draft Dokumen Kerjasama</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">_INSTANSI_</span></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Sebagai OPD yang akan melakukan Korespondensi dan tindak lanjut teknis Dokumen Kerjasama ini</span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Kabag Perekonomian</span></span></span></p>\n\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Dan Kerjasama</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tanggal</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Paraf</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p style=\"text-align:center\">_JABPEJABAT_</p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</u></strong></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Kabag Hukum dan HAM</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tanggal</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Paraf</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..</u></strong></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Kasubag Kerjasama</span></span></span></p>\n\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Antar Daerah/Lembaga</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Tanggal</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">&nbsp;\n\t\t\t<p><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\">Paraf</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:156px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><span style=\"color:#000000\"><strong><u>............................</u></strong></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p><br />\n&nbsp;</p>\n\n";
+var ITEM = "\n<li style=\"list-style-type: disc;\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_ITEM_</strong></span></span></li>\n";
+var FORM_ELEMENT = "\n\t<div class='form-group'>\n\t\t<label>Nomor Nota Kesepakatan</label>\n\t\t<input class='form-control' id='nomor_nota_sepakat' onchange=\"window.arsip.binding('nomor',$(this).val())\">\n\t</div>\n\t<div class='form-group'>\n\t\t<label>E-Mail Pemberitahuan</label>\n\t\t<input class='form-control' id='admin_email' type='email' onchange=\"window.arsip.binding('email',$(this).val())\">\n\t</div>\n\t<div class='form-group'>\n\t\t<label>Nama Walikota</label>\n\t\t<input class='form-control' id='walikota' onchange=\"window.arsip.binding('walikota',$(this).val())\">\n\t</div>\n\t<div class='form-group text-right'>\n\t\t<a class='btn btn-primary' href='#' onclick='window.arsip.actionToKerjasama(\"@obxj@\")'>Buat Surat Kerjasama</a>\n\t</div>\n\n";
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/formats/konseptor/Nota.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/pages/formats/konseptor/Nota.js ***!
+  \*****************************************************************/
+/*! exports provided: MoUContent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoUContent", function() { return MoUContent; });
+var MoUContent = "<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>NOTA KESEPAKATAN</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>NOMOR _NOMOR_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>NOMOR ...............</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>ANTARA</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_INSTANSIP1_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>REPUBLIK INDONESIA</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>DAN</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_INSTANSIP2_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>TENTANG</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_TENTANG_</strong></span></span></p>\n\n<p><br />\n&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Pada hari ini ...................tanggal...................bulan...................tahun........................, bertempat di ................... kami yang bertanda tangan dibawah ini :</span></span></p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<ol>\n\t\t\t\t<li style=\"list-style-type:decimal\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_P1_</strong></span></span></li>\n\t\t\t</ol>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:22px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">:</span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:394px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Jabatan _JABATANP1_. bertindak untuk dan atas nama _INSTANSI_ selanjutnya disebut PIHAK PERTAMA. ------------------------------------------------</span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:208px\">\n\t\t\t<ol start=\"2\">\n\t\t\t\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_P2_</strong></span></span></li>\n\t\t\t</ol>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:22px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">:</span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:394px\">\n\t\t\t<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Jabatan <strong>_JABATANP2_</strong> berdasarkan _SK_ bertindak untuk dan atas nama <strong>&nbsp;</strong>selanjutnya disebut PIHAK KEDUA. ----------------------------------------</span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p style=\"text-indent:50px\">&nbsp;</p>\n\n<div style=\"page-break-after:always\"><span style=\"display:none\">&nbsp;</span></div>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>MENGINGAT</strong> Pemerintah Kota Makassar Republik Indonesia dan<strong> </strong>&nbsp;&nbsp;(secara kolektif disebut di sini sebagai &quot;Para Pihak&quot; dan masing-masing disebut sebagai &quot;Pihak&quot;) telah setuju untuk melakukan Nota Kesepakatan yang merupakan pernyataan minat dari Para Pihak, dan catatan pemahaman antara, Para Pihak untuk bekerja sama, dan menjelaskan&nbsp; dasar bekerjasama antara, Para Pihak;</span></span></p>\n\n<p style=\"text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Memperhatikan Dasar hukum sebagai berikut :</span></span></p>\n\n<ol>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">..................</span></span></li>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">...................</span></span></li>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">..................</span></span></li>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">.................</span></span></li>\n</ol>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>MENGINGAT</strong> mengakui dan menyetujui bahwa Nota Kesepakatan ini adalah catatan dan keinginan dari pemahaman Para Pihak dan tidak akan memiliki efek mengikat secara hukum. Para Pihak telah mencapai pemahaman sebagai berikut:</span></span><br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 1</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>SASARAN NOTA KESEPAKATAN</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Bertindak sesuai dengan Pasal 2 dari Nota Kesepakatan ini untuk berkolaborasi dengan Pemerintah Kota Makassar dalam beberapa bidang yang diatur dalam Pasal 2. Rincian Bidang kolaborasi akan dimasukkan kemudian dalam Perjanjian Kerja Sama yang saling mengikat sebagai pelaksanaan dari Nota Kesepakatan ini.</span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Masing-masing Pihak mengakui dan menyetujui bahwa perjanjian tertulis tersebut akan dinegosiasikan dan dimasukkan ke dalam hal kegiatan khusus yang ditetapkan di bawah Pasal 2 dari Nota Kesepakatan ini.</span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Para Pihak wajib memperhatikan prinsip-prinsip kejujuran dan itikad baik dalam negosiasi dan pelaksanaan perjanjian lanjut berikutnya dan sehubungan dengan Nota Kesepakatan ini, dan dalam setiap kegiatan kolaboratif yang dimaksudkan di sini.</span></span></p>\n\n<div style=\"page-break-after:always\"><span style=\"display:none\">&nbsp;</span></div>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 2</strong></span></span></p>\n\n<p style=\"text-align:center; text-indent:-21.25pt\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>LINGKUP KERJASAMA</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Pemerintah Kota Makassar menyanggupi untuk berkolaborasi dengan <strong>&nbsp;</strong>dan setuju, untuk berkolaborasi dengan Pemerintah Kota Makassar dalam bidang sebagai berikut :</span></span></p>\n\n<p><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_LINGKUP_</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 3</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>JANGKA WAKTU</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Diluar hal-hal yang menyatakan berakhirnya atau terjadinya pemutusan Nota Kesepahaman ini, Nota Kesepahaman ini mulai dan tetap berlaku untuk jangka waktu 1 (satu) tahun sejak pelaksanaan kegiatan, dan akan diperpanjang sesuai kesepakatan bersama. Para Pihak selanjutnya menyetujui dan berusaha menyimpulkan dan merumuskan perjanjian tertulis definitif untuk menetapkan syarat dan kondisi dari hal-hal sebagaimana diatur dalam Nota Kesepahaman ini dalam waktu enam bulan sejak tanggal pelaksanaan. Secara tertulis, jangka waktu Nota Kesepahaman ini dapat diperpanjang dengan kesepakatan Para Pihak.</span></span><br />\n&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 4</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PELAKSANAAN</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<ol>\n\t<li style=\"list-style-type:decimal; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Setiap pekerjaan, diskusi, pertemuan atau kegiatan lain yang diperlukan untuk tujuan Nota Kesepahaman ini dapat dilakukan di tempat lain yang akan diatur dan disepakati oleh Para Pihak. Rincian spesifik, metode dan program pelaksanaan Nota Kesepahaman ini harus dikembangkan dan diselesaikan serta tunduk pada kesepakatan Para Pihak.</span></span><br />\n\t<br />\n\t&nbsp;\n\t<div style=\"page-break-after:always\"><span style=\"display:none\">&nbsp;</span></div>\n\n\t<p>&nbsp;</p>\n\t</li>\n\t<li style=\"list-style-type:decimal\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Pelaksanaan Nota Kesepakatan ini akan dilakukan oleh :</span></span></li>\n</ol>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">PIHAK PERTAMA :</span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">PEMERINTAH KOTA MAKASSAR</span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_INSTANSIP1_</strong></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">PIHAK KEDUA :</span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_P2_</strong></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_JABATANP2_</strong></span></span></p>\n\n<p style=\"margin-left:48px; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_INSTANSIP2_</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 5</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>KELOMPOK KERJA, INFORMASI DAN REKOMENDASI</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<ol>\n\t<li style=\"list-style-type:decimal; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Para Pihak dapat membentuk suatu Kelompok Kerja Bersama yang beranggotakan dari Wakil-Wakil kedua belak Pihak yang wajib melakukan pemantauan dan evaluasi pelaksanaan evaluasi pelaksanaan kerja sama yang berada dalam cakupan Nota Kesepahaman. Kelompok Kerja Bersama akan bertemu apabila dipandang perlu, secara bergantian di Makassar atau di lokasi pihak&nbsp;</span></span></li>\n\t<li style=\"list-style-type:decimal; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Setiap perwakilan berwenang dari Para Pihak wajib, berdasarkan pengetahuan dan penilaian mereka pada waktu yang bersangkutan, menggunakan upaya terbaik mereka untuk menyediakan informasi dan bantuan yang diperlukan kepada Para Pihak, untuk tujuan pelaksanaan Nota Kesepahaman ini.&nbsp; Perwakilan berwenang tersebut harus bertanggung jawab atas akurasi, kelengkapan atau kapabilitas informasi atau bantuan yang diberikan.&nbsp;</span></span></li>\n</ol>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 6</strong></span></span></p>\n\n<p style=\"margin-left:19px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>HAK KEKAYAAN INTELEKTUAL&nbsp;</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<ol>\n\t<li style=\"list-style-type:decimal; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Masing masing pihak wajib menghormati Hak kekayaan Intelektual pihak lain sesuai dengan hukum nasional yang berlaku.</span></span></li>\n\t<li style=\"list-style-type:decimal; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Dalam pengaturan khusus, program atau proyek yang menghasilkan kekayaan intelektual, para pihak wajib memasukkannya dalam pengaturan terpisah sesuai dengan hukum dan peraturan nasional yang .</span></span></li>\n\t<li style=\"list-style-type:decimal; text-align:justify\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Apabila salah satu pihak ingin mengungkapkan data dan informasi dari pihak lain atas hasil yang diperoleh Para Pihak dalam pelaksanaan Nota Kesepahaman ini, Pihak yang akan mengungkapkan rahasia wajib mendapatkan persetujuan tertulis dalam bentuk perjanjian <em>non-disclosure</em> dari Pihak lain sebelum pembukaan informasi dan data tersebut.</span></span></li>\n</ol>\n\n<p><br />\n&nbsp;</p>\n\n<p style=\"margin-left:19px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 7</strong></span></span></p>\n\n<p style=\"margin-left:19px; text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PENYELESAIAN SENGKETA</strong></span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Setiap perbedaan atau perselisihan yang timbul dari penafsiran, pelaksanaan atau penerapan setiap ketentuan dari Nota Kesepahaman ini akan diselesaikan secara damai melalui konsultasi atau negosiasi antara Para Pihak dengan itikad baik dan dengan dasar saling menghormati dan saling menguntungkan tanpa merujuk pada pihak lainnya atau pihak ketiga atau pengadilan internasional, organisasi atau forum.</span></span></p>\n\n<p>&nbsp;</p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PASAL 9</strong></span></span></p>\n\n<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>PENGAKHIRAN</strong></span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\">Salah satu Pihak dapat mengakhiri Memorandum ini sebelum tanggal berakhirnya yang tercantum pada Pasal 3 dengan memberitahukan Pihak lainnya tentang pengakhiran tersebut. Memorandum tersebut, berakhir tiga puluh hari setelah diterimanya pemberitahuan pengakhiran, kecuali pemberitahuan ditarik oleh keputusan bersama Para Pihak sebelum akhir periode ini.&nbsp;</span></span></p>\n\n<p style=\"text-align:justify; text-indent:50px\">&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\">&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\">&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\">&nbsp;</p>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>SEBAGAI BUKTI</strong>, Para Pihak telah menandatangani Memorandum ini pada tanggal di bawah ini.</span></span></p>\n\n<div style=\"margin-left:-7px\">\n<table align=\"center\" cellspacing=\"0\" style=\"border-collapse:collapse; border:none; width:624px\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>UNTUK&nbsp;</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_INSTANSIP1_</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>REPUBLIK INDONESIA</strong></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong><u>_P1_</u></strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_JABATANP1_</strong></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; border-top:1px solid #000000; vertical-align:top; width:312px\">\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>UNTUK</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_INSTANSIP1_</strong></span></span></p>\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t<br />\n\t\t\t&nbsp;\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_P1_</strong></span></span></p>\n\n\t\t\t<p style=\"text-align:center\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>_JABATANP1_</strong></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p style=\"text-align:justify; text-indent:50px\"><span style=\"font-size:16px\"><span style=\"font-family:Arial\"><strong>DITANDATANGANI</strong> pada hari &hellip;&hellip;&hellip;&hellip;.. tanggal&hellip;&hellip;bulan&hellip;&hellip;..tahun&hellip;&hellip;&hellip;.di&nbsp; dalam dua salinan asli.</span></span></p>\n\n<p>&nbsp;</p>\n";
+var ITEM_LINGKUP = "\n\t<li style=\"list-style-type: disc;\"><span style=\"font-family:Arial\"><span style=\"font-size:16px\"><strong>_LINGKUP_ITEM_</strong></span></span></li>\n";
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/formats/role/FormatSelects.js":
 /*!*********************************************************************!*\
   !*** ./resources/js/components/pages/formats/role/FormatSelects.js ***!
@@ -72770,6 +72853,594 @@ var Kasubag = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/konseptor/Konseptor.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/pages/konseptor/Konseptor.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Konseptor; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components */ "./resources/js/components/pages/konseptor/components/index.js");
+/* harmony import */ var _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../plugin/ckeditor/index */ "./resources/js/plugin/ckeditor/index.js");
+/* harmony import */ var _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../scripts/Ajax */ "./resources/js/scripts/Ajax.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+
+var Konseptor = /*#__PURE__*/function () {
+  function Konseptor() {
+    _classCallCheck(this, Konseptor);
+
+    this.setEditor();
+  }
+
+  _createClass(Konseptor, [{
+    key: "hideTable",
+    value: function hideTable() {
+      $("#table-wrapper").hide(500, function () {
+        $("#document-wrapper").show(500);
+      });
+      $("#bt-back").show(500);
+      $("#bt-arsip").show(500);
+    }
+  }, {
+    key: "showTable",
+    value: function showTable() {
+      $("#document-wrapper").hide(500, function () {
+        $("#table-wrapper").show(500);
+      });
+      $("#bt-back").hide(500);
+      $("#bt-arsip").hide(500);
+    }
+  }, {
+    key: "setTitle",
+    value: function setTitle() {
+      var deskripsi = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      $("#title-atas").html(this.docType);
+      $("#deskripsi").html(deskripsi);
+    }
+  }, {
+    key: "setMarginDoc",
+    value: function setMarginDoc(data) {
+      return "\n            <div style='margin:2.5cm'>\n                ".concat(data, "\n            </div>\n        ");
+    }
+  }, {
+    key: "setEditor",
+    value: function setEditor(data) {
+      if (this.xeditor == undefined) {
+        this.xeditor = new _plugin_ckeditor_index__WEBPACK_IMPORTED_MODULE_2__["default"]();
+        this.xeditor.ck("justify,textindent", 800);
+        this.xeditor.ckeditor.replace("isi");
+      }
+
+      this.xeditor.ckeditor.instances.isi.setData(data);
+      console.log(this.xeditor.instances);
+    }
+  }, {
+    key: "getLengkap",
+    value: function () {
+      var _getLengkap = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        var url_tmp, url, ajax, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                url_tmp = window.myUrl.dokumen.lengkap;
+                url = url_tmp.replace(/_cekdok_/g, "" + id);
+                ajax = new _scripts_Ajax__WEBPACK_IMPORTED_MODULE_3__["default"](url);
+                _context.next = 5;
+                return ajax.get(url);
+
+              case 5:
+                data = _context.sent;
+                return _context.abrupt("return", data);
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function getLengkap(_x) {
+        return _getLengkap.apply(this, arguments);
+      }
+
+      return getLengkap;
+    }()
+  }, {
+    key: "strRplc",
+    value: function strRplc(obj, strz) {
+      var data = strz.replace(/(_TENTANG_|_KETENTUAN_UMUM_|_PELAKSANAAN_|_NOMOR_|_JABATANP1_|_P1_|_INSTANSIP1_|_P2_|_JABATANP2_|_INSTANSIP2_|_USER_EMAIL_|_LINGKUP_)/gi, function (match) {
+        return obj[match];
+      });
+      return data;
+    }
+  }, {
+    key: "prosesData",
+    value: function prosesData(arrayx) {
+      var _arrayx$data = arrayx.data,
+          RUANG_LINGKUP = _arrayx$data.lingkup,
+          HAK_DAN_KEWAJIBAN = _arrayx$data.hdank,
+          _arrayx$data$dokumen = _arrayx$data.dokumen,
+          _TENTANG_ = _arrayx$data$dokumen.tentang,
+          _KETENTUAN_UMUM_ = _arrayx$data$dokumen.ketentuan_umum,
+          _MAKSUD_DAN_TUJUAN_ = _arrayx$data$dokumen.maksud_dan_tujuan,
+          _PELAKSANAAN_ = _arrayx$data$dokumen.pelaksanaan,
+          _NOMOR_ = _arrayx$data$dokumen.nomor,
+          _arrayx$data$dinas_tu = _arrayx$data.dinas_tujuan,
+          _JABATANP1_ = _arrayx$data$dinas_tu.jabatan,
+          _P1_ = _arrayx$data$dinas_tu.name,
+          _INSTANSIP1_ = _arrayx$data$dinas_tu.instansi,
+          _arrayx$data$dari = _arrayx$data.dari,
+          _arrayx$data$dari$pen = _arrayx$data$dari.penanggung_jawab,
+          _P2_ = _arrayx$data$dari$pen.penandatangan,
+          _JABATANP2_ = _arrayx$data$dari$pen.jabatan,
+          _INSTANSIP2_ = _arrayx$data$dari.perusahaan.name,
+          _USER_EMAIL_ = _arrayx$data$dari.user.email;
+      var obj = {
+        _LINGKUP_: "<ul>_ITEM_LINGKUP_</ul>",
+        _HAKP1_: "<ul>_ITEM_HAKP1_</ul>",
+        _HAKP2_: "<ul>_ITEM_HAKP2_</ul>",
+        _KWP2_: "<ul>_ITEM_KWP2_</ul>",
+        _KWP1_: "<ul>_ITEM_KWP1_</ul>",
+        RUANG_LINGKUP: RUANG_LINGKUP,
+        HAK_DAN_KEWAJIBAN: HAK_DAN_KEWAJIBAN,
+        _TENTANG_: _TENTANG_,
+        _KETENTUAN_UMUM_: _KETENTUAN_UMUM_,
+        _MAKSUD_DAN_TUJUAN_: _MAKSUD_DAN_TUJUAN_,
+        _PELAKSANAAN_: _PELAKSANAAN_,
+        _NOMOR_: _NOMOR_,
+        _JABATANP1_: _JABATANP1_,
+        _P1_: _P1_,
+        _INSTANSIP1_: _INSTANSIP1_,
+        _P2_: _P2_,
+        _JABATANP2_: _JABATANP2_,
+        _INSTANSIP2_: _INSTANSIP2_,
+        _USER_EMAIL_: _USER_EMAIL_
+      };
+      return obj;
+    }
+  }, {
+    key: "onBackPress",
+    value: function onBackPress() {
+      this.showTable();
+      $("#title-atas").html("Daftar Dokumen");
+      $("#deskripsi").html("Daftar Dokumen yang statusnya <strong>Siap ditanda tangani</strong>");
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      this.showTable();
+      this.dataTable = new _components__WEBPACK_IMPORTED_MODULE_1__["DataTableKonseptor"]();
+      this.kehendak = new _components__WEBPACK_IMPORTED_MODULE_1__["PernyataanKehendak"](this);
+      this.mou = new _components__WEBPACK_IMPORTED_MODULE_1__["MoU"](this);
+      this.perjanjian = new _components__WEBPACK_IMPORTED_MODULE_1__["PerjanjianKerjasama"]();
+    }
+  }]);
+
+  return Konseptor;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/konseptor/components/DataTable/DataTable.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/pages/konseptor/components/DataTable/DataTable.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DataTableKonseptor; });
+/* harmony import */ var _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../scripts/DataTable */ "./resources/js/scripts/DataTable.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var DataTableKonseptor = /*#__PURE__*/function () {
+  function DataTableKonseptor() {
+    _classCallCheck(this, DataTableKonseptor);
+
+    _defineProperty(this, "dom", $("#table-dokumen"));
+
+    this.urls();
+    this.init();
+  }
+
+  _createClass(DataTableKonseptor, [{
+    key: "urls",
+    value: function urls() {
+      this.url = {
+        dataTable: function dataTable() {
+          var url = window.myUrl.table.dt;
+          return url;
+        }
+      };
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      console.log(this.url.dataTable());
+      var dt = new _scripts_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"](this.dom);
+      var cols = [{
+        name: 'nomor',
+        data: 'nomor'
+      }, {
+        name: 'instansi',
+        data: 'instansi'
+      }, {
+        name: 'tentang',
+        data: 'tentang'
+      }, {
+        name: 'dinas_tujuan',
+        data: 'dinas_tujuan'
+      }, {
+        name: 'aksi',
+        data: 'aksi'
+      }];
+      var ajax = dt.createAjaxParam(this.url.dataTable());
+      dt.dataTable(cols, ajax);
+    }
+  }]);
+
+  return DataTableKonseptor;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/konseptor/components/MoU/MoU.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/pages/konseptor/components/MoU/MoU.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MoU; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _formats___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../formats/ */ "./resources/js/components/pages/formats/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var MoU = /*#__PURE__*/function () {
+  function MoU(options) {
+    _classCallCheck(this, MoU);
+
+    _defineProperty(this, "document_id", '');
+
+    _defineProperty(this, "nomor", '');
+
+    _defineProperty(this, "data", void 0);
+
+    _defineProperty(this, "docType", 'Nota Kesepakatan');
+
+    this.showtable = options.showTable.bind(this);
+    this.hidetable = options.hideTable.bind(this);
+    this.setTitle = options.setTitle.bind(this);
+    this.initializeEditor = options.setEditor.bind(this);
+    this.getlist = options.getLengkap.bind(this);
+    this.marginer = options.setMarginDoc.bind(this);
+    this.olah = options.prosesData.bind(this);
+    this.strRplc = options.strRplc.bind(this);
+  }
+
+  _createClass(MoU, [{
+    key: "open",
+    value: function () {
+      var _open = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id, nomor) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.hidetable();
+                _context.next = 3;
+                return this.getlist(id);
+
+              case 3:
+                this.data = _context.sent;
+                this.processingWord(nomor);
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function open(_x, _x2) {
+        return _open.apply(this, arguments);
+      }
+
+      return open;
+    }()
+  }, {
+    key: "processingWord",
+    value: function processingWord() {
+      var nomor = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var obj = this.olah(this.data);
+      this.rawContent = this.strRplc(obj, _formats___WEBPACK_IMPORTED_MODULE_1__["MOU_FORMAT"]);
+      this.setTitle("Nomor Dokumen ".concat(nomor));
+      $("#isi").val(this.rawContent);
+      $("#jdl").val("Nota Kesepakatan");
+      this.initializeEditor(this.rawContent);
+    }
+  }]);
+
+  return MoU;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/konseptor/components/PerjanjianKerjasama/PerjanjianKerjasama.js":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/pages/konseptor/components/PerjanjianKerjasama/PerjanjianKerjasama.js ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PerjanjianKerjasama; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var PerjanjianKerjasama = function PerjanjianKerjasama() {
+  var _this = this;
+
+  var bindHide = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+  var bindShow = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
+  var titleBinder = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+
+  _classCallCheck(this, PerjanjianKerjasama);
+
+  _defineProperty(this, "document_id", '');
+
+  _defineProperty(this, "nomor", '');
+
+  _defineProperty(this, "showtable", void 0);
+
+  _defineProperty(this, "hidetable", void 0);
+
+  _defineProperty(this, "docType", 'Perjanjian Kerjasama');
+
+  _defineProperty(this, "titleBinder", void 0);
+
+  _defineProperty(this, "openKehendak", function () {
+    var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    var nomor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    _this.document_id = id;
+
+    _this.hidetable();
+
+    _this.titleBinder("Nomor Dokumen ".concat(nomor));
+  });
+
+  this.showtable = bindShow.bind(this);
+  this.hidetable = bindHide.bind(this);
+  this.titleBinder = titleBinder.bind(this);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/konseptor/components/PernyataanKehendak/PernyataanKehendak.js":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/pages/konseptor/components/PernyataanKehendak/PernyataanKehendak.js ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PernyataanKehendak; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _formats__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../formats */ "./resources/js/components/pages/formats/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var PernyataanKehendak = /*#__PURE__*/function () {
+  function PernyataanKehendak(options) {
+    _classCallCheck(this, PernyataanKehendak);
+
+    _defineProperty(this, "document_id", '');
+
+    _defineProperty(this, "nomor", '');
+
+    _defineProperty(this, "showtable", void 0);
+
+    _defineProperty(this, "hidetable", void 0);
+
+    _defineProperty(this, "docType", 'Pernyataan Kehendak');
+
+    _defineProperty(this, "setTitle", void 0);
+
+    _defineProperty(this, "initializeEditor", void 0);
+
+    _defineProperty(this, "getlist", void 0);
+
+    _defineProperty(this, "marginer", void 0);
+
+    this.showtable = options.showTable.bind(this);
+    this.hidetable = options.hideTable.bind(this);
+    this.setTitle = options.setTitle.bind(this);
+    this.initializeEditor = options.setEditor.bind(this);
+    this.getlist = options.getLengkap.bind(this);
+    this.marginer = options.setMarginDoc.bind(this);
+    this.olah = options.prosesData.bind(this);
+    this.replacetor = options.strRplc.bind(this); //this.setContent();
+  }
+
+  _createClass(PernyataanKehendak, [{
+    key: "setContent",
+    value: function () {
+      var _setContent = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.getlist(id);
+
+              case 2:
+                data = _context.sent;
+                this.content = this.replacetor(this.olah(data), _formats__WEBPACK_IMPORTED_MODULE_1__["KEHENDAK_KONSEPTOR_FORMAT"]);
+                this.content = this.marginer(this.content);
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function setContent(_x) {
+        return _setContent.apply(this, arguments);
+      }
+
+      return setContent;
+    }()
+  }, {
+    key: "open",
+    value: function () {
+      var _open = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var id,
+            nomor,
+            _args2 = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                id = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : '';
+                nomor = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : '';
+                $("#jdl").val("Pernyataan Kehendak");
+                this.document_id = id;
+                _context2.next = 6;
+                return this.setContent(id);
+
+              case 6:
+                this.hidetable();
+                this.setTitle("Nomor Dokumen ".concat(nomor));
+                $("#isi").val(this.content);
+                this.initializeEditor(this.content);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function open() {
+        return _open.apply(this, arguments);
+      }
+
+      return open;
+    }()
+  }]);
+
+  return PernyataanKehendak;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/konseptor/components/index.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/pages/konseptor/components/index.js ***!
+  \*********************************************************************/
+/*! exports provided: DataTableKonseptor, PernyataanKehendak, PerjanjianKerjasama, MoU */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DataTable_DataTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DataTable/DataTable */ "./resources/js/components/pages/konseptor/components/DataTable/DataTable.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataTableKonseptor", function() { return _DataTable_DataTable__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _PernyataanKehendak_PernyataanKehendak__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PernyataanKehendak/PernyataanKehendak */ "./resources/js/components/pages/konseptor/components/PernyataanKehendak/PernyataanKehendak.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PernyataanKehendak", function() { return _PernyataanKehendak_PernyataanKehendak__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _PerjanjianKerjasama_PerjanjianKerjasama__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PerjanjianKerjasama/PerjanjianKerjasama */ "./resources/js/components/pages/konseptor/components/PerjanjianKerjasama/PerjanjianKerjasama.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PerjanjianKerjasama", function() { return _PerjanjianKerjasama_PerjanjianKerjasama__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _MoU_MoU__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MoU/MoU */ "./resources/js/components/pages/konseptor/components/MoU/MoU.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MoU", function() { return _MoU_MoU__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+
+
+
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/operator/dokumen/dashboard.js":
 /*!*********************************************************************!*\
   !*** ./resources/js/components/pages/operator/dokumen/dashboard.js ***!
@@ -73578,6 +74249,7 @@ var CreateDataTable = /*#__PURE__*/function () {
         }
       }));
       datatable.draw();
+      console.log("finishing drawing datatable");
       return datatable;
     }
   }, {
